@@ -22,8 +22,16 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="annotatedClasses">
             <list>
-                <!--Ejemplo para configurar las clases del mapeo-->
-                <value>MapeoBD.Tabla1</value>
+                <!--Clases para el mapeo-->
+                <value>Mapeo.Candidato</value>
+                <value>Mapeo.Cliente</value>
+                <value>Mapeo.Empleado</value>
+                <value>Mapeo.Persona</value>
+                <value>Mapeo.Pertenecer</value>
+                <value>Mapeo.Proyecto</value>
+                <value>Mapeo.Respuesta</value>
+                <value>Mapeo.Tipo</value>
+                <value>Mapeo.Usuario</value>
             </list>
         </property>
         <property name="hibernateProperties">
