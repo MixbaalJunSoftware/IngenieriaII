@@ -5,6 +5,7 @@
  */
 package Mapeo;
 
+import java.io.Serializable;
 import javax.persistence.JoinColumn;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ import javax.persistence.Table;
  * @author Mixbaal
  * @version 1.0
  */
-public class Candidato {
+public class Candidato implements Serializable {
     
     @Id
     @OneToOne

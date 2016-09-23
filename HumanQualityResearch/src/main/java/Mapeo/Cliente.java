@@ -5,6 +5,7 @@
  */
 package Mapeo;
 
+import java.io.Serializable;
 import javax.persistence.JoinColumn;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -21,7 +22,7 @@ import javax.persistence.Table;
  * @author Mixbaal
  * @version 1.0
  */
-public class Cliente {
+public class Cliente implements Serializable {
     
     @Id
     @OneToOne
@@ -43,14 +44,6 @@ public class Cliente {
 
     public void setPersona(Persona persona) {
         this.persona = persona;
-    }
-
-    public String getRfc() {
-        return rfc;
-    }
-
-    public void setRfc(String rfc) {
-        this.rfc = rfc;
     }
 
     public String getEmpresa() {

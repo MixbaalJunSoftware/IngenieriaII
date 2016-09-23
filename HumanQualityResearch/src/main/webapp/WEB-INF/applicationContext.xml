@@ -46,5 +46,6 @@
     <!--  Se agrega para poder inyectarlo a los Controladores, revisa EjemploController.java
           en el paquete controlador, se esta haciendo uso de @Autowiring-->
     <!--Ejemplo para configurar bean-->
-    <bean id="ClaseDAO" class="Modelo.ClaseDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="ClienteDAO" class="Modelo.ClienteDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="PersonaDAO" class="Modelo.PersonaDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
 </beans>
