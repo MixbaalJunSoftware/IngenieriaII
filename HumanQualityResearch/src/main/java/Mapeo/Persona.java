@@ -28,6 +28,9 @@ public class Persona {
     @Column(name = "idPersona")
     private long idPersona;
     
+    @Column(name = "nombre")
+    private String nombre;
+    
     @Column(name = "app")
     private String app;
     
@@ -56,6 +59,14 @@ public class Persona {
 
     public void setIdPersona(long idPersona) {
         this.idPersona = idPersona;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
     public String getApp() {
