@@ -6,8 +6,13 @@
 package Controlador;
 
 import Mapeo.Cliente;
+import Mapeo.Persona;
 import Modelo.ClienteDAO;
 import Modelo.PersonaDAO;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -41,6 +46,55 @@ public class CRUDCliente {
     @RequestMapping(value = "/")
     public String login(){
         return "pruebaEdita";
+    }
+    
+    /**
+     * Metodo para desplegar la vista de inicio
+     */
+    @RequestMapping(value = "/creaCliente")
+    public String muetraCreaCliente(){
+        return "CrearCliente";
+    }
+    
+    /**
+     * Realiza la funcionalidad para agregar un cliente a la base de datos
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/crear-cliente", method = RequestMethod.POST)
+    public String creaCliente(HttpServletRequest request){
+        Persona persona = new Persona();
+        Cliente cliente = new Cliente();
+        String nombre = request.getParameter("nombre");
+        String app = request.getParameter("app");
+        String apm = request.getParameter("apm");
+        SimpleDateFormat ft = new SimpleDateFormat ("dd-mm-yyyy"); 
+        Date fecha = null;
+        try {
+            fecha = ft.parse(request.getParameter("fecha"));  
+        }catch (ParseException e) { 
+             System.out.println("Unparseable using " + ft); 
+        }
+        String genero = request.getParameter("genero");
+        String correo = request.getParameter("correo");
+        String telefono = request.getParameter("telefono");
+        String celular = request.getParameter("celular");
+        String empresa = request.getParameter("empresa");
+        String puesto = request.getParameter("puesto");
+        persona.setNombre(nombre);
+        persona.setApp(app);
+        persona.setApm(apm);
+        persona.setFecha_nac(fecha);
+        persona.setGenero(genero);
+        persona.setCorreo(correo);
+        persona.setTelefono(telefono);
+        persona.setCelular(celular);
+        cliente.setEmpresa(empresa);
+        cliente.setPuestoCliente(puesto);
+        cliente.setPersona(persona);
+        persona_bd.guardar(persona);
+        cliente_bd.guardar(cliente);
+        return "Ok";   
     }
     
     
@@ -93,6 +147,10 @@ public class CRUDCliente {
     public ModelAndView mostrarCliente(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("id"));
         Cliente cliente = cliente_bd.getCliente(id);
+        boolean existe = cliente != null;
+        model.addAttribute("existe",existe);
+        if(!existe)
+            return new ModelAndView("MostrarCliente",model);
         model.addAttribute("nombre",cliente.getPersona().getNombre());
         model.addAttribute("app",cliente.getPersona().getApp());
         model.addAttribute("apm",cliente.getPersona().getApm());
@@ -104,6 +162,22 @@ public class CRUDCliente {
         model.addAttribute("empresa",cliente.getEmpresa());
         model.addAttribute("puesto",cliente.getPuestoCliente());
         return new ModelAndView("MostrarCliente",model);
+    }
+    
+    /**
+     * Metodo para eliminar un cliente de la base de datos
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/elimina-cliente", method = RequestMethod.POST)
+    public String eliminaCliente(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("id"));
+        Cliente cliente = cliente_bd.getCliente(id);
+        Persona persona = cliente.getPersona();
+        cliente_bd.eliminar(cliente);
+        persona_bd.eliminar(persona);
+        return "Ok";
     }
     
 }

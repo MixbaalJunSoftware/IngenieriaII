@@ -12,6 +12,10 @@
         <title>prueda para editar cliente</title>
     </head>
     <body>
+        <form method="POST" action="/HumanQualityResearch/creaCliente" >
+            <h1>id cliente(prueba Crea)</h1>
+            <button type="submit">Aceptar</button>
+        </form>
         <form method="POST" action="/HumanQualityResearch/muestra-cliente" >
             <h1>id cliente(prueba Muestra Cliente)</h1>
             <input id = "id" name = "id"/>
@@ -20,6 +24,12 @@
         </form>
         <form method="POST" action="/HumanQualityResearch/prueba-actualiza-cliente" >
             <h1>id cliente(prueba Actualiza)</h1>
+            <input id = "id" name = "id"/>
+            <br/>
+            <button type="submit">Aceptar</button>
+        </form>
+        <form method="POST" action="/HumanQualityResearch/elimina-cliente" >
+            <h1>id cliente(prueba Elimina)</h1>
             <input id = "id" name = "id"/>
             <br/>
             <button type="submit">Aceptar</button>
