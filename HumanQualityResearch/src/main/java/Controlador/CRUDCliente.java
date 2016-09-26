@@ -45,17 +45,24 @@ public class CRUDCliente {
      */
     @RequestMapping(value = "/")
     public String login(){
-        return "pruebaEdita";
+        return "index";
     }
     
     /**
-     * Metodo para desplegar la vista de inicio
+     * Metodo para desplegar la vista de CrearCliente
      */
     @RequestMapping(value = "/creaCliente")
     public String muetraCreaCliente(){
         return "CrearCliente";
     }
     
+    /**
+     * Método para desplegar la vista de opciones
+     */
+    @RequestMapping(value = "/opciones")
+    public String opciones(){
+        return "Opciones";
+    }
     /**
      * Realiza la funcionalidad para agregar un cliente a la base de datos
      * @param request

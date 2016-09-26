@@ -1,0 +1,41 @@
+
+/* 
+    Created on : 24/09/2016, 06:20:34 AM
+    Author     : ricardo
+*/
+
+body {
+    background-size:cover;
+}
+
+img {
+    margin-left: 480px;
+}
+
+#slogan {
+    text-align:center;
+    text-color:black;
+    font-size:170%;
+}
+
+#nuevo {
+    color:blue;
+    font-size:150%;
+    text-align:center;
+}
+
+#registrarte {
+    color:gray;
+    font-size:130%;
+    text-align:center;
+}
+
+#evaluatest {
+    color:blue;
+    font-size:150%;
+}
+
+#password {
+    margin-left:1cm;
+}
+
