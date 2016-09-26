@@ -6,6 +6,7 @@
 package Modelo;
 
 import Mapeo.Persona;
+import Mapeo.Usuario;
 import java.util.LinkedList;
 import java.util.List;
 import org.hibernate.Hibernate;
@@ -19,7 +20,7 @@ import org.hibernate.Transaction;
  *
  * @author Mixbaal
  */
-public class PersonaDAO {
+public class UsuarioDAO {
 
     private SessionFactory sessionFactory;
 
@@ -28,14 +29,14 @@ public class PersonaDAO {
     }
 
     
-    public void guardar(Persona persona) {
+    public void guardar(Usuario usuario) {
     
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
            tx = session.beginTransaction();
          
-           session.persist(persona);
+           session.persist(usuario);
            
            tx.commit();
         }
@@ -51,14 +52,14 @@ public class PersonaDAO {
     }
     
     
-    public void actualizar(Persona persona) {
+    public void actualizar(Usuario usuario) {
     
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
            tx = session.beginTransaction();
          
-           session.update(persona);
+           session.update(usuario);
            
            tx.commit();
         }
@@ -74,14 +75,14 @@ public class PersonaDAO {
     }
     
     
-    public void eliminar(Persona persona) {
+    public void eliminar(Usuario usuario) {
     
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
            tx = session.beginTransaction();
          
-           session.delete(persona);
+           session.delete(usuario);
            
            tx.commit();
         }
@@ -96,36 +97,16 @@ public class PersonaDAO {
     
     }
     
-    public Persona getPersona(long idPersona) {
-        Persona persona = null;
-        Session session = sessionFactory.openSession();
-        Transaction tx = null;
-        try {
-           tx = session.beginTransaction();
-           persona = (Persona)session.get(Persona.class, idPersona);
-           tx.commit();
-        }
-        catch (Exception e) {
-           if (tx!=null){ 
-               tx.rollback();
-           }
-           e.printStackTrace(); 
-        }finally {
-           session.close();
-        }
-        return persona;
-    }
-   
-    public Persona getPersona(String correo) {
-        Persona result = null;
+    public Usuario getUsuario(long idPersona) {
+        Usuario result = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = " from Persona where correo = :correo";
+            String hql = "from Usuario u where u.persona.idPersona = :idpersona";
             Query query = session.createQuery(hql);
-            query.setParameter("correo", correo);
-            result = (Persona)query.uniqueResult();
+            query.setParameter("idpersona", idPersona);
+            result = (Usuario)query.uniqueResult();
             tx.commit();
         }
         catch (Exception e) {

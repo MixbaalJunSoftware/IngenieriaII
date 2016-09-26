@@ -48,6 +48,9 @@
             <label for="correo">Correo:</label>
             <input id = "correo" name = "correo"/>
             <br/>
+            <label for="pass">Contraseña:</label>
+            <input id = "pass" name = "pass"/>
+            <br/>
             <label for="telefono">Telefono:</label>
             <input id = "telefono" name = "telefono"/>
             <br/>

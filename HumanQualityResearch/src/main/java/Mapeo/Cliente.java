@@ -30,13 +30,21 @@ public class Cliente implements Serializable {
     private Persona persona;
     
     @Column(name = "areaCliente")
-    private String rfc;
+    private String areaCliente;
 
     @Column(name = "empresa")
     private String empresa;
     
     @Column(name = "puestoCliente")
     private String puestoCliente;
+
+    public String getAreaCliente() {
+        return areaCliente;
+    }
+
+    public void setAreaCliente(String areaCliente) {
+        this.areaCliente = areaCliente;
+    }
 
     public Persona getPersona() {
         return persona;

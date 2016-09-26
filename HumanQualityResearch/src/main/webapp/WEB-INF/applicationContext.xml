@@ -48,4 +48,5 @@
     <!--Ejemplo para configurar bean-->
     <bean id="ClienteDAO" class="Modelo.ClienteDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="PersonaDAO" class="Modelo.PersonaDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="UsuarioDAO" class="Modelo.UsuarioDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
 </beans>

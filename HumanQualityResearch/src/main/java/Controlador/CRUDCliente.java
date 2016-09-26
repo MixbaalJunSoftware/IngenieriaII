@@ -7,8 +7,10 @@ package Controlador;
 
 import Mapeo.Cliente;
 import Mapeo.Persona;
+import Mapeo.Usuario;
 import Modelo.ClienteDAO;
 import Modelo.PersonaDAO;
+import Modelo.UsuarioDAO;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,6 +41,10 @@ public class CRUDCliente {
     //Instancia para operaciones con la base relacionadas con una persona
     @Autowired
     private PersonaDAO persona_bd;
+    
+    //Instancia para operaciones con la base relacionadas con un Usuario
+    @Autowired
+    private UsuarioDAO usuario_bd;
     
     /**
      * Metodo para desplegar la vista de inicio
@@ -72,6 +78,12 @@ public class CRUDCliente {
     public String creaCliente(HttpServletRequest request){
         Persona persona = new Persona();
         Cliente cliente = new Cliente();
+        Usuario usuario = new Usuario();
+        String correo = request.getParameter("correo");
+        if(persona_bd.getPersona(correo)!= null){
+            return "CorreoRegistrado";
+        }
+        String pasword = request.getParameter("pass");
         String nombre = request.getParameter("nombre");
         String app = request.getParameter("app");
         String apm = request.getParameter("apm");
@@ -83,7 +95,6 @@ public class CRUDCliente {
              System.out.println("Unparseable using " + ft); 
         }
         String genero = request.getParameter("genero");
-        String correo = request.getParameter("correo");
         String telefono = request.getParameter("telefono");
         String celular = request.getParameter("celular");
         String empresa = request.getParameter("empresa");
@@ -99,8 +110,11 @@ public class CRUDCliente {
         cliente.setEmpresa(empresa);
         cliente.setPuestoCliente(puesto);
         cliente.setPersona(persona);
+        usuario.setContrasenia(pasword);
+        usuario.setPersona(persona);
         persona_bd.guardar(persona);
         cliente_bd.guardar(cliente);
+        usuario_bd.guardar(usuario);
         return "Ok";   
     }
     
@@ -113,7 +127,11 @@ public class CRUDCliente {
      */
     @RequestMapping(value= "/prueba-actualiza-cliente", method = RequestMethod.POST)
     public ModelAndView previoActualizar(ModelMap model,HttpServletRequest request){   
-        model.addAttribute("id", Long.parseLong(request.getParameter("id")));
+        long id = Long.parseLong(request.getParameter("id"));
+        Usuario usuario = usuario_bd.getUsuario(id);
+        model.addAttribute("usuario", usuario);
+        if(usuario == null)
+            return new ModelAndView("ClienteNoEncontrado",model);
         return new ModelAndView("EditarCliente",model);
     }
     
@@ -126,20 +144,25 @@ public class CRUDCliente {
     public String actualizaCliente(HttpServletRequest request){
         long id = Long.parseLong(request.getParameter("idcliente"));
         Cliente cliente = cliente_bd.getCliente(id);
+        Usuario usuario = usuario_bd.getUsuario(id);
         String puesto = request.getParameter("puesto");
+        String area = request.getParameter("area");
         String telefono = request.getParameter("tel");
         String celular = request.getParameter("cel");
-        String correo = request.getParameter("correo");
+        String pasword = request.getParameter("newpass");
         if(!puesto.equals(""))
             cliente.setPuestoCliente(puesto);
+        if(!area.equals(""))
+            cliente.setAreaCliente(area);
         if(!telefono.equals(""))
             cliente.getPersona().setTelefono(telefono);
         if(!celular.equals(""))
             cliente.getPersona().setCelular(celular);
-        if(!correo.equals(""))
-            cliente.getPersona().setCorreo(correo);
+        if(!pasword.equals(""))
+            usuario.setContrasenia(pasword);
         persona_bd.actualizar(cliente.getPersona());
         cliente_bd.actualizar(cliente);
+        usuario_bd.actualizar(usuario);
         return "Ok";   
     }
     
@@ -157,7 +180,7 @@ public class CRUDCliente {
         boolean existe = cliente != null;
         model.addAttribute("existe",existe);
         if(!existe)
-            return new ModelAndView("MostrarCliente",model);
+            return new ModelAndView("ClienteNoEncontrado",model);
         model.addAttribute("nombre",cliente.getPersona().getNombre());
         model.addAttribute("app",cliente.getPersona().getApp());
         model.addAttribute("apm",cliente.getPersona().getApm());
