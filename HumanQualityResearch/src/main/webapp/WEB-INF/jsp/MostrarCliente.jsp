@@ -26,7 +26,7 @@
             <h2>Celular: ${celular}</h2>
         </c:if>
         <c:if test="${!p}">
-            <h1>El usuario no existe</h1>>
+            <h1>El cliente solicitado no existe</h1>
         </c:if>
     </body>
 </html>

@@ -14,6 +14,7 @@
         <title>Crear Cliente</title>
     </head>
     <body>
+        <br/>
         <header>
             <div class="he1" align="left">
             <img class="logoHQR" src="<c:url value="/imagenes/logo_hqr.jpg"/>" width=90 height=100 alt="Logo HQR" style="margin-left:3cm">
