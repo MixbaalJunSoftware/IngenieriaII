@@ -204,9 +204,11 @@ public class CRUDCliente {
     public String eliminaCliente(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("id"));
         Cliente cliente = cliente_bd.getCliente(id);
+        Usuario usuario = usuario_bd.getUsuario(id);
         Persona persona = cliente.getPersona();
         cliente_bd.eliminar(cliente);
         persona_bd.eliminar(persona);
+        usuario_bd.eliminar(usuario);
         return "Ok";
     }
     

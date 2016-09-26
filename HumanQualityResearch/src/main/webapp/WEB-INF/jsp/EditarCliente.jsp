@@ -10,10 +10,10 @@
     <script>
         function myFunction() {
         clave1 = document.f1.pass.value; 
-        clave2 = ${usuario.getContrasenia()};
-        if (clave1 === clave2) 
+        clave2 = "${usuario.getContrasenia()}";
+        if (clave1 === clave2){ 
             document.getElementById("f1").submit();
-        else 
+        }else 
             alert("El correo anterior no coincide"); 
     }
 </script>
@@ -45,7 +45,7 @@
             <input id = "newpass" name = "newpass"/>
             <br/>
             <input id="idcliente" name="idcliente" hidden="true" value="${usuario.persona.idPersona}">
-            <button type="submit" onclick="validaPass()" >Aceptar</button>
+            <input type="button" onclick="myFunction()" value="Aceptar">
         </form>
     </body>
 </html>
