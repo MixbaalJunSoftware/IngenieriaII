@@ -10,23 +10,33 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/MostrarCliente.css"/> ">
         <title>mostrar cliente</title>
     </head>
     <body>
-        <c:set var="p" value="${existe}"/>
-        <c:if test="${p}">
-            <h1>Datos de un cliente</h1>
-            <h2>Nombre: ${nombre} ${app} ${apm}</h2>
-            <h2>Fecha de nacimiento: ${fecha}</h2>
-            <h2>Género: ${genero}</h2>
-            <h2>Empresa: ${empresa}</h2>
-            <h2>Puesto: ${puesto}</h2>
-            <h2>Correo: ${correo}</h2>
-            <h2>Telefono: ${telefono}</h2>
-            <h2>Celular: ${celular}</h2>
-        </c:if>
-        <c:if test="${!p}">
-            <h1>El cliente solicitado no existe</h1>
-        </c:if>
+        <header>
+            <div class="he1" align="left">
+            <img class="logoHQR" src="<c:url value="/imagenes/logo_hqr.jpg"/>" width=90 height=100 alt="Logo HQR" style="margin-left:3cm">
+            </div>
+            <hr/>
+        </header>
+            <div class="container">
+            <h1 style="color:blue;">Datos del cliente con id:</h1>
+            <p>Nombre: ${nombre} ${app} ${apm}</p>
+            <p>Fecha de nacimiento: ${fecha}</p>
+            <p>Género: ${genero}</p>
+            <p>Empresa: ${empresa}</p>
+            <p>Puesto: ${puesto}</p>
+            <p>Area: ${area}</p>
+            <p>Correo: ${correo}</p>
+            <p>Telefono: ${telefono}</p>
+            <p>Celular: ${celular}</p>
+            </div>
+            <form method="POST" action="/HumanQualityResearch/opciones" >
+                    <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
+            </form>
+            <br/>
     </body>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </html>

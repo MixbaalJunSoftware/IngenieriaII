@@ -74,6 +74,7 @@
             <form method="POST" action="/HumanQualityResearch/" >
                     <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
             </form>
+            <br/>
     </body>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
 </html>

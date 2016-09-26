@@ -4,26 +4,11 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 26/09/2016, 10:27:39 AM
+    Created on : 26/09/2016, 12:52:31 PM
     Author     : ricardo
 */
-p {
-    color:black;
+
+label {
+    font-size:15px;
 }
 
-#consulta {
-    font-size:30px;
-    color:blue;
-}
-
-#muestra{
-    font-size:20px;
-}
-
-#actualiza{
-    font-size:20px;
-}
-
-#elimina{
-    font-size:20px;
-}
