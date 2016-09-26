@@ -99,6 +99,7 @@ public class CRUDCliente {
         String celular = request.getParameter("celular");
         String empresa = request.getParameter("empresa");
         String puesto = request.getParameter("puesto");
+        String area = request.getParameter("area");
         persona.setNombre(nombre);
         persona.setApp(app);
         persona.setApm(apm);
@@ -109,6 +110,7 @@ public class CRUDCliente {
         persona.setCelular(celular);
         cliente.setEmpresa(empresa);
         cliente.setPuestoCliente(puesto);
+        cliente.setAreaCliente(area);
         cliente.setPersona(persona);
         usuario.setContrasenia(pasword);
         usuario.setPersona(persona);
@@ -181,6 +183,7 @@ public class CRUDCliente {
         model.addAttribute("existe",existe);
         if(!existe)
             return new ModelAndView("ClienteNoEncontrado",model);
+        model.addAttribute("id",id);
         model.addAttribute("nombre",cliente.getPersona().getNombre());
         model.addAttribute("app",cliente.getPersona().getApp());
         model.addAttribute("apm",cliente.getPersona().getApm());
@@ -191,6 +194,7 @@ public class CRUDCliente {
         model.addAttribute("celular",cliente.getPersona().getCelular());
         model.addAttribute("empresa",cliente.getEmpresa());
         model.addAttribute("puesto",cliente.getPuestoCliente());
+        model.addAttribute("area",cliente.getAreaCliente());
         return new ModelAndView("MostrarCliente",model);
     }
     

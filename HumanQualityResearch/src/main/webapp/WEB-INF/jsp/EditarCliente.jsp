@@ -10,14 +10,20 @@
 <html>
     <script>
         function myFunction() {
-        clave1 = document.f1.pass.value; 
-        clave2 = "${usuario.getContrasenia()}";
-        if (clave1 === clave2){ 
-            document.getElementById("f1").submit();
-        }else 
-            alert("El correo anterior no coincide"); 
-    }
-</script>
+            puesto = document.f1.puesto.value;
+            area = document.f1.area.value;
+            tel = document.f1.tel.value;
+            cel = document.f1.cel.value;
+            clave1 = document.f1.pass.value; 
+            clave2 = "${usuario.getContrasenia()}";
+            if (puesto === area && area === tel && tel === cel && cel === clave1)
+                alert("Debes llenar almenos un campo");
+            else if (clave1 === clave2){ 
+                document.getElementById("f1").submit();
+            }else 
+                alert("La contraseña anterior no coincide"); 
+        }
+    </script>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/EditarCliente.css"/> ">
@@ -54,11 +60,11 @@
             <h1 style="color:blue;">Modificar contraseña</h1>
             <br/>
             <label for="pass">Contraseña anterior:</label>
-            <input id = "pass" name = "pass" style="margin-left: 1cm"/>
+            <input type="password" id = "pass" name = "pass" style="margin-left: 1cm"/>
             <br/>
             <br/>
             <label for="newpass">Nueva contraseña:</label>
-            <input id = "newpass" name = "newpass" style="margin-left: 1.3cm"/>
+            <input type="password" id = "newpass" name = "newpass" style="margin-left: 1.3cm"/>
             <br/>
             <br/>
             <input id="idcliente" name="idcliente" hidden="true" value="${usuario.persona.idPersona}">

@@ -52,6 +52,10 @@
             <input id = "puesto" name = "puesto" style="margin-left: 4.2cm"/>
             <br/>
             <br/>
+            <label for="area">Área:</label>
+            <input id = "area" name = "area" style="margin-left: 4.2cm"/>
+            <br/>
+            <br/>
             <label for="correo">Correo:</label>
             <input id = "correo" name = "correo" style="margin-left:4.2cm "/>
             <br/>
