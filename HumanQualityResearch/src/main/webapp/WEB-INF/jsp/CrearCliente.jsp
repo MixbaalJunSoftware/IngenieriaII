@@ -5,13 +5,20 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/CrearCliente.css"/> ">
         <title>Crear Cliente</title>
     </head>
     <body>
+        <header>
+            <div class="he1" align="left">
+            <img class="logoHQR" src="<c:url value="/imagenes/logo_hqr.jpg"/>" width=90 height=100 alt="Logo HQR">
+            </div>
+        </header>
         <form method="POST" action="/HumanQualityResearch/crear-cliente" >
             <h1>Datos de un cliente</h1>
             <label for="nombre">Nombre:</label>
