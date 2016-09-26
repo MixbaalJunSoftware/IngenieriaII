@@ -31,4 +31,6 @@
             <button type="submit">Aceptar</button>
         </form>
     </body>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </html>

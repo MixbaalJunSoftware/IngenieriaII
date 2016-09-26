@@ -16,11 +16,13 @@
     <body>
         <header>
             <div class="he1" align="left">
-            <img class="logoHQR" src="<c:url value="/imagenes/logo_hqr.jpg"/>" width=90 height=100 alt="Logo HQR">
+            <img class="logoHQR" src="<c:url value="/imagenes/logo_hqr.jpg"/>" width=90 height=100 alt="Logo HQR" style="margin-left:3cm">
             </div>
         </header>
+        <br/>
+        <div class ="container">
         <form method="POST" action="/HumanQualityResearch/crear-cliente" >
-            <h1>Datos de un cliente</h1>
+            <p id="registro">Registro del cliente</p>
             <label for="nombre">Nombre:</label>
             <input id = "nombre" name = "nombre"/>
             <br/>
@@ -53,5 +55,7 @@
             <br/>
             <button type="submit">Aceptar</button>
         </form>
+        </div>
     </body>
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
 </html>
