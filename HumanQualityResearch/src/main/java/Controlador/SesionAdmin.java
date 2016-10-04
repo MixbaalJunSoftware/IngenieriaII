@@ -10,6 +10,7 @@ import Mapeo.Usuario;
 import Modelo.ClienteDAO;
 import Modelo.PersonaDAO;
 import Modelo.UsuarioDAO;
+import java.security.Principal;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -57,7 +58,8 @@ public class SesionAdmin {
     
     
     @RequestMapping(value="/home")
-    public ModelAndView home(ModelMap model,HttpServletRequest request){        
+    public ModelAndView home(ModelMap model,HttpServletRequest request, Principal principal){        
+        System.out.println(principal.getName());
         return new ModelAndView("home");
     }
     
