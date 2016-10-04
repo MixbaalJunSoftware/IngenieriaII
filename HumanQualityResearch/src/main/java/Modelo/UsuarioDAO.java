@@ -5,11 +5,7 @@
  */
 package Modelo;
 
-import Mapeo.Persona;
 import Mapeo.Usuario;
-import java.util.LinkedList;
-import java.util.List;
-import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -23,6 +19,7 @@ import org.hibernate.Transaction;
 public class UsuarioDAO {
 
     private SessionFactory sessionFactory;
+    private final long idAdmin = 1;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
@@ -118,6 +115,10 @@ public class UsuarioDAO {
            session.close();
         }
         return result;
+    }
+    
+    public boolean admin(Usuario usuario){
+        return usuario.getPersona().getIdPersona() == idAdmin;
     }
     
 }

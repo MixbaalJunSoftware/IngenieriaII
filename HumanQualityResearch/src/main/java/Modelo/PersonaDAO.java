@@ -6,9 +6,6 @@
 package Modelo;
 
 import Mapeo.Persona;
-import java.util.LinkedList;
-import java.util.List;
-import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;

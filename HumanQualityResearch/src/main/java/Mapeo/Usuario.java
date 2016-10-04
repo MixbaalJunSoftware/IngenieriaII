@@ -5,10 +5,9 @@
  */
 package Mapeo;
 
+import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
@@ -23,26 +22,17 @@ import javax.persistence.Table;
  * @author Mixbaal
  * @version 1.0
  */
-public class Usuario {
-    
-    @Id@GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "idusuario")
-    private long idUsuario;
+public class Usuario implements Serializable {
     
     @Column(name = "contrasenia")
     private String contrasenia;
     
-    @OneToOne
+    @Id@OneToOne
     @JoinColumn(name="idpersona")
     private Persona persona;
-
-    public long getIdUsuario() {
-        return idUsuario;
-    }
-
-    public void setIdUsuario(long idUsuario) {
-        this.idUsuario = idUsuario;
-    }
+    
+    @Column(name = "rol")
+    private String rol;
 
     public String getContrasenia() {
         return contrasenia;
@@ -58,6 +48,14 @@ public class Usuario {
 
     public void setPersona(Persona persona) {
         this.persona = persona;
+    }
+
+    public String getRol() {
+        return rol;
+    }
+
+    public void setRol(String rol) {
+        this.rol = rol;
     }
     
 }

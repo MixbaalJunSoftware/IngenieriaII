@@ -50,18 +50,18 @@
           <div class="col-md-4">
             <h1 id="evaluatest">¿Ya estás registrado en Evaluatest?</h1>
             <br/>
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="/HumanQualityResearch/login" method="POST">
               <div class="form-group">
                 <label>Usuario</label>
-                <input type="text" class="col-md-offset-2"/>
+                <input id="username" name="username" type="text" class="col-md-offset-2"/>
               </div>
               <div class="form-group">
                 <label>Contraseña</label>
-                <input id="password" type="password" class="col-md-offset-1"/>
+                <input id="password" name="password" type="password" class="col-md-offset-1"/>
               </div>
                <br/>
                <div class="form-group" align="center">
-                 <button type="button" class="btn btn-default btn-lg active" position="center">Ingresar</button>
+                 <button class="btn btn-default btn-lg active" position="center">Ingresar</button>
                </div>
             </form>
             <br/>
@@ -72,6 +72,10 @@
         </div>
       </div>
     </div>
+      <form action = "/HumanQualityResearch/coso" method="POST">
+        <input type="text" name="coso">
+        <button>enviar</button>
+    </form>
   </body>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>

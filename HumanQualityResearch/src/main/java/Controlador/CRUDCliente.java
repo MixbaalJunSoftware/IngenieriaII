@@ -11,7 +11,6 @@ import Mapeo.Usuario;
 import Modelo.ClienteDAO;
 import Modelo.PersonaDAO;
 import Modelo.UsuarioDAO;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -21,7 +20,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -46,13 +44,6 @@ public class CRUDCliente {
     @Autowired
     private UsuarioDAO usuario_bd;
     
-    /**
-     * Metodo para desplegar la vista de inicio
-     */
-    @RequestMapping(value = "/")
-    public String login(){
-        return "index";
-    }
     
     /**
      * Metodo para desplegar la vista de CrearCliente
