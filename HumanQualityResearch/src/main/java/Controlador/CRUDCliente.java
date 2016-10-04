@@ -14,6 +14,7 @@ import Modelo.UsuarioDAO;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -206,5 +207,17 @@ public class CRUDCliente {
         usuario_bd.eliminar(usuario);
         return "Ok";
     }
-    
+    /**
+     * Metodo para mostrar la informacion de un Cliente
+     * Pone los paramentros en el model de la pagina a mostrar
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/ver-clientes", method = RequestMethod.POST)
+    public ModelAndView verClientes(ModelMap model,HttpServletRequest request){   
+        List<Cliente> c = cliente_bd.Clientes();
+        model.addAttribute("lista",c);
+        return new ModelAndView("Clientes",model);
+    }
 }

@@ -116,4 +116,28 @@ public class ClienteDAO {
         return cliente;
     }
     
+    
+    public List<Cliente> Clientes() {
+        List<Cliente> result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT cliente From Cliente cliente inner join cliente.persona";
+            Query query = session.createQuery(hql);
+            result = (List<Cliente>)query.list();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    }
+    
+    
 }

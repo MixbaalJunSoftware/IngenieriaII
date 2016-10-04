@@ -16,5 +16,8 @@
         <form action = "/HumanQualityResearch/logout">
             <button>Salir</button>
         </form>
+        <form  method="POST"action = "/HumanQualityResearch/ver-clientes">
+            <button>Clientes</button>
+        </form>
     </body>
 </html>
