@@ -5,7 +5,10 @@
 */
 
 body {
-    background-size:cover;
+    background-image: url('../imagenes/circulos.jpg');
+    background-repeat: no-repeat;
+    background-size: 1500px;
+    background-position: center;
 }
 
 img {

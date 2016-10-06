@@ -1,0 +1,21 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5/10/2016, 11:54:35 PM
+    Author     : ricardo
+*/
+
+body {
+    background-image: url('../imagenes/circulos.jpg');
+    background-repeat: no-repeat;
+    background-size: 1500px;
+    background-position: center;
+}
+
+#bienvenido {
+    font-size: 100px;
+}
+

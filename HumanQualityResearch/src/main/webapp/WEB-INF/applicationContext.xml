@@ -52,6 +52,8 @@
     <bean id="ClienteDAO" class="Modelo.ClienteDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="PersonaDAO" class="Modelo.PersonaDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="UsuarioDAO" class="Modelo.UsuarioDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="PertencerDAO" class="Modelo.PertenecerDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="ProyectoDAO" class="Modelo.ProyectoDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
 
     <!-- SpringSecurity -->
 
