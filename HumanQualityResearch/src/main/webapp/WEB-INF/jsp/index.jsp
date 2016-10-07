@@ -35,10 +35,29 @@
             <br/>
             <div align="center" class="row">
                 <div class="col-md-3" style="margin-left: 2cm">
-                    <form method="POST" action="/HumanQualityResearch/creaCliente">
-                 <button type="submit" class="btn btn-default btn-lg active" position="center">Registrate</button>
-                 <!--<a href="<pruebaEdita.jsp" type="button" class="btn btn-default btn-lg active" position="center">Ver clientes</a> -->
-                </form> 
+                    <button type="button" class="btn btn-default btn-lg active" position="center" data-toggle="modal" data-target="#registrarModal">Registrate</button>
+                    
+                    <!-- Modal de registrar -->
+                        <div class="modal fade" id="registrarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel">Ingresa tu correo electrónico</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                    ...
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <form method="POST" action="/HumanQualityResearch/creaCliente">
+                                            <button type="submit" class="btn btn-default btn-lg active">Aceptar</button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    
                 </div>
                 <div class="col-md-7">
                  <form method="POST" action="/HumanQualityResearch/opciones" >
@@ -77,6 +96,9 @@
         <button>enviar</button>
     </form>
   </body>
+    <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
+    <script src="<c:url value="/js/bootstrap.min.js"/> "></script>       
+  
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
 

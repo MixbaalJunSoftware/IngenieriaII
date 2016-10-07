@@ -123,8 +123,7 @@
         </div>
         
     </body>
-    <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>
-    
+    <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
     <script src="<c:url value="/js/bootstrap.min.js"/> "></script>
     
     
