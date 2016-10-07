@@ -80,13 +80,32 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         <h4 class="modal-title" id="myModalLabel">Nuevo Proyecto</h4>
                                     </div>
+                                    <form method="POST" action="/HumanQualityResearch/crear-proyecto" >
                                     <div class="modal-body">
-                                    ...
-                                    </div>
+                                        <div class ="container">
+                                            <div class="row">
+                                                <div class="col-md-4">
+                                                    <label for="correo">Correo del cliente:</label>
+                                                    <input id = "correo" name = "correo" style="margin-left:"/>
+                                                    <br/>
+                                                    <br/>
+                                                    <label for="area">Area del proyecto:</label>
+                                                    <input id = "area" name = "area" style="margin-left:"/>
+                                                    <br/>
+                                                    <br/>
+                                                    <label for="tipo">Tipo de proyecto:</label>
+                                                    <input id = "tipo" name = "tipo" style="margin-left:"/>
+                                                    <br/>
+                                                    <br/>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>    
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-primary">Crear Proyecto</button>
+                                        <button type="submit" class="btn btn-default">Crear Proyecto</button>
                                     </div>
+                                    </form>     
                                 </div>
                             </div>
                         </div>
