@@ -54,13 +54,19 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         <h4 class="modal-title" id="myModalLabel">Nuevo cliente</h4>
                                     </div>
+                                    <form method="POST" action="/HumanQualityResearch/crear-clienteCorreo" >
                                     <div class="modal-body">
-                                    ...
+                                        <label for="correo">Correo del cliente:</label>
+                                        <input id = "correo" name = "correo" style="margin-left:"/>
+                                        <br/>
+                                        <br/>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-primary">Crear Cliente</button>
+                                        
+                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-primary">Crear Cliente</button>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +109,7 @@
                                     </div>    
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                        <button type="submit" class="btn btn-default">Crear Proyecto</button>
+                                        <button type="submit" class="btn btn-primary">Crear Proyecto</button>
                                     </div>
                                     </form>     
                                 </div>

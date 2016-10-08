@@ -71,7 +71,7 @@ public class CRUDCliente {
      */
     @RequestMapping(value= "/crear-cliente", method = RequestMethod.POST)
     public String creaCliente(ModelMap model,HttpServletRequest request){
-        Persona persona = (Persona)request.getAttribute("personaC");
+        Persona persona = (Persona)request.getAttribute("persona");
         Cliente cliente = new Cliente();
         Usuario usuario = new Usuario();
         String password = request.getParameter("pass");
@@ -241,5 +241,20 @@ public class CRUDCliente {
     public @ResponseBody boolean getAvailability(@RequestParam("correo")String correo) {
         Persona persona = persona_bd.getPersona(correo);
         return persona != null && persona.getNombre()== null;
+    }
+    
+    @RequestMapping(value= "/crear-clienteCorreo", method = RequestMethod.POST)
+    public String creaClienteCorreo(ModelMap model,HttpServletRequest request){
+        Persona persona = new Persona();
+        Cliente cliente = new Cliente();
+        Usuario usuario = new Usuario();
+        String correo = request.getParameter("correo");
+        persona.setCorreo(correo);
+        cliente.setPersona(persona);
+        usuario.setPersona(persona);
+        persona_bd.guardar(persona);
+        usuario_bd.guardar(usuario);
+        cliente_bd.guardar(cliente);
+        return "Ok";
     }
 }

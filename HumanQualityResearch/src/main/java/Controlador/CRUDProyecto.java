@@ -46,6 +46,9 @@ public class CRUDProyecto {
     @Autowired
     private ClienteDAO cliente_db;
     
+    @Autowired
+    private TipoDAO tipo_db;
+    
     /**
      * Metodo para desplegar la vista de CrearCliente
      */
@@ -63,12 +66,12 @@ public class CRUDProyecto {
      public String creaProyecto(HttpServletRequest request){
          Proyecto proyecto = new Proyecto();
          Pertenecer pertenecer = new Pertenecer();
-         TipoDAO tipo_db = new TipoDAO();
+         //TipoDAO tipo_db = new TipoDAO();
          Tipo dtipo = new Tipo();
          String correo = request.getParameter("correo");
          Persona persona = persona_db.getPersona(correo);
          if(persona==null)
-             return "ClienteInvalido";
+             return "ClienteNoEncontrado";
          String area = request.getParameter("area");
          String tipop = request.getParameter("tipo");
          String codigo = creaCodigo(persona,tipop);
@@ -80,6 +83,7 @@ public class CRUDProyecto {
          dtipo.setProyecto(proyecto);
          proyecto_db.guardar(proyecto);
          pertenecer_db.guardar(pertenecer);
+         System.out.print(dtipo.getTipo());
          tipo_db.guardar(dtipo);
          return "Ok";         
      }
@@ -101,7 +105,7 @@ public class CRUDProyecto {
          int anio = fecha.get(Calendar.YEAR);
          int mes = fecha.get(Calendar.MONTH);
          int dia = fecha.get(Calendar.DAY_OF_MONTH);
-         codigo+=dia+mes+anio;
+         codigo+=String.valueOf(dia)+String.valueOf(mes)+String.valueOf(anio);
          return codigo;  
      
      }

@@ -21,12 +21,12 @@ import org.hibernate.Transaction;
  * Clase para poder hacer cambios en la base con respecto al tipo.
  */
 public class TipoDAO {
-    
     private SessionFactory sessionFactory;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
+
     
     public void guardar(Tipo tipo) {
     
@@ -49,8 +49,7 @@ public class TipoDAO {
         }
     
     }
-    
-    
+       
     public void actualizar(Tipo tipo) {
     
         Session session = sessionFactory.openSession();
