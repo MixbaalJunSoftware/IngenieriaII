@@ -46,13 +46,13 @@
                                         <h4 class="modal-title" id="myModalLabel">Ingresa tu correo electrónico</h4>
                                     </div>
                                     <div class="modal-body">
-                                    ...
+                                        <form id = "f1" name ="f1" method="POST" action="/HumanQualityResearch/creaCliente">
+                                            <input id = "correo" name="correo" type="text">
+                                            <input type="button" name="enviar-correo" id="enviar-correo" value="enviar">
+                                        </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                        <form method="POST" action="/HumanQualityResearch/creaCliente">
-                                            <button type="submit" class="btn btn-default btn-lg active">Aceptar</button>
-                                        </form>
+                                        <button  class="btn btn-default" data-dismiss="modal">Cerrar</button>
                                     </div>
                                 </div>
                             </div>
@@ -60,7 +60,7 @@
                     
                 </div>
                 <div class="col-md-7">
-                 <form method="POST" action="/HumanQualityResearch/opciones" >
+                 <form  action="/HumanQualityResearch/opciones" >
                     <button type="submit"  class="btn btn-default btn-lg active" position="center">Opciones</button>
                 </form>
                 </div>  
@@ -98,7 +98,7 @@
   </body>
     <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
     <script src="<c:url value="/js/bootstrap.min.js"/> "></script>       
-  
+    <script src=" <c:url value="/js/validaCorreo.js" /> "></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
 

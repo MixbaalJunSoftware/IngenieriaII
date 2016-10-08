@@ -63,14 +63,12 @@ public class SesionAdmin {
         return new ModelAndView("home");
     }
     
-    @RequestMapping(value="/inicioSesion")
-    public ModelAndView inicioSesion(ModelMap model){
-        return new ModelAndView("index");
-    }
     
     @RequestMapping(value="/error403")
     public String error403(){
         return "error403";
     }
+    
+
     
 }

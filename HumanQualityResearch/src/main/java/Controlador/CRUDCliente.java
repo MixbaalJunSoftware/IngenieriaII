@@ -17,10 +17,13 @@ import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 /**
@@ -53,7 +56,6 @@ public class CRUDCliente {
     public String muetraCreaCliente(){
         return "CrearCliente";
     }
-    
     /**
      * Método para desplegar la vista de opciones
      */
@@ -63,19 +65,16 @@ public class CRUDCliente {
     }
     /**
      * Realiza la funcionalidad para agregar un cliente a la base de datos
+     * @param model
      * @param request
      * @return 
      */
     @RequestMapping(value= "/crear-cliente", method = RequestMethod.POST)
-    public String creaCliente(HttpServletRequest request){
-        Persona persona = new Persona();
+    public String creaCliente(ModelMap model,HttpServletRequest request){
+        Persona persona = (Persona)request.getAttribute("personaC");
         Cliente cliente = new Cliente();
         Usuario usuario = new Usuario();
-        String correo = request.getParameter("correo");
-        if(persona_bd.getPersona(correo)!= null){
-            return "CorreoRegistrado";
-        }
-        String pasword = request.getParameter("pass");
+        String password = request.getParameter("pass");
         String nombre = request.getParameter("nombre");
         String app = request.getParameter("app");
         String apm = request.getParameter("apm");
@@ -97,16 +96,17 @@ public class CRUDCliente {
         persona.setApm(apm);
         persona.setFecha_nac(fecha);
         persona.setGenero(genero);
-        persona.setCorreo(correo);
         persona.setTelefono(telefono);
         persona.setCelular(celular);
         cliente.setEmpresa(empresa);
         cliente.setPuestoCliente(puesto);
         cliente.setAreaCliente(area);
         cliente.setPersona(persona);
-        usuario.setContrasenia(pasword);
+        BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String hash_password = passwordEncoder.encode(password) ;
+        usuario.setContrasenia(hash_password);
         usuario.setPersona(persona);
-        persona_bd.guardar(persona);
+        persona_bd.actualizar(persona);
         cliente_bd.guardar(cliente);
         usuario_bd.guardar(usuario);
         return "Ok";   
@@ -219,5 +219,27 @@ public class CRUDCliente {
         List<Cliente> c = cliente_bd.Clientes();
         model.addAttribute("lista",c);
         return new ModelAndView("Clientes",model);
+    }
+    
+    @RequestMapping(value="/completar-regitro")
+    public ModelAndView aCompletar(ModelMap model,HttpServletRequest request){
+        String correo = request.getParameter("correo");
+        Persona persona = persona_bd.getPersona(correo);
+        request.getSession().getAttribute(correo);
+        if(persona == null)
+            return new ModelAndView("ClienteNoEncontrado");
+        model.addAttribute("persona", persona);
+        return new ModelAndView("CrearCliente",model);
+    }
+    
+    @RequestMapping(value="/correo-registrado")
+    public String registrado(){
+        return "correo-registrado";
+    }
+    
+    @RequestMapping(value="/account/availability", method=RequestMethod.GET)
+    public @ResponseBody boolean getAvailability(@RequestParam("correo")String correo) {
+        Persona persona = persona_bd.getPersona(correo);
+        return persona != null && persona.getNombre()== null;
     }
 }

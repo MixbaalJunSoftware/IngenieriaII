@@ -72,7 +72,7 @@
             <br/>
         </form>
             </div>
-            <form method="POST" action="/HumanQualityResearch/opciones" >
+            <form action="/HumanQualityResearch/opciones" >
                     <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
             </form>
             <br/>
