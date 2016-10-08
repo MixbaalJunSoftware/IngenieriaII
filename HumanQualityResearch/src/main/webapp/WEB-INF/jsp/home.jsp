@@ -29,9 +29,11 @@
                         </form>
                         <br/>
                         <br/>
-                        <button class="btn btn-default btn-lg">
-                            <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Proyectos
-                        </button>
+                        <form  method="POST"action = "/HumanQualityResearch/ver-proyectos"> 
+                            <button class="btn btn-default btn-lg">
+                                <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Proyectos
+                            </button>
+                        </form>    
                         <br/>
                         <br/>
                         <br/>

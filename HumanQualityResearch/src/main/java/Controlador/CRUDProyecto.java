@@ -17,11 +17,14 @@ import Mapeo.Cliente;
 import Mapeo.Pertenecer;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -58,7 +61,7 @@ public class CRUDProyecto {
     }
     
     /**
-     * Realiza la funcionalidad para agregar un cliente a la base de datos
+     * Realiza la funcionalidad para agregar un proyecto a la base de datos
      * @param request
      * @return 
      */
@@ -109,5 +112,19 @@ public class CRUDProyecto {
          return codigo;  
      
      }
+     
+      /**
+     * Metodo para mostrar la informacion de los Proyectos
+     * Pone los paramentros en el model de la pagina a mostrar
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/ver-proyectos", method = RequestMethod.POST)
+    public ModelAndView verClientes(ModelMap model,HttpServletRequest request){   
+        List<Tipo> lp = proyecto_db.proyectos();
+        model.addAttribute("lista",lp);
+        return new ModelAndView("Proyectos",model);
+    }
     
 }

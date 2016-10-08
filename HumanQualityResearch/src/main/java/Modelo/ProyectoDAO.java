@@ -6,6 +6,7 @@
 package Modelo;
 
 import Mapeo.Proyecto;
+import Mapeo.Tipo;
 import java.util.LinkedList;
 import java.util.List;
 import org.hibernate.Hibernate;
@@ -114,6 +115,28 @@ public class ProyectoDAO {
            session.close();
         }
         return proyecto;
+    }
+    
+    public List<Tipo> proyectos() {
+        List<Tipo> result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT tipo From Tipo tipo inner join tipo.proyecto";
+            Query query = session.createQuery(hql);
+            result = (List<Tipo>)query.list();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
     }
     
 }
