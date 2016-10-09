@@ -18,10 +18,10 @@
             clave2 = "${usuario.getContrasenia()}";
             if (puesto === area && area === tel && tel === cel && cel === clave1)
                 alert("Debes llenar almenos un campo");
-            else if (clave1 === clave2){ 
-                document.getElementById("f1").submit();
-            }else 
-                alert("La contraseña anterior no coincide"); 
+            else if (clave1 !== "" && clave1 !== clave2){ 
+                alert("La contraseña anterior no coincide");
+            }else
+                document.getElementById("f1").submit(); 
         }
     </script>
     <head>

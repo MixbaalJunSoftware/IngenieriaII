@@ -58,11 +58,24 @@ public class SesionAdmin {
     
     
     @RequestMapping(value="/home")
-    public ModelAndView home(ModelMap model,HttpServletRequest request, Principal principal){        
-        System.out.println(principal.getName());
-        return new ModelAndView("home");
+    public String home(ModelMap model,HttpServletRequest request){        
+        if (request.isUserInRole("ROLE_ADMIN")) {
+            return "redirect:/admin/home";
+        }else if(request.isUserInRole("ROLE_CLIENTE")) {
+            return "redirect:/cliente/home";
+        }
+        return "Ok";
     }
     
+    @RequestMapping(value="/admin/home")
+    public String homeAdmin(){        
+        return "home-admin";
+    }
+    
+    @RequestMapping(value="/cliente/home")
+    public String homeCliente(){        
+        return "home-cliente";
+    }
     
     @RequestMapping(value="/error403")
     public String error403(){

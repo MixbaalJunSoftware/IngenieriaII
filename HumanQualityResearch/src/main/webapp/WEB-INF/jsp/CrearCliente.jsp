@@ -23,7 +23,7 @@
         </header>
         <div class ="container">
             <div class="row">
-        <form method="POST" action="/HumanQualityResearch/crear-cliente" >
+                <form id = "termina-registro" name="termina-registro" method="POST" action="/HumanQualityResearch/crear-cliente" >
             <p id="registro">Registro del cliente</p>
             <div class="col-md-4">
             <label for="nombre">Nombre:</label>

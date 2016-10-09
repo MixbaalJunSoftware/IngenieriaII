@@ -59,11 +59,11 @@
                         </div>
                     
                 </div>
-                <div class="col-md-7">
+<!--                <div class="col-md-7">
                  <form  action="/HumanQualityResearch/opciones" >
                     <button type="submit"  class="btn btn-default btn-lg active" position="center">Opciones</button>
                 </form>
-                </div>  
+                </div>  -->
             </div>
           </div>
           <div class="col-md-4">
