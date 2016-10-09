@@ -92,14 +92,14 @@ public class CRUDCliente {
         persona.setGenero(genero);
         persona.setTelefono(telefono);
         persona.setCelular(celular);
+        cliente.setPersona(persona);
         cliente.setEmpresa(empresa);
         cliente.setPuestoCliente(puesto);
         cliente.setAreaCliente(area);
-        cliente.setPersona(persona);
+        usuario.setPersona(persona);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hash_password = passwordEncoder.encode(password) ;
         usuario.setContrasenia(hash_password);
-        usuario.setPersona(persona);
         usuario.setRol("ROLE_CLIENTE");
         persona_bd.actualizar(persona);
         cliente_bd.guardar(cliente);
