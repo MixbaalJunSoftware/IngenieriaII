@@ -83,11 +83,11 @@ public class CRUDProyecto {
          pertenecer.setPersona(persona);
          pertenecer.setProyecto(proyecto);
          dtipo.setTipo(tipop);
-         dtipo.setProyecto(proyecto);
-         proyecto_db.guardar(proyecto);
-         pertenecer_db.guardar(pertenecer);
+         proyecto.setTipo(dtipo);
          System.out.print(dtipo.getTipo());
          tipo_db.guardar(dtipo);
+         proyecto_db.guardar(proyecto);
+         pertenecer_db.guardar(pertenecer);         
          return "Ok";         
      }
      
@@ -121,10 +121,80 @@ public class CRUDProyecto {
      * @return 
      */
     @RequestMapping(value= "/ver-proyectos", method = RequestMethod.POST)
-    public ModelAndView verClientes(ModelMap model,HttpServletRequest request){   
-        List<Tipo> lp = proyecto_db.proyectos();
+    public ModelAndView verProyectos(ModelMap model,HttpServletRequest request){   
+        List<Proyecto> lp = proyecto_db.proyectos();
         model.addAttribute("lista",lp);
         return new ModelAndView("Proyectos",model);
+    }
+    
+    /**
+     * Metodo Auxiliar para probar el caso de uso Actualizar
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/jactualizar-proyecto", method = RequestMethod.POST)
+    public ModelAndView previoActualizar(ModelMap model,HttpServletRequest request){ 
+        System.out.print(request.getParameter("idproyecto"));
+        long id = Long.parseLong(request.getParameter("idproyecto"));
+        Proyecto proyecto = proyecto_db.getProyecto(id);
+        model.addAttribute("proyecto", proyecto);
+        if(proyecto == null)
+            return new ModelAndView("ClienteNoEncontrado",model);
+        return new ModelAndView("EditarProyecto",model);
+    }
+    
+    /**
+     * Metodo que realiza la actualizacion de un Proyecto
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/editar-proyecto", method = RequestMethod.POST)
+    public String editarProyecto(HttpServletRequest request){
+        long id = Long.parseLong(request.getParameter("idproyecto"));
+        Proyecto proyecto = proyecto_db.getProyecto(id);
+        Tipo tipo = proyecto.getTipo();
+        Pertenecer pertenecer = pertenecer_db.getPertenecer(id);
+        String correo = request.getParameter("correo");
+        String area = request.getParameter("area");
+        String stipo = request.getParameter("tipo");
+        if(!correo.equals("")){
+            Persona persona = persona_db.getPersona(correo);
+            if(persona == null)
+                return "ClienteNoEncontrado";
+            pertenecer.setPersona(persona);
+            String codigo = creaCodigo(persona, tipo.getTipo());
+            proyecto.setCodigo(codigo);
+        }    
+        if(!area.equals(""))
+            proyecto.setAreaProyecto(area);
+        if(!stipo.equals("")){
+            tipo.setTipo(stipo);
+            String codigo2 = creaCodigo(pertenecer.getPersona(), tipo.getTipo());
+            proyecto.setCodigo(codigo2);
+        }
+        proyecto_db.actualizar(proyecto);
+        pertenecer_db.actualizar(pertenecer);
+        tipo_db.actualizar(tipo);
+        return "Ok";   
+    }
+    
+    /**
+     * Metodo para eliminar un proyecto de la base de datos
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/elimina-proyecto", method = RequestMethod.POST)
+    public String eliminaProyecto(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("idproyecto"));
+        Proyecto proyecto = proyecto_db.getProyecto(id);
+        Pertenecer pertenecer = pertenecer_db.getPertenecer(id);
+        Tipo tipo = proyecto.getTipo();
+        tipo_db.eliminar(tipo);
+        pertenecer_db.eliminar(pertenecer);
+        proyecto_db.eliminar(proyecto);
+        return "Ok";
     }
     
 }

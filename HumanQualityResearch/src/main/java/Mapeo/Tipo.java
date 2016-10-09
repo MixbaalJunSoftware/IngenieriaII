@@ -32,10 +32,7 @@ public class Tipo {
     @Column(name = "tipo")
     private String tipo;
     
-    @OneToOne
-    @JoinColumn(name="idproyecto")
-    private Proyecto proyecto;
-
+   
     public long getIdTipo() {
         return idTipo;
     }
@@ -52,12 +49,5 @@ public class Tipo {
         this.tipo = tipo;
     }
 
-    public Proyecto getProyecto() {
-        return proyecto;
-    }
-
-    public void setProyecto(Proyecto proyecto) {
-        this.proyecto = proyecto;
-    }
-    
+      
 }

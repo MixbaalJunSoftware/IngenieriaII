@@ -6,6 +6,8 @@
 package Modelo;
 
 import Mapeo.Pertenecer;
+import Mapeo.Usuario;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -91,24 +93,27 @@ public class PertenecerDAO {
     
     }
     
-    public Pertenecer getPertenecer(long idPertenecer) {
-        Pertenecer proyecto = null;
+    public Pertenecer getPertenecer(long idProyecto) {
+        Pertenecer result = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
-           tx = session.beginTransaction();
-           proyecto = (Pertenecer)session.get(Pertenecer.class, idPertenecer);
-           tx.commit();
+            tx = session.beginTransaction();
+            String hql = "from Pertenecer p where p.proyecto.idProyecto = :idproyecto";
+            Query query = session.createQuery(hql);
+            query.setParameter("idproyecto", idProyecto);
+            result = (Pertenecer)query.uniqueResult();
+            tx.commit();
         }
         catch (Exception e) {
-           if (tx!=null){ 
+           if (tx!=null){
                tx.rollback();
            }
            e.printStackTrace(); 
         }finally {
            session.close();
         }
-        return proyecto;
+        return result;
     }
     
 }

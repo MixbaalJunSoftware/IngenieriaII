@@ -10,6 +10,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -32,6 +34,10 @@ public class Proyecto {
     
     @Column(name = "codigo")
     private String codigo;
+    
+    @OneToOne
+    @JoinColumn(name="idtipo")
+    private Tipo tipo;
 
     public long getIdProyecto() {
         return idProyecto;
@@ -56,5 +62,14 @@ public class Proyecto {
     public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
+
+    public Tipo getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(Tipo tipo) {
+        this.tipo = tipo;
+    }
+    
     
 }

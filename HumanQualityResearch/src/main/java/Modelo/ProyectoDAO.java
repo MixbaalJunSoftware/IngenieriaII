@@ -117,15 +117,16 @@ public class ProyectoDAO {
         return proyecto;
     }
     
-    public List<Tipo> proyectos() {
-        List<Tipo> result = null;
+    public List<Proyecto> proyectos() {
+        List<Proyecto> result = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "SELECT tipo From Tipo tipo inner join tipo.proyecto";
+            String hql = "SELECT proyecto From Proyecto proyecto inner join "
+                          + "proyecto.tipo";
             Query query = session.createQuery(hql);
-            result = (List<Tipo>)query.list();
+            result = (List<Proyecto>)query.list();
             tx.commit();
         }
         catch (Exception e) {
