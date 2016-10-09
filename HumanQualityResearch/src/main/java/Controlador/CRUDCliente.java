@@ -50,13 +50,6 @@ public class CRUDCliente {
     
     
     /**
-     * Metodo para desplegar la vista de CrearCliente
-     */
-    @RequestMapping(value = "/creaCliente")
-    public String muetraCreaCliente(){
-        return "CrearCliente";
-    }
-    /**
      * Método para desplegar la vista de opciones
      */
     @RequestMapping(value = "/opciones")
@@ -71,7 +64,8 @@ public class CRUDCliente {
      */
     @RequestMapping(value= "/crear-cliente", method = RequestMethod.POST)
     public String creaCliente(ModelMap model,HttpServletRequest request){
-        Persona persona = (Persona)request.getAttribute("persona");
+        String correo = request.getParameter("correo");
+        Persona persona = persona_bd.getPersona(correo);
         Cliente cliente = new Cliente();
         Usuario usuario = new Usuario();
         String password = request.getParameter("pass");
@@ -106,6 +100,7 @@ public class CRUDCliente {
         String hash_password = passwordEncoder.encode(password) ;
         usuario.setContrasenia(hash_password);
         usuario.setPersona(persona);
+        usuario.setRol("ROLE_CLIENTE");
         persona_bd.actualizar(persona);
         cliente_bd.guardar(cliente);
         usuario_bd.guardar(usuario);
@@ -224,37 +219,14 @@ public class CRUDCliente {
     @RequestMapping(value="/completar-regitro")
     public ModelAndView aCompletar(ModelMap model,HttpServletRequest request){
         String correo = request.getParameter("correo");
-        Persona persona = persona_bd.getPersona(correo);
-        request.getSession().getAttribute(correo);
-        if(persona == null)
-            return new ModelAndView("ClienteNoEncontrado");
-        model.addAttribute("persona", persona);
+        System.out.println(correo);
+        model.addAttribute("correoRegistrado", correo);
         return new ModelAndView("CrearCliente",model);
-    }
-    
-    @RequestMapping(value="/correo-registrado")
-    public String registrado(){
-        return "correo-registrado";
     }
     
     @RequestMapping(value="/account/availability", method=RequestMethod.GET)
     public @ResponseBody boolean getAvailability(@RequestParam("correo")String correo) {
         Persona persona = persona_bd.getPersona(correo);
         return persona != null && persona.getNombre()== null;
-    }
-    
-    @RequestMapping(value= "/crear-clienteCorreo", method = RequestMethod.POST)
-    public String creaClienteCorreo(ModelMap model,HttpServletRequest request){
-        Persona persona = new Persona();
-        Cliente cliente = new Cliente();
-        Usuario usuario = new Usuario();
-        String correo = request.getParameter("correo");
-        persona.setCorreo(correo);
-        cliente.setPersona(persona);
-        usuario.setPersona(persona);
-        persona_bd.guardar(persona);
-        usuario_bd.guardar(usuario);
-        cliente_bd.guardar(cliente);
-        return "Ok";
     }
 }

@@ -27,19 +27,19 @@
             <p id="registro">Registro del cliente</p>
             <div class="col-md-4">
             <label for="nombre">Nombre:</label>
-            <input id = "nombre" name = "nombre" style="margin-left:"/>
+            <input required="true" id = "nombre" name = "nombre" style="margin-left:"/>
             <br/>
             <br/>
             <label for="app">Apellido Paterno:</label>
-            <input id = "app" name = "app" style="margin-left:"/>
+            <input required="true" id = "app" name = "app" style="margin-left:"/>
             <br/>
             <br/>
             <label for="apm">Apellido Materno:</label>
-            <input id = "apm" name = "apm" style="margin-left:"/>
+            <input required="true" id = "apm" name = "apm" style="margin-left:"/>
             <br/>
             <br/>
             <label for="fecha">Fecha de nacimiento:</label>
-            <input id = "fecha" name = "fecha" style="margin-left:"/>
+            <input required="true" id = "fecha" name = "fecha" style="margin-left:"/>
             <br/>
             <br/>
             <label for="genero">Género:</label>
@@ -55,33 +55,30 @@
             </div>
             <div class="col-md-4">
             <label for="empresa">Empresa:</label>
-            <input id = "empresa" name = "empresa" style="margin-left:"/>
+            <input required="true" id = "empresa" name = "empresa" style="margin-left:"/>
             <br/>
             <br/>
             <label for="puesto">Puesto:</label>
-            <input id = "puesto" name = "puesto" style="margin-left:"/>
+            <input required="true" id = "puesto" name = "puesto" style="margin-left:"/>
             <br/>
             <br/>
             <label for="area">Área:</label>
-            <input id = "area" name = "area" style="margin-left:"/>
+            <input required="true" id = "area" name = "area" style="margin-left:"/>
             <br/>
             <br/>
             <label for="telefono">Telefono:</label>
-            <input id = "telefono" name = "telefono" style="margin-left:"/>
+            <input required="true"  id = "telefono" name = "telefono" style="margin-left:"/>
             <br/>
             <br/>
             <label for="celular">Celular:</label>
-            <input id = "celular" name = "celular" style="margin-left:"/>
+            <input required="true" id = "celular" name = "celular" style="margin-left:"/>
             <br/>
             <br/>
             </div>
             <div class="col-md-4">
-            <label for="correo">Correo:</label>
-            <input id = "correo" name = "correo" style="margin-left:"/>
-            <br/>
-            <br/>
+                <input id = "correo" name = "correo" value="${correoRegistrado}" hidden="true"/>
             <label for="pass">Contraseña:</label>
-            <input id = "pass" name = "pass" type="password" style="margin-left:"/>
+            <input required="true" id = "pass" name = "pass" type="password" style="margin-left:"/>
             <br/>
             <br/>
             <br/>
