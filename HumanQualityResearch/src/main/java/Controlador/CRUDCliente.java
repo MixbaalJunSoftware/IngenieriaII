@@ -233,15 +233,9 @@ public class CRUDCliente {
     @RequestMapping(value= "/crear-clienteCorreo", method = RequestMethod.POST)
     public String creaClienteCorreo(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
-        Cliente cliente = new Cliente();
-        Usuario usuario = new Usuario();
         String correo = request.getParameter("correo");
         persona.setCorreo(correo);
-        cliente.setPersona(persona);
-        usuario.setPersona(persona);
         persona_bd.guardar(persona);
-        usuario_bd.guardar(usuario);
-        cliente_bd.guardar(cliente);
         return "Ok";
     }
     
