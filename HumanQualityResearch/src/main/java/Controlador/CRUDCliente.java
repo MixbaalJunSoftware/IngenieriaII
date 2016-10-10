@@ -236,7 +236,7 @@ public class CRUDCliente {
         String correo = request.getParameter("correo");
         persona.setCorreo(correo);
         persona_bd.guardar(persona);
-        return "Ok";
+        return "CorreoCorrecto";
     }
     
 }

@@ -1,8 +1,9 @@
 <%-- 
-    Document   : Ok
-    Created on : 23/09/2016, 03:05:10 PM
-    Author     : luis
+    Document   : CorreoCorrecto
+    Created on : 9/10/2016, 07:31:34 PM
+    Author     : ricardo
 --%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -10,8 +11,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/Ok.css"/> ">
-        <title>Operación exitosa</title>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/CorreoCorrecto.css"/> ">
+        <title>Correo ingresado</title>
     </head>
     <body>
         <br/>
@@ -21,7 +22,7 @@
             </div>
             <hr/>
         </header>
-            <p id="exito">La operación se realizó con éxito</p>
+            <p id="exito">Se agregó exitosamente el correo electrónico del cliente</p>
             <br/>
             <br/>
             <br/>

@@ -14,9 +14,15 @@
         <title>home</title>
     </head>
     <body>
+        <br/>
+        <header>
+            <div class="he1" align="left">
+            <img class="logoHQR" src="<c:url value="/imagenes/logo_hqr.jpg"/>" width=90 height=100 alt="Logo HQR" style="margin-left:3cm">
+            </div>
+            <hr/>
+        </header>
         <div class="container">
             <p id="bienvenido">Bienvenido</p>
-            <hr/>
             <div class="container">
                 <div class="row">
                     <div class="col-md-4 col-md-offset-1">
@@ -24,28 +30,27 @@
                         <br/>
                         <form  method="POST"action = "/HumanQualityResearch/ver-clientes">        
                             <button class="btn btn-default btn-lg">
-                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Clientes
+                                <span class="glyphicon glyphicon-user" aria-hidden="true" id="modal"> Clientes</span> 
                             </button>
                         </form>
                         <br/>
                         <br/>
                         <form  method="POST"action = "/HumanQualityResearch/ver-proyectos"> 
                             <button class="btn btn-default btn-lg">
-                                <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Proyectos
+                                <span class="glyphicon glyphicon-book" aria-hidden="true" id="modal"> Proyectos</span> 
                             </button>
                         </form>    
                         <br/>
                         <br/>
-                        <br/>
                         <form action = "/HumanQualityResearch/logout">
-                            <button class="btn btn-default btn-lg">Salir</button>
+                            <button class="btn btn-default btn-lg" id="modal">Salir</button>
                         </form>
                     </div>
                     <div class="col-md-3 col-md-offset-1">
                         <br/>
                         <br/>
                         <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#clienteModal">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true" ></span> Crear Cliente
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal" > CrearCliente</span> 
                         </button>
                                                  
                         <!-- Modal del cliente -->
@@ -77,7 +82,7 @@
                         <br/>
                         <br/>
                         <button class="btn btn-default btn-lg" data-toggle="modal" data-target="#proyectoModal">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear Proyecto
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal"> CrearProyecto</span> 
                         </button>
                         
                         <!-- Modal del proyecto -->
@@ -122,7 +127,7 @@
                         <br/>
                         <br/>
                         <button class="btn btn-default btn-lg" data-toggle="modal" data-target="#codigoModal">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Crear Códigos
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal"> CrearCódigos</span> 
                         </button>
                         
                         <!-- Modal del cliente -->
