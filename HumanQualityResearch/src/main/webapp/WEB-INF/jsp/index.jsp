@@ -28,14 +28,15 @@
       <div class="container">
         <div class="row">
           <div class="col-md-5 col-md-offset-1">
-            <h1 id="nuevo">¿Eres nuevo?</h1>
+            <h1 id="nuevo">¿Terminarás tu registro?</h1>
             <br/>
             <h1 id="registrarte">Al registrarte podrás comenzar tus evaluaciones.</h1>
             <br/>
             <br/>
             <div align="center" class="row">
                 <div class="col-md-3" style="margin-left: 2cm">
-                    <button type="button" class="btn btn-default btn-lg active" position="center" data-toggle="modal" data-target="#registrarModal">Registrate</button>
+                    <br/>
+                    <button type="button" class="btn btn-primary btn-lg active" position="center" data-toggle="modal" data-target="#registrarModal" style="margin-left: 2.5cm;">Registrate</button>
                     
                     <!-- Modal de registrar -->
                         <div class="modal fade" id="registrarModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -43,27 +44,22 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Ingresa tu correo electrónico</h4>
+                                        <h4 class="modal-title" id="myModalLabel" style="color:#1D14A4;">Ingresa tu correo electrónico</h4>
                                     </div>
                                     <div class="modal-body">
                                         <form id = "f1" name ="f1" method="POST" action="/HumanQualityResearch/completar-regitro">
                                             <input id = "correo" name="correo" type="text">
-                                            <input type="button" name="enviar-correo" id="enviar-correo" value="enviar">
+                                            <input type="button" class="btn btn-primary" name="enviar-correo" id="enviar-correo" value="enviar">
                                         </form>
                                     </div>
                                     <div class="modal-footer">
-                                        <button  class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button  class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     
                 </div>
-<!--                <div class="col-md-7">
-                 <form  action="/HumanQualityResearch/opciones" >
-                    <button type="submit"  class="btn btn-default btn-lg active" position="center">Opciones</button>
-                </form>
-                </div>  -->
             </div>
           </div>
           <div class="col-md-4">
@@ -71,20 +67,20 @@
             <br/>
             <form class="form-horizontal" action="/HumanQualityResearch/login" method="POST">
               <div class="form-group">
-                <label>Usuario</label>
+                <label style="color:#1D14A4;">Usuario</label>
                 <input id="username" name="username" type="text" class="col-md-offset-2"/>
               </div>
               <div class="form-group">
-                <label>Contraseña</label>
+                <label style="color:#1D14A4;">Contraseña</label>
                 <input id="password" name="password" type="password" class="col-md-offset-1"/>
               </div>
                <br/>
                <div class="form-group" align="center">
-                 <button class="btn btn-default btn-lg active" position="center">Ingresar</button>
+                 <button class="btn btn-primary btn-lg active" position="center">Ingresar</button>
                </div>
             </form>
             <br/>
-            <p>Si olvidaste tu contraseña o usuario haz click
+            <p style="color:#1D14A4;">Si olvidaste tu contraseña o usuario haz click
               <a href="link">aquí</a>
             </p>
           </div>

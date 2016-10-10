@@ -4,7 +4,7 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 */
 /* 
-    Created on : 9/10/2016, 05:35:21 PM
+    Created on : 9/10/2016, 11:43:28 PM
     Author     : ricardo
 */
 
@@ -14,7 +14,8 @@ body {
     background-size: 1500px;
     background-position: center;
 }
-#cliente{
+
+#proyecto{
     margin-left: 3cm;
     font-size: 70px;
     color: blue;

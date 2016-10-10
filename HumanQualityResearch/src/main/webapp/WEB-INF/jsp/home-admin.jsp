@@ -59,18 +59,18 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Nuevo cliente</h4>
+                                        <h4 class="modal-title" id="myModalLabel" style="color:blue;text-align: center;">Nuevo cliente</h4>
                                     </div>
                                     <form method="POST" action="/HumanQualityResearch/crear-clienteCorreo" >
                                     <div class="modal-body">
-                                        <label for="correo">Correo del cliente:</label>
-                                        <input id = "correo" name = "correo" style="margin-left:"/>
+                                        <label for="correo" style="color:#1D14A4;margin-left: 2.5cm;">Correo del cliente:</label>
+                                        <input id = "correo" name = "correo" style="margin-left:1cm;"/>
                                         <br/>
                                         <br/>
                                     </div>
                                     <div class="modal-footer">
                                         
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                                             <button type="submit" class="btn btn-primary">Crear Cliente</button>
                                     </div>
                                     </form>
@@ -91,23 +91,23 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Nuevo Proyecto</h4>
+                                        <h4 class="modal-title" id="myModalLabel" style="color:blue;text-align: center;">Nuevo Proyecto</h4>
                                     </div>
                                     <form method="POST" action="/HumanQualityResearch/crear-proyecto" >
                                     <div class="modal-body">
                                         <div class ="container">
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    <label for="correo">Correo del cliente:</label>
-                                                    <input id = "correo" name = "correo" style="margin-left:"/>
+                                                    <label for="correo" style="color:#1D14A4;margin-left: 1cm;">Correo del cliente:</label>
+                                                    <input id = "correo" name = "correo" style="margin-left:0.3cm;"/>
                                                     <br/>
                                                     <br/>
-                                                    <label for="area">Area del proyecto:</label>
-                                                    <input id = "area" name = "area" style="margin-left:"/>
+                                                    <label for="area" style="color:#1D14A4;margin-left: 1cm;">Area del proyecto:</label>
+                                                    <input id = "area" name = "area" style="margin-left:0.3cm;"/>
                                                     <br/>
                                                     <br/>
-                                                    <label for="tipo">Tipo de proyecto:</label>
-                                                    <input id = "tipo" name = "tipo" style="margin-left:"/>
+                                                    <label for="tipo" style="color:#1D14A4;margin-left: 1cm;">Tipo de proyecto:</label>
+                                                    <input id = "tipo" name = "tipo" style="margin-left:0.5cm;"/>
                                                     <br/>
                                                     <br/>
                                                 </div>
@@ -115,7 +115,7 @@
                                         </div>
                                     </div>    
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                                         <button type="submit" class="btn btn-primary">Crear Proyecto</button>
                                     </div>
                                     </form>     
@@ -127,7 +127,7 @@
                         <br/>
                         <br/>
                         <button class="btn btn-default btn-lg" data-toggle="modal" data-target="#codigoModal">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal"> CrearCódigos</span> 
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal" > CrearCódigos</span> 
                         </button>
                         
                         <!-- Modal del cliente -->
@@ -136,13 +136,13 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Nuevo código</h4>
+                                        <h4 class="modal-title" id="myModalLabel" style="color:blue;text-align: center;">Nuevo código</h4>
                                     </div>
                                     <div class="modal-body">
                                     ...
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
                                         <button type="button" class="btn btn-primary">Crear Código</button>
                                     </div>
                                 </div>

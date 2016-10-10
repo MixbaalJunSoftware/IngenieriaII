@@ -21,14 +21,27 @@
             </div>
             <hr/>
         </header>
-        <h1>Clientes</h1>
-        
-        <c:forEach var="cliente" items="${lista}">
-            ${cliente.persona.nombre} ${cliente.empresa} ${cliente.persona.correo}
-            <br>
-        </c:forEach>
+        <p id="cliente">Clientes</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th style="color:#1D14A4;font-size: 20px;">Nombre</th>
+                    <th style="color:#1D14A4;font-size: 20px;">Empresa</th>
+                    <th style="color:#1D14A4;font-size: 20px;">Correo Electrónico</th>
+                </tr>
+            </thead>
+            <c:forEach var="cliente" items="${lista}">
+                <tbody>
+                    <tr>
+                        <th style="color:#1D14A4;font-size: 20px;">${cliente.persona.nombre}</th>
+                        <th style="color:#1D14A4;font-size: 20px;">${cliente.empresa}</th>
+                        <th style="color:#1D14A4;font-size: 20px;">${cliente.persona.correo}</th>
+                    </tr>
+                </tbody>
+            </c:forEach>
+        </table>
         <form method="POST" action="/HumanQualityResearch/admin/home" >
-                    <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
+                    <button type="submit"  class="btn btn-primary btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
         </form>
             
     </body>

@@ -17,7 +17,7 @@ img {
 
 #slogan {
     text-align:center;
-    text-color:black;
+    color: #1425A4;
     font-size:170%;
 }
 
@@ -28,7 +28,7 @@ img {
 }
 
 #registrarte {
-    color:gray;
+    color:#1D14A4;
     font-size:130%;
     text-align:center;
 }
