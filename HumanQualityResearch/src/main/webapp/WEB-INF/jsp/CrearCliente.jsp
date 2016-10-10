@@ -28,19 +28,19 @@
             <br/>
             <br/>
             <div class="col-md-4">
-            <label for="nombre">Nombre:</label>
+            <label for="nombre" style="color:#1D14A4;">Nombre:</label>
             <input required="true" id = "nombre" name = "nombre" style="margin-left:2cm"/>
             <br/>
             <br/>
-            <label for="app">Apellido Paterno:</label>
+            <label for="app" style="color:#1D14A4;">Apellido Paterno:</label>
             <input required="true" id = "app" name = "app" style="margin-left:0.4cm"/>
             <br/>
             <br/>
-            <label for="apm">Apellido Materno:</label>
+            <label for="apm" style="color:#1D14A4;">Apellido Materno:</label>
             <input required="true" id = "apm" name = "apm" style="margin-left:0.3cm"/>
             <br/>
             <br/>
-            <label for="fecha">Fecha de nacimiento:</label>
+            <label for="fecha" style="color:#1D14A4;">Fecha de nacimiento:</label>
             <!--<input required="true" id = "fecha" name = "fecha" style="margin-left:"/>-->
             <select name="fecha" id="dia">
                 <option value="01">1</option>
@@ -75,6 +75,7 @@
                 <option value="30">30</option>
                 <option value="31">31</option>
             </select>
+            -
             <select name="fecha" id="mes">
                 <option value="01">1</option>
                 <option value="02">2</option>
@@ -89,6 +90,7 @@
                 <option value="11">11</option>
                 <option value="12">12</option>
             </select>
+            -
             <select name="fecha" id="anio">
                 <option value="1940">1940</option>
                 <option value="1941">1941</option>
@@ -152,42 +154,42 @@
             </select>
             <br/>
             <br/>
-            <label for="genero">Género:</label>
-                <label class="radio-inline" style="margin-left: 2cm;">
+            <label for="genero" style="color:#1D14A4;">Género:</label>
+                <label class="radio-inline" style="color:#1D14A4;margin-left: 2cm;">
                     <input type="radio" name="genero" id="genero" value="M" > Masculino
                 </label>
-                <label class="radio-inline">
-                    <input type="radio" name="genero" id="genero" value="F"> Femenino
+                <label class="radio-inline" style="color:#1D14A4;">
+                    <input type="radio" name="genero" id="genero" value="F" > Femenino
                 </label>
             <!--<input id = "genero" name = "genero" style="margin-left:"/>-->
             <br/>
             <br/>
             </div>
             <div class="col-md-4">
-            <label for="empresa">Empresa:</label>
+            <label for="empresa" style="color:#1D14A4;">Empresa:</label>
             <input required="true" id = "empresa" name = "empresa" style="margin-left:1.5cm;"/>
             <br/>
             <br/>
-            <label for="puesto">Puesto:</label>
+            <label for="puesto" style="color:#1D14A4;">Puesto:</label>
             <input required="true" id = "puesto" name = "puesto" style="margin-left:1.8cm;"/>
             <br/>
             <br/>
-            <label for="area">Área:</label>
+            <label for="area" style="color:#1D14A4;">Área:</label>
             <input required="true" id = "area" name = "area" style="margin-left:2.3cm;"/>
             <br/>
             <br/>
-            <label for="telefono">Telefono:</label>
+            <label for="telefono" style="color:#1D14A4;">Telefono:</label>
             <input required="true"  id = "telefono" name = "telefono" style="margin-left:1.5cm;"/>
             <br/>
             <br/>
-            <label for="celular">Celular:</label>
+            <label for="celular" style="color:#1D14A4;">Celular:</label>
             <input required="true" id = "celular" name = "celular" style="margin-left:1.8cm;"/>
             <br/>
             <br/>
             </div>
             <div class="col-md-4">
                 <input id = "correo" name = "correo" value="${correoRegistrado}" hidden="true"/>
-            <label for="pass">Contraseña:</label>
+            <label for="pass" style="color:#1D14A4;">Contraseña:</label>
             <input required="true" id = "pass" name = "pass" type="password" style="margin-left:1cm;"/>
             <br/>
             <br/>
@@ -197,7 +199,7 @@
             <br/>
             <br/>
             <br/>
-            <button type="submit" class="btn btn-default btn-lg active">Aceptar</button>
+            <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
             </div>
             
         </form>
@@ -205,7 +207,7 @@
             </div>
         </div>
             <form method="POST" action="/HumanQualityResearch/" >
-                <button type="submit"  class="btn btn-default btn-lg active" style="margin-left: 27cm;">Regresar</button>
+                <button type="submit"  class="btn btn-primary btn-lg active" style="margin-left: 27cm;">Regresar</button>
             </form>
             <br/>
     </body>

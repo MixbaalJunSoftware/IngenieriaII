@@ -45,10 +45,29 @@
                 </form>
                 </th>
                 <th>
-                <form method="POST" action="/HumanQualityResearch/elimina-proyecto" >
-                    <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
-                    <button type="submit" class="btn btn-primary btn-lg active">Eliminar proyecto</button>
-                </form>
+                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#eliminar">
+                            <span aria-hidden="true" id="modal" >Eliminar</span> 
+                    </button>
+                    <!-- Modal del cliente -->
+                        <div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel" style="color:blue;text-align: center;">¿Seguro qué quieres eliminar el proyecto?</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <form method="POST" action="/HumanQualityResearch/elimina-proyecto" >
+                                            <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
+                                            <button type="submit" class="btn btn-danger btn-lg active">Eliminar proyecto</button>
+                                        </form>
+                                            <br/>
+                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>    
+                                    </div>                                  
+                                </div>
+                            </div>
+                        </div>
+                
                     </th>
             </tbody>
             
@@ -58,7 +77,11 @@
                     <button type="submit"  class="btn btn-primary btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
         </form>
     </body>
-        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
+    <script src="<c:url value="/js/bootstrap.min.js"/> "></script>
+    
+    
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </html>
 

@@ -14,6 +14,13 @@
         <title>home</title>
     </head>
     <body>
+        <br/>
+        <header>
+            <div class="he1" align="left">
+            <img class="logoHQR" src="<c:url value="/imagenes/logo_hqr.jpg"/>" width=90 height=100 alt="Logo HQR" style="margin-left:3cm">
+            </div>
+            <hr/>
+        </header>
         <div class="container">
             <p id="bienvenido">Bienvenido</p>
             <hr/>
@@ -22,30 +29,27 @@
                     <div class="col-md-4 col-md-offset-1">
                         <br/>
                         <br/>
-                        <form  method="POST"action = "/HumanQualityResearch/ver-clientes">        
-                            <button class="btn btn-default btn-lg">
-                                <span class="glyphicon glyphicon-user" aria-hidden="true"></span> Clientes
-                            </button>
-                        </form>
+                        <button class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-user" aria-hidden="true" id="modal"> Empleados</span> 
+                        </button>
                         <br/>
                         <br/>
-                        <form  method="POST"action = "/HumanQualityResearch/ver-proyectos"> 
-                            <button class="btn btn-default btn-lg">
-                                <span class="glyphicon glyphicon-book" aria-hidden="true"></span> Proyectos
-                            </button>
-                        </form>    
+                        <br/>
+                        <button class="btn btn-default btn-lg">
+                            <span class="glyphicon glyphicon-book" aria-hidden="true" id="modal"> Proyectos</span> 
+                        </button>   
                         <br/>
                         <br/>
                         <br/>
                         <form action = "/HumanQualityResearch/logout">
-                            <button class="btn btn-default btn-lg">Salir</button>
+                            <button class="btn btn-default btn-lg" id="modal">Salir</button>
                         </form>
                     </div>
                     <div class="col-md-3 col-md-offset-1">
                         <br/>
                         <br/>
                         <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#clienteModal">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true" ></span> Crear Cliente
+                            <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal" > CrearEmpleado</span> 
                         </button>
                                                  
                         <!-- Modal del cliente -->
@@ -54,21 +58,18 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel">Nuevo cliente</h4>
+                                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;color: #1D14A4;">Nuevo Empleado</h4>
                                     </div>
-                                    <form method="POST" action="/HumanQualityResearch/crear-clienteCorreo" >
-                                    <div class="modal-body">
-                                        <label for="correo">Correo del cliente:</label>
-                                        <input id = "correo" name = "correo" style="margin-left:"/>
-                                        <br/>
-                                        <br/>
+                                    
+                                    <div class="modal-body" style="color: #1D14D4;">
+                                        Disponible en alguna iteración próxima
                                     </div>
                                     <div class="modal-footer">
                                         
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-primary">Crear Cliente</button>
+                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                            <button type="submit" class="btn btn-primary">Crear Empleado</button>
                                     </div>
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>

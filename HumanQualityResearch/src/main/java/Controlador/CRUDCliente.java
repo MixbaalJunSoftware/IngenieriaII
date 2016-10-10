@@ -147,8 +147,11 @@ public class CRUDCliente {
             cliente.getPersona().setTelefono(telefono);
         if(!celular.equals(""))
             cliente.getPersona().setCelular(celular);
-        if(!pasword.equals(""))
-            usuario.setContrasenia(pasword);
+        if(!pasword.equals("")){
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String hash_password = passwordEncoder.encode(pasword) ;
+            usuario.setContrasenia(hash_password);
+        }
         persona_bd.actualizar(cliente.getPersona());
         cliente_bd.actualizar(cliente);
         usuario_bd.actualizar(usuario);
