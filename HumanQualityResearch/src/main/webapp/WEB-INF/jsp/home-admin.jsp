@@ -126,9 +126,6 @@
                         <br/>
                         <br/>
                         <br/>
-                        <button class="btn btn-default btn-lg" data-toggle="modal" data-target="#codigoModal">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal" > CrearCódigos</span> 
-                        </button>
                         
                         <!-- Modal del cliente -->
                         <div class="modal fade" id="codigoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
