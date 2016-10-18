@@ -16,13 +16,13 @@
   body {
       position: relative;
   }
-  #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1E88E5;}
-  #section2 {padding-top:50px;height:500px;color: #fff; background-color: #673ab7;}
-  #section3 {padding-top:50px;height:500px;color: #fff; background-color: #ff9800;}
-  #section4 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
-  #section5 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
-  #section6 {padding-top:50px;height:500px;color: #fff; background-color: #00bcd4;}
-  #section7 {padding-top:50px;height:500px;color: #fff; background-color: #009688;}
+  #section1 {padding-top:50px;height:500px;color: #fff; background-color: #1a1aff;}
+  #section2 {padding-top:50px;height:500px;color: #fff; background-color: #3333ff;}
+  #section3 {padding-top:50px;height:500px;color: #fff; background-color: #1a1aff;}
+  #section4 {padding-top:50px;height:500px;color: #fff; background-color: #3333ff;}
+  #section5 {padding-top:50px;height:500px;color: #fff; background-color: #1a1aff;}
+  #section6 {padding-top:50px;height:500px;color: #fff; background-color: #3333ff;}
+  #section7 {padding-top:50px;height:500px;color: #fff; background-color: #1a1aff;}
   #pregunta {color:black;font-size: 20px;}
   </style>
   </head>
@@ -48,6 +48,8 @@
           <li><a href="#section5">Preguntas 16-20</a></li>
           <li><a href="#section6">Preguntas 21-25</a></li>
           <li><a href="#section7">Preguntas 26-30</a></li>          
+          <li><a href="/HumanQualityResearch/">Regresar</a></li>                 
+          
         </ul>
       </div>
     </div>
@@ -57,12 +59,12 @@
 <div id="section1" class="container-fluid">
   <h1>Escala Mexicana de Adaptabilidad Laboral</h1>
   <br/>
-  <p>Instrucciones:</p>
+  <p style="font-size: 25px;">Instrucciones:</p>
   <br/>
-  <p>A continuación encontrarás una serie de enunciados a los cuales debes responder considerando la
+  <p style="font-size: 20px;">A continuación encontrarás una serie de enunciados a los cuales debes responder considerando la
      la forma que has pensado,sentido y actuado ante determinadas situaciones en el ambiente laboral.</p>
   <br/>
-  <p>Te pedimos contestar de la manera más honesta y sincera posible ya que no existen respuestas
+  <p style="font-size: 20px;">Te pedimos contestar de la manera más honesta y sincera posible ya que no existen respuestas
      buenas o malas</p>
 </div>
       
@@ -165,29 +167,499 @@
     
 </div>
 <div id="section3" class="container-fluid">
-  <h1>Section 3</h1>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-</div>
+ 
+    <p id="pregunta">6. Tengo agilidad mental.</p> 
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">7. Soy una persona madura que sabe cómo actuar en eventos impredecibles.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">8. Me considero hábil para resolver eventos inesperados.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">9. Aunque las situaciones en mi trabajo sean inciertos, soy capaz de encararlas.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">10. Aunque no conozca a fondo la situación en la que me encuentre salgo adelante.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    
+</div>  
+  
 <div id="section4" class="container-fluid">
-  <h1>Section 4 Submenu 1</h1>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+
+    <p id="pregunta">11. Me siento entusiasmado cuando me enfrento a un reto difícil de resolver.</p> 
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">12. Resuelvo los conflictos de forma eficaz.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">13. No soy innovador.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">14. Muchos me consideran una persona cuadrada.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">15. Soy astuto para salir de los apuros.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    
 </div>
 <div id="section5" class="container-fluid">
-  <h1>Section 4 Submenu 2</h1>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+
+    <p id="pregunta">16. ¿Cuál es la respuesta correcta de la siguiente operación 38+21-66?</p> 
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. -5
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. -6
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. 7
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. 6
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. -7
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">17. Soluciono conflictos hábilmente.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">18. Me causa desconfianza escuchar a personas que no siguen los pasos específicos necesarios 
+        para alcanzar una meta.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">19. Soy creativo, a menudo se me ocurren diferentes formas de hacer las cosas.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">20. Encuentro rápidamente respuestas a los problemas.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    
 </div>
 <div id="section6" class="container-fluid">
-  <h1>Section 4 Submenu 2</h1>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+
+    <p id="pregunta">21. Se me dificulta establecer nuevas relaciones personales en la empresa.</p> 
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">22. No soy comunicativo.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">23. Algunas personas dicen que soy irritante.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">24. La relación con mis compañeros de trabajo es limitada.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">25. Prefiero estar solo que mal acompañado.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+
 </div>
 <div id="section7" class="container-fluid">
-  <h1>Section 4 Submenu 2</h1>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
-  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+
+    <p id="pregunta">26. A veces soy inmaduro en mi trabajo.</p> 
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">27. Me enojo muy rápido si alguien me contradice.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">28. Soy agresivo con aquellos que me provocan.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">29. Soy tímido, me cuesta trabajo hablar con desconocidos.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>  
+    <p id="pregunta">30. Puedo ser irrespetuoso.</p>
+    <form>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="1">1. Totalmente en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="2">2. En desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="3">3. Ni de acuerdo ni en desacuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="4">4. De acuerdo
+        </label>
+        <label class="radio-inline">
+            <input type="radio" name="optradio" value="5">5. Totalmente de acuerdo
+        </label>  
+    </form>
+    <br/>
+    <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
+            
+
 </div>
 
   </body>
