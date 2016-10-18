@@ -82,5 +82,13 @@ public class SesionAdmin {
         return "error403";
     }
     
+    /**
+     * Método para desplegar la prueba de adaptabilidad laboral
+     */
+    @RequestMapping(value = "/verPrueba")
+    public String opciones(){
+        return "PruebaAL";
+    }
+    
     
 }
