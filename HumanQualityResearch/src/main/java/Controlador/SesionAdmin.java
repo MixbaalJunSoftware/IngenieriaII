@@ -64,7 +64,7 @@ public class SesionAdmin {
         }else if(request.isUserInRole("ROLE_CLIENTE")) {
             return "redirect:/cliente/home";
         }
-        return "Ok";
+        return "redirect:/empleado/home";
     }
     
     @RequestMapping(value="/admin/home")
@@ -75,6 +75,11 @@ public class SesionAdmin {
     @RequestMapping(value="/cliente/home")
     public String homeCliente(){        
         return "home-cliente";
+    }
+    
+    @RequestMapping(value="/empleado/home")
+    public String homeEmpleado(){
+        return "home-empleado";
     }
     
     @RequestMapping(value="/error403")
