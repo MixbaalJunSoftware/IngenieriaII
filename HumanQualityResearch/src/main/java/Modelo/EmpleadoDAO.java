@@ -5,35 +5,34 @@
  */
 package Modelo;
 
-import Mapeo.Usuario;
+import Mapeo.Empleado;
+import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-
 /**
  *
- * @author Mixbaal
+ * @author danii
  */
-public class UsuarioDAO {
-
+public class EmpleadoDAO {
+    
     private SessionFactory sessionFactory;
-    private final long idAdmin = 1;
 
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
     
-    public void guardar(Usuario usuario) {
+    public void guardar(Empleado empleado) {
     
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
            tx = session.beginTransaction();
          
-           session.persist(usuario);
+           session.persist(empleado);
            
            tx.commit();
         }
@@ -49,14 +48,14 @@ public class UsuarioDAO {
     }
     
     
-    public void actualizar(Usuario usuario) {
+    public void actualizar(Empleado empleado) {
     
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
            tx = session.beginTransaction();
          
-           session.update(usuario);
+           session.update(empleado);
            
            tx.commit();
         }
@@ -72,14 +71,14 @@ public class UsuarioDAO {
     }
     
     
-    public void eliminar(Usuario usuario) {
+    public void eliminar(Empleado empleado) {
     
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
            tx = session.beginTransaction();
          
-           session.delete(usuario);
+           session.delete(empleado);
            
            tx.commit();
         }
@@ -94,16 +93,36 @@ public class UsuarioDAO {
     
     }
     
-    public Usuario getUsuario(long idPersona) {
-        Usuario result = null;
+    public Empleado getEmpleado(long idEmpleado) {
+        Empleado empleado = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+           tx = session.beginTransaction();
+           empleado = (Empleado)session.get(Empleado.class, idEmpleado);
+           tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){ 
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return empleado;
+    }
+    
+    
+    public List<Empleado> Empleados() {
+        List<Empleado> result = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "from Usuario u where u.persona.idPersona = :idpersona";
+            String hql = "SELECT empleado From Empleado empleado inner join empleado.persona";
             Query query = session.createQuery(hql);
-            query.setParameter("idpersona", idPersona);
-            result = (Usuario)query.uniqueResult();
+            result = (List<Empleado>)query.list();
             tx.commit();
         }
         catch (Exception e) {
@@ -115,34 +134,6 @@ public class UsuarioDAO {
            session.close();
         }
         return result;
-    }
-    
-    public boolean admin(Usuario usuario){
-        return usuario.getPersona().getIdPersona() == idAdmin;
-    }
-    
-    public String getRole(String correo){
-        String result = null;
-        Session session = sessionFactory.openSession();
-        Transaction tx = null;
-        try {
-            tx = session.beginTransaction();
-            String hql = "SELECT rol From Usuario u where u.persona.correo = :correo";
-            Query query = session.createQuery(hql);
-            query.setParameter("correo", correo);             
-            result = (String)query.uniqueResult();
-            tx.commit();
-        }
-        catch (Exception e) {
-           if (tx!=null){
-               tx.rollback();
-           }
-           e.printStackTrace(); 
-        }finally {
-           session.close();
-        }
-        return result;
-    
     }
     
 }

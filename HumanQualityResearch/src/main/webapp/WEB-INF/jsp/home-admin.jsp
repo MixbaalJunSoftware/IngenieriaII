@@ -84,44 +84,7 @@
                         <button class="btn btn-default btn-lg" data-toggle="modal" data-target="#proyectoModal">
                             <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal"> CrearProyecto</span> 
                         </button>
-                        
-                        <!-- Modal del proyecto -->
-                        <div class="modal fade" id="proyectoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel" style="color:blue;text-align: center;">Nuevo Proyecto</h4>
-                                    </div>
-                                    <form method="POST" action="/HumanQualityResearch/crear-proyecto" >
-                                    <div class="modal-body">
-                                        <div class ="container">
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <label for="correo" style="color:#1D14A4;margin-left: 1cm;">Correo del cliente:</label>
-                                                    <input id = "correo" name = "correo" style="margin-left:0.3cm;"/>
-                                                    <br/>
-                                                    <br/>
-                                                    <label for="area" style="color:#1D14A4;margin-left: 1cm;">Area del proyecto:</label>
-                                                    <input id = "area" name = "area" style="margin-left:0.3cm;"/>
-                                                    <br/>
-                                                    <br/>
-                                                    <label for="tipo" style="color:#1D14A4;margin-left: 1cm;">Tipo de proyecto:</label>
-                                                    <input id = "tipo" name = "tipo" style="margin-left:0.5cm;"/>
-                                                    <br/>
-                                                    <br/>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>    
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                        <button type="submit" class="btn btn-primary">Crear Proyecto</button>
-                                    </div>
-                                    </form>     
-                                </div>
-                            </div>
-                        </div>
+                                               
                         
                         <br/>
                         <br/>

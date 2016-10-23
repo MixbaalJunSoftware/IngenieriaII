@@ -224,7 +224,12 @@ public class CRUDCliente {
         String correo = request.getParameter("correo");
         System.out.println(correo);
         model.addAttribute("correoRegistrado", correo);
-        return new ModelAndView("CrearCliente",model);
+        String role = usuario_bd.getRole(correo);
+        System.out.print(role);
+        if(role == null || role == " ")
+            return new ModelAndView("CrearCliente",model);
+        else
+            return new ModelAndView("CrearEmpleado", model);
     }
     
     @RequestMapping(value="/account/availability", method=RequestMethod.GET)
@@ -237,9 +242,17 @@ public class CRUDCliente {
     public String creaClienteCorreo(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
         String correo = request.getParameter("correo");
-        persona.setCorreo(correo);
-        persona_bd.guardar(persona);
-        return "CorreoCorrecto";
+        Persona p = persona_bd.getPersona(correo);
+        if(p==null){
+            persona.setCorreo(correo);
+            persona_bd.guardar(persona);
+            return "CorreoCorrecto";
+        }else{
+            return "CorreoRegistrado";
+        }
+     
     }
+    
+    
     
 }
