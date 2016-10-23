@@ -12,6 +12,7 @@ import Mapeo.Usuario;
 import Modelo.EmpleadoDAO;
 import Modelo.PersonaDAO;
 import Modelo.UsuarioDAO;
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -22,6 +23,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -114,6 +116,74 @@ public class CRUDEmpleado {
         usuario_bd.actualizar(usuario);
         return "Ok";   
     }
+    
+    
+    /**
+     * Metodo Auxiliar para probar el caso de uso Actualizar
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/empleado/previoActualizarEmpleado", method = RequestMethod.GET)
+    public ModelAndView previoActualizarEmpleado(ModelMap model,HttpServletRequest request, Principal principal){ 
+        /**
+        Persona persona = persona_bd.getPersona(principal.getName());
+        model.addAttribute("persona", persona);
+        if(persona == null)
+            return new ModelAndView("error403",model);
+        */
+        return new ModelAndView("EditarEmpleado",model);
+    }
+    
+    
+    /**
+     * 
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/empleado/actualizar-empleado", method = RequestMethod.POST)
+    public String actualizaEmpleado(HttpServletRequest request, Principal principal){
+        Persona persona = persona_bd.getPersona(principal.getName());
+        long id = persona.getIdPersona();
+        Empleado empleado = empleado_bd.getEmpleado(id);
+        Usuario usuario = usuario_bd.getUsuario(id);
+        String puesto = request.getParameter("puesto");
+        String telefono = request.getParameter("tel");
+        String celular = request.getParameter("cel");
+        String pasword = request.getParameter("newpass");
+        if(!puesto.equals(""))
+            empleado.setPuestoempleado(puesto);
+        if(!telefono.equals(""))
+            persona.setTelefono(telefono);
+        if(!celular.equals(""))
+            persona.setCelular(celular);
+        if(!pasword.equals("")){
+            BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String hash_password = passwordEncoder.encode(pasword) ;
+            usuario.setContrasenia(hash_password);
+        }
+        persona_bd.actualizar(persona);
+        empleado_bd.actualizar(empleado);
+        usuario_bd.actualizar(usuario);
+        return "Ok";   
+    }
+    
+    /**
+     * Metodo Auxiliar para poder contestar la prueba
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/empleado/contestarPrueba", method = RequestMethod.POST)
+    public ModelAndView contestarPrueba(ModelMap model,HttpServletRequest request, Principal principal){   
+        Persona persona = persona_bd.getPersona(principal.getName());
+        model.addAttribute(persona);
+        return new ModelAndView("PruebaAL",model);
+    }
+    
+    
+    
+    
     
     
 }

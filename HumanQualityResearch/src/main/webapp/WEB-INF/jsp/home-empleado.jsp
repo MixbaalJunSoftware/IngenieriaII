@@ -29,13 +29,13 @@
                     <div class="col-md-4 col-md-offset-1">
                         <br/>
                         <br/>
-                        <form action = "/HumanQualityResearch/logout">
+                        <form action = "/HumanQualityResearch/empleado/contestarPrueba">
                             <button class="btn btn-default btn-lg" id="modal">Contestar Prueba</button>
                         </form>
                         <br/>
                         <br/>
                         <br/>
-                        <form action = "/HumanQualityResearch/logout">
+                        <form action = "/HumanQualityResearch/empleado/previoActualizarEmpleado">
                             <button class="btn btn-default btn-lg" id="modal">Editar Datos</button>
                         </form>   
                         <br/>
