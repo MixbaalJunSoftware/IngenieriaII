@@ -15,6 +15,7 @@ import Mapeo.Proyecto;
 import Mapeo.Tipo;
 import Mapeo.Cliente;
 import Mapeo.Pertenecer;
+import java.security.Principal;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import java.util.List;
@@ -65,16 +66,13 @@ public class CRUDProyecto {
      * @param request
      * @return 
      */
-     @RequestMapping(value= "/crear-proyecto", method = RequestMethod.POST)
-     public String creaProyecto(HttpServletRequest request){
+     @RequestMapping(value= "/cliente/crear-proyecto", method = RequestMethod.POST)
+     public String creaProyecto(HttpServletRequest request, Principal principal){
          Proyecto proyecto = new Proyecto();
          Pertenecer pertenecer = new Pertenecer();
          //TipoDAO tipo_db = new TipoDAO();
          Tipo dtipo = new Tipo();
-         String correo = request.getParameter("correo");
-         Persona persona = persona_db.getPersona(correo);
-         if(persona==null)
-             return "ClienteNoEncontrado";
+         Persona persona = persona_db.getPersona(principal.getName());
          String area = request.getParameter("area");
          String tipop = request.getParameter("tipo");
          String codigo = creaCodigo(persona,tipop);
@@ -120,9 +118,10 @@ public class CRUDProyecto {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/ver-proyectos", method = RequestMethod.POST)
-    public ModelAndView verProyectos(ModelMap model,HttpServletRequest request){   
-        List<Proyecto> lp = proyecto_db.proyectos();
+    @RequestMapping(value= "/cliente/ver-proyectos", method = RequestMethod.POST)
+    public ModelAndView verProyectos(ModelMap model,HttpServletRequest request, Principal principal){   
+        Persona persona = persona_db.getPersona(principal.getName());
+        List<Proyecto> lp = proyecto_db.proyectosCliente(persona.getIdPersona());
         model.addAttribute("lista",lp);
         return new ModelAndView("Proyectos",model);
     }

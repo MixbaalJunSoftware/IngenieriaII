@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Mapeo.Persona;
 import Mapeo.Proyecto;
 import Mapeo.Tipo;
 import java.util.LinkedList;
@@ -140,4 +141,31 @@ public class ProyectoDAO {
         return result;
     }
     
+    
+    public List<Proyecto> proyectosCliente(Long idPersona) {
+        List<Proyecto> result = null;
+        Persona persona = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT proyecto From Pertenecer pertenecer inner join "
+                     + "pertenecer.proyecto proyecto inner join proyecto.tipo "
+                    + "where pertenecer.persona = :persona";
+            Query query = session.createQuery(hql);
+            persona = (Persona)session.get(Persona.class, idPersona);
+            query.setParameter("persona", persona);
+            result = (List<Proyecto>)query.list();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    }
 }

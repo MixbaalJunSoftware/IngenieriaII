@@ -174,10 +174,8 @@ public class CRUDEmpleado {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/empleado/contestarPrueba", method = RequestMethod.POST)
+    @RequestMapping(value= "/empleado/contestarPrueba", method = RequestMethod.GET)
     public ModelAndView contestarPrueba(ModelMap model,HttpServletRequest request, Principal principal){   
-        Persona persona = persona_bd.getPersona(principal.getName());
-        model.addAttribute(persona);
         return new ModelAndView("PruebaAL",model);
     }
     

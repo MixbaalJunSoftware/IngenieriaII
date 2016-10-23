@@ -35,13 +35,6 @@
                         </form>
                         <br/>
                         <br/>
-                        <form  method="POST"action = "/HumanQualityResearch/ver-proyectos"> 
-                            <button class="btn btn-default btn-lg">
-                                <span class="glyphicon glyphicon-book" aria-hidden="true" id="modal"> Proyectos</span> 
-                            </button>
-                        </form>    
-                        <br/>
-                        <br/>
                         <form action = "/HumanQualityResearch/logout">
                             <button class="btn btn-default btn-lg" id="modal">Salir</button>
                         </form>
@@ -81,14 +74,7 @@
                         <br/>
                         <br/>
                         <br/>
-                        <button class="btn btn-default btn-lg" data-toggle="modal" data-target="#proyectoModal">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal"> CrearProyecto</span> 
-                        </button>
-                                               
                         
-                        <br/>
-                        <br/>
-                        <br/>
                         
                         <!-- Modal del cliente -->
                         <div class="modal fade" id="codigoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
