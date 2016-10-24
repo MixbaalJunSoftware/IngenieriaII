@@ -74,19 +74,19 @@
   <p id="pregunta">1. No pierdo la concentración cuando se presentan eventos inesperados en mi trabajo.</p>
   
     <label class="radio-inline">
-      <input type="radio" name="r1" value="1">1. Totalmente en desacuerdo
+      <input required="true" type="radio" name="r1" value="1">1. Totalmente en desacuerdo
     </label>
     <label class="radio-inline">
-      <input type="radio" name="r1" value="2">2. En desacuerdo
+      <input required="true" type="radio" name="r1" value="2">2. En desacuerdo
     </label>
     <label class="radio-inline">
-      <input type="radio" name="r1" value="3">3. Ni de acuerdo ni en desacuerdo
+      <input required="true" type="radio" name="r1" value="3">3. Ni de acuerdo ni en desacuerdo
     </label>
     <label class="radio-inline">
-      <input type="radio" name="r1" value="4">4. De acuerdo
+      <input required="true" type="radio" name="r1" value="4">4. De acuerdo
     </label>
     <label class="radio-inline">
-      <input type="radio" name="r1" value="5">5. Totalmente de acuerdo
+      <input required="true" type="radio" name="r1" value="5">5. Totalmente de acuerdo
     </label>  
   
     <br/>  
@@ -94,76 +94,76 @@
     <p id="pregunta">2. Aunque las situaciones no sean estables, soy totalmente competente.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r2" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r2" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r2" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r2" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r2" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r2" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r2" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r2" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r3" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r3" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">3. Es difícil para mí encarar eventos inesperados.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r3" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r3" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r3" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r3" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r3" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r3" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r3" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r3" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r3" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r3" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">4. Me cuesta trabajo ser una persona madura.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r4" value="1">1. Totalmente en desacuerdo
+            <input  required="true" type="radio" name="r4" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r4" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r4" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r4" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r4" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r4" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r4" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r4" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r4" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">5. Mi desempeño es igual de bueno en diferentes entornos.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r5" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r5" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r5" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r5" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r5" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r5" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r5" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r5" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r5" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r5" value="5">5. Totalmente de acuerdo
         </label>  
     
     
@@ -173,95 +173,95 @@
     <p id="pregunta">6. Tengo agilidad mental.</p> 
     
         <label class="radio-inline">
-            <input type="radio" name="r6" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r6" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r6" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r6" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r6" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r6" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r6" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r6" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r6" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r6" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">7. Soy una persona madura que sabe cómo actuar en eventos impredecibles.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r7" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r7" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r7" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r7" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r7" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r7" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r7" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r7" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r7" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r7" value="5">5. Totalmente de acuerdo
         </label>  
   
     <br/>  
     <p id="pregunta">8. Me considero hábil para resolver eventos inesperados.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r8" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r8" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r8" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r8" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r8" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r8" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r8" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r8" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r8" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r8" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">9. Aunque las situaciones en mi trabajo sean inciertos, soy capaz de encararlas.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r9" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r9" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r9" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r9" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r9" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r9" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r9" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r9" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r9" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r9" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">10. Aunque no conozca a fondo la situación en la que me encuentre salgo adelante.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r10" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r10" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r10" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r10" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r10" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r10" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r10" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r10" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r10" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r10" value="5">5. Totalmente de acuerdo
         </label>  
     
     
@@ -272,95 +272,95 @@
     <p id="pregunta">11. Me siento entusiasmado cuando me enfrento a un reto difícil de resolver.</p> 
     
         <label class="radio-inline">
-            <input type="radio" name="r11" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r11" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r11" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r11" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r11" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r11" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r11" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r11" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r11" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r11" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">12. Resuelvo los conflictos de forma eficaz.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r12" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r12" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r12" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r12" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r12" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r12" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r12" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r12" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r12" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r12" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">13. No soy innovador.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r13" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r13" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r13" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r13" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r13" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r13" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r13" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r13" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r13" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r13" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">14. Muchos me consideran una persona cuadrada.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r14" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r14" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r14" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r14" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r14" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r14" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r14" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r14" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r14" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r14" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">15. Soy astuto para salir de los apuros.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r15" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r15" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r15" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r15" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r15" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r15" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r15" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r15" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r15" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r15" value="5">5. Totalmente de acuerdo
         </label>  
     
     
@@ -370,38 +370,38 @@
     <p id="pregunta">16. ¿Cuál es la respuesta correcta de la siguiente operación 38+21-66?</p> 
     
         <label class="radio-inline">
-            <input type="radio" name="r16" value="1">1. -5
+            <input required="true" type="radio" name="r16" value="1">1. -5
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r16" value="2">2. -6
+            <input required="true" type="radio" name="r16" value="2">2. -6
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r16" value="3">3. 7
+            <input required="true" type="radio" name="r16" value="3">3. 7
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r16" value="4">4. 6
+            <input required="true" type="radio" name="r16" value="4">4. 6
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r16" value="5">5. -7
+            <input required="true" type="radio" name="r16" value="5">5. -7
         </label>  
     
     <br/>  
     <p id="pregunta">17. Soluciono conflictos hábilmente.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r17" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r17" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r17" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r17" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r17" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r17" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r17" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r17" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r17" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r17" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
@@ -409,57 +409,57 @@
         para alcanzar una meta.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r18" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r18" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r18" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r18" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r18" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r18" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r18" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r18" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r18" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r18" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">19. Soy creativo, a menudo se me ocurren diferentes formas de hacer las cosas.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r19" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r19" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r19" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r19" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r19" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r19" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r19" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r19" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r19" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r19" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">20. Encuentro rápidamente respuestas a los problemas.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r20" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r20" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r20" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r20" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r20" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r20" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r20" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r20" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r20" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r20" value="5">5. Totalmente de acuerdo
         </label>  
     
     
@@ -470,95 +470,95 @@
     <p id="pregunta">21. Se me dificulta establecer nuevas relaciones personales en la empresa.</p> 
     
         <label class="radio-inline">
-            <input type="radio" name="r21" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r21" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r21" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r21" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r21" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r21" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r21" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r21" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r21" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r21" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">22. No soy comunicativo.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r22" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r22" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r22" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r22" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r22" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r22" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r22" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r22" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r22" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r22" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">23. Algunas personas dicen que soy irritante.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r23" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r23" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r23" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r23" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r23" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r23" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r23" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r23" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r23" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r23" value="5">5. Totalmente de acuerdo
         </label>  
 
     <br/>  
     <p id="pregunta">24. La relación con mis compañeros de trabajo es limitada.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r24" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r24" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r24" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r24" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r24" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r24" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r24" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r24" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r24" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r24" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">25. Prefiero estar solo que mal acompañado.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r25" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r25" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r25" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r25" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r25" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r25" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r25" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r25" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r25" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r25" value="5">5. Totalmente de acuerdo
         </label>  
 </div> 
 
@@ -567,75 +567,75 @@
     <p id="pregunta">26. A veces soy inmaduro en mi trabajo.</p> 
     
         <label class="radio-inline">
-            <input type="radio" name="r26" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r26" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r26" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r26" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r26" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r26" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r26" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r26" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r26" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r26" value="5">5. Totalmente de acuerdo
         </label>  
 
     <br/>  
     <p id="pregunta">27. Me enojo muy rápido si alguien me contradice.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r27" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r27" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r27" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r27" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r27" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r27" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r27" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r27" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r27" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r27" value="5">5. Totalmente de acuerdo
         </label>  
     <br/>  
     <p id="pregunta">28. Soy agresivo con aquellos que me provocan.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r28" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r28" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r28" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r28" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r28" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r28" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r28" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r28" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r28" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r28" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
     <p id="pregunta">29. Soy tímido, me cuesta trabajo hablar con desconocidos.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r29" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r29" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r29" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r29" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r29" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r29" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r29" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r29" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r29" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r29" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>  
@@ -644,19 +644,19 @@
     <p id="pregunta">30. Puedo ser irrespetuoso.</p>
     
         <label class="radio-inline">
-            <input type="radio" name="r30" value="1">1. Totalmente en desacuerdo
+            <input required="true" type="radio" name="r30" value="1">1. Totalmente en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r30" value="2">2. En desacuerdo
+            <input required="true" type="radio" name="r30" value="2">2. En desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r30" value="3">3. Ni de acuerdo ni en desacuerdo
+            <input required="true" type="radio" name="r30" value="3">3. Ni de acuerdo ni en desacuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r30" value="4">4. De acuerdo
+            <input required="true" type="radio" name="r30" value="4">4. De acuerdo
         </label>
         <label class="radio-inline">
-            <input type="radio" name="r30" value="5">5. Totalmente de acuerdo
+            <input required="true" type="radio" name="r30" value="5">5. Totalmente de acuerdo
         </label>  
     
     <br/>

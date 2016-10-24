@@ -107,19 +107,8 @@
         </div>
       </div>
     </div>
-      <form action = "/HumanQualityResearch/coso" method="POST">
-        <input type="text" name="coso">
-        <button>enviar</button>
-    </form>
-      <form action = "/HumanQualityResearch/verPrueba"> 
-                            <button class="btn btn-default btn-lg">
-                                Prueba 
-                            </button>
-                        </form>
-    <form action = "/HumanQualityResearch/guardaPrueba">
-                 
-        <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
-    </form>   
+ 
+        
   </body>
     <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
     <script src="<c:url value="/js/bootstrap.min.js"/> "></script>       
