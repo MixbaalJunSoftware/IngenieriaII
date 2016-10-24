@@ -1,6 +1,6 @@
 <%-- 
-    Document   : Proyectos
-    Created on : 8/10/2016, 05:49:18 PM
+    Document   : aProyectos
+    Created on : 23/10/2016, 11:39:46 PM
     Author     : danii
 --%>
 
@@ -39,6 +39,13 @@
                 <th style="color:#1D14A4;font-size: 20px;">${proyecto.areaProyecto}</th>
                 <th style="color:#1D14A4;font-size: 20px;">${proyecto.tipo.tipo}</th>
                 <th>
+                    <form method="POST" action="/HumanQualityResearch/ver-empleados" >
+                    <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
+                    <button type="submit" class="btn btn-primary btn-lg active">Empleados</button>
+                    </form>
+                    
+                </th>
+                <th>
                 <form method="POST" action="/HumanQualityResearch/jactualizar-proyecto" >
                     <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
                     <button type="submit" class="btn btn-primary btn-lg active">Modificar proyecto</button>
@@ -68,40 +75,7 @@
                             </div>
                         </div>
                 
-                </th>
-                <th>
-                    <br/>
-                        <br/>
-                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#clienteModal">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal" > CrearEmpleado</span> 
-                        </button>
-                                                 
-                        <!-- Modal del cliente -->
-                        <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;color: #1D14A4;">Nuevo Empleado</h4>
-                                    </div>
-                                    <form method="POST" action="/HumanQualityResearch/cliente/crear-empleadoCorreo" >
-                                        <div class="modal-body">
-                                            <label for="correo" style="color:#1D14A4;margin-left: 2.5cm;">Correo del cliente:</label>
-                                            <input id = "correo" name = "correo" style="margin-left:1cm;"/>
-                                            <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
-                                            <br/>
-                                            <br/>
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-primary">Crear Empleado</button>
-                                        </div>
-                                    </form>                           
-                                   
-                                </div>
-                            </div>
-                        </div>
-                </th>
+                    </th>
             </tbody>
             
         </c:forEach>

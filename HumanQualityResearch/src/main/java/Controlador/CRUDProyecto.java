@@ -111,7 +111,7 @@ public class CRUDProyecto {
      
      }
      
-      /**
+    /**
      * Metodo para mostrar la informacion de los Proyectos
      * Pone los paramentros en el model de la pagina a mostrar
      * @param model
@@ -125,6 +125,22 @@ public class CRUDProyecto {
         model.addAttribute("lista",lp);
         return new ModelAndView("Proyectos",model);
     }
+    
+    /**
+     * Metodo para mostrar la informacion de los Proyectos
+     * Pone los paramentros en el model de la pagina a mostrar
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/admin/ver-proyectos", method = RequestMethod.POST)
+    public ModelAndView verProyectosAdmin(ModelMap model,HttpServletRequest request){  
+        long id = Long.parseLong(request.getParameter("idcliente"));
+        List<Proyecto> lp = proyecto_db.proyectosCliente(id);
+        model.addAttribute("lista",lp);
+        return new ModelAndView("aProyectos",model);
+    }
+   
     
     /**
      * Metodo Auxiliar para probar el caso de uso Actualizar

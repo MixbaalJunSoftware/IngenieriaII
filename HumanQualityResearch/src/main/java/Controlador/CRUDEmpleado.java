@@ -8,14 +8,19 @@ package Controlador;
 
 import Mapeo.Empleado;
 import Mapeo.Persona;
+import Mapeo.Pertenecer;
+import Mapeo.Proyecto;
 import Mapeo.Usuario;
 import Modelo.EmpleadoDAO;
 import Modelo.PersonaDAO;
+import Modelo.PertenecerDAO;
+import Modelo.ProyectoDAO;
 import Modelo.UsuarioDAO;
 import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -43,6 +48,14 @@ public class CRUDEmpleado {
     @Autowired
     private UsuarioDAO usuario_bd;
     
+    //Instancia para operaciones con la base relacionadas con un proyecto
+    @Autowired
+    private ProyectoDAO proyecto_bd;
+    
+     //Instancia para operaciones con la base relacionadas con pertenecer
+    @Autowired
+    private PertenecerDAO pertenecer_bd;
+    
     /**
      * Método para desplegar la vista de opciones
      */
@@ -55,14 +68,25 @@ public class CRUDEmpleado {
     public String creaEmpleadoCorreo(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
         Usuario usuario = new Usuario();
+        Proyecto proyecto = null;
+        Pertenecer pertenecer = new Pertenecer();
+        Empleado empleado = new Empleado();
         String correo = request.getParameter("correo");
+        System.out.print(correo);
+        long id = Long.parseLong(request.getParameter("idproyecto"));
+        proyecto = proyecto_bd.getProyecto(id);
         Persona p = persona_bd.getPersona(correo);
         if(p==null){
             persona.setCorreo(correo);
             usuario.setPersona(persona);
+            pertenecer.setPersona(persona);
+            pertenecer.setProyecto(proyecto);
+            empleado.setPersona(persona);
             usuario.setRol("ROLE_EMPLEADO");
             persona_bd.guardar(persona);
             usuario_bd.guardar(usuario);
+            pertenecer_bd.guardar(pertenecer);
+            empleado_bd.guardar(empleado);
             return "CorreoCorrecto";
         }else{
             return "CorreoRegistrado";
@@ -114,7 +138,7 @@ public class CRUDEmpleado {
         usuario.setContrasenia(hash_password);
         //usuario.setRol("ROLE_EMPLEADO");
         persona_bd.actualizar(persona);
-        empleado_bd.guardar(empleado);
+        empleado_bd.actualizar(empleado);
         usuario_bd.actualizar(usuario);
         return "Ok";   
     }
@@ -168,6 +192,37 @@ public class CRUDEmpleado {
         empleado_bd.actualizar(empleado);
         usuario_bd.actualizar(usuario);
         return "Ok";   
+    }
+    
+    
+    /**
+     * Metodo para mostrar la informacion de los Proyectos
+     * Pone los paramentros en el model de la pagina a mostrar
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/cliente/ver-empleados", method = RequestMethod.POST)
+    public ModelAndView verEmpleadosCliente(ModelMap model,HttpServletRequest request){ 
+        long id = Long.parseLong(request.getParameter("idproyecto"));
+        List<Empleado> lp = empleado_bd.empleadosProyecto(id);
+        model.addAttribute("lista",lp);
+        return new ModelAndView("cEmpleados",model);
+    }
+    
+    /**
+     * Metodo para mostrar la informacion de los Proyectos
+     * Pone los paramentros en el model de la pagina a mostrar
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/ver-empleados", method = RequestMethod.POST)
+    public ModelAndView verEmpleadosAdmin(ModelMap model,HttpServletRequest request){  
+        long id = Long.parseLong(request.getParameter("idproyecto"));
+        List<Empleado> lp = empleado_bd.empleadosProyecto(id);
+        model.addAttribute("lista",lp);
+        return new ModelAndView("aEmpleados",model);
     }
     
     /**

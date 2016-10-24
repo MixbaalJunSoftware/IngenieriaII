@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Clientes
-    Created on : 26/09/2016, 11:44:34 AM
-    Author     : jonathan
+    Document   : aEmpleados
+    Created on : 24/10/2016, 12:36:20 AM
+    Author     : danii
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Clientes.css"/> ">
-        <title>Clientes</title>
+        <title>Empleados</title>
     </head>
     <body>
         <br/>
@@ -21,28 +21,21 @@
             </div>
             <hr/>
         </header>
-        <p id="cliente">Clientes</p>
+        <p id="empleados">Empleados</p>
         <table class="table">
             <thead>
                 <tr>
                     <th style="color:#1D14A4;font-size: 20px;">Nombre</th>
-                    <th style="color:#1D14A4;font-size: 20px;">Empresa</th>
                     <th style="color:#1D14A4;font-size: 20px;">Correo Electrónico</th>
-                    <th style="color:#1D14A4;font-size: 20px;">Proyectos</th>
+                    
                 </tr>
             </thead>
-            <c:forEach var="cliente" items="${lista}">
+            <c:forEach var="empleado" items="${lista}">
                 <tbody>
                     <tr>
-                        <th style="color:#1D14A4;font-size: 20px;">${cliente.persona.nombre}</th>
-                        <th style="color:#1D14A4;font-size: 20px;">${cliente.empresa}</th>
-                        <th style="color:#1D14A4;font-size: 20px;">${cliente.persona.correo}</th>
-                        <th>
-                            <form method="POST" action="/HumanQualityResearch/admin/ver-proyectos" >
-                                <input id="idcliente" name="idcliente" hidden="true" value="${cliente.persona.idPersona}">
-                                <button type="submit" class="btn btn-primary btn-lg active">Proyectos</button>
-                            </form>
-                        </th>
+                        <th style="color:#1D14A4;font-size: 20px;">${empleado.persona.nombre}</th>
+                        <th style="color:#1D14A4;font-size: 20px;">${empleado.persona.correo}</th>
+                        
                     </tr>
                 </tbody>
             </c:forEach>
@@ -54,3 +47,4 @@
     </body>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
+

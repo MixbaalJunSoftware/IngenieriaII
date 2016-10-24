@@ -6,6 +6,8 @@
 package Modelo;
 
 import Mapeo.Empleado;
+import Mapeo.Persona;
+import Mapeo.Proyecto;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -136,4 +138,31 @@ public class EmpleadoDAO {
         return result;
     }
     
+    public List<Empleado> empleadosProyecto(Long idProyecto){
+        Proyecto proyecto = null;
+        List<Empleado> result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT empleado FROM Empleado empleado, Pertenecer pertenecer "
+                    + "inner join empleado.persona inner join pertenecer.proyecto proyecto "
+                    + "WHERE proyecto = :proyecto";
+            Query query = session.createQuery(hql);
+            proyecto = (Proyecto)session.get(Proyecto.class, idProyecto);
+            query.setParameter("proyecto", proyecto);
+            result = (List<Empleado>)query.list();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    
+    }
 }
