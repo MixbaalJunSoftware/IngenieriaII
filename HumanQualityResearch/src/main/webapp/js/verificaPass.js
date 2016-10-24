@@ -6,7 +6,7 @@ $(document).ready(function() {
 });
 
 function verificaPassword() {
-    $.getJSON("/HumanQualityResearch/account/availability", 
+    $.getJSON("/HumanQualityResearch/account-availability", 
         { correo: $('#correo').val() }, 
         function (value) {
             puesto = document.f1.puesto.value;
