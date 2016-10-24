@@ -81,8 +81,28 @@
             </form>
             <br/>
             <p style="color:#1D14A4;">Si olvidaste tu contraseña o usuario haz click
-              <a href="link">aquí</a>
+               <a  data-toggle="modal" data-target="#recoverModal">aquí</a>
             </p>
+            <!-- Modal de recuperar contrasenia -->
+                <div class="modal fade" id="recoverModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                    <h4 class="modal-title" id="myModalLabel" style="color:#1D14A4;">Ingresa tu correo electrónico</h4>
+                                </div>
+                            <div class="modal-body">
+                                <form id = "frecover" name ="frecover" method="POST" action="/HumanQualityResearch/restablecerPassword">
+                                    <input id = "correoRecover" name="correoRecover" type="text">
+                                    <input type="button" class="btn btn-primary" name="correo-recover" id="correo-recover" value="enviar">
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button  class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
           </div>
         </div>
       </div>
@@ -104,6 +124,7 @@
     <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
     <script src="<c:url value="/js/bootstrap.min.js"/> "></script>       
     <script src=" <c:url value="/js/validaCorreo.js" /> "></script>
+    <script src=" <c:url value="/js/validaCorreoRecover.js" /> "></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
 

@@ -35,13 +35,31 @@
                 <value>Mapeo.Respuesta</value>
                 <value>Mapeo.Tipo</value>
                 <value>Mapeo.Usuario</value>
+                <value>Mapeo.TokenPassword</value>
             </list>
         </property>
         <property name="hibernateProperties">
             <props>
                 <prop key="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</prop>
-                <prop key="hibernate.show_sql">false</prop>
+                <prop key="hibernate.show_sql">true</prop>
                 <prop key="hibernate.format_sql">false</prop>
+            </props>
+        </property>
+    </bean>
+    
+    <!--java mail-->
+     <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+        <property name="host" value="smtp.gmail.com" />
+        <property name="port" value="587"/>
+        <property name="username" value="prestalibrosunam@gmail.com" />
+        <property name="password" value="Mixbaal1234" />
+        <property name="defaultEncoding" value="UTF-8" />
+ 
+    <property name="javaMailProperties">
+            <props>
+                <prop key="mail.smtp.auth">true</prop>
+                <prop key="mail.debug">true</prop>
+                <prop key="mail.smtp.starttls.enable">true</prop>
             </props>
         </property>
     </bean>
@@ -57,6 +75,8 @@
     <bean id="TipoDAO" class="Modelo.TipoDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="EmpleadoDAO" class="Modelo.EmpleadoDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="RespuestaDAO" class="Modelo.RespuestaDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="TokenPasswordDAO" class="Modelo.TokenPasswordDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    
     <!-- SpringSecurity -->
 
     <security:http pattern="/css/*" security="none"/>
@@ -68,6 +88,7 @@
         <security:intercept-url pattern="/admin/*" access="hasRole('ADMIN')" />
         <security:intercept-url pattern="/w/**" 
                                 access="hasAnyRole('CLIENTE','EMPLEADO','ADMIN')" />
+        <security:intercept-url pattern="/cambiarPassword" access="hasRole('PASSWORD')" />
         <security:form-login login-page="/"
                              authentication-failure-url="/?login_error=1"
                              default-target-url="/home"

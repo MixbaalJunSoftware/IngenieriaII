@@ -11,6 +11,7 @@ import Mapeo.Usuario;
 import Modelo.ClienteDAO;
 import Modelo.PersonaDAO;
 import Modelo.UsuarioDAO;
+import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -116,13 +117,8 @@ public class CRUDCliente {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/prueba-actualiza-cliente", method = RequestMethod.POST)
+    @RequestMapping(value= "/actualiza-cliente", method = RequestMethod.GET)
     public ModelAndView previoActualizar(ModelMap model,HttpServletRequest request){   
-        long id = Long.parseLong(request.getParameter("id"));
-        Usuario usuario = usuario_bd.getUsuario(id);
-        model.addAttribute("usuario", usuario);
-        if(usuario == null)
-            return new ModelAndView("ClienteNoEncontrado",model);
         return new ModelAndView("EditarCliente",model);
     }
     
@@ -131,16 +127,15 @@ public class CRUDCliente {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/actualizar-cliente", method = RequestMethod.POST)
-    public String actualizaCliente(HttpServletRequest request){
-        long id = Long.parseLong(request.getParameter("idcliente"));
-        Cliente cliente = cliente_bd.getCliente(id);
-        Usuario usuario = usuario_bd.getUsuario(id);
+    @RequestMapping(value= "/actualizar-cliente-accion", method = RequestMethod.POST)
+    public String actualizaCliente(HttpServletRequest request,Principal principal){
+        Cliente cliente = cliente_bd.getCliente(principal.getName());
+        Usuario usuario = usuario_bd.getUsuario(principal.getName());
         String puesto = request.getParameter("puesto");
         String area = request.getParameter("area");
         String telefono = request.getParameter("tel");
         String celular = request.getParameter("cel");
-        String pasword = request.getParameter("newpass");
+        String pasword = request.getParameter("pass");
         if(!puesto.equals(""))
             cliente.setPuestoCliente(puesto);
         if(!area.equals(""))

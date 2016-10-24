@@ -15,11 +15,11 @@
             tel = document.f1.tel.value;
             cel = document.f1.cel.value;
             clave1 = document.f1.pass.value; 
-            clave2 = "${usuario.getContrasenia()}";
+            clave2 = document.f1.rpass.value;
             if (puesto === area && area === tel && tel === cel && cel === clave1)
                 alert("Debes llenar almenos un campo");
             else if (clave1 !== "" && clave1 !== clave2){ 
-                alert("La contraseña anterior no coincide");
+                alert("Las contraseñas no coinciden");
             }else
                 document.getElementById("f1").submit(); 
         }
@@ -40,7 +40,7 @@
             <div class="container">
         <h1 style="color:blue;">Ingresa los campos que deseas editar</h1>
         <br/>
-        <form id = "f1" name="f1" method="POST" action="/HumanQualityResearch/actualizar-cliente" >
+        <form id = "f1" name="f1" method="POST" action="/HumanQualityResearch/actualizar-cliente-accion" >
             <label for="puesto">Puesto:</label>
             <input id = "puesto" name = "puesto" style="margin-left: 2cm"/>
             <br/>
@@ -59,12 +59,12 @@
             <br/>
             <h1 style="color:blue;">Modificar contraseña</h1>
             <br/>
-            <label for="pass">Contraseña anterior:</label>
+            <label for="pass">Contraseña:</label>
             <input type="password" id = "pass" name = "pass" style="margin-left: 1cm"/>
             <br/>
             <br/>
-            <label for="newpass">Nueva contraseña:</label>
-            <input type="password" id = "newpass" name = "newpass" style="margin-left: 1.3cm"/>
+            <label for="newpass">Repite la contraseña:</label>
+            <input type="password" id = "rpass" name = "rpass" style="margin-left: 1.3cm"/>
             <br/>
             <br/>
             <input id="idcliente" name="idcliente" hidden="true" value="${usuario.persona.idPersona}">

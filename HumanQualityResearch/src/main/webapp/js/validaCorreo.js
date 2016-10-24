@@ -1,11 +1,11 @@
 $(document).ready(function() {
     // check name availability on focus lost
     $('#enviar-correo').click(function() {
-        checkAvailability();
+        checkAvailabilityRecover();
     });
 });
 
-function checkAvailability() {
+function checkAvailabilityRecover() {
     $.getJSON("/HumanQualityResearch/account/availability", 
         { correo: $('#correo').val() }, 
         function(disponible) {

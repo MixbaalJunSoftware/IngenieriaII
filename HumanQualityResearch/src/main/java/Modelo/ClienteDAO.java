@@ -139,5 +139,30 @@ public class ClienteDAO {
         return result;
     }
     
+    public Cliente getCliente(String correo){
+        Cliente result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT c From Cliente c where c.persona.correo = :correo";
+            Query query = session.createQuery(hql);
+            query.setParameter("correo", correo);             
+            List<Cliente> l = query.list();
+            result = l.get(0);
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    
+    }
+    
     
 }

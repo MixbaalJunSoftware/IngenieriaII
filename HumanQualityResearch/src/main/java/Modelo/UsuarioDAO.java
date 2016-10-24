@@ -6,6 +6,7 @@
 package Modelo;
 
 import Mapeo.Usuario;
+import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -143,6 +144,60 @@ public class UsuarioDAO {
         }
         return result;
     
+    }
+    
+    public Usuario getUsuario(String correo){
+        Usuario result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT u From Usuario u where u.persona.correo = :correo";
+            Query query = session.createQuery(hql);
+            query.setParameter("correo", correo);             
+            List<Usuario> l = query.list();
+            result = l.get(0);
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    
+    }
+    
+    public boolean cambiarPassword(long id_usuario, String password){
+        
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        boolean exito = false;
+        
+        try {
+           tx = session.beginTransaction();
+           String hql = "from Usuario u where u.persona.idPersona = :id_usuario";
+           Query query = session.createQuery(hql);
+           query.setParameter("id_usuario", id_usuario);
+           List<Usuario> l = query.list();
+           Usuario usuario = l.get(0);
+           usuario.setContrasenia(password);
+           session.update(usuario);
+           tx.commit();
+           exito = true;
+           
+        }
+        catch (Exception e) {
+           if (tx!=null) tx.rollback();
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        
+        return exito;
     }
     
 }
