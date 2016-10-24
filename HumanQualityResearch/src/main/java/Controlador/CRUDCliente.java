@@ -103,10 +103,10 @@ public class CRUDCliente {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hash_password = passwordEncoder.encode(password) ;
         usuario.setContrasenia(hash_password);
-        usuario.setRol("ROLE_CLIENTE");
+        //usuario.setRol("ROLE_CLIENTE");
         persona_bd.actualizar(persona);
-        cliente_bd.guardar(cliente);
-        usuario_bd.guardar(usuario);
+        cliente_bd.actualizar(cliente);
+        usuario_bd.actualizar(usuario);
         return "Ok";   
     }
     
@@ -223,7 +223,7 @@ public class CRUDCliente {
         model.addAttribute("correoRegistrado", correo);
         String role = usuario_bd.getRole(correo);
         System.out.print(role);
-        if(role == null || role == " ")
+        if(role == "ROLE CLIENTE")
             return new ModelAndView("CrearCliente",model);
         else
             return new ModelAndView("CrearEmpleado", model);
@@ -238,11 +238,18 @@ public class CRUDCliente {
     @RequestMapping(value= "/crear-clienteCorreo", method = RequestMethod.POST)
     public String creaClienteCorreo(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
+        Cliente cliente = new Cliente();
+        Usuario usuario = new Usuario();
         String correo = request.getParameter("correo");
         Persona p = persona_bd.getPersona(correo);
         if(p==null){
             persona.setCorreo(correo);
+            cliente.setPersona(persona);
+            usuario.setPersona(persona);
+            usuario.setRol("ROLE_CLIENTE");
             persona_bd.guardar(persona);
+            cliente_bd.guardar(cliente);
+            usuario_bd.guardar(usuario);
             return "CorreoCorrecto";
         }else{
             return "CorreoRegistrado";
