@@ -103,7 +103,7 @@ public class CRUDCliente {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hash_password = passwordEncoder.encode(password) ;
         usuario.setContrasenia(hash_password);
-        //usuario.setRol("ROLE_CLIENTE");
+        usuario.setRol("ROLE_CLIENTE");
         persona_bd.actualizar(persona);
         cliente_bd.actualizar(cliente);
         usuario_bd.actualizar(usuario);
