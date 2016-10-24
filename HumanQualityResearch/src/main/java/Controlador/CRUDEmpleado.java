@@ -136,7 +136,7 @@ public class CRUDEmpleado {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hash_password = passwordEncoder.encode(password) ;
         usuario.setContrasenia(hash_password);
-        //usuario.setRol("ROLE_EMPLEADO");
+        usuario.setRol("ROLE_EMPLEADO");
         persona_bd.actualizar(persona);
         empleado_bd.actualizar(empleado);
         usuario_bd.actualizar(usuario);
@@ -176,7 +176,7 @@ public class CRUDEmpleado {
         String puesto = request.getParameter("puesto");
         String telefono = request.getParameter("tel");
         String celular = request.getParameter("cel");
-        String pasword = request.getParameter("newpass");
+        String pasword = request.getParameter("rpass");
         if(!puesto.equals(""))
             empleado.setPuestoempleado(puesto);
         if(!telefono.equals(""))
@@ -188,6 +188,7 @@ public class CRUDEmpleado {
             String hash_password = passwordEncoder.encode(pasword) ;
             usuario.setContrasenia(hash_password);
         }
+        usuario.setRol("ROLE_EMPLEADO");
         persona_bd.actualizar(persona);
         empleado_bd.actualizar(empleado);
         usuario_bd.actualizar(usuario);
@@ -207,6 +208,7 @@ public class CRUDEmpleado {
         long id = Long.parseLong(request.getParameter("idproyecto"));
         List<Empleado> lp = empleado_bd.empleadosProyecto(id);
         model.addAttribute("lista",lp);
+        System.out.println(lp+"hola");
         return new ModelAndView("cEmpleados",model);
     }
     

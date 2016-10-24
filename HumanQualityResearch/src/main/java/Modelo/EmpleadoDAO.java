@@ -149,8 +149,7 @@ public class EmpleadoDAO {
                     + "inner join empleado.persona inner join pertenecer.proyecto proyecto "
                     + "WHERE proyecto = :proyecto";
             Query query = session.createQuery(hql);
-            proyecto = (Proyecto)session.get(Proyecto.class, idProyecto);
-            query.setParameter("proyecto", proyecto);
+            query.setParameter("idproyecto", idProyecto);
             result = (List<Empleado>)query.list();
             tx.commit();
         }

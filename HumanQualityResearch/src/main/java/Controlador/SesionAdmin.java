@@ -201,8 +201,8 @@ public class SesionAdmin {
             return "redirect:/admin/home";
         }else if(request.isUserInRole("ROLE_CLIENTE")){
             return "redirect:/cliente/home";
-        }else if(request.isUserInRole("ROLE_CANDIDATO")){
-            return "redirect:/candidato/home";
+        }else if(request.isUserInRole("ROLE_EMPLEADO")){
+            return "redirect:/empleado/home";
         }
         return "redirect:/";
     

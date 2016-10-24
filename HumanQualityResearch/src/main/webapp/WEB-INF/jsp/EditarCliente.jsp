@@ -18,7 +18,7 @@
             clave2 = document.f1.rpass.value;
             if (puesto === area && area === tel && tel === cel && cel === clave1)
                 alert("Debes llenar almenos un campo");
-            else if (clave1 !== "" && clave1 !== clave2){ 
+            else if (clave1 !== clave2){ 
                 alert("Las contraseñas no coinciden");
             }else
                 document.getElementById("f1").submit(); 
@@ -72,7 +72,7 @@
             <br/>
         </form>
             </div>
-            <form action="/HumanQualityResearch/opciones" >
+            <form action="/HumanQualityResearch/redirect-home" >
                     <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
             </form>
             <br/>

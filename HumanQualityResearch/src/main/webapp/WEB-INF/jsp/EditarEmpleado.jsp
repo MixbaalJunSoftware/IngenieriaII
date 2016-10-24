@@ -10,17 +10,17 @@
 <html>
     <script>
         function myFunction() {
-            puesto = document.f1.puesto.value;
-            tel = document.f1.tel.value;
-            cel = document.f1.cel.value;
-            clave1 = document.f1.pass.value; 
-            clave2 = "${usuario.getContrasenia()}";
+            puesto = document.fempleado.puesto.value;
+            tel = document.fempleado.tel.value;
+            cel = document.fempleado.cel.value;
+            clave1 = document.fempleado.pass.value; 
+            clave2 = document.fempleado.rpass.value;
             if (puesto === tel && tel === cel && cel === clave1)
                 alert("Debes llenar almenos un campo");
-            else if (clave1 !== "" && clave1 !== clave2){ 
-                alert("La contraseña anterior no coincide");
+            else if (clave1 !== clave2){ 
+                alert("Las contraseñas no coinciden");
             }else
-                document.getElementById("f1").submit(); 
+                document.getElementById("fempleado").submit(); 
         }
     </script>
     <head>
@@ -39,7 +39,7 @@
             <div class="container">
         <h1 style="color:blue;">Ingresa los campos que deseas editar</h1>
         <br/>
-        <form id = "f1" name="f1" method="POST" action="/HumanQualityResearch/empleado/actualizar-empleado" >
+        <form id = "fempleado" name="fempleado" method="POST" action="/HumanQualityResearch/empleado/actualizar-empleado" >
             <label for="puesto">Puesto:</label>
             <input id = "puesto" name = "puesto" style="margin-left: 2cm"/>
             <br/>
@@ -54,12 +54,12 @@
             <br/>
             <h1 style="color:blue;">Modificar contraseña</h1>
             <br/>
-            <label for="pass">Contraseña anterior:</label>
+            <label for="pass">Contraseña:</label>
             <input type="password" id = "pass" name = "pass" style="margin-left: 1cm"/>
             <br/>
             <br/>
-            <label for="newpass">Nueva contraseña:</label>
-            <input type="password" id = "newpass" name = "newpass" style="margin-left: 1.3cm"/>
+            <label for="newpass">Repite la contraseña:</label>
+            <input type="password" id = "rpass" name = "rpass" style="margin-left: 1.3cm"/>
             <br/>
             <br/>
             <input id="idempleado" name="idempleado" hidden="true" value="${usuario.persona.idPersona}">
@@ -67,7 +67,7 @@
             <br/>
         </form>
             </div>
-            <form action="/HumanQualityResearch/opciones" >
+            <form action="/HumanQualityResearch/redirect-home" >
                     <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
             </form>
             <br/>

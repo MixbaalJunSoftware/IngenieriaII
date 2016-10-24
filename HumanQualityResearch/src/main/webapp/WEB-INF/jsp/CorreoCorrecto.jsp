@@ -26,7 +26,7 @@
             <br/>
             <br/>
             <br/>
-            <form method="POST" action="/HumanQualityResearch/admin/home" >
+            <form method="POST" action="/HumanQualityResearch/redirect-home" >
                     <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 15cm;color:#1662B2;">Regresar</button>
             </form>
     </body>
