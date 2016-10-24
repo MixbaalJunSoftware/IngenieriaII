@@ -85,10 +85,12 @@ public class CRUDEmpleado {
         String nombre = request.getParameter("nombre");
         String app = request.getParameter("app");
         String apm = request.getParameter("apm");
-        SimpleDateFormat ft = new SimpleDateFormat ("dd-mm-yyyy"); 
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-mm-dd"); 
         Date fecha = null;
+        String f = request.getParameter("fecha3") +"-"+request.getParameter("fecha2")+"-"+request.getParameter("fecha1"); 
+        System.out.println(f);
         try {
-            fecha = ft.parse(request.getParameter("fecha"));  
+            fecha = ft.parse(f);    
         }catch (ParseException e) { 
              System.out.println("Unparseable using " + ft); 
         }

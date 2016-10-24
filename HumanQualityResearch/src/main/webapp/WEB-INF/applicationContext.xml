@@ -56,6 +56,7 @@
     <bean id="ProyectoDAO" class="Modelo.ProyectoDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="TipoDAO" class="Modelo.TipoDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="EmpleadoDAO" class="Modelo.EmpleadoDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="RespuestaDAO" class="Modelo.RespuestaDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <!-- SpringSecurity -->
 
     <security:http pattern="/css/*" security="none"/>

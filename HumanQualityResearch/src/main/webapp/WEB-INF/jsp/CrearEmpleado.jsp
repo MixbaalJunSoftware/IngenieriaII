@@ -41,7 +41,7 @@
             <br/>
             <label for="fecha" style="color:#1D14A4;">Fecha de nacimiento:</label>
             <!--<input required="true" id = "fecha" name = "fecha" style="margin-left:"/>-->
-            <select name="fecha" id="dia">
+            <select name="fecha1" id="dia">
                 <option value="01">1</option>
                 <option value="02">2</option>
                 <option value="03">3</option>
@@ -75,7 +75,7 @@
                 <option value="31">31</option>
             </select>
             -
-            <select name="fecha" id="mes">
+            <select name="fecha2" id="mes">
                 <option value="01">1</option>
                 <option value="02">2</option>
                 <option value="03">3</option>
@@ -90,7 +90,7 @@
                 <option value="12">12</option>
             </select>
             -
-            <select name="fecha" id="anio">
+            <select name="fecha3" id="anio">
                 <option value="1940">1940</option>
                 <option value="1941">1941</option>
                 <option value="1942">1942</option>

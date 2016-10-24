@@ -27,13 +27,13 @@
   </style>
   </head>
   <body data-spy="scroll" data-target=".navbar" data-offset="50">
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
+      
+      <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
           <span class="icon-bar"></span>
       </button>
       <a class="navbar-brand" href="#">HQR</a>
@@ -638,6 +638,7 @@
         </label>  
     </form>
     <br/>  
+    
     <p id="pregunta">30. Puedo ser irrespetuoso.</p>
     <form>
         <label class="radio-inline">
@@ -657,8 +658,10 @@
         </label>  
     </form>
     <br/>
-    <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>
-            
+     
+   
+                 
+    <button type="submit" class="btn btn-primary btn-lg active">Aceptar</button>        
 
 </div>
 
