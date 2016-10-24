@@ -103,7 +103,7 @@ public class CRUDCliente {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hash_password = passwordEncoder.encode(password) ;
         usuario.setContrasenia(hash_password);
-        usuario.setRol("ROLE_CLIENTE");
+        //usuario.setRol("ROLE_CLIENTE");
         persona_bd.actualizar(persona);
         cliente_bd.actualizar(cliente);
         usuario_bd.actualizar(usuario);
@@ -223,7 +223,7 @@ public class CRUDCliente {
         model.addAttribute("correoRegistrado", correo);
         String role = usuario_bd.getRole(correo);
         System.out.print(role);
-        if(role == null && role != "ROLE_EMPLEADO")
+        if(role.equals("ROLE_CLIENTE"))
             return new ModelAndView("CrearCliente",model);
         else
             return new ModelAndView("CrearEmpleado", model);

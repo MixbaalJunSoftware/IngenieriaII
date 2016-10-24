@@ -39,6 +39,13 @@
                 <th style="color:#1D14A4;font-size: 20px;">${proyecto.areaProyecto}</th>
                 <th style="color:#1D14A4;font-size: 20px;">${proyecto.tipo.tipo}</th>
                 <th>
+                    <form method="POST" action="/HumanQualityResearch/ver-empleados" >
+                    <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
+                    <button type="submit" class="btn btn-primary btn-lg active">Empleados</button>
+                    </form>
+                    
+                </th>
+                <th>
                 <form method="POST" action="/HumanQualityResearch/jactualizar-proyecto" >
                     <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
                     <button type="submit" class="btn btn-primary btn-lg active">Modificar proyecto</button>
