@@ -229,7 +229,7 @@ public class CRUDCliente {
             return new ModelAndView("CrearEmpleado", model);
     }
     
-    @RequestMapping(value="/account/availability", method=RequestMethod.GET)
+    @RequestMapping(value="/account-availability", method=RequestMethod.GET)
     public @ResponseBody boolean getAvailability(@RequestParam("correo")String correo) {
         Persona persona = persona_bd.getPersona(correo);
         return persona != null && persona.getNombre()== null;

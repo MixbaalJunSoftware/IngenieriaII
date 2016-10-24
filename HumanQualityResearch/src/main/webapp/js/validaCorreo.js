@@ -6,7 +6,7 @@ $(document).ready(function() {
 });
 
 function checkAvailabilityRecover() {
-    $.getJSON("/HumanQualityResearch/account/availability", 
+    $.getJSON("/HumanQualityResearch/account-availability", 
         { correo: $('#correo').val() }, 
         function(disponible) {
             if (disponible) {
