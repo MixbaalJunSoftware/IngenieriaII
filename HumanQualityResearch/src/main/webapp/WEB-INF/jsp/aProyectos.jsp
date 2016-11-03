@@ -80,7 +80,7 @@
             
         </c:forEach>
         </table>
-        <form method="POST" action="/HumanQualityResearch/redirect-home" >
+        <form method="GET" action="/HumanQualityResearch/redirect-home" >
                     <button type="submit"  class="btn btn-primary btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
         </form>
     </body>

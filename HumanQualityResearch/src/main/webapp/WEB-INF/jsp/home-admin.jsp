@@ -28,7 +28,7 @@
                     <div class="col-md-4 col-md-offset-1">
                         <br/>
                         <br/>
-                        <form  method="POST"action = "/HumanQualityResearch/ver-clientes">        
+                        <form  method="GET"action = "/HumanQualityResearch/ver-clientes">        
                             <button class="btn btn-default btn-lg">
                                 <span class="glyphicon glyphicon-user" aria-hidden="true" id="modal"> Clientes</span> 
                             </button>

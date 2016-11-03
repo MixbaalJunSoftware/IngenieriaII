@@ -16,8 +16,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import javax.mail.Message;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -107,7 +112,34 @@ public class CRUDCliente {
         persona_bd.actualizar(persona);
         cliente_bd.actualizar(cliente);
         usuario_bd.actualizar(usuario);
+        String url = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+        mail_sender.send(construirEmail(url,correo));
         return "Ok";   
+    }
+    
+    @Autowired
+    JavaMailSender mail_sender;
+    
+    private MimeMessagePreparator construirEmail(String contextPath, final String correo) {
+        
+        final String texto = "Tu correo ha sido dado de alta en HQR\n"
+                           + "Termina tu registro en HQR en el siguiente link para"
+                           + "empezar a usar el sitio";
+        final String url = contextPath + "/correo?id=" +correo;
+        
+        MimeMessagePreparator message_preparator = new MimeMessagePreparator() {
+ 
+            @Override
+            public void prepare(MimeMessage mime_message) throws Exception {
+                mime_message.setFrom("");
+                mime_message.setRecipient(Message.RecipientType.TO,
+                        new InternetAddress(correo));
+                mime_message.setText(texto + "\n" + url);
+                mime_message.setSubject("Temina tu registro");
+            }
+        };
+        
+        return message_preparator;        
     }
     
     
@@ -209,7 +241,7 @@ public class CRUDCliente {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/ver-clientes", method = RequestMethod.POST)
+    @RequestMapping(value= "/ver-clientes", method = RequestMethod.GET)
     public ModelAndView verClientes(ModelMap model,HttpServletRequest request){   
         List<Cliente> c = cliente_bd.Clientes();
         model.addAttribute("lista",c);

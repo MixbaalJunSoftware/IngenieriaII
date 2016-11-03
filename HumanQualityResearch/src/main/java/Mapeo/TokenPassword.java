@@ -35,7 +35,7 @@ public class TokenPassword implements Serializable {
     private Persona persona;
     
     @Column(name = "fechaToken")
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fechaToken;
     
     @Column(name = "token")

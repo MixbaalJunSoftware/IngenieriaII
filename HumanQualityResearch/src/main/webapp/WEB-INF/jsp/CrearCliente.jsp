@@ -206,7 +206,7 @@
                 
             </div>
         </div>
-            <form method="POST" action="/HumanQualityResearch/redirect-home" >
+            <form method="GET" action="/HumanQualityResearch/redirect-home" >
                 <button type="submit"  class="btn btn-primary btn-lg active" style="margin-left: 27cm;">Regresar</button>
             </form>
             <br/>
