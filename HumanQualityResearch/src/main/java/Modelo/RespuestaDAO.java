@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Mapeo.Respuesta;
+import Mapeo.RAdaptabilidad;
 import java.util.LinkedList;
 import java.util.List;
 import org.hibernate.Hibernate;
@@ -26,7 +26,7 @@ public class RespuestaDAO {
         this.sessionFactory = sessionFactory;
     }
     
-    public void guardar(Respuesta respuesta) {
+    public void guardar(RAdaptabilidad respuesta) {
     
         Session session = sessionFactory.openSession();
         Transaction tx = null;

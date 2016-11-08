@@ -9,9 +9,7 @@
         <link rel="stylesheet" href=" <c:url value="/css/error403.css" /> ">
     </head>
     <body>
-        
-        <h1><img src=" <c:url value="/imagenes/unam_logo.png"/> " alt="">Sistema Escolar</h1>    
-        <img src=" <c:url value="/imagenes/forbidden_access_logo.png" /> ">
+       
         <label>Acceso Denegado</label>
 
     </body>

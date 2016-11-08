@@ -145,9 +145,9 @@ public class EmpleadoDAO {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "SELECT empleado FROM Empleado empleado, Pertenecer pertenecer "
-                    + "inner join empleado.persona inner join pertenecer.proyecto proyecto "
-                    + "WHERE proyecto = :proyecto";
+            String hql = "SELECT r FROM Empleado r WHERE r.persona.idPersona IN "
+                       + "(SELECT p.persona.idPersona FROM Pertenecer p "
+                       + " WHERE p.proyecto.idProyecto = :idproyecto)";
             Query query = session.createQuery(hql);
             query.setParameter("idproyecto", idProyecto);
             result = (List<Empleado>)query.list();

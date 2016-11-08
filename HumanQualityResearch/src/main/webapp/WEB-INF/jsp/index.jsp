@@ -47,7 +47,7 @@
                                         <h4 class="modal-title" id="myModalLabel" style="color:#1D14A4;">Ingresa tu correo electrónico</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form id = "f1" name ="f1" method="POST" action="/HumanQualityResearch/completar-regitro">
+                                        <form id = "f1" name ="f1" method="POST" action="/HumanQualityResearch/completar-registro">
                                             <input id = "correo" name="correo" type="text">
                                             <input type="button" class="btn btn-primary" name="enviar-correo" id="enviar-correo" value="enviar">
                                         </form>

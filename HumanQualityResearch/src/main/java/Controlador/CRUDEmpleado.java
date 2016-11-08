@@ -21,8 +21,13 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import javax.mail.Message;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessagePreparator;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -64,6 +69,31 @@ public class CRUDEmpleado {
         return "Opciones";
     }
     
+    @Autowired
+    JavaMailSender mail_sender;
+    
+    private MimeMessagePreparator construirEmail(String contextPath, final String correo) {
+        
+        final String texto = "Tu correo ha sido dado de alta en HumanQualityResearch\n"
+                           + "Ingresa al sitio par terminar tu registro y\n"
+                           + "empezar a usar el sitio";
+        final String url = contextPath;// + "/crear-cliente/correo?id=" +correo;
+        
+        MimeMessagePreparator message_preparator = new MimeMessagePreparator() {
+ 
+            @Override
+            public void prepare(MimeMessage mime_message) throws Exception {
+                mime_message.setFrom("");
+                mime_message.setRecipient(Message.RecipientType.TO,
+                        new InternetAddress(correo));
+                mime_message.setText(texto + "\n" + url);
+                mime_message.setSubject("Temina tu registro");
+            }
+        };
+        
+        return message_preparator;        
+    }
+    
     @RequestMapping(value= "/cliente/crear-empleadoCorreo", method = RequestMethod.POST)
     public String creaEmpleadoCorreo(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
@@ -73,7 +103,7 @@ public class CRUDEmpleado {
         Empleado empleado = new Empleado();
         String correo = request.getParameter("correo");
         System.out.print(correo);
-        long id = Long.parseLong(request.getParameter("idproyecto"));
+        long id = Long.parseLong(request.getParameter("idproyectoCrea"));
         proyecto = proyecto_bd.getProyecto(id);
         Persona p = persona_bd.getPersona(correo);
         if(p==null){
@@ -87,6 +117,8 @@ public class CRUDEmpleado {
             usuario_bd.guardar(usuario);
             pertenecer_bd.guardar(pertenecer);
             empleado_bd.guardar(empleado);
+            String url = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+            mail_sender.send(construirEmail(url,correo));
             return "CorreoCorrecto";
         }else{
             return "CorreoRegistrado";

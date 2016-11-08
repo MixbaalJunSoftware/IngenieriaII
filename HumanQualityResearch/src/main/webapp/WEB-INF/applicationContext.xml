@@ -32,10 +32,13 @@
                 <value>Mapeo.Persona</value>
                 <value>Mapeo.Pertenecer</value>
                 <value>Mapeo.Proyecto</value>
-                <value>Mapeo.Respuesta</value>
+                <value>Mapeo.RClimaLaboral</value>
+                <value>Mapeo.RAdaptabilidad</value>
                 <value>Mapeo.Tipo</value>
                 <value>Mapeo.Usuario</value>
                 <value>Mapeo.TokenPassword</value>
+                <value>Mapeo.PruebaCliente</value>
+                <value>Mapeo.PruebaProyecto</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -76,7 +79,6 @@
     <bean id="EmpleadoDAO" class="Modelo.EmpleadoDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="RespuestaDAO" class="Modelo.RespuestaDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="TokenPasswordDAO" class="Modelo.TokenPasswordDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
-    
     <!-- SpringSecurity -->
 
     <security:http pattern="/css/*" security="none"/>

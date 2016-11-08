@@ -40,16 +40,16 @@
                 <th style="color:#1D14A4;font-size: 20px;">${proyecto.tipo.tipo}</th>
                 <th>
                     <form method="POST" action="/HumanQualityResearch/ver-empleados" >
-                    <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
-                    <button type="submit" class="btn btn-primary btn-lg active">Empleados</button>
+                        <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
+                        <button type="submit" class="btn btn-primary btn-lg active">Empleados</button>
                     </form>
                     
                 </th>
                 <th>
-                <form method="POST" action="/HumanQualityResearch/jactualizar-proyecto" >
-                    <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
-                    <button type="submit" class="btn btn-primary btn-lg active">Modificar proyecto</button>
-                </form>
+                    <form method="POST" action="/HumanQualityResearch/jactualizar-proyecto" >
+                        <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
+                        <button type="submit" class="btn btn-primary btn-lg active">Modificar proyecto</button>
+                    </form>
                 </th>
                 <th>
                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#eliminar">
@@ -78,13 +78,12 @@
                 </th>
                 <th>
                     <br/>
-                        <br/>
-                        <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#clienteModal">
-                            <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal" > CrearEmpleado</span> 
-                        </button>
-                                                 
-                        <!-- Modal del cliente -->
-                        <div class="modal fade" id="clienteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <br/>
+                    <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#clienteModal${proyecto.idProyecto}">
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal" > CrearEmpleado</span> 
+                    </button>                             
+                    <!-- Modal del cliente -->
+                        <div class="modal fade" id="clienteModal${proyecto.idProyecto}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -95,7 +94,7 @@
                                         <div class="modal-body">
                                             <label for="correo" style="color:#1D14A4;margin-left: 2.5cm;">Correo del cliente:</label>
                                             <input id = "correo" name = "correo" style="margin-left:1cm;"/>
-                                            <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
+                                            <input id="idproyectoCrea" name="idproyectoCrea" hidden="true" value="${proyecto.idProyecto}">
                                             <br/>
                                             <br/>
                                         </div>

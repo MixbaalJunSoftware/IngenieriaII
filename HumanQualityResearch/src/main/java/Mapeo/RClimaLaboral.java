@@ -18,21 +18,21 @@ import javax.persistence.Temporal;
 
 
 @Entity
-@Table(name="respuesta")
+@Table(name="rclimalaboral")
 
 /**
  *
  * @author Mixbaal
  * @version 1.0
  */
-public class Respuesta {
+public class RClimaLaboral {
     
     @Id@GeneratedValue(strategy=GenerationType.IDENTITY)
-    @Column(name = "idrespuesta")
-    private long idRespuesta;
+    @Column(name = "idrclimalaboral")
+    private long idRClimaLaboral;
     
     @Column(name = "fecharespuesta")
-    @Temporal(javax.persistence.TemporalType.DATE)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fechaRespuesta;
     
     @OneToOne
@@ -98,43 +98,13 @@ public class Respuesta {
     
     @Column(name = "respuesta20")
     private int respuesta20;
-    
-    @Column(name = "respuesta21")
-    private int respuesta21;
-    
-    @Column(name = "respuesta22")
-    private int respuesta22;
-    
-    @Column(name = "respuesta23")
-    private int respuesta23;
-    
-    @Column(name = "respuesta24")
-    private int respuesta24;
-    
-    @Column(name = "respuesta25")
-    private int respuesta25;
-    
-    @Column(name = "respuesta26")
-    private int respuesta26;
-    
-    @Column(name = "respuesta27")
-    private int respuesta27;
-    
-    @Column(name = "respuesta28")
-    private int respuesta28;
-    
-    @Column(name = "respuesta29")
-    private int respuesta29;
-    
-    @Column(name = "respuesta30")
-    private int respuesta30;
 
-    public long getIdRespuesta() {
-        return idRespuesta;
+    public long getIdRClimaLaboral() {
+        return idRClimaLaboral;
     }
 
-    public void setIdRespuesta(long idRespuesta) {
-        this.idRespuesta = idRespuesta;
+    public void setIdRClimaLaboral(long idRClimaLaboral) {
+        this.idRClimaLaboral = idRClimaLaboral;
     }
 
     public Date getFechaRespuesta() {
@@ -312,85 +282,4 @@ public class Respuesta {
     public void setRespuesta20(int respuesta20) {
         this.respuesta20 = respuesta20;
     }
-
-    public int getRespuesta21() {
-        return respuesta21;
-    }
-
-    public void setRespuesta21(int respuesta21) {
-        this.respuesta21 = respuesta21;
-    }
-
-    public int getRespuesta22() {
-        return respuesta22;
-    }
-
-    public void setRespuesta22(int respuesta22) {
-        this.respuesta22 = respuesta22;
-    }
-
-    public int getRespuesta23() {
-        return respuesta23;
-    }
-
-    public void setRespuesta23(int respuesta23) {
-        this.respuesta23 = respuesta23;
-    }
-
-    public int getRespuesta24() {
-        return respuesta24;
-    }
-
-    public void setRespuesta24(int respuesta24) {
-        this.respuesta24 = respuesta24;
-    }
-
-    public int getRespuesta25() {
-        return respuesta25;
-    }
-
-    public void setRespuesta25(int respuesta25) {
-        this.respuesta25 = respuesta25;
-    }
-
-    public int getRespuesta26() {
-        return respuesta26;
-    }
-
-    public void setRespuesta26(int respuesta26) {
-        this.respuesta26 = respuesta26;
-    }
-
-    public int getRespuesta27() {
-        return respuesta27;
-    }
-
-    public void setRespuesta27(int respuesta27) {
-        this.respuesta27 = respuesta27;
-    }
-
-    public int getRespuesta28() {
-        return respuesta28;
-    }
-
-    public void setRespuesta28(int respuesta28) {
-        this.respuesta28 = respuesta28;
-    }
-
-    public int getRespuesta29() {
-        return respuesta29;
-    }
-
-    public void setRespuesta29(int respuesta29) {
-        this.respuesta29 = respuesta29;
-    }
-
-    public int getRespuesta30() {
-        return respuesta30;
-    }
-
-    public void setRespuesta30(int respuesta30) {
-        this.respuesta30 = respuesta30;
-    }
-    
 }

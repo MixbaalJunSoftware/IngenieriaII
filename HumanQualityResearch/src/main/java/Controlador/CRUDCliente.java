@@ -112,8 +112,6 @@ public class CRUDCliente {
         persona_bd.actualizar(persona);
         cliente_bd.actualizar(cliente);
         usuario_bd.actualizar(usuario);
-        String url = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
-        mail_sender.send(construirEmail(url,correo));
         return "Ok";   
     }
     
@@ -122,10 +120,10 @@ public class CRUDCliente {
     
     private MimeMessagePreparator construirEmail(String contextPath, final String correo) {
         
-        final String texto = "Tu correo ha sido dado de alta en HQR\n"
-                           + "Termina tu registro en HQR en el siguiente link para"
+        final String texto = "Tu correo ha sido dado de alta en HumanQualityResearch\n"
+                           + "Ingresa al sitio par terminar tu registro y\n"
                            + "empezar a usar el sitio";
-        final String url = contextPath + "/correo?id=" +correo;
+        final String url = contextPath;// + "/crear-cliente/correo?id=" +correo;
         
         MimeMessagePreparator message_preparator = new MimeMessagePreparator() {
  
@@ -248,7 +246,7 @@ public class CRUDCliente {
         return new ModelAndView("Clientes",model);
     }
     
-    @RequestMapping(value="/completar-regitro")
+    @RequestMapping(value="/completar-registro")
     public ModelAndView aCompletar(ModelMap model,HttpServletRequest request){
         String correo = request.getParameter("correo");
         System.out.println(correo);
@@ -282,6 +280,8 @@ public class CRUDCliente {
             persona_bd.guardar(persona);
             cliente_bd.guardar(cliente);
             usuario_bd.guardar(usuario);
+            String url = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+            mail_sender.send(construirEmail(url,correo));
             return "CorreoCorrecto";
         }else{
             return "CorreoRegistrado";

@@ -6,7 +6,7 @@
 package Controlador;
 
 import Mapeo.Persona;
-import Mapeo.Respuesta;
+import Mapeo.RAdaptabilidad;
 import Modelo.PersonaDAO;
 import Modelo.RespuestaDAO;
 import java.security.Principal;
@@ -14,6 +14,7 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -45,20 +46,11 @@ public class CRespuesta {
     public String prueba(HttpServletRequest request,Principal principal){
         int i  =  Integer.parseInt(request.getParameter("r1"));
         Persona persona = persona_db.getPersona(principal.getName());
-        Respuesta r = new Respuesta();
-        Date date = new Date();
-        LocalDate localDate = date.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
-        String fecha = localDate.getYear()+"-"+localDate.getMonthValue()+"-"+localDate.getDayOfMonth();
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-mm-dd");
-        try{
-        //
-        date  =ft.parse(fecha);
-        }catch(ParseException e){
-            System.out.println(date);
-        }
+        RAdaptabilidad r = new RAdaptabilidad();
+        Calendar fecha = Calendar.getInstance();
+        Date date = fecha.getTime();
         r.setFechaRespuesta(date);
         r.setPersona(persona);
-        try{
         r.setRespuesta1(Integer.parseInt(request.getParameter("r1")));
         r.setRespuesta2(Integer.parseInt(request.getParameter("r2")));
         r.setRespuesta3(Integer.parseInt(request.getParameter("r3")));
@@ -89,9 +81,6 @@ public class CRespuesta {
         r.setRespuesta28(Integer.parseInt(request.getParameter("r28")));
         r.setRespuesta29(Integer.parseInt(request.getParameter("r29")));
         r.setRespuesta30(Integer.parseInt(request.getParameter("r30")));
-        }catch(NumberFormatException e){
-            System.out.println(e);
-        }
         respuesta_db.guardar(r);
         System.out.println(persona.getCorreo());
         System.out.println(i);
