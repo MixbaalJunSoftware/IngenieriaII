@@ -255,7 +255,8 @@ public class CRUDEmpleado {
     public ModelAndView verEmpleadosAdmin(ModelMap model,HttpServletRequest request){  
         long id = Long.parseLong(request.getParameter("idproyecto"));
         List<Empleado> lp = empleado_bd.empleadosProyecto(id);
-        model.addAttribute("lista",lp);
+        model.addAttribute("listaEmpleados",lp);
+        model.addAttribute("idProyecto",id);
         return new ModelAndView("aEmpleados",model);
     }
     

@@ -11,6 +11,8 @@
     <body>
        
         <label>Acceso Denegado</label>
-
+        <form action="/HumanQualityResearch/pdf" method="POST">
+            <button>pdf</button>
+        </form>
     </body>
 </html>

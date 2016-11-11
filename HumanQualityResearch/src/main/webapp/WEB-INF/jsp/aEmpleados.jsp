@@ -30,7 +30,7 @@
                     
                 </tr>
             </thead>
-            <c:forEach var="empleado" items="${lista}">
+            <c:forEach var="empleado" items="${listaEmpleados}">
                 <tbody>
                     <tr>
                         <th style="color:#1D14A4;font-size: 20px;">${empleado.persona.nombre}</th>
@@ -40,6 +40,7 @@
                 </tbody>
             </c:forEach>
         </table>
+        <a id="exportar_boton" href=" <c:url value="/cliente/EmpleadosProyectoExcel?p=${idProyecto}" /> ">&#11015; Exportar a excel</a>
         <form method="GET" action="/HumanQualityResearch/redirect-home" >
                     <button type="submit"  class="btn btn-primary btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
         </form>
