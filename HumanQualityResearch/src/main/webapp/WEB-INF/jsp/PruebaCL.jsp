@@ -110,22 +110,22 @@
                 <p id="pregunta">2. Esta empresa sería una de las primeras en ensayar nuevas ideas. (IJ)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r2" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r2" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r2" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r2" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r2" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r2" value="6">Totalmente de acuerdo
                 </label>  
                 
                 <br/>
@@ -133,22 +133,22 @@
                 <p id="pregunta">3. La variedad no es especialmente importante aquí. (IJ)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r3" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r3" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r3" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r3" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r3" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r3" value="6">Totalmente de acuerdo
                 </label>  
                 
                 <br/>
@@ -156,22 +156,22 @@
                 <p id="pregunta">4. La gente expresa con franqueza lo que piensa. (IJ)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r4" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r4" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r4" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r4" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r4" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r4" value="6">Totalmente de acuerdo
                 </label>
                 
                 <br/>
@@ -179,22 +179,22 @@
                 <p id="pregunta">5. Aquí es importante realizar mucho trabajo. (CT)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r5" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r5" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r5" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r5" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r5" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r5" value="6">Totalmente de acuerdo
                 </label>  
                 
                 
@@ -204,22 +204,22 @@
                 <p id="pregunta">6. El personal se siente libre para solicitar un aumento de sueldo. (IJ)</p> 
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r6" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r6" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r6" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r6" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r6" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r6" value="6">Totalmente de acuerdo
                 </label>  
                 
                 <br/>  
@@ -227,22 +227,22 @@
                 <p id="pregunta">7. Se toma en serio la frase "el trabajo antes que el juego". (CT)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r7" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r7" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r7" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r7" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r7" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r7" value="6">Totalmente de acuerdo
                 </label>    
                 
                 <br/>
@@ -250,22 +250,22 @@
                 <p id="pregunta">8. Los jefes están siempre controlando al personal. (IJ)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r8" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r8" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r8" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r8" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r8" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r8" value="6">Totalmente de acuerdo
                 </label>
                 
                 <br/>
@@ -273,22 +273,22 @@
                 <p id="pregunta">9. Aquí los colores y la decoración hacen agradable el lugar de trabajo. (AF)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r9" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r9" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r9" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r9" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r9" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r9" value="6">Totalmente de acuerdo
                 </label>  
                 
                 <br/>
@@ -296,22 +296,22 @@
                 <p id="pregunta">10. Se espera que los empleados cumplan muy estrictamente las reglas y costumbres. (IJ)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r10" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r10" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r10" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r10" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r10" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r10" value="6">Totalmente de acuerdo
                 </label>  
                 
                 
@@ -322,22 +322,22 @@
                 <p id="pregunta">11. Normalmente el trabajo es muy interesante. (CT)</p> 
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r11" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r11" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r11" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r11" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r11" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r11" value="6">Totalmente de acuerdo
                 </label>
                 
                 <br/>
@@ -345,22 +345,22 @@
                 <p id="pregunta">12. El ambiente está siempre bien ventilado. (AF)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r12" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r12" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r12" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r12" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r12" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r12" value="6">Totalmente de acuerdo
                 </label>
                 
                 <br/>
@@ -368,22 +368,22 @@
                 <p id="pregunta">13. El mobiliario está bien acomodado. (AF)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r13" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r13" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r13" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r13" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r13" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r13" value="6">Totalmente de acuerdo
                 </label> 
                 
                 <br/>
@@ -391,22 +391,22 @@
                 <p id="pregunta">14. Los jefes son accesibles. (IJ)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r14" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r14" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r14" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r14" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r14" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r14" value="6">Totalmente de acuerdo
                 </label>  
                 
                 <br/>
@@ -414,22 +414,22 @@
                 <p id="pregunta">15. El cambio no importa mucho aquí. (IJ)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r15" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r15" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r15" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r15" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r15" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r15" value="6">Totalmente de acuerdo
                 </label>  
                 
                 
@@ -439,22 +439,22 @@
                 <p id="pregunta">16. Los jefes supervisan muy estrechamente al personal. (IJ)</p> 
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r16" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r16" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r16" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r16" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r16" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r16" value="6">Totalmente de acuerdo
                 </label>  
                 
                 <br/>
@@ -462,22 +462,22 @@
                 <p id="pregunta">17. Las condiciones de pago no son claras. (IJ)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r17" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r17" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r17" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r17" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r17" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r17" value="6">Totalmente de acuerdo
                 </label>  
                 
                 <br/>
@@ -485,22 +485,22 @@
                 <p id="pregunta">18. Siempre se exige cumplir con las metas. (CT)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r18" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r18" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r18" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r18" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r18" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r18" value="6">Totalmente de acuerdo
                 </label>  
                 
                 <br/>
@@ -508,22 +508,22 @@
                 <p id="pregunta">19. El ambiente me gusta. (AF)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r19" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r19" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r19" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r19" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r19" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r19" value="6">Totalmente de acuerdo
                 </label>  
                 
                 <br/>
@@ -531,22 +531,22 @@
                 <p id="pregunta">20. Aquí se trabaja intensamente. (CT)</p>
                 
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="1">Totalmente en desacuerdo
+                    <input required="true" type="radio" name="r20" value="1">Totalmente en desacuerdo
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="2">-
+                    <input required="true" type="radio" name="r20" value="2">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="3">-
+                    <input required="true" type="radio" name="r20" value="3">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="4">-
+                    <input required="true" type="radio" name="r20" value="4">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="5">-
+                    <input required="true" type="radio" name="r20" value="5">-
                 </label>
                 <label class="radio-inline">
-                    <input required="true" type="radio" name="r1" value="6">Totalmente de acuerdo
+                    <input required="true" type="radio" name="r20" value="6">Totalmente de acuerdo
                 </label>  
                 
                 
