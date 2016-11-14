@@ -127,7 +127,7 @@
 
     <div id="sesion" class="container-fluid bg-2">
         <div class="col-sm-8">
-        <h1 id="hqr" style="color:#1F73BB">¿Ya estás registrado en Human Quality Research?</h1>
+        <h1 id="hqr" style="color:#1F73BB;">¿Ya estás registrado en Human Quality Research?</h1>
 	<br/>
 	<form class="form-horizontal" action="/HumanQualityResearch/login" method="POST">
 	  <div class="form-group">
@@ -181,8 +181,6 @@
   
     <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
     <script src="<c:url value="/js/bootstrap.min.js"/> "></script>       
-    <script src=" <c:url value="/js/validaCorreo.js" /> "></script>
-    <script src=" <c:url value="/js/validaCorreoRecover.js" /> "></script>
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
 

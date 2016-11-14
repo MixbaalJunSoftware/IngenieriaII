@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -20,17 +21,45 @@
                     alert("Las contraseñas no coinciden");
                 }else
                     document.getElementById("fnuevoPass").submit(); 
-        }
+            }
         </script>
     </head>
+    <style>
+        .principal{
+            background-color: #5389C4;
+            color: #fff;
+            padding: 50px 50px;
+        }
+        .bg-1{
+            background-color: #7D9ED3;
+            padding: 25px 25px;
+        }
+        
+    </style>
     <body>
-        <h1>Escribe una nueva contraseña</h1>
-        <form id="fnuevoPass" name="fnuevoPass" action="/HumanQualityResearch/cambiarPassword" method="POST">
-            <h3>Nueva Contraseña:</h3>
-            <input type="text" name="newPass1" id="newPass1"><br/><br/>
-            <h3>Repite la contraseña:</h3>
-            <input type="text" name="newPass2" id="newPass2"><br/><br/>
-            <button value="aceptar" name="npboton" id="npboton" onclick="confirmaCorreo()">aceptar</button>
-        </form>
+        
+        <div class="principal text-center">
+            <img src="<c:url value="/imagenes/logo_hqr.jpg"/>" alt="Logo HQR"/>
+            <h1 id="slogan">La solución que facilita tu evaluación para identificar tu talento.</h1> 
+        </div>
+        <div class="container-fluid bg-1">    
+            <h1 style="margin-left: 11cm;color: white;">Escribe una nueva contraseña</h1>
+            <br/>
+            <form id="fnuevoPass" name="fnuevoPass" action="/HumanQualityResearch/cambiarPassword" method="POST">
+                <label style="font-size: 20px;margin-left: 11cm;color: white;">Nueva Contraseña:</label>
+                <input style="margin-left: 1cm;" type="text" name="newPass1" id="newPass1">
+                <br/>
+                <br/>
+                <label style="font-size: 20px;margin-left: 11cm;color: white;">Repite la contraseña:</label>
+                <input style="margin-left: 0.5cm;" type="text" name="newPass2" id="newPass2">
+                <br/>
+                <br/>
+                <button  style="margin-left: 16cm;" value="aceptar" class="btn btn-primary" name="npboton" id="npboton" onclick="confirmaCorreo()">Aceptar</button>
+            </form>
+        </div>
     </body>
+    <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
+    <script src="<c:url value="/js/bootstrap.min.js"/> "></script>       
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    
 </html>
