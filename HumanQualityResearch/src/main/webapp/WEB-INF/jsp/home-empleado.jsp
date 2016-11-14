@@ -35,6 +35,12 @@
                         <br/>
                         <br/>
                         <br/>
+                        <form action = "/HumanQualityResearch/empleado/contestarPruebaCL">
+                            <button class="btn btn-default btn-lg" id="modal">Contestar Prueba CL</button>
+                        </form>
+                        <br/>
+                        <br/>
+                        <br/>
                         <form action = "/HumanQualityResearch/empleado/previoActualizarEmpleado">
                             <button class="btn btn-default btn-lg" id="modal">Editar Datos</button>
                         </form>   

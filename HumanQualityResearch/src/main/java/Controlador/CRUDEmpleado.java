@@ -262,7 +262,7 @@ public class CRUDEmpleado {
     }
     
     /**
-     * Metodo Auxiliar para poder contestar la prueba
+     * Metodo Auxiliar para poder contestar la prueba de adaptabilidad laboral
      * @param model
      * @param request
      * @return 
@@ -272,6 +272,17 @@ public class CRUDEmpleado {
         return new ModelAndView("PruebaAL",model);
     }
     
+    
+    /**
+     * Metodo Auxiliar para poder contestar la prueba de clima laboral
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/empleado/contestarPruebaCL", method = RequestMethod.GET)
+    public ModelAndView contestarPruebaCL(ModelMap model,HttpServletRequest request, Principal principal){   
+        return new ModelAndView("PruebaCL",model);
+    }
     
     /**
      * Metodo para eliminar un empleado de la base de datos

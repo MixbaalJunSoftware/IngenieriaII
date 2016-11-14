@@ -1,9 +1,8 @@
 <%-- 
-    Document   : PruebaAL
-    Created on : 17/10/2016, 06:18:16 PM
-    Author     : ricardo
+    Document   : PruebaCL
+    Created on : Nov 14, 2016, 10:40:23 AM
+    Author     : rickjmzmnz
 --%>
-
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -36,7 +35,6 @@
   #section4 {padding-top:50px;height:500px;color: #fff; background-color: #5389C4;}
   #section5 {padding-top:50px;height:500px;color: #fff; background-color: #7D9ED3;}
   #section6 {padding-top:50px;height:500px;color: #fff; background-color: #A5B8E0;}
-  #section7 {padding-top:50px;height:500px;color: #fff; background-color: #5389C4;}
   #pregunta {color:blue;font-size: 20px;}
   </style>
   </head>
@@ -59,9 +57,7 @@
           <li><a href="#section2">Preguntas 1-5</a></li>
           <li><a href="#section3">Preguntas 6-10</a></li>
           <li><a href="#section4">Preguntas 11-15</a></li>
-          <li><a href="#section5">Preguntas 16-20</a></li>
-          <li><a href="#section6">Preguntas 21-25</a></li>
-          <li><a href="#section7">Preguntas 26-30</a></li>          
+          <li><a href="#section5">Preguntas 16-20</a></li>                    
           <li><a href="/HumanQualityResearch/home">Regresar</a></li>                 
           
         </ul>
@@ -72,20 +68,23 @@
       <form  method="POST" action = "/HumanQualityResearch/empleado/guardaPrueba">
 
 <div id="section1" class="container-fluid">
-  <h1>Escala Mexicana de Adaptabilidad Laboral</h1>
+  <h1>Escala Clima Laboral</h1>
   <br/>
   <p style="font-size: 25px;">Instrucciones:</p>
   <br/>
-  <p style="font-size: 20px;">A continuación encontrarás una serie de enunciados a los cuales debes responder considerando la
-     la forma que has pensado,sentido y actuado ante determinadas situaciones en el ambiente laboral.</p>
-  <br/>
-  <p style="font-size: 20px;">Te pedimos contestar de la manera más honesta y sincera posible ya que no existen respuestas
-     buenas o malas</p>
+  <p style="font-size: 20px;">A continuación, encontrará unas frases relacionadas con el trabajo. Están 
+      pensadas para distintos  ambientes laborales, pero puede que no se ajusten del todo al lugar donde trabaja.<br/>
+  <p style="font-size: 20px;">Trate de acomodarlas a su propio caso.</p>
+  <p style="font-size: 20px;">El jefe es la persona de autoridad(capataz, encargado, supervisor, director, etc.)
+  con quien usted se relaciona. La palabra empleado se utiliza en sentido general, aplicado a todos los que forman
+  parte del personal del lugar de trabajo.</p>
+  <p style="font-size: 20px;">La escala de respuesta va de Totalmente en Desacuerdo(TD) a Totalmente de Acuerdo(TA)
+  y puede elegir cualquiera de las seis opciones.</p>
 </div>
       
 <div id="section2" class="container-fluid">
     
-  <p id="pregunta">1. No pierdo la concentración cuando se presentan eventos inesperados en mi trabajo.</p>
+  <p id="pregunta">1. La iluminación es muy buena. (AF)</p>
   
     <label class="radio-inline">
       <input required="true" type="radio" name="r1" value="1">1. Totalmente en desacuerdo
@@ -105,7 +104,7 @@
   
     <br/>  
     <br/>
-    <p id="pregunta">2. Aunque las situaciones no sean estables, soy totalmente competente.</p>
+    <p id="pregunta">2. Esta empresa sería una de las primeras en ensayar nuevas ideas. (IJ)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r2" value="1">1. Totalmente en desacuerdo
@@ -125,7 +124,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">3. Es difícil para mí encarar eventos inesperados.</p>
+    <p id="pregunta">3. La variedad no es especialmente importante aquí. (IJ)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r3" value="1">1. Totalmente en desacuerdo
@@ -145,7 +144,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">4. Me cuesta trabajo ser una persona madura.</p>
+    <p id="pregunta">4. La gente expresa con franqueza lo que piensa. (IJ)</p>
     
         <label class="radio-inline">
             <input  required="true" type="radio" name="r4" value="1">1. Totalmente en desacuerdo
@@ -165,7 +164,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">5. Mi desempeño es igual de bueno en diferentes entornos.</p>
+    <p id="pregunta">5. Aquí es importante realizar mucho trabajo. (CT)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r5" value="1">1. Totalmente en desacuerdo
@@ -187,7 +186,7 @@
 </div>
 <div id="section3" class="container-fluid">
  
-    <p id="pregunta">6. Tengo agilidad mental.</p> 
+    <p id="pregunta">6. El personal se siente libre para solicitar un aumento de sueldo. (IJ)</p> 
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r6" value="1">1. Totalmente en desacuerdo
@@ -207,7 +206,7 @@
     
     <br/>  
     <br/>
-    <p id="pregunta">7. Soy una persona madura que sabe cómo actuar en eventos impredecibles.</p>
+    <p id="pregunta">7. Se toma en serio la frase "el trabajo antes que el juego". (CT)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r7" value="1">1. Totalmente en desacuerdo
@@ -227,7 +226,7 @@
   
     <br/>
     <br/>
-    <p id="pregunta">8. Me considero hábil para resolver eventos inesperados.</p>
+    <p id="pregunta">8. Los jefes están siempre controlando al personal. (IJ)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r8" value="1">1. Totalmente en desacuerdo
@@ -247,7 +246,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">9. Aunque las situaciones en mi trabajo sean inciertos, soy capaz de encararlas.</p>
+    <p id="pregunta">9. Aquí los colores y la decoración hacen agradable el lugar de trabajo. (AF)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r9" value="1">1. Totalmente en desacuerdo
@@ -267,7 +266,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">10. Aunque no conozca a fondo la situación en la que me encuentre salgo adelante.</p>
+    <p id="pregunta">10. Se espera que los empleados cumplan muy estrictamente las reglas y costumbres. (IJ)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r10" value="1">1. Totalmente en desacuerdo
@@ -290,7 +289,7 @@
   
 <div id="section4" class="container-fluid">
 
-    <p id="pregunta">11. Me siento entusiasmado cuando me enfrento a un reto difícil de resolver.</p> 
+    <p id="pregunta">11. Normalmente el trabajo es muy interesante. (CT)</p> 
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r11" value="1">1. Totalmente en desacuerdo
@@ -310,7 +309,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">12. Resuelvo los conflictos de forma eficaz.</p>
+    <p id="pregunta">12. El ambiente está siempre bien ventilado. (AF)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r12" value="1">1. Totalmente en desacuerdo
@@ -330,7 +329,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">13. No soy innovador.</p>
+    <p id="pregunta">13. El mobiliario está bien acomodado. (AF)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r13" value="1">1. Totalmente en desacuerdo
@@ -350,7 +349,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">14. Muchos me consideran una persona cuadrada.</p>
+    <p id="pregunta">14. Los jefes son accesibles. (IJ)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r14" value="1">1. Totalmente en desacuerdo
@@ -370,7 +369,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">15. Soy astuto para salir de los apuros.</p>
+    <p id="pregunta">15. El cambio no importa mucho aquí. (IJ)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r15" value="1">1. Totalmente en desacuerdo
@@ -392,7 +391,7 @@
 </div>
 <div id="section5" class="container-fluid">
 
-    <p id="pregunta">16. ¿Cuál es la respuesta correcta de la siguiente operación 38+21-66?</p> 
+    <p id="pregunta">16. Los jefes supervisan muy estrechamente al personal. (IJ)</p> 
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r16" value="1">1. -5
@@ -412,7 +411,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">17. Soluciono conflictos hábilmente.</p>
+    <p id="pregunta">17. Las condiciones de pago no son claras. (IJ)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r17" value="1">1. Totalmente en desacuerdo
@@ -432,8 +431,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">18. Me causa desconfianza escuchar a personas que no siguen los pasos específicos necesarios 
-        para alcanzar una meta.</p>
+    <p id="pregunta">18. Siempre se exige cumplir con las metas. (CT)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r18" value="1">1. Totalmente en desacuerdo
@@ -453,7 +451,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">19. Soy creativo, a menudo se me ocurren diferentes formas de hacer las cosas.</p>
+    <p id="pregunta">19. El ambiente me gusta. (AF)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r19" value="1">1. Totalmente en desacuerdo
@@ -473,7 +471,7 @@
     
     <br/>
     <br/>
-    <p id="pregunta">20. Encuentro rápidamente respuestas a los problemas.</p>
+    <p id="pregunta">20. Aquí se trabaja intensamente. (CT)</p>
     
         <label class="radio-inline">
             <input required="true" type="radio" name="r20" value="1">1. Totalmente en desacuerdo
@@ -494,216 +492,28 @@
     
 </div>
 
-<div id="section6" class="container-fluid">
 
-    <p id="pregunta">21. Se me dificulta establecer nuevas relaciones personales en la empresa.</p> 
-    
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r21" value="1">1. Totalmente en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r21" value="2">2. En desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r21" value="3">3. Ni de acuerdo ni en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r21" value="4">4. De acuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r21" value="5">5. Totalmente de acuerdo
-        </label>  
-    
-    <br/>
-    <br/>
-    <p id="pregunta">22. No soy comunicativo.</p>
-    
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r22" value="1">1. Totalmente en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r22" value="2">2. En desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r22" value="3">3. Ni de acuerdo ni en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r22" value="4">4. De acuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r22" value="5">5. Totalmente de acuerdo
-        </label>  
-    
-    <br/>
-    <br/>
-    <p id="pregunta">23. Algunas personas dicen que soy irritante.</p>
-    
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r23" value="1">1. Totalmente en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r23" value="2">2. En desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r23" value="3">3. Ni de acuerdo ni en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r23" value="4">4. De acuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r23" value="5">5. Totalmente de acuerdo
-        </label>  
-
-    <br/>
-    <br/>
-    <p id="pregunta">24. La relación con mis compañeros de trabajo es limitada.</p>
-    
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r24" value="1">1. Totalmente en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r24" value="2">2. En desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r24" value="3">3. Ni de acuerdo ni en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r24" value="4">4. De acuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r24" value="5">5. Totalmente de acuerdo
-        </label>  
-    
-    <br/>
-    <br/>
-    <p id="pregunta">25. Prefiero estar solo que mal acompañado.</p>
-    
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r25" value="1">1. Totalmente en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r25" value="2">2. En desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r25" value="3">3. Ni de acuerdo ni en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r25" value="4">4. De acuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r25" value="5">5. Totalmente de acuerdo
-        </label>  
-</div> 
-
-<div id="section7" class="container-fluid">
-
-    <p id="pregunta">26. A veces soy inmaduro en mi trabajo.</p> 
-    
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r26" value="1">1. Totalmente en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r26" value="2">2. En desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r26" value="3">3. Ni de acuerdo ni en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r26" value="4">4. De acuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r26" value="5">5. Totalmente de acuerdo
-        </label>  
-
-    <br/>
-    <br/>
-    <p id="pregunta">27. Me enojo muy rápido si alguien me contradice.</p>
-    
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r27" value="1">1. Totalmente en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r27" value="2">2. En desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r27" value="3">3. Ni de acuerdo ni en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r27" value="4">4. De acuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r27" value="5">5. Totalmente de acuerdo
-        </label>  
-    <br/>
-    <br/>  
-    <p id="pregunta">28. Soy agresivo con aquellos que me provocan.</p>
-    
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r28" value="1">1. Totalmente en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r28" value="2">2. En desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r28" value="3">3. Ni de acuerdo ni en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r28" value="4">4. De acuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r28" value="5">5. Totalmente de acuerdo
-        </label>  
-    
-    <br/>
-    <br/>
-    <p id="pregunta">29. Soy tímido, me cuesta trabajo hablar con desconocidos.</p>
-    
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r29" value="1">1. Totalmente en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r29" value="2">2. En desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r29" value="3">3. Ni de acuerdo ni en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r29" value="4">4. De acuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r29" value="5">5. Totalmente de acuerdo
-        </label>  
-    
-    <br/>  
-    <br/>           
-
-    <p id="pregunta">30. Puedo ser irrespetuoso.</p>
-    
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r30" value="1">1. Totalmente en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r30" value="2">2. En desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r30" value="3">3. Ni de acuerdo ni en desacuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r30" value="4">4. De acuerdo
-        </label>
-        <label class="radio-inline">
-            <input required="true" type="radio" name="r30" value="5">5. Totalmente de acuerdo
-        </label>  
-    
-     
-
-</div>    
              
           <br/>
     <button type="submit" class="btn btn-primary btn-lg active" style="margin-left: 16cm;">Aceptar</button>        
      </form>
       <br/>
-
+      
+      <div id="section6" class="container-fluid">
+          <p style="font-size: 25px;">Desarrollada a partir de la Escala de Clima Social Organizacional de Moos,
+              con aumento de reactivos para complementar las subescalas. Con una confiabilidad de &alpha; = 0.89, 
+          validada con análisis factorial exploratorio y confirmatorio con prueba de invarianza en sector público y privado.</p>
+          <br/>
+          <p style="font-size: 20px;">CARGA DE TRABAJO</p>
+          <br/>
+          <p style="font-size: 20px;">INTERACCIÓN CON EL JEFE</p>
+          <br/>
+          <p style="font-size: 20px;">AMBIENTE FÍSICO</p>
+          <br/>
+          <p style="font-size: 20px;">CLIMA LABORAL</p>
+          <br/>
+          <p style="font-size: 20px;">PUMAGUA-enero-febrero</p>                              
+      </div>
 
   </body>
     <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
