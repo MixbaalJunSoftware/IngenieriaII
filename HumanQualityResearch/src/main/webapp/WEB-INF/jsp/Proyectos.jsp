@@ -64,7 +64,7 @@
                                         <h4 class="modal-title" id="myModalLabel" style="color:blue;text-align: center;">¿Seguro qué quieres eliminar el proyecto?</h4>
                                     </div>
                                     <div class="modal-body">
-                                        <form method="POST" action="/HumanQualityResearch/elimina-proyecto" >
+                                        <form method="POST" action="/HumanQualityResearch/borradol-proyecto" >
                                             <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
                                             <button type="submit" class="btn btn-danger btn-lg active">Eliminar proyecto</button>
                                         </form>

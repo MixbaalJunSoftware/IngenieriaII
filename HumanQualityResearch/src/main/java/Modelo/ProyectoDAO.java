@@ -151,7 +151,8 @@ public class ProyectoDAO {
             tx = session.beginTransaction();
             String hql = "SELECT proyecto From Pertenecer pertenecer inner join "
                      + "pertenecer.proyecto proyecto inner join proyecto.tipo "
-                    + "where pertenecer.persona = :persona";
+                    + "where pertenecer.persona = :persona AND "
+                    + "proyecto.activo = TRUE";
             Query query = session.createQuery(hql);
             persona = (Persona)session.get(Persona.class, idPersona);
             query.setParameter("persona", persona);

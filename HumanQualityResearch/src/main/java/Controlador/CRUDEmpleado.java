@@ -19,6 +19,7 @@ import Modelo.UsuarioDAO;
 import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.mail.Message;
@@ -257,7 +258,7 @@ public class CRUDEmpleado {
         List<Empleado> lp = empleado_bd.empleadosProyecto(id);
         model.addAttribute("listaEmpleados",lp);
         model.addAttribute("idProyecto",id);
-        return new ModelAndView("aEmpleados",model);
+        return new ModelAndView("Empleados",model);
     }
     
     /**
@@ -271,6 +272,43 @@ public class CRUDEmpleado {
         return new ModelAndView("PruebaAL",model);
     }
     
+    
+    /**
+     * Metodo para eliminar un empleado de la base de datos
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/elimina-participante", method = RequestMethod.POST)
+    public String eliminaParticipante(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("id"));
+        Empleado empleado = empleado_bd.getEmpleado(id);
+        Usuario usuario = usuario_bd.getUsuario(id);
+        Persona persona = empleado.getPersona();
+        empleado_bd.eliminar(empleado);
+        persona_bd.eliminar(persona);
+        usuario_bd.eliminar(usuario);
+        return "Ok";
+    }
+    
+    /**
+      * Método para hacer el borrado lógico de la base de datos
+      * @param model
+      * @param request
+      * @return 
+      */
+    
+    @RequestMapping(value= "admin/borradol-participante", method = RequestMethod.POST)
+    public String borradolParticipante(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("id"));
+        Persona persona = persona_bd.getPersona(id);
+        Calendar fecha = Calendar.getInstance();
+        Date date = fecha.getTime();
+        persona.setFborrado(date);
+        persona.setActivo(false);
+        persona_bd.actualizar(persona);        
+        return "Ok";
+    }
     
     
     

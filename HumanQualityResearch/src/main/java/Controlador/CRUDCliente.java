@@ -14,6 +14,7 @@ import Modelo.UsuarioDAO;
 import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import javax.mail.Message;
@@ -232,6 +233,26 @@ public class CRUDCliente {
         usuario_bd.eliminar(usuario);
         return "Ok";
     }
+    
+    /**
+      * Método para hacer el borrado lógico de la base de datos
+      * @param model
+      * @param request
+      * @return 
+      */
+    
+    @RequestMapping(value= "admin/borradol-cliente", method = RequestMethod.POST)
+    public String borradolCliente(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("id"));
+        Calendar fecha = Calendar.getInstance();
+        Date date = fecha.getTime();
+        Persona persona = persona_bd.getPersona(id);
+        persona.setActivo(false);
+        persona.setFborrado(date);
+        persona_bd.actualizar(persona);        
+        return "Ok";
+    }
+      
     /**
      * Metodo para mostrar la informacion de un Cliente
      * Pone los paramentros en el model de la pagina a mostrar

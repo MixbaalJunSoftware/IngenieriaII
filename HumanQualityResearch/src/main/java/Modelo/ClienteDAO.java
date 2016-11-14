@@ -123,7 +123,8 @@ public class ClienteDAO {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "SELECT cliente From Cliente cliente inner join cliente.persona";
+            String hql = "SELECT cliente From Cliente cliente inner join cliente.persona "
+                    + "WHERE cliente.persona.activo = TRUE";
             Query query = session.createQuery(hql);
             result = (List<Cliente>)query.list();
             tx.commit();

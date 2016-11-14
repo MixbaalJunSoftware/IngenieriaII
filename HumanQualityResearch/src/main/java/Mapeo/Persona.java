@@ -52,6 +52,13 @@ public class Persona {
     
     @Column(name = "correo")
     private String correo;
+    
+    @Column(name = "activo")
+    private boolean activo;
+   
+    @Column(name = "fborrado")
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date fborrado;
 
     public long getIdPersona() {
         return idPersona;
@@ -124,5 +131,28 @@ public class Persona {
     public void setCorreo(String correo) {
         this.correo = correo;
     }
+
+    public boolean getActivo() {
+        return activo;
+    }
+
+     
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public Date getFborrado() {
+        return fborrado;
+    }
+
+    public void setFborrado(Date fborrado) {
+        this.fborrado = fborrado;
+    }
+
+    
+    
+    
+    
+    
     
 }

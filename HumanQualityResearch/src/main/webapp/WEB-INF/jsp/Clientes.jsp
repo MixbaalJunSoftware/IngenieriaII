@@ -43,6 +43,12 @@
                                 <button type="submit" class="btn btn-primary btn-lg active">Proyectos</button>
                             </form>
                         </th>
+                        <th>
+                            <form method="POST" action="/HumanQualityResearch/admin/borradol-cliente" >
+                                <input id="id" name="id" hidden="true" value="${cliente.persona.idPersona}">
+                                <button type="submit" class="btn btn-primary btn-lg active">Eliminar</button>
+                            </form>
+                        </th>
                     </tr>
                 </tbody>
             </c:forEach>

@@ -5,6 +5,7 @@
  */
 package Mapeo;
 
+import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
 
 
 @Entity
@@ -38,6 +40,13 @@ public class Proyecto {
     @OneToOne
     @JoinColumn(name="idtipo")
     private Tipo tipo;
+    
+    @Column (name = "activo")
+    private boolean activo;
+    
+    @Column(name = "fborrado")
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
+    private Date fborrado;
 
     public long getIdProyecto() {
         return idProyecto;
@@ -71,5 +80,22 @@ public class Proyecto {
         this.tipo = tipo;
     }
     
+    public boolean getActivo() {
+        return activo;
+    }
+
+    public void setActivo(boolean activo) {
+        this.activo = activo;
+    }
+
+    public Date getFborrado() {
+        return fborrado;
+    }
+
+    public void setFborrado(Date fborrado) {
+        this.fborrado = fborrado;
+    }
+    
+     
     
 }

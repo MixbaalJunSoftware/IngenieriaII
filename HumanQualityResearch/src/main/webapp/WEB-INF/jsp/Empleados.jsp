@@ -35,7 +35,12 @@
                     <tr>
                         <th style="color:#1D14A4;font-size: 20px;">${empleado.persona.nombre}</th>
                         <th style="color:#1D14A4;font-size: 20px;">${empleado.persona.correo}</th>
-                        
+                        <th>
+                            <form method="POST" action="/HumanQualityResearch/admin/borradol-participante" >
+                                <input id="id" name="id" hidden="true" value="${empleado.persona.idPersona}">
+                                <button type="submit" class="btn btn-primary btn-lg active">Eliminar</button>
+                            </form>
+                        </th>
                     </tr>
                 </tbody>
             </c:forEach>

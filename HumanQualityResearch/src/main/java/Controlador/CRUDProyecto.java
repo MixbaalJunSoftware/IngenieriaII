@@ -17,6 +17,7 @@ import Mapeo.Cliente;
 import Mapeo.Pertenecer;
 import java.security.Principal;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.GregorianCalendar;
 import java.util.List;
 import javax.servlet.http.HttpServletRequest;
@@ -78,6 +79,7 @@ public class CRUDProyecto {
          String codigo = creaCodigo(persona,tipop);
          proyecto.setAreaProyecto(area);
          proyecto.setCodigo(codigo);
+         proyecto.setActivo(true);
          pertenecer.setPersona(persona);
          pertenecer.setProyecto(proyecto);
          dtipo.setTipo(tipop);
@@ -138,7 +140,7 @@ public class CRUDProyecto {
         long id = Long.parseLong(request.getParameter("idcliente"));
         List<Proyecto> lp = proyecto_db.proyectosCliente(id);
         model.addAttribute("lista",lp);
-        return new ModelAndView("aProyectos",model);
+        return new ModelAndView("Proyectos",model);
     }
    
     
@@ -212,4 +214,21 @@ public class CRUDProyecto {
         return "Ok";
     }
     
+    /**
+     * Metodo para hacer el borrado lógico un proyecto de la base de datos
+     * @param model
+     * @param request
+     * @return 
+     */
+    @RequestMapping(value= "/borradol-proyecto", method = RequestMethod.POST)
+     public String borradolProyecto(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("idproyecto"));
+        Calendar fecha = Calendar.getInstance();
+        Date date = fecha.getTime();
+        Proyecto proyecto = proyecto_db.getProyecto(id);
+        proyecto.setFborrado(date);
+        proyecto.setActivo(false);
+        proyecto_db.actualizar(proyecto);
+        return "Ok";
+     }
 }
