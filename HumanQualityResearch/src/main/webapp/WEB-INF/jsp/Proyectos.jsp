@@ -28,8 +28,12 @@
                     <th style="color:#1D14A4;font-size: 20px;">Código</th>
                     <th style="color:#1D14A4;font-size: 20px;">Área</th>
                     <th style="color:#1D14A4;font-size: 20px;">Tipo</th>
+                    <th style="color:#1D14A4;font-size: 20px;">Detalles</th> 
+                    <th style="color:#1D14A4;font-size: 20px;">Empleados</th> 
                     <th style="color:#1D14A4;font-size: 20px;">Modificar</th>
-                    <th style="color:#1D14A4;font-size: 20px;">Eliminar</th>                    
+                    <th style="color:#1D14A4;font-size: 20px;">Eliminar</th>           
+                    <th style="color:#1D14A4;font-size: 20px;">Agregar</th> 
+                    
                 </tr>
             </thead>
         
@@ -38,6 +42,13 @@
                 <th style="color:#1D14A4;font-size: 20px;">${proyecto.codigo}</th>
                 <th style="color:#1D14A4;font-size: 20px;">${proyecto.areaProyecto}</th>
                 <th style="color:#1D14A4;font-size: 20px;">${proyecto.tipo.tipo}</th>
+                <th>
+                    <form method="GET" action="/HumanQualityResearch/muestra-proyecto" >
+                        <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
+                        <button type="submit" class="btn btn-primary btn-lg active">Detalles</button>
+                    </form>
+                    
+                </th>
                 <th>
                     <form method="GET" action="/HumanQualityResearch/ver-empleados" >
                         <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">

@@ -193,4 +193,31 @@ public class ProyectoDAO {
         }
         return result;
     }
+    
+    public Cliente getCliente(long idProyecto){
+        Cliente  cliente = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT cliente FROM Cliente cliente INNER JOIN "
+                          + "cliente.persona persona "
+                    + "WHERE persona.activo = TRUE AND persona.idPersona IN "
+                    + "(SELECT p.persona.idPersona FROM Pertenecer p "
+                       + " WHERE p.proyecto.idProyecto = :idproyecto)";
+            Query query = session.createQuery(hql);
+            query.setParameter("idproyecto", idProyecto);
+            cliente = (Cliente)query.uniqueResult();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return cliente;        
+    }
 }

@@ -231,4 +231,25 @@ public class CRUDProyecto {
         proyecto_db.actualizar(proyecto);
         return "Ok";
      }
+     
+     @RequestMapping(value= "/muestra-proyecto", method = RequestMethod.GET)
+    public ModelAndView mostrarCliente(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("idproyecto"));
+        System.out.print(id);
+        Proyecto proyecto = proyecto_db.getProyecto(id);
+        boolean existe = proyecto != null;
+        model.addAttribute("existe",existe);
+        if(!existe)
+            return new ModelAndView("error403",model);
+        Cliente cliente = proyecto_db.getCliente(id);
+        Tipo tipo = proyecto.getTipo();
+        model.addAttribute("id",id);
+        model.addAttribute("codigo",proyecto.getCodigo());
+        model.addAttribute("area", proyecto.getAreaProyecto());
+        model.addAttribute("tipo", tipo.getTipo());
+        model.addAttribute("nombre",cliente.getPersona().getNombre());
+        model.addAttribute("app",cliente.getPersona().getApp());
+        model.addAttribute("apm",cliente.getPersona().getApm());
+        return new ModelAndView("MuestraProyecto",model);
+    }
 }

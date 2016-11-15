@@ -198,9 +198,9 @@ public class CRUDCliente {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/muestra-cliente", method = RequestMethod.POST)
+    @RequestMapping(value= "/admin/muestra-cliente", method = RequestMethod.GET)
     public ModelAndView mostrarCliente(ModelMap model,HttpServletRequest request){   
-        long id = Long.parseLong(request.getParameter("id"));
+        long id = Long.parseLong(request.getParameter("idcliente"));
         Cliente cliente = cliente_bd.getCliente(id);
         boolean existe = cliente != null;
         model.addAttribute("existe",existe);

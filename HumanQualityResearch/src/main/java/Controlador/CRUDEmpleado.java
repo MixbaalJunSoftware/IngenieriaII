@@ -312,7 +312,7 @@ public class CRUDEmpleado {
       * @return 
       */
     
-    @RequestMapping(value= "admin/borradol-participante", method = RequestMethod.POST)
+    @RequestMapping(value= "borradol-participante", method = RequestMethod.POST)
     public String borradolParticipanteA(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("id"));
         Persona persona = persona_bd.getPersona(id);

@@ -44,6 +44,12 @@
                             </form>
                         </th>
                         <th>
+                            <form method="GET" action="/HumanQualityResearch/admin/muestra-cliente" >
+                                <input id="idcliente" name="idcliente" hidden="true" value="${cliente.persona.idPersona}">
+                                <button type="submit" class="btn btn-primary btn-lg active">Detalles</button>
+                            </form>
+                        </th>
+                        <th>
                             <form method="POST" action="/HumanQualityResearch/admin/borradol-cliente" >
                                 <input id="id" name="id" hidden="true" value="${cliente.persona.idPersona}">
                                 <button type="submit" class="btn btn-primary btn-lg active">Eliminar</button>

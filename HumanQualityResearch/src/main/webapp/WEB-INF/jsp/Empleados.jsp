@@ -48,7 +48,7 @@
                             </form>
                         </th>
                         <th>
-                            <form method="POST" action="/HumanQualityResearch/admin/borradol-participante" >
+                            <form method="POST" action="/HumanQualityResearch/borradol-participante" >
                                 <input id="id" name="id" hidden="true" value="${empleado.persona.idPersona}">
                                 <button type="submit" class="btn btn-primary btn-lg active">Eliminar</button>
                             </form>

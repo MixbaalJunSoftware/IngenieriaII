@@ -1,7 +1,7 @@
 <%-- 
-    Document   : MostrarCliente
-    Created on : 23/09/2016, 07:24:03 PM
-    Author     : luis
+    Document   : MuestraProyecto
+    Created on : 15/11/2016, 10:32:39 AM
+    Author     : jonathan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/MostrarCliente.css"/> ">
-        <title>mostrar cliente</title>
+        <title>mostrar proyecto</title>
     </head>
     <body>
         <header>
@@ -21,16 +21,15 @@
             <hr/>
         </header>
             <div class="container">
-            <h1 style="color:blue;">Datos del cliente:</h1>
-            <p>Nombre: ${nombre} ${app} ${apm}</p>
-            <p>Fecha de nacimiento: ${fecha}</p>
-            <p>Género: ${genero}</p>
-            <p>Empresa: ${empresa}</p>
-            <p>Puesto: ${puesto}</p>
+            <h1 style="color:blue;">Datos del proyecto:</h1>
+            <p>Codigo: ${codigo}</p>
             <p>Area: ${area}</p>
-            <p>Correo: ${correo}</p>
-            <p>Telefono: ${telefono}</p>
-            <p>Celular: ${celular}</p>
+            <p>Tipo: ${tipo}</p>
+            <p>Cliente: ${nombre} ${app} ${apm}</p>
+            <form method="GET" action="/HumanQualityResearch/ver-empleados" >
+                    <input id="idproyecto" name="idproyecto" hidden="true" value="${id}">
+                    <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 30cm">Participantes</button>
+            </form>
             </div>
             <form method="GET" action="/HumanQualityResearch/redirect-home" >
                     <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
