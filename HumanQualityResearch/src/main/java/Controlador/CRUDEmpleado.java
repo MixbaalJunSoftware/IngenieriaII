@@ -359,7 +359,26 @@ public class CRUDEmpleado {
         return "Ok";
     }   
     
-   
+   @RequestMapping(value= "/muestra-participante", method = RequestMethod.GET)
+    public ModelAndView mostrarParticipante(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("idparticipante"));
+        Empleado empleado = empleado_bd.getEmpleado(id);
+        boolean existe = empleado != null;
+        model.addAttribute("existe",existe);
+        if(!existe)
+            return new ModelAndView("ClienteNoEncontrado",model);
+        model.addAttribute("id",id);
+        model.addAttribute("nombre",empleado.getPersona().getNombre());
+        model.addAttribute("app",empleado.getPersona().getApp());
+        model.addAttribute("apm",empleado.getPersona().getApm());
+        model.addAttribute("fecha",empleado.getPersona().getFecha_nac().toString());
+        model.addAttribute("genero",empleado.getPersona().getGenero());
+        model.addAttribute("correo",empleado.getPersona().getCorreo());
+        model.addAttribute("telefono",empleado.getPersona().getTelefono());
+        model.addAttribute("celular",empleado.getPersona().getCelular());
+        model.addAttribute("puesto", empleado.getPuestoempleado());
+        return new ModelAndView("MuestraParticipante",model);
+    }
     
     
 }

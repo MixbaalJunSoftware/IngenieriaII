@@ -36,6 +36,12 @@
                         <th style="color:#1D14A4;font-size: 20px;">${empleado.persona.nombre}</th>
                         <th style="color:#1D14A4;font-size: 20px;">${empleado.persona.correo}</th>
                         <th>
+                            <form action="/HumanQualityResearch/muestra-participante">
+                                <input name = "idparticipante" value = "${empleado.persona.idPersona}" hidden="true" >
+                                <button>Detalles</button>
+                            </form>
+                        </th>
+                        <th>
                             <form action="/HumanQualityResearch/reportes/candidato/adaptabilidad">
                                 <input name = "r2" value = "${empleado.persona.idPersona}" hidden="true" >
                                 <button>reporte Adaptabilidad</button>
