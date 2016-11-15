@@ -120,7 +120,7 @@ public class CRUDProyecto {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/cliente/ver-proyectos", method = RequestMethod.POST)
+    @RequestMapping(value= "/cliente/ver-proyectos", method = RequestMethod.GET)
     public ModelAndView verProyectos(ModelMap model,HttpServletRequest request, Principal principal){   
         Persona persona = persona_db.getPersona(principal.getName());
         List<Proyecto> lp = proyecto_db.proyectosCliente(persona.getIdPersona());
@@ -135,7 +135,7 @@ public class CRUDProyecto {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/admin/ver-proyectos", method = RequestMethod.POST)
+    @RequestMapping(value= "/admin/ver-proyectos", method = RequestMethod.GET)
     public ModelAndView verProyectosAdmin(ModelMap model,HttpServletRequest request){  
         long id = Long.parseLong(request.getParameter("idcliente"));
         List<Proyecto> lp = proyecto_db.proyectosCliente(id);

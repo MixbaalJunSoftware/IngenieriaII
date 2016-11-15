@@ -122,7 +122,8 @@ public class EmpleadoDAO {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "SELECT empleado From Empleado empleado inner join empleado.persona";
+            String hql = "SELECT empleado From Empleado empleado inner join empleado.persona "
+                    + "WHERE empleado.persona.activo = TRUE";
             Query query = session.createQuery(hql);
             result = (List<Empleado>)query.list();
             tx.commit();
@@ -145,7 +146,8 @@ public class EmpleadoDAO {
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "SELECT r FROM Empleado r WHERE r.persona.idPersona IN "
+            String hql = "SELECT r FROM Empleado r WHERE r.persona.activo = TRUE AND "
+                       + "r.persona.idPersona IN "
                        + "(SELECT p.persona.idPersona FROM Pertenecer p "
                        + " WHERE p.proyecto.idProyecto = :idproyecto)";
             Query query = session.createQuery(hql);
@@ -164,4 +166,30 @@ public class EmpleadoDAO {
         return result;
     
     }
+    
+    public List<Empleado> ParticipantesEliminados() {
+        List<Empleado> result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT empleado From Empleado empleado inner join empleado.persona"
+                    + " WHERE empleado.persona.activo = FALSE "
+                    + "ORDER BY to_char(empleado.persona.fborrado,'YYYY/MM/DD')";
+            Query query = session.createQuery(hql);
+            result = (List<Empleado>)query.list();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    }
+    
+    
 }
