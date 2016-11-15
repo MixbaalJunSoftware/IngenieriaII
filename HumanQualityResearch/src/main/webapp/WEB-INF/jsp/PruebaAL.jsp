@@ -69,7 +69,7 @@
     </div>
   </div>
 </nav>
-      <form  method="POST" action = "/HumanQualityResearch/empleado/guardaPrueba">
+      <form  method="POST" action = "/HumanQualityResearch/empleado/guardaPruebaAdapt">
 
 <div id="section1" class="container-fluid">
   <h1>Escala Mexicana de Adaptabilidad Laboral</h1>

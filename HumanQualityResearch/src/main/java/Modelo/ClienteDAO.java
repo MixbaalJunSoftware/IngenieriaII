@@ -6,9 +6,8 @@
 package Modelo;
 
 import Mapeo.Cliente;
-import java.util.LinkedList;
+import Mapeo.PruebaCliente;
 import java.util.List;
-import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -37,6 +36,30 @@ public class ClienteDAO {
          
            session.persist(cliente);
            
+           tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){ 
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+    
+    }
+    
+    public void agregaPrueba(long idCliente, int prueba) {
+    
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+           tx = session.beginTransaction();
+           PruebaCliente pc = new PruebaCliente();
+           Cliente cliente = (Cliente) session.get(Cliente.class, idCliente);
+           pc.setCliente(cliente);
+           pc.setPrueba(prueba);
+           session.persist(pc);
            tx.commit();
         }
         catch (Exception e) {
