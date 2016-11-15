@@ -165,5 +165,29 @@ public class ClienteDAO {
     
     }
     
+    public List<Cliente> ClientesEliminados() {
+        List<Cliente> result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT cliente From Cliente cliente inner join cliente.persona "
+                    + "WHERE cliente.persona.activo = FALSE "
+                    + "ORDER BY to_char(cliente.persona.fborrado,'YYYY/MM/DD')";
+            Query query = session.createQuery(hql);
+            result = (List<Cliente>)query.list();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    }
+    
     
 }

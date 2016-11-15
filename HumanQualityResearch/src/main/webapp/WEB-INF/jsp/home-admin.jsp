@@ -70,30 +70,28 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        <br/>
+                        <br/>
+                    </div>
+                    <div class="col-md-4 col-md-offset-1">
+                        <form action = "/HumanQualityResearch/admin/ver-eclientes">
+                            <button class="btn btn-default btn-lg" id="modal">Recuperar clientes</button>
+                        </form>
+                        <br/>
+                        <br/>
+                        <form action = "/HumanQualityResearch/admin/ver-eparticipantes">
+                            <button class="btn btn-default btn-lg" id="modal">Recuperar participantes</button>
+                        </form>
+                        <br/>
+                        <br/>
+                        <form action = "/HumanQualityResearch/admin/ver-eproyectos">
+                            <button class="btn btn-default btn-lg" id="modal">Recuperar proyectos</button>
+                        </form>
                         <br/>
                         <br/>
                         <br/>
+                        <br/>
                         
-                        
-                        <!-- Modal del cliente -->
-                        <div class="modal fade" id="codigoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                            <div class="modal-dialog" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel" style="color:blue;text-align: center;">Nuevo código</h4>
-                                    </div>
-                                    <div class="modal-body">
-                                    ...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                        <button type="button" class="btn btn-primary">Crear Código</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         
                     </div>
                 </div>                

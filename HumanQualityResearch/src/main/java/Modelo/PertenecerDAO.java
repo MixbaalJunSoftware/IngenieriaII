@@ -116,4 +116,27 @@ public class PertenecerDAO {
         return result;
     }
     
+    public Pertenecer getPertenecerP(long idPersona) {
+        Pertenecer result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "from Pertenecer p where p.persona.idPersona = :idpersona";
+            Query query = session.createQuery(hql);
+            query.setParameter("idpersona", idPersona);
+            result = (Pertenecer)query.uniqueResult();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    }
+    
 }
