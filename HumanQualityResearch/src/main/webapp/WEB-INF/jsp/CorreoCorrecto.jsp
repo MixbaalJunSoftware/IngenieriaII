@@ -11,24 +11,24 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/CorreoCorrecto.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/correoCorrecto.css"/> ">
         <title>Correo ingresado</title>
     </head>
     <body>
-        <br/>
-        <header>
-            <div class="he1" align="left">
-            <img class="logoHQR" src="<c:url value="/imagenes/logo_hqr.jpg"/>" width=90 height=100 alt="Logo HQR" style="margin-left:3cm">
-            </div>
-            <hr/>
-        </header>
-            <p id="exito">Se agregó exitosamente el correo electrónico del cliente</p>
+        <div class="principal text-center">
+            <img src="<c:url value="/imagenes/logo_hqr.jpg"/>" alt="Logo HQR"/> 
+        </div>
+        <div class="container-fluid bg-1">
+            <h1 id="exito">Se agregó exitosamente el correo electrónico del cliente</h1>
             <br/>
-            <br/>
+            <span class="glyphicon glyphicon-thumbs-up logo"></span>
             <br/>
             <form method="GET" action="/HumanQualityResearch/redirect-home" >
-                    <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 15cm;color:#1662B2;">Regresar</button>
+                <button type="submit"  class="btn btn-primary btn-lg active" position="center" style="margin-left: 16cm;">Regresar</button>
             </form>
+            <br/>
+            <br/>
+        </div>
     </body>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>

@@ -83,7 +83,7 @@
             </div>
         </div>
         
-        <div id="sesion" class="container-fluid bg-2">
+        <div id="sesion" class="container-fluid bg-2" style=" background-color: #5389C4;">
             <div class="col-sm-8">
                 <h1 id="letra">¿Ya estás registrado en Human Quality Research?</h1>
                 <br/>

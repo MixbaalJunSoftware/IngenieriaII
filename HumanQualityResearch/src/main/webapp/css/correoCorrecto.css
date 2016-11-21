@@ -1,0 +1,24 @@
+/* 
+    Created on : Nov 21, 2016, 3:56:35 PM
+    Author     : rickjmzmnz
+*/
+
+.principal{
+    background-color: #5389C4;
+    color: #fff;
+    padding: 25px 25px;
+}
+
+.bg-1{
+    background-color: #7D9ED3;
+    padding: 30px 25px;
+}
+.logo{
+    font-size: 200px;
+    color:white;
+    margin-left: 15cm;
+}
+#exito{
+    color: white;
+    margin-left: 6cm;
+}

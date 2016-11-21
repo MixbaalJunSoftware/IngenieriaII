@@ -30,6 +30,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#ver">Ver Clientes</a></li>
                         <li><a href="#crear">Crear Clientes</a></li>
+                        <li><a href="#info">Recuperar Información</a></li>
                         <li><a href="#salir">Salir</a></li>
                     </ul>
                 </div>
@@ -37,6 +38,7 @@
         </nav>
         
         <div id="ver" class="container-fluid bg-1">
+            <br/>
             <br/>
             <br/>
             <div class="row">   
@@ -81,7 +83,29 @@
             
         </div>            
         
-        <div id="salir" class="container-fluid bg-3">
+        <div id="info" class="container-fluid bg-1">
+            <h2 id="listado">Recuperar información que haya sido eliminada de la página</h2>
+            <br/>
+            <br/>
+            <br/>
+            <div class="col-md-4">
+                <form action = "/HumanQualityResearch/admin/ver-eclientes">
+                    <button class="btn btn-primary btn-lg" style="margin-left: 2cm;">Recuperar clientes</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form action = "/HumanQualityResearch/admin/ver-eparticipantes">
+                    <button class="btn btn-primary btn-lg" style="margin-left: 1cm;">Recuperar participantes</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form action = "/HumanQualityResearch/admin/ver-eproyectos">
+                    <button class="btn btn-primary btn-lg" style="margin-left: 0.5cm;">Recuperar proyectos</button>
+                </form>
+            </div>
+        </div>            
+        
+        <div id="salir" class="container-fluid bg-2">
             <div class="col-sm-8">
                 <h2 id="listado">Salir a la página principal</h2>
                 <br/>
@@ -120,33 +144,12 @@
                 </div>
             </div>
         </div>
-         <div class="col-md-4 col-md-offset-1">
-                    <form action = "/HumanQualityResearch/admin/ver-eclientes">
-                        <button class="btn btn-default btn-lg" id="modal">Recuperar clientes</button>
-                    </form>
-                    <br/>
-                    <br/>
-                    <form action = "/HumanQualityResearch/admin/ver-eparticipantes">
-                        <button class="btn btn-default btn-lg" id="modal">Recuperar participantes</button>
-                    </form>
-                    <br/>
-                    <br/>
-                    <form action = "/HumanQualityResearch/admin/ver-eproyectos">
-                        <button class="btn btn-default btn-lg" id="modal">Recuperar proyectos</button>
-                    </form>
-                    <br/>
-                    <br/>
-                    <br/>
-                    <br/>
-                    
-                    
-                </div>
+        
+        
+    </body>
+    <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
+    <script src="<c:url value="/js/bootstrap.min.js"/> "></script>
     
     
-</body>
-<script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
-<script src="<c:url value="/js/bootstrap.min.js"/> "></script>
-
-
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
