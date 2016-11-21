@@ -1,0 +1,53 @@
+
+/* 
+    Created on : Nov 21, 2016, 8:03:35 AM
+    Author     : rickjmzmnz
+*/
+
+.principal{
+    background-color: #5389C4;
+    color: #fff;
+    padding: 100px 25px;
+}
+.bg-1{
+    background-color: #7D9ED3;
+}
+
+.bg-2 {
+    background-color: #A5B8E0;
+}
+.container-fluid {
+    padding: 60px 50px;
+}
+.logo{
+    font-size: 200px;
+    color:white;
+}
+
+#nuevo{
+    color:white;
+    margin-left: 4cm;
+}
+
+#letra{
+    color:white;
+}
+
+#btnReg {
+    margin-left: 5cm;
+}
+
+#labSes{
+    color:white;
+    font-size:20px;
+    margin-left: 4cm;
+}
+
+#btnSes{
+    margin-left:7.5cm;
+}
+
+#contraseña{
+    color:white;
+    margin-left:4.5cm;
+}

@@ -62,7 +62,7 @@ public class SesionAdmin {
      */
     @RequestMapping(value = "/")
     public String inicio(){
-        return "indexNew";
+        return "index";
     }
     
     @RequestMapping(value = "/coso")

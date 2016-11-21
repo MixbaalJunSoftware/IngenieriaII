@@ -1,0 +1,38 @@
+
+/* 
+    Created on : Nov 21, 2016, 8:29:21 AM
+    Author     : rickjmzmnz
+*/
+
+.bg-1{
+    background-color: #5389C4;
+}
+.container-fluid {
+    padding: 60px 50px;
+}
+.bg-2 {
+    background-color: #7D9ED3;
+}
+.bg-3 {
+    background-color: #A5B8E0;
+}
+.logo{
+    font-size: 200px;
+    color: white;
+}
+#letras{
+    color: white;
+}
+#listado{
+    color: white;
+    margin-left: 2.5cm;
+}
+#clientes{
+    margin-left: 5cm;
+}
+#crearCliente{
+    margin-left: 6cm;
+}
+#btnSalir{
+    margin-left: 6.5cm;
+}
