@@ -109,6 +109,7 @@ public class CRUDEmpleado {
         Persona p = persona_bd.getPersona(correo);
         if(p==null){
             persona.setCorreo(correo);
+            persona.setActivo(true);
             usuario.setPersona(persona);
             pertenecer.setPersona(persona);
             pertenecer.setProyecto(proyecto);
@@ -252,7 +253,7 @@ public class CRUDEmpleado {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/ver-empleados", method = RequestMethod.POST)
+    @RequestMapping(value= "/ver-empleados", method = RequestMethod.GET)
     public ModelAndView verEmpleadosAdmin(ModelMap model,HttpServletRequest request){  
         long id = Long.parseLong(request.getParameter("idproyecto"));
         List<Empleado> lp = empleado_bd.empleadosProyecto(id);
@@ -290,15 +291,17 @@ public class CRUDEmpleado {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/elimina-participante", method = RequestMethod.POST)
+    @RequestMapping(value= "/admin/elimina-participante", method = RequestMethod.POST)
     public String eliminaParticipante(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("id"));
         Empleado empleado = empleado_bd.getEmpleado(id);
         Usuario usuario = usuario_bd.getUsuario(id);
         Persona persona = empleado.getPersona();
+        Pertenecer pertenecer = pertenecer_bd.getPertenecerP(id);
+        pertenecer_bd.eliminar(pertenecer);
         empleado_bd.eliminar(empleado);
-        persona_bd.eliminar(persona);
         usuario_bd.eliminar(usuario);
+        persona_bd.eliminar(persona);        
         return "Ok";
     }
     
@@ -309,8 +312,8 @@ public class CRUDEmpleado {
       * @return 
       */
     
-    @RequestMapping(value= "admin/borradol-participante", method = RequestMethod.POST)
-    public String borradolParticipante(ModelMap model,HttpServletRequest request){   
+    @RequestMapping(value= "borradol-participante", method = RequestMethod.POST)
+    public String borradolParticipanteA(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("id"));
         Persona persona = persona_bd.getPersona(id);
         Calendar fecha = Calendar.getInstance();
@@ -321,8 +324,61 @@ public class CRUDEmpleado {
         return "Ok";
     }
     
+    /**
+      * Método para hacer el borrado lógico de la base de datos
+      * @param model
+      * @param request
+      * @return 
+      */
     
+    @RequestMapping(value= "cliente/borradol-participante", method = RequestMethod.POST)
+    public String borradolParticipanteC(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("id"));
+        Persona persona = persona_bd.getPersona(id);
+        Calendar fecha = Calendar.getInstance();
+        Date date = fecha.getTime();
+        persona.setFborrado(date);
+        persona.setActivo(false);
+        persona_bd.actualizar(persona);        
+        return "Ok";
+    }
     
+    @RequestMapping(value= "/admin/ver-eparticipantes", method = RequestMethod.GET)
+    public ModelAndView verParticipantesE(ModelMap model,HttpServletRequest request){  
+        List<Empleado> c = empleado_bd.ParticipantesEliminados();
+        model.addAttribute("lista",c);
+        return new ModelAndView("ParticipantesEliminados",model);
+    }
+    
+    @RequestMapping(value= "/admin/recuperar-participante", method = RequestMethod.POST)
+    public String recuperarParticipante(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("id"));
+        Persona persona = persona_bd.getPersona(id);
+        persona.setActivo(true);
+        persona_bd.actualizar(persona);        
+        return "Ok";
+    }   
+    
+   @RequestMapping(value= "/muestra-participante", method = RequestMethod.GET)
+    public ModelAndView mostrarParticipante(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("idparticipante"));
+        Empleado empleado = empleado_bd.getEmpleado(id);
+        boolean existe = empleado != null;
+        model.addAttribute("existe",existe);
+        if(!existe)
+            return new ModelAndView("ClienteNoEncontrado",model);
+        model.addAttribute("id",id);
+        model.addAttribute("nombre",empleado.getPersona().getNombre());
+        model.addAttribute("app",empleado.getPersona().getApp());
+        model.addAttribute("apm",empleado.getPersona().getApm());
+        model.addAttribute("fecha",empleado.getPersona().getFecha_nac().toString());
+        model.addAttribute("genero",empleado.getPersona().getGenero());
+        model.addAttribute("correo",empleado.getPersona().getCorreo());
+        model.addAttribute("telefono",empleado.getPersona().getTelefono());
+        model.addAttribute("celular",empleado.getPersona().getCelular());
+        model.addAttribute("puesto", empleado.getPuestoempleado());
+        return new ModelAndView("MuestraParticipante",model);
+    }
     
     
 }

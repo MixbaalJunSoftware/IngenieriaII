@@ -54,7 +54,7 @@
                 <input style="margin-left: 0.5cm;" type="text" name="newPass2" id="newPass2">
                 <br/>
                 <br/>
-                <button  style="margin-left: 16cm;" value="aceptar" class="btn btn-primary" name="npboton" id="npboton" onclick="confirmaCorreo()">Aceptar</button>
+                <input type="button" style="margin-left: 16cm;" value="aceptar" class="btn btn-primary" name="npboton" id="npboton" onclick="confirmaCorreo()">
             </form>
         </div>
     </body>

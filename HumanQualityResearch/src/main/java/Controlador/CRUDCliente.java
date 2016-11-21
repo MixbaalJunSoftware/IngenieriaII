@@ -7,9 +7,11 @@ package Controlador;
 
 import Mapeo.Cliente;
 import Mapeo.Persona;
+import Mapeo.Pertenecer;
 import Mapeo.Usuario;
 import Modelo.ClienteDAO;
 import Modelo.PersonaDAO;
+import Modelo.PertenecerDAO;
 import Modelo.UsuarioDAO;
 import java.security.Principal;
 import java.text.ParseException;
@@ -54,6 +56,9 @@ public class CRUDCliente {
     //Instancia para operaciones con la base relacionadas con un Usuario
     @Autowired
     private UsuarioDAO usuario_bd;
+    
+    @Autowired
+    private PertenecerDAO pertenecer_bd;
     
     
     /**
@@ -193,9 +198,9 @@ public class CRUDCliente {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/muestra-cliente", method = RequestMethod.POST)
+    @RequestMapping(value= "/admin/muestra-cliente", method = RequestMethod.GET)
     public ModelAndView mostrarCliente(ModelMap model,HttpServletRequest request){   
-        long id = Long.parseLong(request.getParameter("id"));
+        long id = Long.parseLong(request.getParameter("idcliente"));
         Cliente cliente = cliente_bd.getCliente(id);
         boolean existe = cliente != null;
         model.addAttribute("existe",existe);
@@ -222,16 +227,23 @@ public class CRUDCliente {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/elimina-cliente", method = RequestMethod.POST)
+    @RequestMapping(value= "/admin/elimina-cliente", method = RequestMethod.POST)
     public String eliminaCliente(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("id"));
         Cliente cliente = cliente_bd.getCliente(id);
         Usuario usuario = usuario_bd.getUsuario(id);
         Persona persona = cliente.getPersona();
-        cliente_bd.eliminar(cliente);
-        persona_bd.eliminar(persona);
-        usuario_bd.eliminar(usuario);
-        return "Ok";
+        Pertenecer pertenecer = pertenecer_bd.getPertenecerP(id);
+        try{
+            pertenecer_bd.eliminar(pertenecer);
+            cliente_bd.eliminar(cliente);
+            usuario_bd.eliminar(usuario);
+            persona_bd.eliminar(persona);
+            return "Ok";
+        }catch(Exception e){
+            return "Error403";
+        }
+        
     }
     
     /**
@@ -295,6 +307,7 @@ public class CRUDCliente {
         Persona p = persona_bd.getPersona(correo);
         if(p==null){
             persona.setCorreo(correo);
+            persona.setActivo(true);
             cliente.setPersona(persona);
             usuario.setPersona(persona);
             usuario.setRol("ROLE_CLIENTE");
@@ -308,6 +321,22 @@ public class CRUDCliente {
             return "CorreoRegistrado";
         }
      
+    }
+    
+    @RequestMapping(value= "/admin/ver-eclientes", method = RequestMethod.GET)
+    public ModelAndView verClientesE(ModelMap model,HttpServletRequest request){ 
+        List<Cliente> c = cliente_bd.ClientesEliminados();
+        model.addAttribute("lista",c);
+        return new ModelAndView("ClientesEliminados",model);
+    }
+    
+    @RequestMapping(value= "/admin/recuperar-cliente", method = RequestMethod.POST)
+    public String recuperarCliente(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("id"));
+        Persona persona = persona_bd.getPersona(id);
+        persona.setActivo(true);
+        persona_bd.actualizar(persona);        
+        return "Ok";
     }
     
     

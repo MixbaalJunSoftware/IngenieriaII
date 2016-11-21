@@ -29,13 +29,8 @@
                     <div class="col-md-4 col-md-offset-1">
                         <br/>
                         <br/>
-                        <button class="btn btn-default btn-lg">
-                            <span class="glyphicon glyphicon-user" aria-hidden="true" id="modal"> Empleados</span> 
-                        </button>
                         <br/>
-                        <br/>
-                        <br/>
-                        <form  method="POST"action = "/HumanQualityResearch/cliente/ver-proyectos"> 
+                        <form  method="GET"action = "/HumanQualityResearch/cliente/ver-proyectos"> 
                             <button class="btn btn-default btn-lg">
                                 <span class="glyphicon glyphicon-book" aria-hidden="true" id="modal"> Proyectos</span> 
                             </button>

@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Clientes
-    Created on : 26/09/2016, 11:44:34 AM
-    Author     : jonathan
+    Document   : ClientesEliminados
+    Created on : 14/11/2016, 09:13:13 PM
+    Author     : danii
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Clientes.css"/> ">
-        <title>Clientes</title>
+        <title>Clientes Eliminados</title>
     </head>
     <body>
         <br/>
@@ -28,7 +28,7 @@
                     <th style="color:#1D14A4;font-size: 20px;">Nombre</th>
                     <th style="color:#1D14A4;font-size: 20px;">Empresa</th>
                     <th style="color:#1D14A4;font-size: 20px;">Correo Electrónico</th>
-                    <th style="color:#1D14A4;font-size: 20px;">Proyectos</th>
+                    <th style="color:#1D14A4;font-size: 20px;">Fecha de borrado</th>
                 </tr>
             </thead>
             <c:forEach var="cliente" items="${lista}">
@@ -37,20 +37,15 @@
                         <th style="color:#1D14A4;font-size: 20px;">${cliente.persona.nombre}</th>
                         <th style="color:#1D14A4;font-size: 20px;">${cliente.empresa}</th>
                         <th style="color:#1D14A4;font-size: 20px;">${cliente.persona.correo}</th>
+                        <th style="color:#1D14A4;font-size: 20px;">${cliente.persona.fborrado}</th>
                         <th>
-                            <form method="GET" action="/HumanQualityResearch/admin/ver-proyectos" >
-                                <input id="idcliente" name="idcliente" hidden="true" value="${cliente.persona.idPersona}">
-                                <button type="submit" class="btn btn-primary btn-lg active">Proyectos</button>
+                            <form method="POST" action="/HumanQualityResearch/admin/recuperar-cliente" >
+                                <input id="id" name="id" hidden="true" value="${cliente.persona.idPersona}">
+                                <button type="submit" class="btn btn-primary btn-lg active">Recuperar</button>
                             </form>
                         </th>
                         <th>
-                            <form method="GET" action="/HumanQualityResearch/admin/muestra-cliente" >
-                                <input id="idcliente" name="idcliente" hidden="true" value="${cliente.persona.idPersona}">
-                                <button type="submit" class="btn btn-primary btn-lg active">Detalles</button>
-                            </form>
-                        </th>
-                        <th>
-                            <form method="POST" action="/HumanQualityResearch/admin/borradol-cliente" >
+                            <form method="POST" action="/HumanQualityResearch/admin/elimina-cliente" >
                                 <input id="id" name="id" hidden="true" value="${cliente.persona.idPersona}">
                                 <button type="submit" class="btn btn-primary btn-lg active">Eliminar</button>
                             </form>
@@ -66,3 +61,4 @@
     </body>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
+

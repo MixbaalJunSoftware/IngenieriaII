@@ -5,12 +5,12 @@
  */
 package Modelo;
 
+import Mapeo.Cliente;
 import Mapeo.Persona;
 import Mapeo.Proyecto;
-import Mapeo.Tipo;
-import java.util.LinkedList;
+import Mapeo.PruebaCliente;
+import Mapeo.PruebaProyecto;
 import java.util.List;
-import org.hibernate.Hibernate;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -98,6 +98,30 @@ public class ProyectoDAO {
     
     }
     
+    public void agregaPrueba(long idProyecto, int prueba) {
+    
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+           tx = session.beginTransaction();
+           PruebaProyecto pp = new PruebaProyecto();
+           Proyecto proyecto = (Proyecto) session.get(Proyecto.class, idProyecto);
+           pp.setProyecto(proyecto);
+           pp.setPrueba(prueba);
+           session.persist(pp);
+           tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){ 
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+    
+    }
+    
     public Proyecto getProyecto(long idProyecto) {
         Proyecto proyecto = null;
         Session session = sessionFactory.openSession();
@@ -168,5 +192,32 @@ public class ProyectoDAO {
            session.close();
         }
         return result;
+    }
+    
+    public Cliente getCliente(long idProyecto){
+        Cliente  cliente = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT cliente FROM Cliente cliente INNER JOIN "
+                          + "cliente.persona persona "
+                    + "WHERE persona.activo = TRUE AND persona.idPersona IN "
+                    + "(SELECT p.persona.idPersona FROM Pertenecer p "
+                       + " WHERE p.proyecto.idProyecto = :idproyecto)";
+            Query query = session.createQuery(hql);
+            query.setParameter("idproyecto", idProyecto);
+            cliente = (Cliente)query.uniqueResult();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return cliente;        
     }
 }

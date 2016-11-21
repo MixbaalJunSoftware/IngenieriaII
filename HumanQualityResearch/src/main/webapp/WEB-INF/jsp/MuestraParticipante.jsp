@@ -1,7 +1,7 @@
 <%-- 
-    Document   : MostrarCliente
-    Created on : 23/09/2016, 07:24:03 PM
-    Author     : luis
+    Document   : MuestraParticipante
+    Created on : 15/11/2016, 11:18:41 AM
+    Author     : jonathan
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -11,7 +11,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/MostrarCliente.css"/> ">
-        <title>mostrar cliente</title>
+        <title>muestra participante</title>
     </head>
     <body>
         <header>
@@ -21,13 +21,11 @@
             <hr/>
         </header>
             <div class="container">
-            <h1 style="color:blue;">Datos del cliente:</h1>
+            <h1 style="color:blue;">Datos del participante:</h1>
             <p>Nombre: ${nombre} ${app} ${apm}</p>
             <p>Fecha de nacimiento: ${fecha}</p>
             <p>Género: ${genero}</p>
-            <p>Empresa: ${empresa}</p>
             <p>Puesto: ${puesto}</p>
-            <p>Area: ${area}</p>
             <p>Correo: ${correo}</p>
             <p>Telefono: ${telefono}</p>
             <p>Celular: ${celular}</p>
@@ -40,3 +38,4 @@
         <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
 </html>
+

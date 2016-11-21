@@ -7,26 +7,17 @@ package Controlador;
 
 import Mapeo.Persona;
 import Mapeo.RAdaptabilidad;
+import Mapeo.RClimaLaboral;
 import Modelo.PersonaDAO;
 import Modelo.RespuestaDAO;
 import java.security.Principal;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.ZoneId;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
@@ -42,8 +33,8 @@ public class CRespuesta {
     private PersonaDAO persona_db;
     
     
-    @RequestMapping(value = "/empleado/guardaPrueba", method = RequestMethod.POST)
-    public String prueba(HttpServletRequest request,Principal principal){
+    @RequestMapping(value = "/empleado/guardaPruebaAdapt", method = RequestMethod.POST)
+    public String guardaAdaptabilidad(HttpServletRequest request,Principal principal){
         int i  =  Integer.parseInt(request.getParameter("r1"));
         Persona persona = persona_db.getPersona(principal.getName());
         RAdaptabilidad r = new RAdaptabilidad();
@@ -85,7 +76,43 @@ public class CRespuesta {
         System.out.println(persona.getCorreo());
         System.out.println(i);
         System.out.println(date);
-        return "home-empleado";
+        return "redirect:/empleado/home";
+    }
+    
+        @RequestMapping(value = "/empleado/guardaPruebaClima", method = RequestMethod.POST)
+    public String guardaClima(HttpServletRequest request,Principal principal){
+        int i  =  Integer.parseInt(request.getParameter("r1"));
+        Persona persona = persona_db.getPersona(principal.getName());
+        RClimaLaboral r = new RClimaLaboral();
+        Calendar fecha = Calendar.getInstance();
+        Date date = fecha.getTime();
+        r.setFechaRespuesta(date);
+        r.setPersona(persona);
+        r.setRespuesta1(Integer.parseInt(request.getParameter("r1")));
+        r.setRespuesta2(Integer.parseInt(request.getParameter("r2")));
+        r.setRespuesta3(Integer.parseInt(request.getParameter("r3")));
+        r.setRespuesta4(Integer.parseInt(request.getParameter("r4")));
+        r.setRespuesta5(Integer.parseInt(request.getParameter("r5")));
+        r.setRespuesta6(Integer.parseInt(request.getParameter("r6")));
+        r.setRespuesta7(Integer.parseInt(request.getParameter("r7")));
+        r.setRespuesta8(Integer.parseInt(request.getParameter("r8")));
+        r.setRespuesta9(Integer.parseInt(request.getParameter("r9")));
+        r.setRespuesta10(Integer.parseInt(request.getParameter("r10")));
+        r.setRespuesta11(Integer.parseInt(request.getParameter("r11")));
+        r.setRespuesta12(Integer.parseInt(request.getParameter("r12")));
+        r.setRespuesta13(Integer.parseInt(request.getParameter("r13")));
+        r.setRespuesta14(Integer.parseInt(request.getParameter("r14")));
+        r.setRespuesta15(Integer.parseInt(request.getParameter("r15")));
+        r.setRespuesta16(Integer.parseInt(request.getParameter("r16")));
+        r.setRespuesta17(Integer.parseInt(request.getParameter("r17")));
+        r.setRespuesta18(Integer.parseInt(request.getParameter("r18")));
+        r.setRespuesta19(Integer.parseInt(request.getParameter("r19")));
+        r.setRespuesta20(Integer.parseInt(request.getParameter("r20")));
+        respuesta_db.guardar(r);
+        System.out.println(persona.getCorreo());
+        System.out.println(i);
+        System.out.println(date);
+        return "redirect:/empleado/home";
     }
     
 }

@@ -36,7 +36,25 @@
                         <th style="color:#1D14A4;font-size: 20px;">${empleado.persona.nombre}</th>
                         <th style="color:#1D14A4;font-size: 20px;">${empleado.persona.correo}</th>
                         <th>
-                            <form method="POST" action="/HumanQualityResearch/admin/borradol-participante" >
+                            <form action="/HumanQualityResearch/muestra-participante">
+                                <input name = "idparticipante" value = "${empleado.persona.idPersona}" hidden="true" >
+                                <button>Detalles</button>
+                            </form>
+                        </th>
+                        <th>
+                            <form action="/HumanQualityResearch/reportes/candidato/adaptabilidad">
+                                <input name = "r2" value = "${empleado.persona.idPersona}" hidden="true" >
+                                <button>reporte Adaptabilidad</button>
+                            </form>
+                        </th>
+                        <th>
+                            <form action="/HumanQualityResearch/reportes/candidato/climalaboral">
+                                <input name = "r2" value = "${empleado.persona.idPersona}" hidden="true" >
+                                <button>reporte Clima Laboral</button>
+                            </form>
+                        </th>
+                        <th>
+                            <form method="POST" action="/HumanQualityResearch/borradol-participante" >
                                 <input id="id" name="id" hidden="true" value="${empleado.persona.idPersona}">
                                 <button type="submit" class="btn btn-primary btn-lg active">Eliminar</button>
                             </form>

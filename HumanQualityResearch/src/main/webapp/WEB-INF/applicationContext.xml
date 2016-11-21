@@ -37,6 +37,8 @@
                 <value>Mapeo.Tipo</value>
                 <value>Mapeo.Usuario</value>
                 <value>Mapeo.TokenPassword</value>
+                <value>Mapeo.PruebaProyecto</value>
+                <value>Mapeo.PruebaCliente</value>
             </list>
         </property>
         <property name="hibernateProperties">
@@ -87,8 +89,8 @@
     <security:http auto-config='true'>
         <security:intercept-url pattern="/" access="permitAll" />
         <security:intercept-url pattern="/admin/*" access="hasRole('ADMIN')" />
-        <security:intercept-url pattern="/w/**" 
-                                access="hasAnyRole('CLIENTE','EMPLEADO','ADMIN')" />
+        <security:intercept-url pattern="/reportes/*" 
+                                access="hasAnyRole('CLIENTE','ADMIN')" />
         <security:intercept-url pattern="/cambiarPassword" access="hasRole('PASSWORD')" />
         <security:form-login login-page="/"
                              authentication-failure-url="/?login_error=1"

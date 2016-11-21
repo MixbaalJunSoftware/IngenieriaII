@@ -110,7 +110,7 @@
                             <input id = "correo" name = "correo" style="margin-left:1cm;"/>
                             <br/>
                             <br/>
-                        </div>
+                        </div>          
                         <div class="modal-footer">
                             
                             <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
@@ -120,12 +120,33 @@
                 </div>
             </div>
         </div>
-        
-        
-    </body>
-    <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
-    <script src="<c:url value="/js/bootstrap.min.js"/> "></script>
+         <div class="col-md-4 col-md-offset-1">
+                    <form action = "/HumanQualityResearch/admin/ver-eclientes">
+                        <button class="btn btn-default btn-lg" id="modal">Recuperar clientes</button>
+                    </form>
+                    <br/>
+                    <br/>
+                    <form action = "/HumanQualityResearch/admin/ver-eparticipantes">
+                        <button class="btn btn-default btn-lg" id="modal">Recuperar participantes</button>
+                    </form>
+                    <br/>
+                    <br/>
+                    <form action = "/HumanQualityResearch/admin/ver-eproyectos">
+                        <button class="btn btn-default btn-lg" id="modal">Recuperar proyectos</button>
+                    </form>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <br/>
+                    
+                    
+                </div>
     
     
-    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</body>
+<script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
+<script src="<c:url value="/js/bootstrap.min.js"/> "></script>
+
+
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
