@@ -71,6 +71,9 @@
                                                     <br/>
                                                     <label for="tipo" style="color:#1D14A4;margin-left: 1cm;">Tipo de proyecto:</label>
                                                     <input id = "tipo" name = "tipo" style="margin-left:0.5cm;"/>
+                                                    <h3>Agregar pruebas</h3>
+                                                    <input type="checkbox" name="adapt" value="1">Adaptabilidad Laboral<br>
+                                                    <input type="checkbox" name="clima" value="2" checked>Clima Laboral<br>
                                                     <br/>
                                                     <br/>
                                                 </div>

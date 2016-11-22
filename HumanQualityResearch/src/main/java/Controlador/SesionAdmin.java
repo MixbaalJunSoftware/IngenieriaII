@@ -12,6 +12,7 @@ import Modelo.ClienteDAO;
 import Modelo.PersonaDAO;
 import Modelo.TokenPasswordDAO;
 import Modelo.UsuarioDAO;
+import Modelo.RespuestaDAO;
 import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,6 +57,9 @@ public class SesionAdmin {
     @Autowired
     private UsuarioDAO usuario_bd;
     
+    @Autowired
+    private RespuestaDAO respuesta_bd;
+    
     /**
      * Metodo para desplegar la vista de inicio
      * @return 
@@ -96,8 +100,17 @@ public class SesionAdmin {
     }
     
     @RequestMapping(value="/empleado/home")
-    public String homeEmpleado(){
-        return "home-empleado";
+    public ModelAndView homeEmpleado(ModelMap model,HttpServletRequest request, Principal principal){
+        String s = principal.getName();
+        int proyecto =(int)cliente_bd.getProyecto(s);
+        System.out.println(s+" "+proyecto);
+        boolean a = cliente_bd.validaAdaptabilidad(proyecto);
+        boolean c = cliente_bd.validaClima(proyecto);
+        a = a & respuesta_bd.rAdaptabilidadCandidato(s);
+        c = c & respuesta_bd.rClimaCandidato(s);
+        model.addAttribute("adaptab", a);
+        model.addAttribute("climab", c);
+        return new ModelAndView("home-empleado",model);
     }
     
     @RequestMapping(value="/error403")

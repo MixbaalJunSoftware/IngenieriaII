@@ -170,7 +170,8 @@ public class CRUDEmpleado {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hash_password = passwordEncoder.encode(password) ;
         usuario.setContrasenia(hash_password);
-        usuario.setRol("ROLE_EMPLEADO");
+   
+       usuario.setRol("ROLE_EMPLEADO");
         persona_bd.actualizar(persona);
         empleado_bd.actualizar(empleado);
         usuario_bd.actualizar(usuario);

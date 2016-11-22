@@ -155,5 +155,46 @@ public class RespuestaDAO {
         }
         return lresp;
     }
+
+    public boolean rAdaptabilidadCandidato(String s) {
+        RAdaptabilidad respuesta=null ;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "SELECT r FROM RAdaptabilidad r WHERE r.persona.correo = :correo";
+            Query query = session.createQuery(hql);
+            query.setParameter("correo", s);
+            respuesta = (RAdaptabilidad) query.uniqueResult();
+            tx.commit();
+        }catch(HibernateException e) {
+           if (tx!=null) tx.rollback();
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return respuesta == null;
+    }
+
+    public boolean rClimaCandidato(String s) {
+        RClimaLaboral respuesta=null ;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try{
+            tx = session.beginTransaction();
+            String hql = "SELECT r FROM RClimaLaboral r WHERE r.persona.correo = :correo";
+            Query query = session.createQuery(hql);
+            query.setParameter("correo", s);
+            respuesta = (RClimaLaboral) query.uniqueResult();
+            tx.commit();
+        }catch(HibernateException e) {
+           if (tx!=null) tx.rollback();
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        
+        return respuesta==null;
+    }
     
 }

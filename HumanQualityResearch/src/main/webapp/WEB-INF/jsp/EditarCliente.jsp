@@ -23,6 +23,15 @@
             }else
                 document.getElementById("f1").submit(); 
         }
+	var n = true;
+	function alternar(){
+            var m = n;
+            n = !n;
+            if (m)
+                document.getElementById('ver').style.display = 'block';
+            else
+		document.getElementById('ver').style.display = 'none';
+	}
     </script>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -71,6 +80,14 @@
             <input type="button" onclick="myFunction()" value="Aceptar" class="btn btn-default btn-lg active">
             <br/>
         </form>
+        <div  id='ver' style='display:none;'>
+            <form action="/HumanQualityResearch/error">
+                <input type="checkbox" name="vehicle" value="1">Adaptabilidad Laboral<br>
+                <input type="checkbox" name="vehicle" value="2" checked>Clima Laboral<br>
+                <button>enviar</button>
+            </form>
+        </div>
+        <input type="button" value="Agregar pruebas" onclick="alternar()">   
             </div>
             <form method="GET" action="/HumanQualityResearch/redirect-home" >
                     <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>

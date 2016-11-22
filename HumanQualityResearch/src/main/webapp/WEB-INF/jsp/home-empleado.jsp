@@ -29,18 +29,22 @@
                     <div class="col-md-4 col-md-offset-1">
                         <br/>
                         <br/>
+                        <c:if test="${adaptab}">
                         <form action = "/HumanQualityResearch/empleado/contestarPrueba">
                             <button class="btn btn-default btn-lg" id="modal">Contestar Prueba</button>
                         </form>
                         <br/>
                         <br/>
                         <br/>
+                        </c:if>
+                        <c:if test="${climab}">
                         <form action = "/HumanQualityResearch/empleado/contestarPruebaCL">
                             <button class="btn btn-default btn-lg" id="modal">Contestar Prueba CL</button>
                         </form>
                         <br/>
                         <br/>
                         <br/>
+                        </c:if>
                         <form action = "/HumanQualityResearch/empleado/previoActualizarEmpleado">
                             <button class="btn btn-default btn-lg" id="modal">Editar Datos</button>
                         </form>   

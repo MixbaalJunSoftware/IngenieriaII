@@ -4,10 +4,8 @@
  * and open the template in the editor.
  */
 
-var frmvalidator = new Validator("termina-registro");
+var frmvalidator = new Validator("CrearCliente");
  
- frmvalidator.addValidation("Email","maxlen=50");
- frmvalidator.addValidation("Email","email");
  
  frmvalidator.addValidation("telefono","maxlen=50");
  frmvalidator.addValidation("telefono","numeric");

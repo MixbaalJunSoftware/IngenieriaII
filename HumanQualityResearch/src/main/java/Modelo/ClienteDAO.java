@@ -7,6 +7,8 @@ package Modelo;
 
 import Mapeo.Cliente;
 import Mapeo.PruebaCliente;
+import Mapeo.PruebaProyecto;
+import java.security.Principal;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -210,6 +212,77 @@ public class ClienteDAO {
            session.close();
         }
         return result;
+    }
+
+    public boolean validaAdaptabilidad(long id) {
+        boolean result = false;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+           tx = session.beginTransaction();
+           String hql = "SELECT a FROM PruebaProyecto a WHERE a.prueba = 1 AND a.proyecto.idProyecto = :id";
+            Query query = session.createQuery(hql);
+            query.setParameter("id", id); 
+            Object o = query.uniqueResult();
+           result = o != null;
+           tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){ 
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    }
+    
+    public boolean validaClima(long id) {
+        boolean result = false;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+           tx = session.beginTransaction();
+           String hql = "SELECT a FROM PruebaProyecto a WHERE a.prueba = 2 AND a.proyecto.idProyecto = :id";
+            Query query = session.createQuery(hql);
+            query.setParameter("id", id); 
+            Object o = query.uniqueResult();
+           result = o != null;
+           tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){ 
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    }
+
+    public long getProyecto(String correo) {
+       long result = -1;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+           tx = session.beginTransaction();
+           String hql = "SELECT p.proyecto.idProyecto FROM Pertenecer p WHERE p.persona.correo = :correo";
+            Query query = session.createQuery(hql);
+            query.setParameter("correo", correo); 
+            result = (long)query.uniqueResult();
+           tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){ 
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result; 
     }
     
     

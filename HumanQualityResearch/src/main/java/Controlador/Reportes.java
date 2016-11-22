@@ -104,6 +104,22 @@ public class Reportes {
         return "error";
     }
     
+    private String taGetText(int ta){
+        if(29<=ta && ta<=92)
+            return "Cuando se enfrenta a situaciones poco comunes en el ambiente laboral no las puede resolver de forma satisfactoria.";
+        else if(93<=ta && ta<=102)
+            return "Le cuesta trabajo resolver de forma correcta las situaciones no comunes o impredecibles.";
+        else if(103<=ta && ta<=108)
+            return "Puede resolver de forma correcta las exigencias de su puesto de trabajo y algunas situaciones no comunes o impredecibles.";
+        else if(109<=ta && ta<=118)
+            return "Resuelve de forma correcta las situaciones inciertas e impredecibles, así como las exigencias características de su puesto.";
+        else if(119<=ta && ta<=128)
+            return "Tiene las competencias necesarias para resolver proactivamente las exigencias de su puesto de trabajo, así como en situaciones inciertas e impredecibles.";
+        else if(129<=ta && ta<=145)
+            return "Es necesario entrevistar al trabajador para ahondar en las respuestas obtenidas.";
+        return "error";
+    }
+    
     private String iaGetText(int ia){
         if(ia<=11)
             return "Se percibe que en la organización no hay mucho contacto con las autoridades excepto para"
@@ -138,8 +154,18 @@ public class Reportes {
                 + " los empleados para hacer su trabajo.";
         else if(11<=af && af<=21)
             return "Se percibe que las instalaciones son adecuadas y cumplen su función.";
-        else if(21<=af)
+        else if(22<=af)
             return "Se percibe que las instalaciones son cómodas, funcionales y agradables para los empleados.";
+        return "error";
+    }
+    
+    private String tcGetText(int tc){
+        if(tc<=38)
+            return "Se percibe que existe poca comunicación con las autoridades, hay una estricta supervisión y un ambiente físico deficiente.";
+        else if(39<=tc && tc<=58)
+            return "Se percibe un nivel medio de comunicación y apertura de las autoridades, cargas de trabajo adecuadas y adecuado ambiente físico.";
+        else if(59<=tc)
+            return "Se percibe flexibilidad y comunicación de las autoridades, baja carga de trabajo y un cómodo ambiente físico.";
         return "error";
     }
     
@@ -154,9 +180,11 @@ public class Reportes {
                  ra.getRespuesta17()+ra.getRespuesta18()+ra.getRespuesta19()+ra.getRespuesta20();
         int ri = ra.getRespuesta21()+ra.getRespuesta22()+ra.getRespuesta23()+ra.getRespuesta24()+ra.getRespuesta25()+
                  ra.getRespuesta26()+ra.getRespuesta27()+ra.getRespuesta28()+ra.getRespuesta29()+ra.getRespuesta30();
+        int ta = ef+cr+ri;
         String efTxt = efGetText(ef);
         String crTxt = crGetText(cr);
-        String riTxt = riGetText(ri);        
+        String riTxt = riGetText(ri);
+        String tatxt = taGetText(ta);
         model.addAttribute("respuesta", ra);
         model.addAttribute("ef",ef);
         model.addAttribute("eftxt",efTxt);
@@ -164,7 +192,8 @@ public class Reportes {
         model.addAttribute("crtxt",crTxt);
         model.addAttribute("ri",ri);
         model.addAttribute("ritxt",riTxt);
-        model.addAttribute("ta",ef+cr+ri);
+        model.addAttribute("ta",ta);
+        model.addAttribute("tatxt",tatxt);
         model.addAttribute("fecha", ra.getFechaRespuesta());
         return new ModelAndView("reporteAdaptabilidad");
     }
@@ -179,16 +208,19 @@ public class Reportes {
         int af = rc.getRespuesta1()+rc.getRespuesta2()+rc.getRespuesta4()+rc.getRespuesta4()+
                  rc.getRespuesta6()+rc.getRespuesta9()+rc.getRespuesta11()+rc.getRespuesta12()+
                  rc.getRespuesta13()+rc.getRespuesta14()+rc.getRespuesta19();
+        int tc = ia+ct+af;
         String iaTxt = iaGetText(ia);
         String ctTxt = ctGetText(ct);
-        String afTxt = afGetText(af);        
+        String afTxt = afGetText(af);
+        String tcTxt = tcGetText(tc);
         model.addAttribute("ia",ia);
         model.addAttribute("iatxt",iaTxt);
         model.addAttribute("ct",ct);
         model.addAttribute("cttxt",ctTxt);
         model.addAttribute("af",af);
         model.addAttribute("aftxt",afTxt);
-        model.addAttribute("tc", ia+ct+af);
+        model.addAttribute("tc", tc);
+        model.addAttribute("tctxt", tcTxt);
         model.addAttribute("respuesta",rc);
         model.addAttribute("fecha", rc.getFechaRespuesta());
         return new ModelAndView("reporteClima");

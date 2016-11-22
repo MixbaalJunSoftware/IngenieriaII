@@ -76,6 +76,8 @@ public class CRUDProyecto {
          Persona persona = persona_db.getPersona(principal.getName());
          String area = request.getParameter("area");
          String tipop = request.getParameter("tipo");
+         String adapt = request.getParameter("adapt");
+         String clima =request.getParameter("clima");
          String codigo = creaCodigo(persona,tipop);
          proyecto.setAreaProyecto(area);
          proyecto.setCodigo(codigo);
@@ -87,7 +89,14 @@ public class CRUDProyecto {
          System.out.print(dtipo.getTipo());
          tipo_db.guardar(dtipo);
          proyecto_db.guardar(proyecto);
-         pertenecer_db.guardar(pertenecer);         
+         int i = 0;
+         if(adapt!=null)
+             proyecto_db.agregaPrueba(proyecto.getIdProyecto(), 1);
+         else
+             i=1/0;
+         if(clima!=null)
+             proyecto_db.agregaPrueba(proyecto.getIdProyecto(), 2);
+         pertenecer_db.guardar(pertenecer);
          return "Ok";         
      }
      
