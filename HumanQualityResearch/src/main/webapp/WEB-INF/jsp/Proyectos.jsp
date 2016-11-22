@@ -10,63 +10,83 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/Proyectos.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/proyectos.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
         <title>Proyectos</title>
     </head>
     <body>
-        <br/>
-        <header>
-            <div class="he1" align="left">
-            <img class="logoHQR" src="<c:url value="/imagenes/logo_hqr.jpg"/>" width=90 height=100 alt="Logo HQR" style="margin-left:3cm">
-            </div>
-            <hr/>
-        </header>
-        <p id="proyecto">Proyectos</p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th style="color:#1D14A4;font-size: 20px;">Código</th>
-                    <th style="color:#1D14A4;font-size: 20px;">Área</th>
-                    <th style="color:#1D14A4;font-size: 20px;">Tipo</th>
-                    <th style="color:#1D14A4;font-size: 20px;">Detalles</th> 
-                    <th style="color:#1D14A4;font-size: 20px;">Empleados</th> 
-                    <th style="color:#1D14A4;font-size: 20px;">Modificar</th>
-                    <th style="color:#1D14A4;font-size: 20px;">Eliminar</th>           
-                    <th style="color:#1D14A4;font-size: 20px;">Agregar</th> 
-                    
-                </tr>
-            </thead>
-        
-        <c:forEach var="proyecto" items="${lista}">
-            <tbody>
-                <th style="color:#1D14A4;font-size: 20px;">${proyecto.codigo}</th>
-                <th style="color:#1D14A4;font-size: 20px;">${proyecto.areaProyecto}</th>
-                <th style="color:#1D14A4;font-size: 20px;">${proyecto.tipo.tipo}</th>
-                <th>
-                    <form method="GET" action="/HumanQualityResearch/muestra-proyecto" >
-                        <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
-                        <button type="submit" class="btn btn-primary btn-lg active">Detalles</button>
-                    </form>
-                    
-                </th>
-                <th>
-                    <form method="GET" action="/HumanQualityResearch/ver-empleados" >
-                        <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
-                        <button type="submit" class="btn btn-primary btn-lg active">Empleados</button>
-                    </form>
-                    
-                </th>
-                <th>
-                    <form method="POST" action="/HumanQualityResearch/jactualizar-proyecto" >
-                        <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
-                        <button type="submit" class="btn btn-primary btn-lg active">Modificar proyecto</button>
-                    </form>
-                </th>
-                <th>
-                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#eliminar">
-                            <span aria-hidden="true" id="modal" >Eliminar</span> 
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#5389C4;">
+            <div class="container" >
+                <div class="navbar-header" >
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
                     </button>
-                    <!-- Modal del cliente -->
+                    <img src="<c:url value="/imagenes/logo_hqr.jpg"/>" alt="Logo HQR" width="50" height="50"/>    
+                    <a  href="#myPage" style="color:white;">Human Quality Research </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#proyectos">Proyectos</a></li>
+                        <li><a href="/HumanQualityResearch/ver-clientes">Regresar a Clientes</a></li>
+                        <li><a href="/HumanQualityResearch/home">Regresar al menú</a></li>
+                        
+                        
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        <div id="proyectos" class="principal">
+            <br/>
+            <br/>
+            <br/>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Área</th>
+                        <th>Tipo</th>
+                        <th>Detalles</th> 
+                        <th>Participantes</th> 
+                        <th>Modificar</th>
+                        <th>Eliminar</th>           
+                        <th>Agregar</th> 
+                        
+                    </tr>
+                </thead>
+                
+                <c:forEach var="proyecto" items="${lista}">
+                    <tbody>
+                    <th>${proyecto.codigo}</th>
+                    <th>${proyecto.areaProyecto}</th>
+                    <th>${proyecto.tipo.tipo}</th>
+                    <th>
+                        <form method="GET" action="/HumanQualityResearch/muestra-proyecto" >
+                            <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
+                            <button type="submit" class="btn btn-primary btn-lg active">Detalles</button>
+                        </form>
+                        
+                    </th>
+                    <th>
+                        <form method="GET" action="/HumanQualityResearch/ver-empleados" >
+                            <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
+                            <button type="submit" class="btn btn-primary btn-lg active">Participantes</button>
+                        </form>
+                        
+                    </th>
+                    <th>
+                        <form method="POST" action="/HumanQualityResearch/jactualizar-proyecto" >
+                            <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
+                            <button type="submit" class="btn btn-primary btn-lg active">ModificarProyecto</button>
+                        </form>
+                    </th>
+                    <th>
+                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#eliminar">
+                            <span aria-hidden="true" id="modal" >Eliminar</span> 
+                        </button>
+                        <!-- Modal del cliente -->
                         <div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -79,21 +99,18 @@
                                             <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
                                             <button type="submit" class="btn btn-danger btn-lg active">Eliminar proyecto</button>
                                         </form>
-                                            <br/>
+                                        <br/>
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>    
                                     </div>                                  
                                 </div>
                             </div>
                         </div>
-                
-                </th>
-                <th>
-                    <br/>
-                    <br/>
-                    <button type="button" class="btn btn-default btn-lg" data-toggle="modal" data-target="#clienteModal${proyecto.idProyecto}">
-                        <span class="glyphicon glyphicon-plus" aria-hidden="true" id="modal" > CrearEmpleado</span> 
-                    </button>                             
-                    <!-- Modal del cliente -->
+                        
+                    </th>
+                    <th>
+                        <button type="button" class="btn btn-primary btn-lg active" data-toggle="modal" data-target="#clienteModal${proyecto.idProyecto}">CrearParticipante 
+                        </button>                             
+                        <!-- Modal del cliente -->
                         <div class="modal fade" id="clienteModal${proyecto.idProyecto}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
@@ -114,24 +131,22 @@
                                             <button type="submit" class="btn btn-primary">Crear Empleado</button>
                                         </div>
                                     </form>                           
-                                   
+                                    
                                 </div>
                             </div>
                         </div>
-                </th>
-            </tbody>
-            
-        </c:forEach>
-        </table>
-        <form method="GET" action="/HumanQualityResearch/redirect-home" >
-                    <button type="submit"  class="btn btn-primary btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
-        </form>
+                    </th>
+                    </tbody>
+                    
+                </c:forEach>
+            </table>
+        </div>
     </body>
-        <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
+    <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
     <script src="<c:url value="/js/bootstrap.min.js"/> "></script>
     
     
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    
 </html>
 

@@ -41,6 +41,7 @@
             <br/>
             <br/>
             <br/>
+            <br/>
             <div class="row">   
                 <div class="col-sm-8">
                     <h2 id="listado">Ver listado de clientes registrados</h2>
