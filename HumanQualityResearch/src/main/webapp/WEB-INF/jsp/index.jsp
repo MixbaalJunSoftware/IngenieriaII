@@ -35,13 +35,13 @@
             </div>
         </nav>
         
-        <div class="principal text-center">
+        <div class="principal text-center" style=" background-color: #5389C4;">
             <img src="<c:url value="/imagenes/logo_hqr.jpg"/>" alt="Logo HQR"/>
             <h1 id="slogan">La solución que facilita tu evaluación para identificar tu talento.</h1> 
         </div>
         
         <!-- Container (About Section) -->
-        <div id="registrar" class="container-fluid bg-1">
+        <div id="registrar" class="container-fluid bg-1" style="background-color: #7D9ED3">
             <div class="row">   
                 <div class="col-sm-8">
                     <h2 id="nuevo">¿Terminarás tu registro?</h2>
