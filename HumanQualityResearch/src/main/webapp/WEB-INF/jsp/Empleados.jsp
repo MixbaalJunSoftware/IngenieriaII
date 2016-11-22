@@ -10,11 +10,11 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/participantes.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/fuente.css"/> ">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
         <title>Empleados</title>
     </head>
-    <body>
+    <body style="background-color: #5389C4;">
         <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#5389C4;">
             <div class="container" >
                 <div class="navbar-header" >

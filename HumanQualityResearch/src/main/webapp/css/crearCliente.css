@@ -1,0 +1,23 @@
+/* 
+    Created on : Nov 22, 2016, 7:31:23 AM
+    Author     : rickjmzmnz
+*/
+
+.bg-1{
+    background-color: #7D9ED3;
+}
+
+#registro{
+    color: white;
+}
+
+#palabra{
+    color: white;
+    font-size: 30px;
+}
+
+#genero{
+    width: 20px;
+    height: 20px;
+    
+}
