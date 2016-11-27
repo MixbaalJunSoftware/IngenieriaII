@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/crearCliente.css"/> ">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
-        <title>Crear Cliente</title>
+        <title>Registro del Cliente</title>
     </head>
     <body style="background-color: #5389C4;">
         
@@ -213,7 +213,7 @@
                 </div>
             </div>
         </form>
-        
+        <br/>
         
         
     </body>

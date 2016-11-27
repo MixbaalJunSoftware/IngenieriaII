@@ -134,7 +134,7 @@ public class CRUDProyecto {
         Persona persona = persona_db.getPersona(principal.getName());
         List<Proyecto> lp = proyecto_db.proyectosCliente(persona.getIdPersona());
         model.addAttribute("lista",lp);
-        return new ModelAndView("Proyectos",model);
+        return new ModelAndView("ProyectosCliente",model);
     }
     
     /**

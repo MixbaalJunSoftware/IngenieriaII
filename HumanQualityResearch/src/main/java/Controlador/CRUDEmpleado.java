@@ -260,7 +260,7 @@ public class CRUDEmpleado {
         List<Empleado> lp = empleado_bd.empleadosProyecto(id);
         model.addAttribute("listaEmpleados",lp);
         model.addAttribute("idProyecto",id);
-        return new ModelAndView("Empleados",model);
+        return new ModelAndView("Participantes",model);
     }
     
     /**

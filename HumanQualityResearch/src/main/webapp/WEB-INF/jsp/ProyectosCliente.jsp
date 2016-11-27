@@ -1,7 +1,7 @@
 <%-- 
-    Document   : Proyectos
-    Created on : 8/10/2016, 05:49:18 PM
-    Author     : danii
+    Document   : ProyectosCliente
+    Created on : Nov 26, 2016, 3:49:29 PM
+    Author     : rickjmzmnz
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#proyectos">Proyectos</a></li>
-                        <li><a href="/HumanQualityResearch/ver-clientes">Regresar a Clientes</a></li>
+                        
                         <li><a href="/HumanQualityResearch/home">Regresar al menú</a></li>
                         
                         
@@ -110,17 +110,17 @@
                     <th>
                         <button type="button" class="btn btn-primary btn-lg active" data-toggle="modal" data-target="#clienteModal${proyecto.idProyecto}">CrearParticipante 
                         </button>                             
-                        <!-- Modal crear participante -->
+                        <!-- Modal del cliente -->
                         <div class="modal fade" id="clienteModal${proyecto.idProyecto}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;color: #1D14A4;">Nuevo Participante</h4>
+                                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;color: #1D14A4;">Nuevo Empleado</h4>
                                     </div>
                                     <form method="POST" action="/HumanQualityResearch/cliente/crear-empleadoCorreo" >
-                                        <div class="modal-body" style="background-color: blue;">
-                                            <label for="correo" >Correo del participante:</label>
+                                        <div class="modal-body">
+                                            <label for="correo" style="color:#1D14A4;margin-left: 2.5cm;">Correo del cliente:</label>
                                             <input id = "correo" name = "correo" style="margin-left:1cm;"/>
                                             <input id="idproyectoCrea" name="idproyectoCrea" hidden="true" value="${proyecto.idProyecto}">
                                             <br/>
@@ -128,7 +128,7 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
-                                            <button type="submit" class="btn btn-primary">Crear Participante</button>
+                                            <button type="submit" class="btn btn-primary">Crear Empleado</button>
                                         </div>
                                     </form>                           
                                     
@@ -149,4 +149,3 @@
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     
 </html>
-

@@ -64,7 +64,7 @@
                             <th>
                                 <form method="POST" action="/HumanQualityResearch/admin/elimina-participante" >
                                     <input id="id" name="id" hidden="true" value="${empleado.persona.idPersona}">
-                                    <button type="submit" class="btn btn-primary btn-lg active">Eliminar</button>
+                                    <button type="submit" class="btn btn-danger btn-lg active">Eliminar</button>
                                 </form>
                             </th>
                         </tr>
