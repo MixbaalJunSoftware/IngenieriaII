@@ -12,7 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/HomeAdmin.css"/> ">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
-        <title>home</title>
+        <title>Home-Admin</title>
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="100" style="background-color: #00008B;">
         <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#5389C4;">

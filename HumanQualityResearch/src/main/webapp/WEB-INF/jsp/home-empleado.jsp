@@ -10,54 +10,96 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/home.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/HomeAdmin.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
         <title>home</title>
     </head>
-    <body>
-        <br/>
-        <header>
-            <div class="he1" align="left">
-            <img class="logoHQR" src="<c:url value="/imagenes/logo_hqr.jpg"/>" width=90 height=100 alt="Logo HQR" style="margin-left:3cm">
+    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="100" style="background-color: #00008B;">
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#5389C4;">
+            <div class="container" >
+                <div class="navbar-header" >
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="<c:url value="/imagenes/logo_hqr.jpg"/>" alt="Logo HQR" width="50" height="50"/>    
+                    <a  href="#myPage" style="color:white;">Human Quality Research </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#editar">Editar Mis Datos</a></li>
+                        <li><a href="#prueba">Pruebas</a></li>
+                        <li><a href="#salir">Salir</a></li>
+                    </ul>
+                </div>
             </div>
-            <hr/>
-        </header>
-        <div class="container">
-            <p id="bienvenido">Bienvenido</p>
-            <hr/>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 col-md-offset-1">
-                        <br/>
-                        <br/>
-                        <c:if test="${adaptab}">
-                        <form action = "/HumanQualityResearch/empleado/contestarPrueba">
-                            <button class="btn btn-default btn-lg" id="modal">Contestar Prueba</button>
-                        </form>
-                        <br/>
-                        <br/>
-                        <br/>
-                        </c:if>
-                        <c:if test="${climab}">
-                        <form action = "/HumanQualityResearch/empleado/contestarPruebaCL">
-                            <button class="btn btn-default btn-lg" id="modal">Contestar Prueba CL</button>
-                        </form>
-                        <br/>
-                        <br/>
-                        <br/>
-                        </c:if>
-                        <form action = "/HumanQualityResearch/empleado/previoActualizarEmpleado">
-                            <button class="btn btn-default btn-lg" id="modal">Editar Datos</button>
-                        </form>   
-                        <br/>
-                        <br/>
-                        <br/>
-                        <form action = "/HumanQualityResearch/logout">
-                            <button class="btn btn-default btn-lg" id="modal">Salir</button>
-                        </form>
+        </nav>
+        
+        <div id="editar" class="container-fluid bg-1">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row">   
+                <div class="col-sm-8">
+                    <h2 id="listado">Editar mi información</h2>
+                    <br/>
+                    <br/>
+                    <div align="center" class="row">
+                        <div class="col-md-3" style="margin-left: 2cm;">
+                            <br/>
+                            
+                            <form action = "/HumanQualityResearch/empleado/previoActualizarEmpleado">
+                                <button class="btn btn-primary btn-lg" id="modal">Editar Datos</button>
+                            </form>
+                        </div>
                     </div>
+                </div>
+                <div class="col-sm-4">
+                    <span class="glyphicon glyphicon-list-alt logo"></span>
                 </div>
             </div>
         </div>
+        
+        <div id="prueba" class="container-fluid bg-2">
+            <h2 id="listado">Pruebas que deben ser respondidas</h2>
+            <br/>
+            <br/>
+            <br/>
+            <div class="col-md-6">
+                <c:if test="${adaptab}">
+                    <form action = "/HumanQualityResearch/empleado/contestarPrueba">
+                        <button class="btn btn-default btn-lg" id="modal">Contestar Prueba</button>
+                    </form>
+                    
+                </c:if>
+            </div>
+            <div class="col-md-6">
+                <c:if test="${climab}">
+                    <form action = "/HumanQualityResearch/empleado/contestarPruebaCL">
+                        <button class="btn btn-default btn-lg" id="modal">Contestar Prueba CL</button>
+                    </form>
+                </c:if>
+            </div>
+            
+        </div>
+        
+        <div id="salir" class="container-fluid bg-1">
+            <div class="col-sm-8">
+                <h2 id="listado">Salir a la página principal</h2>
+                <br/>
+                <br/>
+                <form action = "/HumanQualityResearch/logout">
+                    <button class="btn btn-primary btn-lg" id="btnSalir">Salir</button>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                <span class="glyphicon glyphicon-log-out logo"></span>
+            </div>            
+        </div>
+        
+        
     </body>
     <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
     <script src="<c:url value="/js/bootstrap.min.js"/> "></script>
