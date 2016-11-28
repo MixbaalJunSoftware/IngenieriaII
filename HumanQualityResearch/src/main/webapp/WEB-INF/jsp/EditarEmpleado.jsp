@@ -25,54 +25,69 @@
     </script>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <link rel="stylesheet" type="text/css" href="<c:url value="/css/EditarCliente.css"/> ">
-        <title>Editar Empleado</title>
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/Editar.css"/> ">
+        <title>Editar mi información</title>
     </head>
-    <body>
-        <header>
-            <br/>
-            <div class="he1" align="left">
-            <img class="logoHQR" src="<c:url value="/imagenes/logo_hqr.jpg"/>" width=90 height=100 alt="Logo HQR" style="margin-left:3cm">
+    <body style="background-color: #5389C4;">
+        
+        <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#5389C4;">
+            <div class="container" >
+                <div class="navbar-header" >
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <img src="<c:url value="/imagenes/logo_hqr.jpg"/>" alt="Logo HQR" width="50" height="50"/>    
+                    <a  href="#myPage" style="color:white;">Human Quality Research </a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#registroEmpleado">Editar Mi Información</a></li>
+                        <li><a href="/HumanQualityResearch/home">Regresar</a></li>
+                        
+                    </ul>
+                </div>
             </div>
-            <hr/>
-        </header>
-            <div class="container">
-        <h1 style="color:blue;">Ingresa los campos que deseas editar</h1>
-        <br/>
-        <form id = "fempleado" name="fempleado" method="POST" action="/HumanQualityResearch/empleado/actualizar-empleado" >
-            <label for="puesto">Puesto:</label>
-            <input id = "puesto" name = "puesto" style="margin-left: 2cm"/>
+        </nav>
+        <div class="container">
             <br/>
             <br/>
-            <label for="tel">Telefono:</label>
-            <input id = "tel" name = "tel" style="margin-left: 1.7cm"/>
             <br/>
+            <h2 id="titulo">Ingresa los campos que deseas editar</h2 id="titulo">
             <br/>
-            <label for="cel">Celular:</label>
-            <input id = "cel" name = "cel" style="margin-left: 2cm"/>
-            <br/>
-            <br/>
-            <h1 style="color:blue;">Modificar contraseña</h1>
-            <br/>
-            <label for="pass">Contraseña:</label>
-            <input type="password" id = "pass" name = "pass" style="margin-left: 1cm"/>
-            <br/>
-            <br/>
-            <label for="newpass">Repite la contraseña:</label>
-            <input type="password" id = "rpass" name = "rpass" style="margin-left: 1.3cm"/>
-            <br/>
-            <br/>
-            <input id="idempleado" name="idempleado" hidden="true" value="${usuario.persona.idPersona}">
-            <input type="button" onclick="myFunction()" value="Aceptar" class="btn btn-default btn-lg active">
-            <br/>
-        </form>
-            </div>
-            <form method="GET" action="/HumanQualityResearch/redirect-home" >
-                    <button type="submit"  class="btn btn-default btn-lg active" position="center" style="margin-left: 30cm">Regresar</button>
+            <form id = "fempleado" name="fempleado" method="POST" action="/HumanQualityResearch/empleado/actualizar-empleado" >
+                <label id="palabra" for="puesto" style="margin-left: 10cm;">Puesto:</label>
+                <input id = "puesto" name = "puesto" style="margin-left: 2cm"/>
+                <br/>
+                <br/>
+                <label id="palabra" for="tel" style="margin-left: 10cm;">Telefono:</label>
+                <input id = "tel" name = "tel" style="margin-left: 1.5cm"/>
+                <br/>
+                <br/>
+                <label id="palabra" for="cel" style="margin-left: 10cm;">Celular:</label>
+                <input id = "cel" name = "cel" style="margin-left: 2cm"/>
+                <br/>
+                <br/>
+                <h2 id="titulo">Modificar contraseña</h2>
+                <br/>
+                <label id="palabra" for="pass" style="margin-left: 9cm;">Contraseña:</label>
+                <input type="password" id = "pass" name = "pass" style="margin-left: 4cm"/>
+                <br/>
+                <br/>
+                <label id="palabra" for="newpass" style="margin-left: 9cm;">Repite la contraseña:</label>
+                <input type="password" id = "rpass" name = "rpass" style="margin-left: 1.2cm"/>
+                <br/>
+                <br/>
+                <input id="idempleado" name="idempleado" hidden="true" value="${usuario.persona.idPersona}">
+                <input type="button" onclick="myFunction()" value="Aceptar" class="btn btn-primary btn-lg active" style="margin-left: 14cm;">
+                <br/>
             </form>
-            <br/>
-                <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
-
+        </div>
+        
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
+        
     </body>
 </html>
 

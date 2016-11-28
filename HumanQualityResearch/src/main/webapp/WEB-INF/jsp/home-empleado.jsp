@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="col-sm-4">
-                    <span class="glyphicon glyphicon-list-alt logo"></span>
+                    <span class="glyphicon glyphicon-pencil logo"></span>
                 </div>
             </div>
         </div>
