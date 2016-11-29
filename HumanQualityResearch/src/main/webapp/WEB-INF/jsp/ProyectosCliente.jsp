@@ -83,11 +83,11 @@
                         </form>
                     </th>
                     <th>
-                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#eliminar">
+                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#eliminarModal${proyecto.idProyecto}">
                             <span aria-hidden="true" id="modal" >Eliminar</span> 
                         </button>
                         <!-- Modal del cliente -->
-                        <div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal fade" id="eliminarModal${proyecto.idProyecto}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">

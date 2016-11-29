@@ -31,7 +31,8 @@ public class Participante implements Serializable {
     
     @Column(name = "puestoparticipante")
     private String puestoParticipante;
-
+    
+    
     public Persona getPersona() {
         return persona;
     }

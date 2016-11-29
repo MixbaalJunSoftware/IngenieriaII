@@ -138,7 +138,51 @@ public class CRUDParticipante {
         }
             
     }
-    
+
+
+    @RequestMapping(value= "/admin/crear-participanteCorreo", method = RequestMethod.POST)
+    public String creaParticipanteCorreoA(ModelMap model,HttpServletRequest request){
+        Persona persona = new Persona();
+        Usuario usuario = new Usuario();
+        Proyecto proyecto = null;
+        Pertenecer pertenecer = new Pertenecer();
+        Participante participante = new Participante();
+        String correo = request.getParameter("correo");
+        System.out.print(correo);
+        long id = Long.parseLong(request.getParameter("idproyectoCrea"));
+        proyecto = proyecto_bd.getProyecto(id);
+        Persona p = persona_bd.getPersona(correo);
+        if(p==null){
+            persona.setCorreo(correo);
+            persona.setActivo(true);
+            usuario.setPersona(persona);
+            pertenecer.setPersona(persona);
+            pertenecer.setProyecto(proyecto);
+            participante.setPersona(persona);
+            usuario.setRol("ROLE_PARTICIPANTE");
+            persona_bd.guardar(persona);
+            usuario_bd.guardar(usuario);
+            pertenecer_bd.guardar(pertenecer);
+            participante_bd.guardar(participante);
+            String url = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
+            mail_sender.send(construirEmail(url,correo));
+            return "CorreoCorrecto";
+        }else{
+             if (pertenecer_bd.buscaPertenecer(p.getIdPersona(), proyecto.getIdProyecto()))
+                 return "UsuarioRepetido";
+             else{
+                try{
+                pertenecer.setPersona(p);
+                pertenecer.setProyecto(proyecto);
+                pertenecer_bd.guardar(pertenecer);
+                return "CorreoCorrecto";
+                }catch(Exception e){
+                    return "error403";
+                }
+             }    
+        }
+            
+    }
     /**
      * Realiza la funcionalidad para agregar un cliente a la base de datos
      * @param model
@@ -164,6 +208,7 @@ public class CRUDParticipante {
         }catch (ParseException e) { 
              System.out.println("Unparseable using " + ft); 
         }
+        String empresa = request.getParameter("empresa");
         String genero = request.getParameter("genero");
         String telefono = request.getParameter("telefono");
         String celular = request.getParameter("celular");
@@ -176,6 +221,7 @@ public class CRUDParticipante {
         persona.setGenero(genero);
         persona.setTelefono(telefono);
         persona.setCelular(celular);
+        persona.setEmpresa(empresa);
         participante.setPersona(persona);
         participante.setPuestoParticipante(puesto);
         usuario.setPersona(persona);
@@ -250,7 +296,7 @@ public class CRUDParticipante {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "cliente/ver-participantes", method = RequestMethod.GET)
+    @RequestMapping(value= "/cliente/ver-participantes", method = RequestMethod.GET)
     public ModelAndView verParticipantesCliente(ModelMap model,HttpServletRequest request){  
         long id = Long.parseLong(request.getParameter("idproyecto"));
         List<Participante> lp = participante_bd.participantesProyecto(id);
@@ -265,10 +311,11 @@ public class CRUDParticipante {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "admin/ver-participantes", method = RequestMethod.GET)
+    @RequestMapping(value= "/admin/ver-participantes", method = RequestMethod.GET)
     public ModelAndView verParticipantesAdmin(ModelMap model,HttpServletRequest request){  
         long id = Long.parseLong(request.getParameter("idproyecto"));
         List<Participante> lp = participante_bd.participantesProyecto(id);
+        System.out.print(lp.get(0));
         model.addAttribute("listaParticipantes",lp);
         model.addAttribute("idProyecto",id);
         return new ModelAndView("Participantes",model);
@@ -324,7 +371,7 @@ public class CRUDParticipante {
       * @return 
       */
     
-    @RequestMapping(value= "borradol-participante", method = RequestMethod.POST)
+    @RequestMapping(value= "/borradol-participante", method = RequestMethod.POST)
     public String borradolParticipanteA(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("id"));
         Persona persona = persona_bd.getPersona(id);
@@ -343,7 +390,7 @@ public class CRUDParticipante {
       * @return 
       */
     
-    @RequestMapping(value= "cliente/borradol-participante", method = RequestMethod.POST)
+    @RequestMapping(value= "/cliente/borradol-participante", method = RequestMethod.POST)
     public String borradolParticipanteC(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("id"));
         Persona persona = persona_bd.getPersona(id);

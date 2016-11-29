@@ -106,8 +106,8 @@ public class CRUDCliente {
         persona.setGenero(genero);
         persona.setTelefono(telefono);
         persona.setCelular(celular);
+        persona.setEmpresa(empresa);
         cliente.setPersona(persona);
-        cliente.setEmpresa(empresa);
         cliente.setPuestoCliente(puesto);
         cliente.setAreaCliente(area);
         usuario.setPersona(persona);
@@ -215,7 +215,7 @@ public class CRUDCliente {
         model.addAttribute("correo",cliente.getPersona().getCorreo());
         model.addAttribute("telefono",cliente.getPersona().getTelefono());
         model.addAttribute("celular",cliente.getPersona().getCelular());
-        model.addAttribute("empresa",cliente.getEmpresa());
+        model.addAttribute("empresa",cliente.getPersona().getEmpresa());
         model.addAttribute("puesto",cliente.getPuestoCliente());
         model.addAttribute("area",cliente.getAreaCliente());
         return new ModelAndView("MostrarCliente",model);

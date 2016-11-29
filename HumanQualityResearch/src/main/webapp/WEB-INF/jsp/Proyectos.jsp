@@ -83,11 +83,11 @@
                         </form>
                     </th>
                     <th>
-                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#eliminar">
+                        <button type="button" class="btn btn-danger btn-lg" data-toggle="modal" data-target="#eliminaModal${proyecto.idProyecto}">
                             <span aria-hidden="true" id="modal" >Eliminar</span> 
                         </button>
                         <!-- Modal del cliente -->
-                        <div class="modal fade" id="eliminar" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                        <div class="modal fade" id="eliminaModal${proyecto.idProyecto}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -118,7 +118,7 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         <h4 class="modal-title" id="myModalLabel" style="text-align: center;color: #1D14A4;">Nuevo Participante</h4>
                                     </div>
-                                     <form id="creaclientecorreo${proyecto.idProyecto}" method="POST" action="/HumanQualityResearch/cliente/crear-participanteCorreo" >
+                                     <form id="creaclientecorreo${proyecto.idProyecto}" method="POST" action="/HumanQualityResearch/admin/crear-participanteCorreo" >
                                         <div class="modal-body" style="background-color: blue;">
                                             <label for="correo" >Correo del participante:</label>
                                             <input id = "correo" name = "correo" style="margin-left:1cm;"/>

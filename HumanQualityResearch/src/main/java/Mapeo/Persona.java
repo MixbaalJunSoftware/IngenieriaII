@@ -59,6 +59,9 @@ public class Persona {
     @Column(name = "fborrado")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fborrado;
+    
+    @Column(name = "empresa")
+    private String empresa;
 
     public long getIdPersona() {
         return idPersona;
@@ -149,10 +152,13 @@ public class Persona {
         this.fborrado = fborrado;
     }
 
-    
-    
-    
-    
-    
-    
+    public String getEmpresa() {
+        return empresa;
+    }
+
+    public void setEmpresa(String empresa) {
+        this.empresa = empresa;
+    }
+
+        
 }

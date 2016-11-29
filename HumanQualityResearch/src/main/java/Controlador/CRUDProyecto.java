@@ -10,12 +10,13 @@ import Modelo.PertenecerDAO;
 import Modelo.PersonaDAO;
 import Modelo.TipoDAO;
 import Modelo.ClienteDAO;
+import Modelo.PruebaProyectoDAO;
 import Mapeo.Persona;
 import Mapeo.Proyecto;
 import Mapeo.Tipo;
 import Mapeo.Cliente;
 import Mapeo.Pertenecer;
-import Mapeo.PruebaCliente;
+import Mapeo.PruebaProyecto;
 import java.security.Principal;
 import java.util.Calendar;
 import java.util.Date;
@@ -54,6 +55,9 @@ public class CRUDProyecto {
     
     @Autowired
     private TipoDAO tipo_db;
+    
+    @Autowired
+    private PruebaProyectoDAO pruebap_db;
     
     /**
      * Metodo para desplegar la vista de CrearCliente
@@ -103,7 +107,7 @@ public class CRUDProyecto {
      
      public String creaCodigo(Persona persona, String tipo){
          Cliente cliente = cliente_db.getCliente(persona.getIdPersona());
-         String empresa = cliente.getEmpresa();
+         String empresa = cliente.getPersona().getEmpresa();
          StringBuilder sb = new StringBuilder();
          sb.append(empresa.charAt(0));
          sb.append(empresa.charAt(1));
@@ -219,13 +223,13 @@ public class CRUDProyecto {
         System.out.print(id);
         Proyecto proyecto = proyecto_db.getProyecto(id);
         List<Pertenecer> lpertenecer = pertenecer_db.listPertenecer(id);
-        //List<PruebaCliente> pruebac = pruebacliente_db.listPruebas(id);
+        List<PruebaProyecto> pruebap = pruebap_db.getPruebasProyecto(id);
         for(Pertenecer p : lpertenecer){
             pertenecer_db.eliminar(p);
         }
-        //for (PruebaCliente pc: pruebac){
-            
-        //}
+        for (PruebaProyecto pp: pruebap){
+            pruebap_db.eliminar(pp);
+        }
         proyecto_db.eliminar(proyecto);
         return "Ok";
         
@@ -241,6 +245,7 @@ public class CRUDProyecto {
     @RequestMapping(value= "/borradol-proyecto", method = RequestMethod.POST)
      public String borradolProyecto(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("idproyecto"));
+        System.out.print(id);
         Calendar fecha = Calendar.getInstance();
         Date date = fecha.getTime();
         Proyecto proyecto = proyecto_db.getProyecto(id);

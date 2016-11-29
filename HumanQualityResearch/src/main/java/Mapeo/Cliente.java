@@ -32,9 +32,6 @@ public class Cliente implements Serializable {
     @Column(name = "areaCliente")
     private String areaCliente;
 
-    @Column(name = "empresa")
-    private String empresa;
-    
     @Column(name = "puestoCliente")
     private String puestoCliente;
 
@@ -52,14 +49,6 @@ public class Cliente implements Serializable {
 
     public void setPersona(Persona persona) {
         this.persona = persona;
-    }
-
-    public String getEmpresa() {
-        return empresa;
-    }
-
-    public void setEmpresa(String empresa) {
-        this.empresa = empresa;
     }
 
     public String getPuestoCliente() {
