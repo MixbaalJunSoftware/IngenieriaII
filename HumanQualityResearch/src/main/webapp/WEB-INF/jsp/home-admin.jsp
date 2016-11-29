@@ -132,7 +132,7 @@
                     <form method="POST" action="/HumanQualityResearch/admin/crear-clienteCorreo" >
                         <div class="modal-body">
                             <label for="correo" style="color:#1D14A4;margin-left: 2.5cm;">Correo del cliente:</label>
-                            <input id = "correo" name = "correo" style="margin-left:1cm;"/>
+                            <input id = "correo" type="email" name = "correo" style="margin-left:1cm;"/>
                             <br/>
                             <br/>
                         </div>          
@@ -150,8 +150,6 @@
     </body>
     <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
     <script src="<c:url value="/js/bootstrap.min.js"/> "></script>
-    <script src="<c:url value="/js/gen_validatorv4.js"/> "></script>
-    <script src="<c:url value="/js/validaCreaCorreo.js"/> "></script>
     
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>

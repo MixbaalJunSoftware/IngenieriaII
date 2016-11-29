@@ -61,7 +61,7 @@
             <br/>
             <form id = "f1" name="f1" method="POST" action="/HumanQualityResearch/editar-proyecto" >
                 <label for="correo" style="margin-left: 4cm;color:white;font-size: 20px;">Correo del cliente:</label>
-                <input id = "correo" name = "correo" style="margin-left: 2cm"/>
+                <input id = "correo" name = "correo" type="email" style="margin-left: 2cm"/>
                 <br/>
                 <br/>
                 <label for="area" style="margin-left: 4cm;color:white;font-size: 20px;">Area del proyecto:</label>

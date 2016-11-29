@@ -109,7 +109,7 @@
         <security:authentication-provider>
             <security:password-encoder hash="bcrypt" />
             <security:jdbc-user-service data-source-ref="dataSource" 
-             users-by-username-query= "select p.correo,u.contrasenia,1 from persona p inner join usuario u  on (p.idPersona = u.idPersona) where  p.correo = ?;"
+             users-by-username-query= "select p.correo,u.contrasenia,1 from persona p inner join usuario u  on (p.idPersona = u.idPersona) where p.activo = True and p.correo = ?;"
              authorities-by-username-query="select p.correo,u.rol from persona p inner join usuario u  on (p.idPersona = u.idPersona) where  p.correo = ?;"
             />
         </security:authentication-provider>

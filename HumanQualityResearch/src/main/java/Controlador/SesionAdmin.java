@@ -205,7 +205,7 @@ public class SesionAdmin {
     @RequestMapping(value="/account/availabilityRecover", method=RequestMethod.GET)
     public @ResponseBody boolean getAvailability(@RequestParam("correoRecover")String correo) {
         Persona persona = persona_bd.getPersona(correo);
-        return persona != null && persona.getNombre()!= null;
+        return persona != null && persona.getNombre()!= null && persona.getActivo();
     }
     
     @RequestMapping(value = "/redirect-home")

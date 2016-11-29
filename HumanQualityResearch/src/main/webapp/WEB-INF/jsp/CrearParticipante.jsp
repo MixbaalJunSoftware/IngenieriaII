@@ -183,10 +183,10 @@
                     <label id="palabra" for="puesto" >Puesto:</label>
                     <input required="true" id = "puesto" name = "puesto" style="margin-left:0.4cm;"/>
                     <label id="palabra" for="telefono" style="margin-left: 1cm;">Telefono:</label>
-                    <input required="true"  id = "telefono" name = "telefono" style="margin-left:0.4cm;"/>
+                    <input type="tel" pattern="[0-9]{8}" required="true"  id = "telefono" name = "telefono" style="margin-left:0.4cm;"/>
                     
                     <label id="palabra" for="celular" style="margin-left: 1cm;">Celular:</label>
-                    <input required="true" id = "celular" name = "celular" style="margin-left:0.4cm;"/>
+                    <input type="tel" pattern="[0-9]{10}" required="true" id = "celular" name = "celular" style="margin-left:0.4cm;"/>
                     <br/>
                     <br/>
                     <input id = "correo" name = "correo" value="${correoRegistrado}" hidden="true"/>
@@ -204,7 +204,6 @@
             </div>
         </form>
     </body>
-    <script src=" <c:url value="/js/validaNumeros.js" /> "></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">   
 </html>
 

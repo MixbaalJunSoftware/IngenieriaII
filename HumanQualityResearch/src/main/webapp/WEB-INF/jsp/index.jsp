@@ -72,7 +72,7 @@
                     </div>
                     <div class="modal-body">
                         <form id = "f1" name ="f1" method="POST" action="/HumanQualityResearch/completar-registro">
-                            <input id = "correo" name="correo" type="text">
+                            <input type="email" id = "correo" name="correo">
                             <input type="button" class="btn btn-primary" name="enviar-correo" id="enviar-correo" value="enviar">
                         </form>
                     </div>
@@ -90,7 +90,7 @@
                 <form class="form-horizontal" action="/HumanQualityResearch/login" method="POST">
                     <div class="form-group">
                         <label id="labSes">Usuario</label>
-                        <input id="username" name="username" type="text" class="col-md-offset-1" style="margin-left:2.9cm;"/>
+                        <input id="username" name="username" type="email" class="col-md-offset-1" style="margin-left:2.9cm;"/>
                     </div>
                     <div class="form-group">
                         <label id="labSes">Contraseña</label>
