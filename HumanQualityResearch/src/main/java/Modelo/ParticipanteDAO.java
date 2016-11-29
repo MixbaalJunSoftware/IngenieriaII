@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Mapeo.Empleado;
+import Mapeo.Participante;
 import Mapeo.Persona;
 import Mapeo.Proyecto;
 import java.util.List;
@@ -18,7 +18,7 @@ import org.hibernate.Transaction;
  *
  * @author danii
  */
-public class EmpleadoDAO {
+public class ParticipanteDAO {
     
     private SessionFactory sessionFactory;
 
@@ -27,14 +27,14 @@ public class EmpleadoDAO {
     }
 
     
-    public void guardar(Empleado empleado) {
+    public void guardar(Participante participante) {
     
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
            tx = session.beginTransaction();
          
-           session.persist(empleado);
+           session.persist(participante);
            
            tx.commit();
         }
@@ -50,14 +50,14 @@ public class EmpleadoDAO {
     }
     
     
-    public void actualizar(Empleado empleado) {
+    public void actualizar(Participante participante) {
     
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
            tx = session.beginTransaction();
          
-           session.update(empleado);
+           session.update(participante);
            
            tx.commit();
         }
@@ -73,14 +73,14 @@ public class EmpleadoDAO {
     }
     
     
-    public void eliminar(Empleado empleado) {
+    public void eliminar(Participante participante) {
     
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
            tx = session.beginTransaction();
          
-           session.delete(empleado);
+           session.delete(participante);
            
            tx.commit();
         }
@@ -95,17 +95,17 @@ public class EmpleadoDAO {
     
     }
     
-    public Empleado getEmpleado(long idEmpleado) {
-        Empleado empleado = null;
-        System.out.print(idEmpleado);
+    public Participante getParticipante(long idParticipante) {
+        Participante participante = null;
+        System.out.print(idParticipante);
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "from Empleado e where e.persona.idPersona = :idpersona";
+            String hql = "from Participante e where e.persona.idPersona = :idpersona";
             Query query = session.createQuery(hql);
-            query.setParameter("idpersona", idEmpleado);
-            empleado = (Empleado)query.uniqueResult();
+            query.setParameter("idpersona", idParticipante);
+            participante = (Participante)query.uniqueResult();
             tx.commit();
         }
         catch (Exception e) {
@@ -116,21 +116,21 @@ public class EmpleadoDAO {
         }finally {
            session.close();
         }
-        System.out.print(empleado.getPersona().getIdPersona());
-        return empleado;
+        System.out.print(participante.getPersona().getIdPersona());
+        return participante;
     }
     
     
-    public List<Empleado> Empleados() {
-        List<Empleado> result = null;
+    public List<Participante> Participantes() {
+        List<Participante> result = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "SELECT empleado From Empleado empleado inner join empleado.persona "
-                    + "WHERE empleado.persona.activo = TRUE";
+            String hql = "SELECT participante From Participante participante inner join participante.persona "
+                    + "WHERE participante.persona.activo = TRUE";
             Query query = session.createQuery(hql);
-            result = (List<Empleado>)query.list();
+            result = (List<Participante>)query.list();
             tx.commit();
         }
         catch (Exception e) {
@@ -144,20 +144,20 @@ public class EmpleadoDAO {
         return result;
     }
     
-    public List<Empleado> empleadosProyecto(Long idProyecto){
+    public List<Participante> participantesProyecto(Long idProyecto){
         Proyecto proyecto = null;
-        List<Empleado> result = null;
+        List<Participante> result = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "SELECT r FROM Empleado r WHERE r.persona.activo = TRUE AND "
+            String hql = "SELECT r FROM Participante r WHERE r.persona.activo = TRUE AND "
                        + "r.persona.idPersona IN "
                        + "(SELECT p.persona.idPersona FROM Pertenecer p "
                        + " WHERE p.proyecto.idProyecto = :idproyecto)";
             Query query = session.createQuery(hql);
             query.setParameter("idproyecto", idProyecto);
-            result = (List<Empleado>)query.list();
+            result = (List<Participante>)query.list();
             tx.commit();
         }
         catch (Exception e) {
@@ -172,17 +172,17 @@ public class EmpleadoDAO {
     
     }
     
-    public List<Empleado> ParticipantesEliminados() {
-        List<Empleado> result = null;
+    public List<Participante> ParticipantesEliminados() {
+        List<Participante> result = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "SELECT empleado From Empleado empleado inner join empleado.persona"
-                    + " WHERE empleado.persona.activo = FALSE "
-                    + "ORDER BY to_char(empleado.persona.fborrado,'YYYY/MM/DD')";
+            String hql = "SELECT participante From Participante participante inner join participante.persona"
+                    + " WHERE participante.persona.activo = FALSE "
+                    + "ORDER BY to_char(participante.persona.fborrado,'YYYY/MM/DD')";
             Query query = session.createQuery(hql);
-            result = (List<Empleado>)query.list();
+            result = (List<Participante>)query.list();
             tx.commit();
         }
         catch (Exception e) {

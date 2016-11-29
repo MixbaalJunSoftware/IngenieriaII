@@ -5,7 +5,7 @@
  */
 package Excel;
 
-import Mapeo.Empleado;
+import Mapeo.Participante;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -19,13 +19,13 @@ import org.springframework.web.servlet.view.document.AbstractXlsView;
  *
  * @author Mixbaal
  */
-public class EmpleadosProyectoExcel extends AbstractXlsView{
+public class ParticipantesProyectoExcel extends AbstractXlsView{
 
     @Override
     protected void buildExcelDocument(Map<String, Object> map, Workbook wrkbk, HttpServletRequest hsr, HttpServletResponse hsr1) throws Exception {    
-        hsr1.setHeader("Content-Disposition", "attachment; filename=\"EmpleadosProyecto.xls\"");
-        Sheet sheet = wrkbk.createSheet("Empleados_proyecto");
-        List<Empleado> empleados = (List) map.get("listaEmpleados");
+        hsr1.setHeader("Content-Disposition", "attachment; filename=\"ParticipantesProyecto.xls\"");
+        Sheet sheet = wrkbk.createSheet("Participantes_proyecto");
+        List<Participante> participantes = (List) map.get("listaParticipantes");
         Row header = sheet.createRow(0);
         header.createCell(0).setCellValue("Nombre");
         header.createCell(1).setCellValue("Apellido paterno");
@@ -35,15 +35,15 @@ public class EmpleadosProyectoExcel extends AbstractXlsView{
         header.createCell(5).setCellValue("Correo");
         header.createCell(6).setCellValue("Puesto");
         int contador = 1;
-        for (Empleado empleado : empleados) {         
+        for (Participante participante : participantes) {         
             Row courseRow = sheet.createRow(contador);
-            courseRow.createCell(0).setCellValue(empleado.getPersona().getNombre());
-            courseRow.createCell(1).setCellValue(empleado.getPersona().getApp());
-            courseRow.createCell(2).setCellValue(empleado.getPersona().getApm());
-            courseRow.createCell(3).setCellValue(empleado.getPersona().getTelefono());        
-            courseRow.createCell(4).setCellValue(empleado.getPersona().getCelular());
-            courseRow.createCell(5).setCellValue(empleado.getPersona().getCorreo());
-            courseRow.createCell(6).setCellValue(empleado.getPuestoempleado());
+            courseRow.createCell(0).setCellValue(participante.getPersona().getNombre());
+            courseRow.createCell(1).setCellValue(participante.getPersona().getApp());
+            courseRow.createCell(2).setCellValue(participante.getPersona().getApm());
+            courseRow.createCell(3).setCellValue(participante.getPersona().getTelefono());        
+            courseRow.createCell(4).setCellValue(participante.getPersona().getCelular());
+            courseRow.createCell(5).setCellValue(participante.getPersona().getCorreo());
+            courseRow.createCell(6).setCellValue(participante.getPuestoParticipante());
             contador++;
         }
         // Hace que el ancho de la comlumna sea lo suficientemente grande

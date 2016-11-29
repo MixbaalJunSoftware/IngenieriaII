@@ -118,7 +118,7 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         <h4 class="modal-title" id="myModalLabel" style="text-align: center;color: #1D14A4;">Nuevo Participante</h4>
                                     </div>
-                                     <form id="creaclientecorreo${proyecto.idProyecto}" method="POST" action="/HumanQualityResearch/cliente/crear-empleadoCorreo" >
+                                     <form id="creaclientecorreo${proyecto.idProyecto}" method="POST" action="/HumanQualityResearch/cliente/crear-participanteCorreo" >
                                         <div class="modal-body" style="background-color: blue;">
                                             <label for="correo" >Correo del participante:</label>
                                             <input id = "correo" name = "correo" style="margin-left:1cm;"/>

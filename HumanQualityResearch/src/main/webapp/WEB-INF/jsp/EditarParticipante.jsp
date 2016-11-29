@@ -1,5 +1,5 @@
 <%-- 
-    Document   : EditarEmpleado
+    Document   : EditarParticipante
     Created on : 23/10/2016, 11:32:57 AM
     Author     : danii
 --%>
@@ -10,17 +10,17 @@
 <html>
     <script>
         function myFunction() {
-            puesto = document.fempleado.puesto.value;
-            tel = document.fempleado.tel.value;
-            cel = document.fempleado.cel.value;
-            clave1 = document.fempleado.pass.value; 
-            clave2 = document.fempleado.rpass.value;
+            puesto = document.fparticipante.puesto.value;
+            tel = document.fparticipante.tel.value;
+            cel = document.fparticipante.cel.value;
+            clave1 = document.fparticipante.pass.value; 
+            clave2 = document.fparticipante.rpass.value;
             if (puesto === tel && tel === cel && cel === clave1)
                 alert("Debes llenar almenos un campo");
             else if (clave1 !== clave2){ 
                 alert("Las contraseñas no coinciden");
             }else
-                document.getElementById("fempleado").submit(); 
+                document.getElementById("fparticipante").submit(); 
         }
     </script>
     <head>
@@ -44,7 +44,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#registroEmpleado">Editar Mi Información</a></li>
+                        <li><a href="#registroParticipante">Editar Mi Información</a></li>
                         <li><a href="/HumanQualityResearch/home">Regresar</a></li>
                         
                     </ul>
@@ -57,7 +57,7 @@
             <br/>
             <h2 id="titulo">Ingresa los campos que deseas editar</h2 id="titulo">
             <br/>
-            <form id = "fempleado" name="fempleado" method="POST" action="/HumanQualityResearch/empleado/actualizar-empleado" >
+            <form id = "fparticipante" name="fparticipante" method="POST" action="/HumanQualityResearch/participante/actualizar-participante" >
                 <label id="palabra" for="puesto" style="margin-left: 10cm;">Puesto:</label>
                 <input id = "puesto" name = "puesto" style="margin-left: 2cm"/>
                 <br/>
@@ -80,7 +80,7 @@
                 <input type="password" id = "rpass" name = "rpass" style="margin-left: 1.2cm"/>
                 <br/>
                 <br/>
-                <input id="idempleado" name="idempleado" hidden="true" value="${usuario.persona.idPersona}">
+                <input id="idparticipante" name="idparticipante" hidden="true" value="${usuario.persona.idPersona}">
                 <input type="button" onclick="myFunction()" value="Aceptar" class="btn btn-primary btn-lg active" style="margin-left: 14cm;">
                 <br/>
             </form>

@@ -289,7 +289,7 @@ public class CRUDCliente {
         if(role.equals("ROLE_CLIENTE"))
             return new ModelAndView("CrearCliente",model);
         else
-            return new ModelAndView("CrearEmpleado", model);
+            return new ModelAndView("CrearParticipante", model);
     }
     
     @RequestMapping(value="/account-availability", method=RequestMethod.GET)

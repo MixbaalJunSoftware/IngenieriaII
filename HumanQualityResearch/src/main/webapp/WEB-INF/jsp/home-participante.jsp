@@ -1,5 +1,5 @@
 <%-- 
-    Document   : home-empleado
+    Document   : home-participante
     Created on : 23/10/2016, 12:02:01 PM
     Author     : danii
 --%>
@@ -50,7 +50,7 @@
                         <div class="col-md-3" style="margin-left: 2cm;">
                             <br/>
                             
-                            <form action = "/HumanQualityResearch/empleado/previoActualizarEmpleado">
+                            <form action = "/HumanQualityResearch/participante/previoActualizarParticipante">
                                 <button class="btn btn-primary btn-lg" id="modal">Editar Datos</button>
                             </form>
                         </div>
@@ -69,7 +69,7 @@
             <br/>
             <div class="col-md-6">
                 <c:if test="${adaptab}">
-                    <form action = "/HumanQualityResearch/empleado/contestarPrueba">
+                    <form action = "/HumanQualityResearch/participante/contestarPrueba">
                         <button class="btn btn-default btn-lg" id="modal">Contestar Prueba</button>
                     </form>
                     
@@ -77,7 +77,7 @@
             </div>
             <div class="col-md-6">
                 <c:if test="${climab}">
-                    <form action = "/HumanQualityResearch/empleado/contestarPruebaCL">
+                    <form action = "/HumanQualityResearch/participante/contestarPruebaCL">
                         <button class="btn btn-default btn-lg" id="modal">Contestar Prueba CL</button>
                     </form>
                 </c:if>

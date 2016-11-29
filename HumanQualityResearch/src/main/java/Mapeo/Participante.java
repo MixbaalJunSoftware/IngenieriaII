@@ -15,22 +15,22 @@ import javax.persistence.Table;
 
 
 @Entity
-@Table(name="empleado")
+@Table(name="participante")
 
 /**
  *
  * @author Mixbaal
  * @version 1.0
  */
-public class Empleado implements Serializable {
+public class Participante implements Serializable {
     
     @Id
     @OneToOne
     @JoinColumn(name="idPersona")
     private Persona persona;
     
-    @Column(name = "puestoEmpleado")
-    private String puestoempleado;
+    @Column(name = "puestoparticipante")
+    private String puestoParticipante;
 
     public Persona getPersona() {
         return persona;
@@ -40,12 +40,12 @@ public class Empleado implements Serializable {
         this.persona = persona;
     }
 
-    public String getPuestoempleado() {
-        return puestoempleado;
+    public String getPuestoParticipante() {
+        return puestoParticipante;
     }
 
-    public void setPuestoempleado(String puestoempleado) {
-        this.puestoempleado = puestoempleado;
+    public void setPuestoParticipante(String puestoParticipante) {
+        this.puestoParticipante = puestoParticipante;
     }
     
 }

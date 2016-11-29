@@ -65,7 +65,7 @@
                 </div>
             </div>
         </nav>
-        <form  method="POST" action = "/HumanQualityResearch/empleado/guardaPruebaClima">
+        <form  method="POST" action = "/HumanQualityResearch/participante/guardaPruebaClima">
             
             <div id="section1" class="container-fluid">
                 <h1>Escala Clima Laboral</h1>

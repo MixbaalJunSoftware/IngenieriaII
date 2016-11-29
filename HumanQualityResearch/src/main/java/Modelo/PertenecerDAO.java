@@ -5,7 +5,7 @@
  */
 package Modelo;
 
-import Mapeo.Empleado;
+import Mapeo.Participante;
 import Mapeo.Pertenecer;
 import Mapeo.Usuario;
 import java.util.List;
@@ -141,19 +141,19 @@ public class PertenecerDAO {
         return result;
     }
     
-   public List<Empleado> lPertenecerE(long idProyecto) {
-        List<Empleado> result = null;
+   public List<Participante> lPertenecerE(long idProyecto) {
+        List<Participante> result = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
             tx = session.beginTransaction();
-            String hql = "SELECT empleado From Empleado empleado inner join empleado.persona "
-                    + "WHERE empleado.persona.idPersona IN "
+            String hql = "SELECT participante From Participante participante inner join participante.persona "
+                    + "WHERE participante.persona.idPersona IN "
                     + "(SELECT p.persona.idPersona FROM Pertenecer p "
                     + " WHERE p.proyecto.idProyecto = :idproyecto)";
             Query query = session.createQuery(hql);
             query.setParameter("idproyecto", idProyecto);
-            result = (List<Empleado>)query.list();
+            result = (List<Participante>)query.list();
             tx.commit();
         }
         catch (Exception e) {

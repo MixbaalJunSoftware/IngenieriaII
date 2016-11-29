@@ -1,5 +1,5 @@
 <%-- 
-    Document   : CrearEmpleado
+    Document   : CrearParticipante
     Author     : danii
 --%>
 
@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/crearCliente.css"/> ">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
-        <title>Registro del Empleado</title>
+        <title>Registro del Participante</title>
     </head>
     <body style="background-color: #5389C4;">
         
@@ -28,7 +28,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#registroEmpleado">Registro del Empleado</a></li>
+                        <li><a href="#registroParticipante">Registro del Participante</a></li>
                         <li><a href="/HumanQualityResearch/">Regresar</a></li>
                         
                     </ul>
@@ -36,7 +36,7 @@
             </div>
         </nav>
         
-        <form id = "termina-registro" name="termina-registro" method="POST" action="/HumanQualityResearch/completarRegistro-empleado" >
+        <form id = "termina-registro" name="termina-registro" method="POST" action="/HumanQualityResearch/completarRegistro-participante" >
             <div class ="container">
                 
                 <div id="registroParticipante" class ="container-fluid bg-1" style="background-color:#5389C4;">

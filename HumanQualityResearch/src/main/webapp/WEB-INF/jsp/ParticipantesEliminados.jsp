@@ -48,22 +48,22 @@
                         <th>Fecha de borrado</th>
                     </tr>
                 </thead>
-                <c:forEach var="empleado" items="${lista}">
+                <c:forEach var="participante" items="${lista}">
                     <tbody>
                         <tr>
-                            <th>${empleado.persona.nombre}</th>
-                            <th>${empleado.persona.correo}</th>
-                            <th>${empleado.puestoempleado}</th>
-                            <th>${empleado.persona.fborrado}</th>
+                            <th>${participante.persona.nombre}</th>
+                            <th>${participante.persona.correo}</th>
+                            <th>${participante.puestoParticipante}</th>
+                            <th>${participante.persona.fborrado}</th>
                             <th>
                                 <form method="POST" action="/HumanQualityResearch/admin/recuperar-participante" >
-                                    <input id="id" name="id" hidden="true" value="${empleado.persona.idPersona}">
+                                    <input id="id" name="id" hidden="true" value="${participante.persona.idPersona}">
                                     <button type="submit" class="btn btn-primary btn-lg active">Recuperar</button>
                                 </form>
                             </th>
                             <th>
                                 <form method="POST" action="/HumanQualityResearch/admin/elimina-participante" >
-                                    <input id="id" name="id" hidden="true" value="${empleado.persona.idPersona}">
+                                    <input id="id" name="id" hidden="true" value="${participante.persona.idPersona}">
                                     <button type="submit" class="btn btn-danger btn-lg active">Eliminar</button>
                                 </form>
                             </th>

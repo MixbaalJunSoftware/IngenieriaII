@@ -1,5 +1,5 @@
 <%-- 
-    Document   : aEmpleados
+    Document   : aParticipantes
     Created on : 24/10/2016, 12:36:20 AM
     Author     : danii
 --%>
@@ -28,7 +28,7 @@
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a id="exportar_boton" href=" <c:url value="/cliente/EmpleadosProyectoExcel?p=${idProyecto}" /> ">&#11015; Exportar a excel</a></li>
+                        <li><a id="exportar_boton" href=" <c:url value="/cliente/ParticipantesProyectoExcel?p=${idProyecto}" /> ">&#11015; Exportar a excel</a></li>
                         <li><a href="#participantes">Participantes</a></li>
                         <li><a href="/HumanQualityResearch/admin/ver-clientes">Regresar a Clientes</a></li>                        
                         <li><a href="/HumanQualityResearch/home">Regresar al menú</a></li>                        
@@ -51,32 +51,32 @@
                         
                     </tr>
                 </thead>
-                <c:forEach var="empleado" items="${listaParticipantes}">
+                <c:forEach var="participante" items="${listaParticipantes}">
                     <tbody>
                         <tr>
-                            <th>${empleado.persona.nombre}</th>
-                            <th>${empleado.persona.correo}</th>
+                            <th>${participante.persona.nombre}</th>
+                            <th>${participante.persona.correo}</th>
                             <th>
                                 <form action="/HumanQualityResearch/muestra-participante">
-                                    <input name = "idparticipante" value = "${empleado.persona.idPersona}" hidden="true" >
+                                    <input name = "idparticipante" value = "${participante.persona.idPersona}" hidden="true" >
                                     <button>Detalles</button>
                                 </form>
                             </th>
                             <th>
                                 <form action="/HumanQualityResearch/reportes/candidato/adaptabilidad">
-                                    <input name = "r2" value = "${empleado.persona.idPersona}" hidden="true" >
+                                    <input name = "r2" value = "${participante.persona.idPersona}" hidden="true" >
                                     <button>reporte Adaptabilidad</button>
                                 </form>
                             </th>
                             <th>
                                 <form action="/HumanQualityResearch/reportes/candidato/climalaboral">
-                                    <input name = "r2" value = "${empleado.persona.idPersona}" hidden="true" >
+                                    <input name = "r2" value = "${participante.persona.idPersona}" hidden="true" >
                                     <button>reporte Clima Laboral</button>
                                 </form>
                             </th>
                             <th>
                                 <form method="POST" action="/HumanQualityResearch/borradol-participante" >
-                                    <input id="id" name="id" hidden="true" value="${empleado.persona.idPersona}">
+                                    <input id="id" name="id" hidden="true" value="${participante.persona.idPersona}">
                                     <button type="submit" class="btn btn-danger btn-lg active">Eliminar</button>
                                 </form>
                             </th>

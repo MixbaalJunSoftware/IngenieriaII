@@ -33,7 +33,7 @@ public class CRespuesta {
     private PersonaDAO persona_db;
     
     
-    @RequestMapping(value = "/empleado/guardaPruebaAdapt", method = RequestMethod.POST)
+    @RequestMapping(value = "/participante/guardaPruebaAdapt", method = RequestMethod.POST)
     public String guardaAdaptabilidad(HttpServletRequest request,Principal principal){
         int i  =  Integer.parseInt(request.getParameter("r1"));
         Persona persona = persona_db.getPersona(principal.getName());
@@ -76,10 +76,10 @@ public class CRespuesta {
         System.out.println(persona.getCorreo());
         System.out.println(i);
         System.out.println(date);
-        return "redirect:/empleado/home";
+        return "redirect:/participante/home";
     }
     
-        @RequestMapping(value = "/empleado/guardaPruebaClima", method = RequestMethod.POST)
+        @RequestMapping(value = "/participante/guardaPruebaClima", method = RequestMethod.POST)
     public String guardaClima(HttpServletRequest request,Principal principal){
         int i  =  Integer.parseInt(request.getParameter("r1"));
         Persona persona = persona_db.getPersona(principal.getName());
@@ -112,7 +112,7 @@ public class CRespuesta {
         System.out.println(persona.getCorreo());
         System.out.println(i);
         System.out.println(date);
-        return "redirect:/empleado/home";
+        return "redirect:/participante/home";
     }
     
 }

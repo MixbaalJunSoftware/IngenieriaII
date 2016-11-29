@@ -28,7 +28,7 @@
                 <!--Clases para el mapeo-->
                 <value>Mapeo.Candidato</value>
                 <value>Mapeo.Cliente</value>
-                <value>Mapeo.Empleado</value>
+                <value>Mapeo.Participante</value>
                 <value>Mapeo.Persona</value>
                 <value>Mapeo.Pertenecer</value>
                 <value>Mapeo.Proyecto</value>
@@ -76,7 +76,7 @@
     <bean id="PertencerDAO" class="Modelo.PertenecerDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="ProyectoDAO" class="Modelo.ProyectoDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="TipoDAO" class="Modelo.TipoDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
-    <bean id="EmpleadoDAO" class="Modelo.EmpleadoDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
+    <bean id="ParticipanteDAO" class="Modelo.ParticipanteDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="RespuestaDAO" class="Modelo.RespuestaDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <bean id="TokenPasswordDAO" class="Modelo.TokenPasswordDAO" p:sessionFactory-ref="hibernate4AnnotatedSessionFactory"/>
     <!-- SpringSecurity -->
@@ -89,6 +89,8 @@
     <security:http auto-config='true'>
         <security:intercept-url pattern="/" access="permitAll" />
         <security:intercept-url pattern="/admin/*" access="hasRole('ADMIN')" />
+        <security:intercept-url pattern="/cliente/*" access="hasRole('CLIENTE')" />
+        <security:intercept-url pattern="/participante/*" access="hasRole('PARTICIPANTE')" />
         <security:intercept-url pattern="/reportes/*" 
                                 access="hasAnyRole('CLIENTE','ADMIN')" />
         <security:intercept-url pattern="/cambiarPassword" access="hasRole('PASSWORD')" />

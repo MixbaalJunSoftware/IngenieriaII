@@ -53,7 +53,7 @@
                     <div align="center" class="row">
                         <div class="col-md-3" style="margin-left: 2cm;">
                             <br/>
-                            <form  method="GET"action = "/HumanQualityResearch/ver-clientes">        
+                            <form  method="GET"action = "/HumanQualityResearch/admin/ver-clientes">        
                                 <button class="btn btn-primary btn-lg" id="clientes">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true">Clientes</span> 
                                 </button>

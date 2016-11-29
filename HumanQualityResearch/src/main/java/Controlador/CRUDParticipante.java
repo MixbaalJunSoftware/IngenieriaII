@@ -6,12 +6,12 @@
 package Controlador;
 
 
-import Mapeo.Empleado;
+import Mapeo.Participante;
 import Mapeo.Persona;
 import Mapeo.Pertenecer;
 import Mapeo.Proyecto;
 import Mapeo.Usuario;
-import Modelo.EmpleadoDAO;
+import Modelo.ParticipanteDAO;
 import Modelo.PersonaDAO;
 import Modelo.PertenecerDAO;
 import Modelo.ProyectoDAO;
@@ -41,10 +41,10 @@ import org.springframework.web.servlet.ModelAndView;
  * @author Mixbaal
  */
 @Controller
-public class CRUDEmpleado {
-    //Instancia para operaciones con la base relacionadas con el empleado
+public class CRUDParticipante {
+    //Instancia para operaciones con la base relacionadas con el participante
     @Autowired
-    private EmpleadoDAO empleado_bd;
+    private ParticipanteDAO participante_bd;
     
     //Instancia para operaciones con la base relacionadas con una persona
     @Autowired
@@ -65,8 +65,8 @@ public class CRUDEmpleado {
     /**
      * Método para desplegar la vista de opciones
      */
-    @RequestMapping(value = "/opcionesEmpleado")
-    public String opcionesEmpleado(){
+    @RequestMapping(value = "/opcionesParticipante")
+    public String opcionesParticipante(){
         return "Opciones";
     }
     
@@ -95,13 +95,13 @@ public class CRUDEmpleado {
         return message_preparator;        
     }
     
-    @RequestMapping(value= "/cliente/crear-empleadoCorreo", method = RequestMethod.POST)
-    public String creaEmpleadoCorreo(ModelMap model,HttpServletRequest request){
+    @RequestMapping(value= "/cliente/crear-participanteCorreo", method = RequestMethod.POST)
+    public String creaParticipanteCorreo(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
         Usuario usuario = new Usuario();
         Proyecto proyecto = null;
         Pertenecer pertenecer = new Pertenecer();
-        Empleado empleado = new Empleado();
+        Participante participante = new Participante();
         String correo = request.getParameter("correo");
         System.out.print(correo);
         long id = Long.parseLong(request.getParameter("idproyectoCrea"));
@@ -113,12 +113,12 @@ public class CRUDEmpleado {
             usuario.setPersona(persona);
             pertenecer.setPersona(persona);
             pertenecer.setProyecto(proyecto);
-            empleado.setPersona(persona);
-            usuario.setRol("ROLE_EMPLEADO");
+            participante.setPersona(persona);
+            usuario.setRol("ROLE_PARTICIPANTE");
             persona_bd.guardar(persona);
             usuario_bd.guardar(usuario);
             pertenecer_bd.guardar(pertenecer);
-            empleado_bd.guardar(empleado);
+            participante_bd.guardar(participante);
             String url = "http://" + request.getServerName() + ":" + request.getServerPort() + request.getContextPath();
             mail_sender.send(construirEmail(url,correo));
             return "CorreoCorrecto";
@@ -145,11 +145,11 @@ public class CRUDEmpleado {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/completarRegistro-empleado", method = RequestMethod.POST)
-    public String completarRegistroEmpleado(ModelMap model,HttpServletRequest request){
+    @RequestMapping(value= "/completarRegistro-participante", method = RequestMethod.POST)
+    public String completarRegistroParticipante(ModelMap model,HttpServletRequest request){
         String correo = request.getParameter("correo");
         Persona persona = persona_bd.getPersona(correo);
-        Empleado empleado = new Empleado();
+        Participante participante = new Participante();
         Usuario usuario = new Usuario();
         String password = request.getParameter("pass");
         String nombre = request.getParameter("nombre");
@@ -176,16 +176,16 @@ public class CRUDEmpleado {
         persona.setGenero(genero);
         persona.setTelefono(telefono);
         persona.setCelular(celular);
-        empleado.setPersona(persona);
-        empleado.setPuestoempleado(puesto);
+        participante.setPersona(persona);
+        participante.setPuestoParticipante(puesto);
         usuario.setPersona(persona);
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hash_password = passwordEncoder.encode(password) ;
         usuario.setContrasenia(hash_password);
    
-       usuario.setRol("ROLE_EMPLEADO");
+       usuario.setRol("ROLE_PARTICIPANTE");
         persona_bd.actualizar(persona);
-        empleado_bd.actualizar(empleado);
+        participante_bd.actualizar(participante);
         usuario_bd.actualizar(usuario);
         return "Ok";   
     }
@@ -197,15 +197,15 @@ public class CRUDEmpleado {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/empleado/previoActualizarEmpleado", method = RequestMethod.GET)
-    public ModelAndView previoActualizarEmpleado(ModelMap model,HttpServletRequest request, Principal principal){ 
+    @RequestMapping(value= "/participante/previoActualizarParticipante", method = RequestMethod.GET)
+    public ModelAndView previoActualizarParticipante(ModelMap model,HttpServletRequest request, Principal principal){ 
         /**
         Persona persona = persona_bd.getPersona(principal.getName());
         model.addAttribute("persona", persona);
         if(persona == null)
             return new ModelAndView("error403",model);
         */
-        return new ModelAndView("EditarEmpleado",model);
+        return new ModelAndView("EditarParticipante",model);
     }
     
     
@@ -214,18 +214,18 @@ public class CRUDEmpleado {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/empleado/actualizar-empleado", method = RequestMethod.POST)
-    public String actualizaEmpleado(HttpServletRequest request, Principal principal){
+    @RequestMapping(value= "/participante/actualizar-participante", method = RequestMethod.POST)
+    public String actualizaParticipante(HttpServletRequest request, Principal principal){
         Persona persona = persona_bd.getPersona(principal.getName());
         long id = persona.getIdPersona();
-        Empleado empleado = empleado_bd.getEmpleado(id);
+        Participante participante = participante_bd.getParticipante(id);
         Usuario usuario = usuario_bd.getUsuario(id);
         String puesto = request.getParameter("puesto");
         String telefono = request.getParameter("tel");
         String celular = request.getParameter("cel");
         String pasword = request.getParameter("rpass");
         if(!puesto.equals(""))
-            empleado.setPuestoempleado(puesto);
+            participante.setPuestoParticipante(puesto);
         if(!telefono.equals(""))
             persona.setTelefono(telefono);
         if(!celular.equals(""))
@@ -235,9 +235,9 @@ public class CRUDEmpleado {
             String hash_password = passwordEncoder.encode(pasword) ;
             usuario.setContrasenia(hash_password);
         }
-        usuario.setRol("ROLE_EMPLEADO");
+        usuario.setRol("ROLE_PARTICIPANTE");
         persona_bd.actualizar(persona);
-        empleado_bd.actualizar(empleado);
+        participante_bd.actualizar(participante);
         usuario_bd.actualizar(usuario);
         return "Ok";   
     }
@@ -251,9 +251,9 @@ public class CRUDEmpleado {
      * @return 
      */
     @RequestMapping(value= "cliente/ver-participantes", method = RequestMethod.GET)
-    public ModelAndView verEmpleadosCliente(ModelMap model,HttpServletRequest request){  
+    public ModelAndView verParticipantesCliente(ModelMap model,HttpServletRequest request){  
         long id = Long.parseLong(request.getParameter("idproyecto"));
-        List<Empleado> lp = empleado_bd.empleadosProyecto(id);
+        List<Participante> lp = participante_bd.participantesProyecto(id);
         model.addAttribute("listaParticipantes",lp);
         model.addAttribute("idProyecto",id);
         return new ModelAndView("Participantes",model);
@@ -266,9 +266,9 @@ public class CRUDEmpleado {
      * @return 
      */
     @RequestMapping(value= "admin/ver-participantes", method = RequestMethod.GET)
-    public ModelAndView verEmpleadosAdmin(ModelMap model,HttpServletRequest request){  
+    public ModelAndView verParticipantesAdmin(ModelMap model,HttpServletRequest request){  
         long id = Long.parseLong(request.getParameter("idproyecto"));
-        List<Empleado> lp = empleado_bd.empleadosProyecto(id);
+        List<Participante> lp = participante_bd.participantesProyecto(id);
         model.addAttribute("listaParticipantes",lp);
         model.addAttribute("idProyecto",id);
         return new ModelAndView("Participantes",model);
@@ -280,7 +280,7 @@ public class CRUDEmpleado {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/empleado/contestarPrueba", method = RequestMethod.GET)
+    @RequestMapping(value= "/participante/contestarPrueba", method = RequestMethod.GET)
     public ModelAndView contestarPrueba(ModelMap model,HttpServletRequest request, Principal principal){   
         return new ModelAndView("PruebaAL",model);
     }
@@ -292,13 +292,13 @@ public class CRUDEmpleado {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/empleado/contestarPruebaCL", method = RequestMethod.GET)
+    @RequestMapping(value= "/participante/contestarPruebaCL", method = RequestMethod.GET)
     public ModelAndView contestarPruebaCL(ModelMap model,HttpServletRequest request, Principal principal){   
         return new ModelAndView("PruebaCL",model);
     }
     
     /**
-     * Metodo para eliminar un empleado de la base de datos
+     * Metodo para eliminar un participante de la base de datos
      * @param model
      * @param request
      * @return 
@@ -306,12 +306,12 @@ public class CRUDEmpleado {
     @RequestMapping(value= "/admin/elimina-participante", method = RequestMethod.POST)
     public String eliminaParticipante(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("id"));
-        Empleado empleado = empleado_bd.getEmpleado(id);
+        Participante participante = participante_bd.getParticipante(id);
         Usuario usuario = usuario_bd.getUsuario(id);
-        Persona persona = empleado.getPersona();
+        Persona persona = participante.getPersona();
         Pertenecer pertenecer = pertenecer_bd.getPertenecerP(id);
         pertenecer_bd.eliminar(pertenecer);
-        empleado_bd.eliminar(empleado);
+        participante_bd.eliminar(participante);
         usuario_bd.eliminar(usuario);
         persona_bd.eliminar(persona);        
         return "Ok";
@@ -357,7 +357,7 @@ public class CRUDEmpleado {
     
     @RequestMapping(value= "/admin/ver-eparticipantes", method = RequestMethod.GET)
     public ModelAndView verParticipantesE(ModelMap model,HttpServletRequest request){  
-        List<Empleado> c = empleado_bd.ParticipantesEliminados();
+        List<Participante> c = participante_bd.ParticipantesEliminados();
         model.addAttribute("lista",c);
         return new ModelAndView("ParticipantesEliminados",model);
     }
@@ -374,21 +374,21 @@ public class CRUDEmpleado {
    @RequestMapping(value= "/muestra-participante", method = RequestMethod.GET)
     public ModelAndView mostrarParticipante(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("idparticipante"));
-        Empleado empleado = empleado_bd.getEmpleado(id);
-        boolean existe = empleado != null;
+        Participante participante = participante_bd.getParticipante(id);
+        boolean existe = participante != null;
         model.addAttribute("existe",existe);
         if(!existe)
             return new ModelAndView("ClienteNoEncontrado",model);
         model.addAttribute("id",id);
-        model.addAttribute("nombre",empleado.getPersona().getNombre());
-        model.addAttribute("app",empleado.getPersona().getApp());
-        model.addAttribute("apm",empleado.getPersona().getApm());
-        model.addAttribute("fecha",empleado.getPersona().getFecha_nac().toString());
-        model.addAttribute("genero",empleado.getPersona().getGenero());
-        model.addAttribute("correo",empleado.getPersona().getCorreo());
-        model.addAttribute("telefono",empleado.getPersona().getTelefono());
-        model.addAttribute("celular",empleado.getPersona().getCelular());
-        model.addAttribute("puesto", empleado.getPuestoempleado());
+        model.addAttribute("nombre",participante.getPersona().getNombre());
+        model.addAttribute("app",participante.getPersona().getApp());
+        model.addAttribute("apm",participante.getPersona().getApm());
+        model.addAttribute("fecha",participante.getPersona().getFecha_nac().toString());
+        model.addAttribute("genero",participante.getPersona().getGenero());
+        model.addAttribute("correo",participante.getPersona().getCorreo());
+        model.addAttribute("telefono",participante.getPersona().getTelefono());
+        model.addAttribute("celular",participante.getPersona().getCelular());
+        model.addAttribute("puesto", participante.getPuestoParticipante());
         return new ModelAndView("MuestraParticipante",model);
     }
     

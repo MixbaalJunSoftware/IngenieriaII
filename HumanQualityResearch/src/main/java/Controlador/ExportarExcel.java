@@ -5,9 +5,9 @@
  */
 package Controlador;
 
-import Excel.EmpleadosProyectoExcel;
-import Mapeo.Empleado;
-import Modelo.EmpleadoDAO;
+import Excel.ParticipantesProyectoExcel;
+import Mapeo.Participante;
+import Modelo.ParticipanteDAO;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -29,14 +29,14 @@ import org.springframework.web.servlet.ModelAndView;
 public class ExportarExcel {
     
     @Autowired
-    EmpleadoDAO empleado_bd;
+    ParticipanteDAO participante_bd;
     
-    @RequestMapping(value="/cliente/EmpleadosProyectoExcel")
-    public EmpleadosProyectoExcel ExportarEPE(Model model, HttpServletRequest
+    @RequestMapping(value="/cliente/ParticipantesProyectoExcel")
+    public ParticipantesProyectoExcel ExportarEPE(Model model, HttpServletRequest
                                               request,@RequestParam(name = "p")long idproyecto){
-        List<Empleado> lp = empleado_bd.empleadosProyecto(idproyecto);
-        model.addAttribute("listaEmpleados",lp);
-        return new EmpleadosProyectoExcel();
+        List<Participante> lp = participante_bd.participantesProyecto(idproyecto);
+        model.addAttribute("listaParticipantes",lp);
+        return new ParticipantesProyectoExcel();
     }
     
     @RequestMapping(value = "/pdf",method = RequestMethod.POST)

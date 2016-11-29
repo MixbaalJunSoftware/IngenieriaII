@@ -86,7 +86,7 @@ public class SesionAdmin {
         }else if(request.isUserInRole("ROLE_CLIENTE")) {
             return "redirect:/cliente/home";
         }
-        return "redirect:/empleado/home";
+        return "redirect:/participante/home";
     }
     
     @RequestMapping(value="/admin/home")
@@ -99,8 +99,8 @@ public class SesionAdmin {
         return "home-cliente";
     }
     
-    @RequestMapping(value="/empleado/home")
-    public ModelAndView homeEmpleado(ModelMap model,HttpServletRequest request, Principal principal){
+    @RequestMapping(value="/participante/home")
+    public ModelAndView homeParticipante(ModelMap model,HttpServletRequest request, Principal principal){
         String s = principal.getName();
         int proyecto =(int)cliente_bd.getProyecto(s);
         System.out.println(s+" "+proyecto);
@@ -110,7 +110,7 @@ public class SesionAdmin {
         c = c & respuesta_bd.rClimaCandidato(s);
         model.addAttribute("adaptab", a);
         model.addAttribute("climab", c);
-        return new ModelAndView("home-empleado",model);
+        return new ModelAndView("home-participante",model);
     }
     
     @RequestMapping(value="/error403")
@@ -214,8 +214,8 @@ public class SesionAdmin {
             return "redirect:/admin/home";
         }else if(request.isUserInRole("ROLE_CLIENTE")){
             return "redirect:/cliente/home";
-        }else if(request.isUserInRole("ROLE_EMPLEADO")){
-            return "redirect:/empleado/home";
+        }else if(request.isUserInRole("ROLE_PARTICIPANTE")){
+            return "redirect:/participante/home";
         }
         return "redirect:/";
     
