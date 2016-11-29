@@ -139,8 +139,8 @@
     
     <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
     <script src="<c:url value="/js/bootstrap.min.js"/> "></script>     
-    <script src=" <c:url value="/js/validaCorreo.js" /> "></script>
-    <script src=" <c:url value="/js/validaCorreoRecover.js" /> "></script>
+    <script src=" <c:url value="/js/encuentraCorreo.js" /> "></script>
+    <script src=" <c:url value="/js/correoRestaurar.js" /> "></script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
 

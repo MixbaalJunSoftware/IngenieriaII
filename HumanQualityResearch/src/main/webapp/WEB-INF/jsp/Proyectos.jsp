@@ -29,7 +29,7 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#proyectos">Proyectos</a></li>
-                        <li><a href="/HumanQualityResearch/ver-clientes">Regresar a Clientes</a></li>
+                        <li><a href="/HumanQualityResearch/admin/ver-clientes">Regresar a Clientes</a></li>
                         <li><a href="/HumanQualityResearch/home">Regresar al menú</a></li>
                         
                         
@@ -56,7 +56,7 @@
                         
                     </tr>
                 </thead>
-                
+                <script src="<c:url value="/js/gen_validatorv4.js"/> "></script>
                 <c:forEach var="proyecto" items="${lista}">
                     <tbody>
                     <th>${proyecto.codigo}</th>
@@ -118,7 +118,7 @@
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                         <h4 class="modal-title" id="myModalLabel" style="text-align: center;color: #1D14A4;">Nuevo Participante</h4>
                                     </div>
-                                    <form method="POST" action="/HumanQualityResearch/cliente/crear-empleadoCorreo" >
+                                     <form id="creaclientecorreo${proyecto.idProyecto}" method="POST" action="/HumanQualityResearch/cliente/crear-empleadoCorreo" >
                                         <div class="modal-body" style="background-color: blue;">
                                             <label for="correo" >Correo del participante:</label>
                                             <input id = "correo" name = "correo" style="margin-left:1cm;"/>
@@ -131,7 +131,12 @@
                                             <button type="submit" class="btn btn-primary">Crear Participante</button>
                                         </div>
                                     </form>                           
-                                    
+                                    <script language="JavaScript" type="text/javascript" xml:space="preserve">
+                                      var frmvalidator  = new Validator("creaclientecorreo${proyecto.idProyecto}");
+                                      frmvalidator.addValidation("correo","maxlen=50");
+                                      frmvalidator.addValidation("correo","req");
+                                      frmvalidator.addValidation("correo","email");
+                                    </script>
                                 </div>
                             </div>
                         </div>

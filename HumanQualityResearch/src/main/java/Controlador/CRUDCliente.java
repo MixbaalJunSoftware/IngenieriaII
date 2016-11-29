@@ -272,7 +272,7 @@ public class CRUDCliente {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/ver-clientes", method = RequestMethod.GET)
+    @RequestMapping(value= "/admin/ver-clientes", method = RequestMethod.GET)
     public ModelAndView verClientes(ModelMap model,HttpServletRequest request){   
         List<Cliente> c = cliente_bd.Clientes();
         model.addAttribute("lista",c);
@@ -298,7 +298,7 @@ public class CRUDCliente {
         return persona != null && persona.getNombre()== null;
     }
     
-    @RequestMapping(value= "/crear-clienteCorreo", method = RequestMethod.POST)
+    @RequestMapping(value= "/admin/crear-clienteCorreo", method = RequestMethod.POST)
     public String creaClienteCorreo(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
         Cliente cliente = new Cliente();

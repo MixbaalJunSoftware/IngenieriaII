@@ -30,7 +30,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a id="exportar_boton" href=" <c:url value="/cliente/EmpleadosProyectoExcel?p=${idProyecto}" /> ">&#11015; Exportar a excel</a></li>
                         <li><a href="#participantes">Participantes</a></li>
-                        <li><a href="/HumanQualityResearch/ver-clientes">Regresar a Clientes</a></li>                        
+                        <li><a href="/HumanQualityResearch/admin/ver-clientes">Regresar a Clientes</a></li>                        
                         <li><a href="/HumanQualityResearch/home">Regresar al menú</a></li>                        
                     </ul>
                 </div>
@@ -77,7 +77,7 @@
                             <th>
                                 <form method="POST" action="/HumanQualityResearch/borradol-participante" >
                                     <input id="id" name="id" hidden="true" value="${empleado.persona.idPersona}">
-                                    <button type="submit" class="btn btn-primary btn-lg active">Eliminar</button>
+                                    <button type="submit" class="btn btn-danger btn-lg active">Eliminar</button>
                                 </form>
                             </th>
                         </tr>
