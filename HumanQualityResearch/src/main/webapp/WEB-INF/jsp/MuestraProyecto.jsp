@@ -28,7 +28,6 @@
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#proyectoInfo">Información del Proyecto</a></li>
-                        <li><a href="/HumanQualityResearch/ver-clientes">Regresar a Clientes</a></li>
                         <li><a href="/HumanQualityResearch/home">Regresar al menú</a></li>
                         
                     </ul>

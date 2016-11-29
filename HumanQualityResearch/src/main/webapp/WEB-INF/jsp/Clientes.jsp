@@ -47,6 +47,8 @@
                         <th>Empresa</th>
                         <th>Correo Electrónico</th>
                         <th>Proyectos</th>
+                        <th>Detalles</th>
+                        <th>Eliminar</th>
                     </tr>
                 </thead>
                 <c:forEach var="cliente" items="${lista}">

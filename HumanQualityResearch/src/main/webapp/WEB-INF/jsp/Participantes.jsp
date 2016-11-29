@@ -30,15 +30,12 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a id="exportar_boton" href=" <c:url value="/cliente/ParticipantesProyectoExcel?p=${idProyecto}" /> ">&#11015; Exportar a excel</a></li>
                         <li><a href="#participantes">Participantes</a></li>
-                        <li><a href="/HumanQualityResearch/admin/ver-clientes">Regresar a Clientes</a></li>                        
                         <li><a href="/HumanQualityResearch/home">Regresar al menú</a></li>                        
                     </ul>
                 </div>
             </div>
         </nav>
         <div id="participantes" class="principal">
-            <br/>
-            <br/>
             <br/>
             <br/>
             <br/>

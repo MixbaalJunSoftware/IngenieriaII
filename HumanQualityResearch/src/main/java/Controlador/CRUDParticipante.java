@@ -1,8 +1,8 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+* To change this license header, choose License Headers in Project Properties.
+* To change this template file, choose Tools | Templates
+* and open the template in the editor.
+*/
 package Controlador;
 
 
@@ -58,7 +58,7 @@ public class CRUDParticipante {
     @Autowired
     private ProyectoDAO proyecto_bd;
     
-     //Instancia para operaciones con la base relacionadas con pertenecer
+    //Instancia para operaciones con la base relacionadas con pertenecer
     @Autowired
     private PertenecerDAO pertenecer_bd;
     
@@ -71,17 +71,17 @@ public class CRUDParticipante {
     }
     
     @Autowired
-    JavaMailSender mail_sender;
+            JavaMailSender mail_sender;
     
     private MimeMessagePreparator construirEmail(String contextPath, final String correo) {
         
         final String texto = "Tu correo ha sido dado de alta en HumanQualityResearch\n"
-                           + "Ingresa al sitio par terminar tu registro y\n"
-                           + "empezar a usar el sitio";
+                + "Ingresa al sitio par terminar tu registro y\n"
+                + "empezar a usar el sitio";
         final String url = contextPath;// + "/crear-cliente/correo?id=" +correo;
         
         MimeMessagePreparator message_preparator = new MimeMessagePreparator() {
- 
+            
             @Override
             public void prepare(MimeMessage mime_message) throws Exception {
                 mime_message.setFrom("");
@@ -92,7 +92,7 @@ public class CRUDParticipante {
             }
         };
         
-        return message_preparator;        
+        return message_preparator;
     }
     
     @RequestMapping(value= "/cliente/crear-participanteCorreo", method = RequestMethod.POST)
@@ -123,23 +123,23 @@ public class CRUDParticipante {
             mail_sender.send(construirEmail(url,correo));
             return "CorreoCorrecto";
         }else{
-             if (pertenecer_bd.buscaPertenecer(p.getIdPersona(), proyecto.getIdProyecto()))
-                 return "UsuarioRepetido";
-             else{
+            if (pertenecer_bd.buscaPertenecer(p.getIdPersona(), proyecto.getIdProyecto()))
+                return "UsuarioRepetido";
+            else{
                 try{
-                pertenecer.setPersona(p);
-                pertenecer.setProyecto(proyecto);
-                pertenecer_bd.guardar(pertenecer);
-                return "CorreoCorrecto";
+                    pertenecer.setPersona(p);
+                    pertenecer.setProyecto(proyecto);
+                    pertenecer_bd.guardar(pertenecer);
+                    return "CorreoCorrecto";
                 }catch(Exception e){
                     return "error403";
                 }
-             }    
+            }
         }
-            
+        
     }
-
-
+    
+    
     @RequestMapping(value= "/admin/crear-participanteCorreo", method = RequestMethod.POST)
     public String creaParticipanteCorreoA(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
@@ -168,26 +168,26 @@ public class CRUDParticipante {
             mail_sender.send(construirEmail(url,correo));
             return "CorreoCorrecto";
         }else{
-             if (pertenecer_bd.buscaPertenecer(p.getIdPersona(), proyecto.getIdProyecto()))
-                 return "UsuarioRepetido";
-             else{
+            if (pertenecer_bd.buscaPertenecer(p.getIdPersona(), proyecto.getIdProyecto()))
+                return "UsuarioRepetido";
+            else{
                 try{
-                pertenecer.setPersona(p);
-                pertenecer.setProyecto(proyecto);
-                pertenecer_bd.guardar(pertenecer);
-                return "CorreoCorrecto";
+                    pertenecer.setPersona(p);
+                    pertenecer.setProyecto(proyecto);
+                    pertenecer_bd.guardar(pertenecer);
+                    return "CorreoCorrecto";
                 }catch(Exception e){
                     return "error403";
                 }
-             }    
+            }
         }
-            
+        
     }
     /**
      * Realiza la funcionalidad para agregar un cliente a la base de datos
      * @param model
      * @param request
-     * @return 
+     * @return
      */
     @RequestMapping(value= "/completarRegistro-participante", method = RequestMethod.POST)
     public String completarRegistroParticipante(ModelMap model,HttpServletRequest request){
@@ -199,21 +199,21 @@ public class CRUDParticipante {
         String nombre = request.getParameter("nombre");
         String app = request.getParameter("app");
         String apm = request.getParameter("apm");
-        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-mm-dd"); 
+        SimpleDateFormat ft = new SimpleDateFormat ("yyyy-mm-dd");
         Date fecha = null;
-        String f = request.getParameter("fecha3") +"-"+request.getParameter("fecha2")+"-"+request.getParameter("fecha1"); 
+        String f = request.getParameter("fecha3") +"-"+request.getParameter("fecha2")+"-"+request.getParameter("fecha1");
         System.out.println(f);
         try {
-            fecha = ft.parse(f);    
-        }catch (ParseException e) { 
-             System.out.println("Unparseable using " + ft); 
+            fecha = ft.parse(f);
+        }catch (ParseException e) {
+            System.out.println("Unparseable using " + ft);
         }
         String empresa = request.getParameter("empresa");
         String genero = request.getParameter("genero");
         String telefono = request.getParameter("telefono");
         String celular = request.getParameter("celular");
         String puesto = request.getParameter("puesto");
-      
+        
         persona.setNombre(nombre);
         persona.setApp(app);
         persona.setApm(apm);
@@ -228,12 +228,12 @@ public class CRUDParticipante {
         BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String hash_password = passwordEncoder.encode(password) ;
         usuario.setContrasenia(hash_password);
-   
-       usuario.setRol("ROLE_PARTICIPANTE");
+        
+        usuario.setRol("ROLE_PARTICIPANTE");
         persona_bd.actualizar(persona);
         participante_bd.actualizar(participante);
         usuario_bd.actualizar(usuario);
-        return "Ok";   
+        return "Ok";
     }
     
     
@@ -241,24 +241,24 @@ public class CRUDParticipante {
      * Metodo Auxiliar para probar el caso de uso Actualizar
      * @param model
      * @param request
-     * @return 
+     * @return
      */
     @RequestMapping(value= "/participante/previoActualizarParticipante", method = RequestMethod.GET)
-    public ModelAndView previoActualizarParticipante(ModelMap model,HttpServletRequest request, Principal principal){ 
+    public ModelAndView previoActualizarParticipante(ModelMap model,HttpServletRequest request, Principal principal){
         /**
-        Persona persona = persona_bd.getPersona(principal.getName());
-        model.addAttribute("persona", persona);
-        if(persona == null)
-            return new ModelAndView("error403",model);
-        */
+         * Persona persona = persona_bd.getPersona(principal.getName());
+         * model.addAttribute("persona", persona);
+         * if(persona == null)
+         * return new ModelAndView("error403",model);
+         */
         return new ModelAndView("EditarParticipante",model);
     }
     
     
     /**
-     * 
+     *
      * @param request
-     * @return 
+     * @return
      */
     @RequestMapping(value= "/participante/actualizar-participante", method = RequestMethod.POST)
     public String actualizaParticipante(HttpServletRequest request, Principal principal){
@@ -285,7 +285,7 @@ public class CRUDParticipante {
         persona_bd.actualizar(persona);
         participante_bd.actualizar(participante);
         usuario_bd.actualizar(usuario);
-        return "Ok";   
+        return "Ok";
     }
     
     
@@ -294,10 +294,10 @@ public class CRUDParticipante {
      * Pone los paramentros en el model de la pagina a mostrar
      * @param model
      * @param request
-     * @return 
+     * @return
      */
     @RequestMapping(value= "/cliente/ver-participantes", method = RequestMethod.GET)
-    public ModelAndView verParticipantesCliente(ModelMap model,HttpServletRequest request){  
+    public ModelAndView verParticipantesCliente(ModelMap model,HttpServletRequest request){
         long id = Long.parseLong(request.getParameter("idproyecto"));
         List<Participante> lp = participante_bd.participantesProyecto(id);
         model.addAttribute("listaParticipantes",lp);
@@ -309,15 +309,15 @@ public class CRUDParticipante {
      * Pone los paramentros en el model de la pagina a mostrar
      * @param model
      * @param request
-     * @return 
+     * @return
      */
     @RequestMapping(value= "/admin/ver-participantes", method = RequestMethod.GET)
-    public ModelAndView verParticipantesAdmin(ModelMap model,HttpServletRequest request){  
+    public ModelAndView verParticipantesAdmin(ModelMap model,HttpServletRequest request){
         long id = Long.parseLong(request.getParameter("idproyecto"));
         List<Participante> lp = participante_bd.participantesProyecto(id);
         System.out.print(lp.get(0));
         model.addAttribute("listaParticipantes",lp);
-        model.addAttribute("idProyecto",id);
+        model.addAttribute("idProyecto",id);        
         return new ModelAndView("Participantes",model);
     }
     
@@ -325,10 +325,10 @@ public class CRUDParticipante {
      * Metodo Auxiliar para poder contestar la prueba de adaptabilidad laboral
      * @param model
      * @param request
-     * @return 
+     * @return
      */
     @RequestMapping(value= "/participante/contestarPrueba", method = RequestMethod.GET)
-    public ModelAndView contestarPrueba(ModelMap model,HttpServletRequest request, Principal principal){   
+    public ModelAndView contestarPrueba(ModelMap model,HttpServletRequest request, Principal principal){
         return new ModelAndView("PruebaAL",model);
     }
     
@@ -337,10 +337,10 @@ public class CRUDParticipante {
      * Metodo Auxiliar para poder contestar la prueba de clima laboral
      * @param model
      * @param request
-     * @return 
+     * @return
      */
     @RequestMapping(value= "/participante/contestarPruebaCL", method = RequestMethod.GET)
-    public ModelAndView contestarPruebaCL(ModelMap model,HttpServletRequest request, Principal principal){   
+    public ModelAndView contestarPruebaCL(ModelMap model,HttpServletRequest request, Principal principal){
         return new ModelAndView("PruebaCL",model);
     }
     
@@ -348,10 +348,10 @@ public class CRUDParticipante {
      * Metodo para eliminar un participante de la base de datos
      * @param model
      * @param request
-     * @return 
+     * @return
      */
     @RequestMapping(value= "/admin/elimina-participante", method = RequestMethod.POST)
-    public String eliminaParticipante(ModelMap model,HttpServletRequest request){   
+    public String eliminaParticipante(ModelMap model,HttpServletRequest request){
         long id = Long.parseLong(request.getParameter("id"));
         Participante participante = participante_bd.getParticipante(id);
         Usuario usuario = usuario_bd.getUsuario(id);
@@ -360,66 +360,66 @@ public class CRUDParticipante {
         pertenecer_bd.eliminar(pertenecer);
         participante_bd.eliminar(participante);
         usuario_bd.eliminar(usuario);
-        persona_bd.eliminar(persona);        
+        persona_bd.eliminar(persona);
         return "Ok";
     }
     
     /**
-      * Método para hacer el borrado lógico de la base de datos
-      * @param model
-      * @param request
-      * @return 
-      */
+     * Método para hacer el borrado lógico de la base de datos
+     * @param model
+     * @param request
+     * @return
+     */
     
     @RequestMapping(value= "/borradol-participante", method = RequestMethod.POST)
-    public String borradolParticipanteA(ModelMap model,HttpServletRequest request){   
+    public String borradolParticipanteA(ModelMap model,HttpServletRequest request){
         long id = Long.parseLong(request.getParameter("id"));
         Persona persona = persona_bd.getPersona(id);
         Calendar fecha = Calendar.getInstance();
         Date date = fecha.getTime();
         persona.setFborrado(date);
         persona.setActivo(false);
-        persona_bd.actualizar(persona);        
+        persona_bd.actualizar(persona);
         return "Ok";
     }
     
     /**
-      * Método para hacer el borrado lógico de la base de datos
-      * @param model
-      * @param request
-      * @return 
-      */
+     * Método para hacer el borrado lógico de la base de datos
+     * @param model
+     * @param request
+     * @return
+     */
     
     @RequestMapping(value= "/cliente/borradol-participante", method = RequestMethod.POST)
-    public String borradolParticipanteC(ModelMap model,HttpServletRequest request){   
+    public String borradolParticipanteC(ModelMap model,HttpServletRequest request){
         long id = Long.parseLong(request.getParameter("id"));
         Persona persona = persona_bd.getPersona(id);
         Calendar fecha = Calendar.getInstance();
         Date date = fecha.getTime();
         persona.setFborrado(date);
         persona.setActivo(false);
-        persona_bd.actualizar(persona);        
+        persona_bd.actualizar(persona);
         return "Ok";
     }
     
     @RequestMapping(value= "/admin/ver-eparticipantes", method = RequestMethod.GET)
-    public ModelAndView verParticipantesE(ModelMap model,HttpServletRequest request){  
+    public ModelAndView verParticipantesE(ModelMap model,HttpServletRequest request){
         List<Participante> c = participante_bd.ParticipantesEliminados();
         model.addAttribute("lista",c);
         return new ModelAndView("ParticipantesEliminados",model);
     }
     
     @RequestMapping(value= "/admin/recuperar-participante", method = RequestMethod.POST)
-    public String recuperarParticipante(ModelMap model,HttpServletRequest request){   
+    public String recuperarParticipante(ModelMap model,HttpServletRequest request){
         long id = Long.parseLong(request.getParameter("id"));
         Persona persona = persona_bd.getPersona(id);
         persona.setActivo(true);
-        persona_bd.actualizar(persona);        
+        persona_bd.actualizar(persona);
         return "Ok";
-    }   
+    }
     
-   @RequestMapping(value= "/muestra-participante", method = RequestMethod.GET)
-    public ModelAndView mostrarParticipante(ModelMap model,HttpServletRequest request){   
+    @RequestMapping(value= "/muestra-participante", method = RequestMethod.GET)
+    public ModelAndView mostrarParticipante(ModelMap model,HttpServletRequest request){
         long id = Long.parseLong(request.getParameter("idparticipante"));
         Participante participante = participante_bd.getParticipante(id);
         boolean existe = participante != null;
