@@ -15,6 +15,7 @@ import Mapeo.Proyecto;
 import Mapeo.Tipo;
 import Mapeo.Cliente;
 import Mapeo.Pertenecer;
+import Mapeo.PruebaCliente;
 import java.security.Principal;
 import java.util.Calendar;
 import java.util.Date;
@@ -118,7 +119,8 @@ public class CRUDProyecto {
          int mes = fecha.get(Calendar.MONTH);
          int dia = fecha.get(Calendar.DAY_OF_MONTH);
          codigo+=String.valueOf(dia)+String.valueOf(mes)+String.valueOf(anio);
-         return codigo;  
+         String codigof = codigo.replaceAll("\\s","");
+         return codigof;  
      
      }
      
@@ -217,9 +219,13 @@ public class CRUDProyecto {
         System.out.print(id);
         Proyecto proyecto = proyecto_db.getProyecto(id);
         List<Pertenecer> lpertenecer = pertenecer_db.listPertenecer(id);
+        //List<PruebaCliente> pruebac = pruebacliente_db.listPruebas(id);
         for(Pertenecer p : lpertenecer){
             pertenecer_db.eliminar(p);
         }
+        //for (PruebaCliente pc: pruebac){
+            
+        //}
         proyecto_db.eliminar(proyecto);
         return "Ok";
         
