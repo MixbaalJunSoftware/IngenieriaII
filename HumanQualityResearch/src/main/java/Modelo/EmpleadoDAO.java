@@ -97,21 +97,26 @@ public class EmpleadoDAO {
     
     public Empleado getEmpleado(long idEmpleado) {
         Empleado empleado = null;
+        System.out.print(idEmpleado);
         Session session = sessionFactory.openSession();
         Transaction tx = null;
         try {
-           tx = session.beginTransaction();
-           empleado = (Empleado)session.get(Empleado.class, idEmpleado);
-           tx.commit();
+            tx = session.beginTransaction();
+            String hql = "from Empleado e where e.persona.idPersona = :idpersona";
+            Query query = session.createQuery(hql);
+            query.setParameter("idpersona", idEmpleado);
+            empleado = (Empleado)query.uniqueResult();
+            tx.commit();
         }
         catch (Exception e) {
-           if (tx!=null){ 
+           if (tx!=null){
                tx.rollback();
            }
            e.printStackTrace(); 
         }finally {
            session.close();
         }
+        System.out.print(empleado.getPersona().getIdPersona());
         return empleado;
     }
     

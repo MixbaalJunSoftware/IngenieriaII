@@ -123,8 +123,20 @@ public class CRUDEmpleado {
             mail_sender.send(construirEmail(url,correo));
             return "CorreoCorrecto";
         }else{
-            return "CorreoRegistrado";
+             if (pertenecer_bd.buscaPertenecer(p.getIdPersona(), proyecto.getIdProyecto()))
+                 return "UsuarioRepetido";
+             else{
+                try{
+                pertenecer.setPersona(p);
+                pertenecer.setProyecto(proyecto);
+                pertenecer_bd.guardar(pertenecer);
+                return "CorreoCorrecto";
+                }catch(Exception e){
+                    return "error403";
+                }
+             }    
         }
+            
     }
     
     /**
@@ -238,15 +250,14 @@ public class CRUDEmpleado {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/cliente/ver-empleados", method = RequestMethod.POST)
-    public ModelAndView verEmpleadosCliente(ModelMap model,HttpServletRequest request){ 
+    @RequestMapping(value= "cliente/ver-participantes", method = RequestMethod.GET)
+    public ModelAndView verEmpleadosCliente(ModelMap model,HttpServletRequest request){  
         long id = Long.parseLong(request.getParameter("idproyecto"));
         List<Empleado> lp = empleado_bd.empleadosProyecto(id);
-        model.addAttribute("lista",lp);
-        System.out.println(lp+"hola");
-        return new ModelAndView("cEmpleados",model);
+        model.addAttribute("listaParticipantes",lp);
+        model.addAttribute("idProyecto",id);
+        return new ModelAndView("Participantes",model);
     }
-    
     /**
      * Metodo para mostrar la informacion de los Proyectos
      * Pone los paramentros en el model de la pagina a mostrar
@@ -254,11 +265,11 @@ public class CRUDEmpleado {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/ver-empleados", method = RequestMethod.GET)
+    @RequestMapping(value= "admin/ver-participantes", method = RequestMethod.GET)
     public ModelAndView verEmpleadosAdmin(ModelMap model,HttpServletRequest request){  
         long id = Long.parseLong(request.getParameter("idproyecto"));
         List<Empleado> lp = empleado_bd.empleadosProyecto(id);
-        model.addAttribute("listaEmpleados",lp);
+        model.addAttribute("listaParticipantes",lp);
         model.addAttribute("idProyecto",id);
         return new ModelAndView("Participantes",model);
     }

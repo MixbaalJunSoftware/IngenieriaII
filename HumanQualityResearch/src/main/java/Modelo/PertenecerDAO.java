@@ -5,8 +5,10 @@
  */
 package Modelo;
 
+import Mapeo.Empleado;
 import Mapeo.Pertenecer;
 import Mapeo.Usuario;
+import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -139,4 +141,81 @@ public class PertenecerDAO {
         return result;
     }
     
+   public List<Empleado> lPertenecerE(long idProyecto) {
+        List<Empleado> result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT empleado From Empleado empleado inner join empleado.persona "
+                    + "WHERE empleado.persona.idPersona IN "
+                    + "(SELECT p.persona.idPersona FROM Pertenecer p "
+                    + " WHERE p.proyecto.idProyecto = :idproyecto)";
+            Query query = session.createQuery(hql);
+            query.setParameter("idproyecto", idProyecto);
+            result = (List<Empleado>)query.list();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    }
+    public List<Pertenecer> listPertenecer(long idProyecto) {
+        List<Pertenecer> result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT pertenecer From Pertenecer pertenecer "
+                    + "WHERE pertenecer.proyecto.idProyecto = :idproyecto";
+            Query query = session.createQuery(hql);
+            query.setParameter("idproyecto", idProyecto);
+            result = (List<Pertenecer>)query.list();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    }
+    
+    public boolean buscaPertenecer (long idPersona, long idProyecto){
+        Pertenecer result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "from Pertenecer p where p.persona.idPersona = :idpersona "
+                    + "AND p.proyecto.idProyecto = :idproyecto";
+            Query query = session.createQuery(hql);
+            query.setParameter("idpersona", idPersona);
+            query.setParameter("idproyecto", idProyecto);
+            result = (Pertenecer)query.uniqueResult();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        if (result != null)
+            return true;
+        return false;
+    
+    
+    }
 }

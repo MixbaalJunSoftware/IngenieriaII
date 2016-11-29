@@ -51,7 +51,7 @@
                         
                     </tr>
                 </thead>
-                <c:forEach var="empleado" items="${listaEmpleados}">
+                <c:forEach var="empleado" items="${listaParticipantes}">
                     <tbody>
                         <tr>
                             <th>${empleado.persona.nombre}</th>

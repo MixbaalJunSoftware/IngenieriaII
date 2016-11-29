@@ -70,7 +70,7 @@
                         
                     </th>
                     <th>
-                        <form method="GET" action="/HumanQualityResearch/ver-empleados" >
+                        <form method="GET" action="/HumanQualityResearch/admin/ver-participantes" >
                             <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
                             <button type="submit" class="btn btn-primary btn-lg active">Participantes</button>
                         </form>

@@ -211,16 +211,19 @@ public class CRUDProyecto {
      * @param request
      * @return 
      */
-    @RequestMapping(value= "/elimina-proyecto", method = RequestMethod.POST)
+    @RequestMapping(value= "/admin/elimina-proyecto", method = RequestMethod.POST)
     public String eliminaProyecto(ModelMap model,HttpServletRequest request){   
-        long id = Long.parseLong(request.getParameter("idproyecto"));
+        long id = Long.parseLong(request.getParameter("id"));
+        System.out.print(id);
         Proyecto proyecto = proyecto_db.getProyecto(id);
-        Pertenecer pertenecer = pertenecer_db.getPertenecer(id);
-        Tipo tipo = proyecto.getTipo();
-        tipo_db.eliminar(tipo);
-        pertenecer_db.eliminar(pertenecer);
+        List<Pertenecer> lpertenecer = pertenecer_db.listPertenecer(id);
+        for(Pertenecer p : lpertenecer){
+            pertenecer_db.eliminar(p);
+        }
         proyecto_db.eliminar(proyecto);
         return "Ok";
+        
+        
     }
     
     /**
@@ -260,5 +263,21 @@ public class CRUDProyecto {
         model.addAttribute("app",cliente.getPersona().getApp());
         model.addAttribute("apm",cliente.getPersona().getApm());
         return new ModelAndView("MuestraProyecto",model);
+    }
+    
+    @RequestMapping(value= "/admin/ver-eproyectos", method = RequestMethod.GET)
+    public ModelAndView verProyectosE(ModelMap model,HttpServletRequest request){ 
+        List<Proyecto> c = proyecto_db.proyectosEliminados();
+        model.addAttribute("lista",c);
+        return new ModelAndView("ProyectosEliminados",model);
+    }
+    
+    @RequestMapping(value= "/admin/recuperar-proyecto", method = RequestMethod.POST)
+    public String recuperarProyecto(ModelMap model,HttpServletRequest request){   
+        long id = Long.parseLong(request.getParameter("id"));
+        Proyecto proyecto = proyecto_db.getProyecto(id);
+        proyecto.setActivo(true);
+        proyecto_db.actualizar(proyecto);        
+        return "Ok";
     }
 }

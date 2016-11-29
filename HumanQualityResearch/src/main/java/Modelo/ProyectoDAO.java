@@ -149,7 +149,7 @@ public class ProyectoDAO {
         try {
             tx = session.beginTransaction();
             String hql = "SELECT proyecto From Proyecto proyecto inner join "
-                          + "proyecto.tipo";
+                          + "proyecto.tipo WHERE proyecto.activo = TRUE";
             Query query = session.createQuery(hql);
             result = (List<Proyecto>)query.list();
             tx.commit();
@@ -219,5 +219,28 @@ public class ProyectoDAO {
            session.close();
         }
         return cliente;        
+    }
+    
+    public List<Proyecto> proyectosEliminados() {
+        List<Proyecto> result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT proyecto From Proyecto proyecto inner join "
+                          + "proyecto.tipo WHERE proyecto.activo = FALSE";
+            Query query = session.createQuery(hql);
+            result = (List<Proyecto>)query.list();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
     }
 }
