@@ -358,12 +358,18 @@ public class CRUDParticipante {
         Participante participante = participante_bd.getParticipante(id);
         Usuario usuario = usuario_bd.getUsuario(id);
         Persona persona = participante.getPersona();
-        Pertenecer pertenecer = pertenecer_bd.getPertenecerP(id);
-        pertenecer_bd.eliminar(pertenecer);
-        participante_bd.eliminar(participante);
-        usuario_bd.eliminar(usuario);
-        persona_bd.eliminar(persona);
-        return "Ok";
+        List<Pertenecer> lpertenecer = pertenecer_bd.listPertenecerPersona(id);
+        try{
+            for(Pertenecer p : lpertenecer){
+                pertenecer_bd.eliminar(p);
+            }
+            participante_bd.eliminar(participante);
+            usuario_bd.eliminar(usuario);
+            persona_bd.eliminar(persona);
+            return "Ok";
+        }catch(Exception e){
+            return "Error403";
+        }
     }
     
     /**
@@ -428,6 +434,7 @@ public class CRUDParticipante {
         model.addAttribute("existe",existe);
         if(!existe)
             return new ModelAndView("ClienteNoEncontrado",model);
+        try{
         model.addAttribute("id",id);
         model.addAttribute("nombre",participante.getPersona().getNombre());
         model.addAttribute("app",participante.getPersona().getApp());
@@ -439,6 +446,9 @@ public class CRUDParticipante {
         model.addAttribute("celular",participante.getPersona().getCelular());
         model.addAttribute("puesto", participante.getPuestoParticipante());
         return new ModelAndView("MuestraParticipante",model);
+        }catch(Exception e){
+            return new ModelAndView("error403",model);
+        }
     }
     
     
