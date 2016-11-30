@@ -5,8 +5,10 @@
  */
 package Controlador;
 
+import Excel.ParticipantesProyectoExcel;
 import Mapeo.Participante;
 import Modelo.ParticipanteDAO;
+import Modelo.RespuestaDAO;
 import java.util.List;
 import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
@@ -30,11 +32,16 @@ public class ExportarExcel {
     @Autowired
     ParticipanteDAO participante_bd;
     
+    @Autowired
+    private RespuestaDAO respuesta_bd;
+    
     @RequestMapping(value="/reportes/ParticipantesProyectoExcel")
     public ParticipantesProyectoExcel ExportarEPE(Model model, HttpServletRequest
                                               request,@RequestParam(name = "p")long idproyecto){
         List<Participante> lp = participante_bd.participantesProyecto(idproyecto);
+        
         model.addAttribute("listaParticipantes",lp);
+        model.addAttribute("respuestabd",respuesta_bd);
         return new ParticipantesProyectoExcel();
     }
     
