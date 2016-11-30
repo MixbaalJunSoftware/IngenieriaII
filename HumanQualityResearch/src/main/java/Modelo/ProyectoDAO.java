@@ -7,6 +7,7 @@ package Modelo;
 
 import Mapeo.Cliente;
 import Mapeo.Persona;
+import Mapeo.Pertenecer;
 import Mapeo.Proyecto;
 import Mapeo.PruebaCliente;
 import Mapeo.PruebaProyecto;
@@ -231,6 +232,32 @@ public class ProyectoDAO {
                           + "proyecto.tipo WHERE proyecto.activo = FALSE";
             Query query = session.createQuery(hql);
             result = (List<Proyecto>)query.list();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    }
+    
+    //mover a crud pertenecer
+    public Pertenecer getPertenecer(long idProyecto,String correo) {
+        Pertenecer result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT p From Pertenecer p WHERE p.persona.correo = :correo "
+                       + "AND p.proyecto.idProyecto = :idproyecto ";
+            Query query = session.createQuery(hql);
+            query.setParameter("correo", correo);
+            query.setParameter("idproyecto", idProyecto);
+            result = (Pertenecer)query.uniqueResult();
             tx.commit();
         }
         catch (Exception e) {

@@ -121,7 +121,7 @@
                                     <form method="POST" action="/HumanQualityResearch/cliente/crear-participanteCorreo" >
                                         <div class="modal-body">
                                             <label for="correo" style="color:#1D14A4;margin-left: 2.5cm;">Correo del cliente:</label>
-                                            <input id = "correo" name = "correo" style="margin-left:1cm;color:black;"/>
+                                            <input type="email" id = "correo" name = "correo" style="margin-left:1cm;color:black;"/>
                                             <input id="idproyectoCrea" name="idproyectoCrea" hidden="true" value="${proyecto.idProyecto}">
                                             <br/>
                                             <br/>

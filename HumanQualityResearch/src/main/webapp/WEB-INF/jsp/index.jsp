@@ -122,7 +122,7 @@
                     </div>
                     <div class="modal-body">
                         <form id = "frecover" name ="frecover" method="POST" action="/HumanQualityResearch/restablecerPassword">
-                            <input id = "correoRecover" name="correoRecover" type="text">
+                            <input id = "correoRecover" name="correoRecover" type="email">
                             <input type="button" class="btn btn-primary" name="correo-recover" id="correo-recover" value="enviar">
                         </form>
                     </div>

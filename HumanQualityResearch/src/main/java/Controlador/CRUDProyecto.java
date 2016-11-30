@@ -256,14 +256,12 @@ public class CRUDProyecto {
      }
      
      @RequestMapping(value= "/muestra-proyecto", method = RequestMethod.GET)
-    public ModelAndView mostrarCliente(ModelMap model,HttpServletRequest request){   
+    public ModelAndView mostrarCliente(ModelMap model,HttpServletRequest request,Principal principal){   
         long id = Long.parseLong(request.getParameter("idproyecto"));
-        System.out.print(id);
-        Proyecto proyecto = proyecto_db.getProyecto(id);
-        boolean existe = proyecto != null;
-        model.addAttribute("existe",existe);
-        if(!existe)
+        Pertenecer pertenecer = proyecto_db.getPertenecer(id,principal.getName());
+        if(pertenecer == null)
             return new ModelAndView("error403",model);
+        Proyecto proyecto = pertenecer.getProyecto();
         Cliente cliente = proyecto_db.getCliente(id);
         Tipo tipo = proyecto.getTipo();
         model.addAttribute("id",id);

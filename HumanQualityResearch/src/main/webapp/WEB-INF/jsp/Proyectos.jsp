@@ -56,7 +56,6 @@
                         
                     </tr>
                 </thead>
-                <script src="<c:url value="/js/gen_validatorv4.js"/> "></script>
                 <c:forEach var="proyecto" items="${lista}">
                     <tbody>
                     <th>${proyecto.codigo}</th>
@@ -121,7 +120,7 @@
                                      <form id="creaclientecorreo${proyecto.idProyecto}" method="POST" action="/HumanQualityResearch/admin/crear-participanteCorreo" >
                                         <div class="modal-body" style="background-color: blue;">
                                             <label for="correo" >Correo del participante:</label>
-                                            <input id = "correo" name = "correo" style="margin-left:1cm;"/>
+                                            <input type="email" id = "correo" name = "correo" style="margin-left:1cm;"/>
                                             <input id="idproyectoCrea" name="idproyectoCrea" hidden="true" value="${proyecto.idProyecto}">
                                             <br/>
                                             <br/>
@@ -131,12 +130,6 @@
                                             <button type="submit" class="btn btn-primary">Crear Participante</button>
                                         </div>
                                     </form>                           
-                                    <script language="JavaScript" type="text/javascript" xml:space="preserve">
-                                      var frmvalidator  = new Validator("creaclientecorreo${proyecto.idProyecto}");
-                                      frmvalidator.addValidation("correo","maxlen=50");
-                                      frmvalidator.addValidation("correo","req");
-                                      frmvalidator.addValidation("correo","email");
-                                    </script>
                                 </div>
                             </div>
                         </div>

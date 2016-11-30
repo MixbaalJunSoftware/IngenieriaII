@@ -297,8 +297,11 @@ public class CRUDParticipante {
      * @return
      */
     @RequestMapping(value= "/cliente/ver-participantes", method = RequestMethod.GET)
-    public ModelAndView verParticipantesCliente(ModelMap model,HttpServletRequest request){
+    public ModelAndView verParticipantesCliente(ModelMap model,HttpServletRequest request,Principal principal){  
         long id = Long.parseLong(request.getParameter("idproyecto"));
+        Pertenecer pertenecer = proyecto_bd.getPertenecer(id,principal.getName());
+        if(pertenecer == null)
+            return new ModelAndView("error403",model);
         List<Participante> lp = participante_bd.participantesProyecto(id);
         model.addAttribute("listaParticipantes",lp);
         model.addAttribute("idProyecto",id);
