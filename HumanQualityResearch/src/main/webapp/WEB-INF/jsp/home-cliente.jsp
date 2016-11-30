@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/HomeAdmin.css"/> ">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/Modal.css"/> ">
         <title>Home-Cliente</title>
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="100" style="background-color: #00008B;">
@@ -109,28 +110,20 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel" style="color:blue;text-align: center;">Nuevo Proyecto</h4>
+                        <h4 class="modal-title" id="myModalLabel">Nuevo Proyecto</h4>
                     </div>
                     <form method="POST" action="/HumanQualityResearch/cliente/crear-proyecto" >
                         <div class="modal-body">
                             <div class ="container">
                                 <div class="row">
                                     <div class="col-md-4">
-                                        <label for="area" style="color:#1D14A4;margin-left: 1cm;">Area del proyecto:</label>
-                                        <input id = "area" name = "area" style="margin-left:0.3cm;"/>
+                                        <label for="area" style="color:white;font-size: 20px;">Area del proyecto:</label>
+                                        <input id = "area" name = "area" style="margin-left: 0.1cm;"/>
                                         <br/>
                                         <br/>
-                                        <label for="tipo" style="color:#1D14A4;margin-left: 1cm;">Tipo de proyecto:</label>
-                                        <input id = "tipo" name = "tipo" style="margin-left:0.5cm;"/>
-                                        <h3>Agregar pruebas</h3>
-                                        <c:if test="${al}">
-                                        <input type="checkbox" name="adapt" value="1">Adaptabilidad Laboral<br>
-                                        </c:if>
-                                        <c:if test="${cl}">
-                                        <input type="checkbox" name="clima" value="2" checked>Clima Laboral<br>
-                                        </c:if>
-                                        <br/>
-                                        <br/>
+                                        <label for="tipo" style="color:white;font-size: 20px;">Tipo de proyecto:</label>
+                                        <input id = "tipo" name = "tipo" style="margin-left: 0.35cm;"/>
+                                        
                                     </div>
                                 </div>
                             </div>

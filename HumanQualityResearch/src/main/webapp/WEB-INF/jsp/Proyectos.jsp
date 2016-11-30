@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/fuente.css"/> ">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/Modal.css"/> ">        
         <title>Proyectos</title>
     </head>
     <body style="background-color: #5389C4;">
@@ -91,18 +92,21 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel" style="color:blue;text-align: center;">¿Seguro qué quieres eliminar el proyecto?</h4>
+                                        <h4 class="modal-title" id="myModalLabel" >¿Seguro qué quieres eliminar el proyecto?</h4>
                                     </div>
                                     <div class="modal-body">
                                         <form method="POST" action="/HumanQualityResearch/borradol-proyecto" >
                                             <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
-                                            <button type="submit" class="btn btn-danger btn-lg active">Eliminar proyecto</button>
+                                            <button type="submit" class="btn btn-danger btn-lg active" style="margin-left: 5cm;">Eliminar proyecto</button>
                                         </form>
-                                        <br/>
+                                        
+                                    </div>
+                                    <div class="modal-footer">    
                                         <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>    
-                                    </div>                                  
-                                </div>
+                                    </div>
+                                </div>                                  
                             </div>
+                        </div>
                         </div>
                         
                     </th>
@@ -115,14 +119,14 @@
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                        <h4 class="modal-title" id="myModalLabel" style="text-align: center;color: #1D14A4;">Nuevo Participante</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Nuevo Participante</h4>
                                     </div>
-                                     <form id="creaclientecorreo${proyecto.idProyecto}" method="POST" action="/HumanQualityResearch/admin/crear-participanteCorreo" >
-                                        <div class="modal-body" style="background-color: blue;">
+                                    <form id="creaclientecorreo${proyecto.idProyecto}" method="POST" action="/HumanQualityResearch/admin/crear-participanteCorreo" >
+                                        <div class="modal-body">
                                             <label for="correo" >Correo del participante:</label>
-                                            <input type="email" id = "correo" name = "correo" style="margin-left:1cm;"/>
+                                            <input type="email" id = "correo" name = "correo" style="margin-left:1cm;color:black;"/>
                                             <input id="idproyectoCrea" name="idproyectoCrea" hidden="true" value="${proyecto.idProyecto}">
-                                            <br/>
+                                            
                                             <br/>
                                         </div>
                                         <div class="modal-footer">

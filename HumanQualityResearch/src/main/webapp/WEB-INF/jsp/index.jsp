@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Index.css"/> ">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/Modal.css"/> ">
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="100" style="background-color: #5389C4;">
         <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#5389C4;">
@@ -72,7 +73,7 @@
                     </div>
                     <div class="modal-body">
                         <form id = "f1" name ="f1" method="POST" action="/HumanQualityResearch/completar-registro">
-                            <input type="email" id = "correo" name="correo">
+                            <input type="email" id = "correo" name="correo" style="margin-left: 4.3cm;">
                             <input type="button" class="btn btn-primary" name="enviar-correo" id="enviar-correo" value="enviar">
                         </form>
                     </div>

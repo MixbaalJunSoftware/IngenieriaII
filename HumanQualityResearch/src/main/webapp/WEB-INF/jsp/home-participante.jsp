@@ -70,7 +70,7 @@
             <div class="col-md-6">
                 <c:if test="${adaptab}">
                     <form action = "/HumanQualityResearch/participante/contestarPrueba">
-                        <button class="btn btn-default btn-lg" id="modal">Contestar Prueba</button>
+                        <button class="btn btn-primary btn-lg" id="modal" style="margin-left: 2cm;">Contestar Prueba Adaptabilidad Laboral</button>
                     </form>
                     
                 </c:if>
@@ -78,7 +78,7 @@
             <div class="col-md-6">
                 <c:if test="${climab}">
                     <form action = "/HumanQualityResearch/participante/contestarPruebaCL">
-                        <button class="btn btn-default btn-lg" id="modal">Contestar Prueba CL</button>
+                        <button class="btn btn-primary btn-lg" id="modal">Contestar Prueba Clima Laboral</button>
                     </form>
                 </c:if>
             </div>

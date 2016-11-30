@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/fuente.css"/> ">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/Modal.css"/> ">        
         <title>Clientes</title>
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="100" style="background-color: #5389C4;">
@@ -73,15 +74,15 @@
                                         <div class="modal-content">
                                             <div class="modal-header">
                                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                <h4 class="modal-title" id="myModalLabel" style="text-align: center;color: #1D14A4;">Asignar Pruebas</h4>
+                                                <h4 class="modal-title" id="myModalLabel">Asignar Pruebas</h4>
                                             </div>
                                             <form id="asignaPruebas${cliente.persona.idPersona}" method="POST" action="/HumanQualityResearch/admin/asignarpruebas" >
-                                                <div class="modal-body" style="background-color: blue;">
-                                                    <h3 style="color:#1D14A4;margin-left: 1cm;">Seleciona las pruebas que estaran disponibles para el cliiente</h3>
+                                                <div class="modal-body">
+                                                    <h3 style="color:white;margin-left: 1cm;">Seleciona las pruebas que estaran disponibles para el cliiente</h3>
                                                     <br/>
                                                     <br/>
-                                                    <input type="checkbox" name="adapt" value="1">Adaptabilidad Laboral<br>
-                                                    <input type="checkbox" name="clima" value="2" checked>Clima Laboral<br>
+                                                    <input type="checkbox" name="adapt" value="1" style="margin-left: 1cm;">Adaptabilidad Laboral<br>
+                                                    <input type="checkbox" name="clima" value="2" checked style="margin-left: 1cm;">Clima Laboral<br>
                                                     <br/>
                                                     <br/>
                                                     <input id="idcliente" name="idcliente" hidden="true" value="${cliente.persona.idPersona}">

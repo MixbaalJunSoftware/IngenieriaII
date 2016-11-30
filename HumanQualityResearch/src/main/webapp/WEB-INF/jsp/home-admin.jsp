@@ -12,6 +12,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/HomeAdmin.css"/> ">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
+        <link rel="stylesheet" type="text/css" href="<c:url value="/css/Modal.css"/> ">
         <title>Home-Admin</title>
     </head>
     <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="100" style="background-color: #00008B;">
@@ -127,11 +128,11 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel" style="color:blue;text-align: center;">Nuevo cliente</h4>
+                        <h4 class="modal-title" id="myModalLabel">Nuevo cliente</h4>
                     </div>
                     <form method="POST" action="/HumanQualityResearch/admin/crear-clienteCorreo" >
                         <div class="modal-body">
-                            <label for="correo" style="color:#1D14A4;margin-left: 2.5cm;">Correo del cliente:</label>
+                            <label for="correo" id="centerLabel">Correo del cliente:</label>
                             <input id = "correo" type="email" name = "correo" style="margin-left:1cm;"/>
                             <br/>
                             <br/>
