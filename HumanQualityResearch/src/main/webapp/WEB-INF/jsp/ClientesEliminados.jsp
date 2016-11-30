@@ -53,7 +53,7 @@
                     <tbody>
                         <tr>
                             <th>${cliente.persona.nombre}</th>
-                            <th>${cliente.empresa}</th>
+                            <th>${cliente.persona.empresa}</th>
                             <th>${cliente.persona.correo}</th>
                             <th>${cliente.persona.fborrado}</th>
                             <th>

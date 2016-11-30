@@ -190,6 +190,30 @@ public class PertenecerDAO {
         return result;
     }
     
+    public List<Pertenecer> listPertenecerPersona(long idPersona) {
+        List<Pertenecer> result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT pertenecer From Pertenecer pertenecer "
+                    + "WHERE pertenecer.persona.idPersona = :idpersona";
+            Query query = session.createQuery(hql);
+            query.setParameter("idpersona", idPersona);
+            result = (List<Pertenecer>)query.list();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
+    }
+    
     public boolean buscaPertenecer (long idPersona, long idProyecto){
         Pertenecer result = null;
         Session session = sessionFactory.openSession();

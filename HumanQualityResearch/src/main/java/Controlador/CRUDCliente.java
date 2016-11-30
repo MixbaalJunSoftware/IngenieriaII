@@ -9,10 +9,12 @@ import Mapeo.Cliente;
 import Mapeo.Persona;
 import Mapeo.Pertenecer;
 import Mapeo.Usuario;
+import Mapeo.PruebaCliente;
 import Modelo.ClienteDAO;
 import Modelo.PersonaDAO;
 import Modelo.PertenecerDAO;
 import Modelo.UsuarioDAO;
+import Modelo.PruebaClienteDAO;
 import java.security.Principal;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -59,6 +61,9 @@ public class CRUDCliente {
     
     @Autowired
     private PertenecerDAO pertenecer_bd;
+    
+    @Autowired
+    private PruebaClienteDAO pcliente_bd;
     
     
     /**
@@ -233,9 +238,15 @@ public class CRUDCliente {
         Cliente cliente = cliente_bd.getCliente(id);
         Usuario usuario = usuario_bd.getUsuario(id);
         Persona persona = cliente.getPersona();
-        Pertenecer pertenecer = pertenecer_bd.getPertenecerP(id);
+        List<Pertenecer> lpertenecer = pertenecer_bd.listPertenecerPersona(id);
+        List<PruebaCliente> pc = pcliente_bd.getPruebasCliente(id);
         try{
-            pertenecer_bd.eliminar(pertenecer);
+            for(Pertenecer p : lpertenecer){
+                pertenecer_bd.eliminar(p);
+            }
+            for(PruebaCliente pcl : pc){
+                pcliente_bd.eliminar(pcl);
+            }
             cliente_bd.eliminar(cliente);
             usuario_bd.eliminar(usuario);
             persona_bd.eliminar(persona);

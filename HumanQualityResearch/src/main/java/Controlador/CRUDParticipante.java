@@ -315,7 +315,6 @@ public class CRUDParticipante {
     public ModelAndView verParticipantesAdmin(ModelMap model,HttpServletRequest request){
         long id = Long.parseLong(request.getParameter("idproyecto"));
         List<Participante> lp = participante_bd.participantesProyecto(id);
-        System.out.print(lp.get(0));
         model.addAttribute("listaParticipantes",lp);
         model.addAttribute("idProyecto",id);        
         return new ModelAndView("Participantes",model);
