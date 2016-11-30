@@ -142,6 +142,12 @@
     <script src="<c:url value="/js/bootstrap.min.js"/> "></script>     
     <script src=" <c:url value="/js/encuentraCorreo.js" /> "></script>
     <script src=" <c:url value="/js/correoRestaurar.js" /> "></script>
+    <script>
+        $(document).ready(function() {
+            if ('${login_error}' === '1')
+                alert("El correo o contraseña son incorrectos");
+        });
+    </script>
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>
 

@@ -70,8 +70,11 @@ public class SesionAdmin {
      * @return 
      */
     @RequestMapping(value = "/")
-    public String inicio(){
-        return "index";
+    public ModelAndView inicio(ModelMap model,HttpServletRequest request){
+        String s = request.getParameter("login_error");
+        if (s != null)
+            model.addAttribute("login_error",s);
+        return new ModelAndView("index",model);
     }
     
     @RequestMapping(value = "/coso")
