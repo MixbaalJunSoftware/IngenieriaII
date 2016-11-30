@@ -150,17 +150,14 @@
                                         <br/>
                                         <label for="tipo" style="color:white;font-size: 20px;">Tipo de proyecto:</label>
                                         <input id = "tipo" name = "tipo" style="margin-left: 0.35cm;"/>
-                                        <label for="area" style="color:#1D14A4;margin-left: 1cm;">Area del proyecto:</label>
--                                        <input id = "area" name = "area" style="margin-left:0.3cm;"/>
--                                        <br/>
--                                        <br/>
--                                        <h3>Agregar pruebas</h3>
--                                        <c:if test="${al}">
--                                        <input type="checkbox" name="adapt" value="1">Adaptabilidad Laboral<br>
--                                        </c:if>
--                                        <c:if test="${cl}">
--                                        <input type="checkbox" name="clima" value="2" checked>Clima Laboral<br>
--                                        </c:if>
+                                        
+                                        <h3 style="color:white;">Agregar pruebas</h3>
+                                        <c:if test="${al}">
+                                            <input type="checkbox" name="adapt" value="1" >Adaptabilidad Laboral<br>
+                                        </c:if>
+                                        <c:if test="${cl}">
+                                            <input type="checkbox" name="clima" value="2" checked>Clima Laboral<br>
+                                        </c:if>
                                     </div>
                                 </div>
                             </div>
