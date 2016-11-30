@@ -181,12 +181,16 @@
                     <br/>
                     <br/>
                     <label id="palabra" for="puesto" >Puesto:</label>
-                    <input required="true" id = "puesto" name = "puesto" style="margin-left:0.4cm;"/>
-                    <label id="palabra" for="telefono" style="margin-left: 1cm;">Telefono:</label>
+                    <input required="true" id = "puesto" name = "puesto" style="margin-left:0.9cm;"/>
+                    <label id="palabra" for="empresa" style="margin-left: 1.5cm;">Empresa:</label>
+                    <input required="true" id = "empresa" name = "empresa" style="margin-left:0.4cm;"/>
+                    <br/>
+                    <br/>
+                    <label id="palabra" for="telefono">Telefono:</label>
                     <input type="tel" pattern="[0-9]{8}" required="true"  id = "telefono" name = "telefono" style="margin-left:0.4cm;"/>
                     
-                    <label id="palabra" for="celular" style="margin-left: 1cm;">Celular:</label>
-                    <input type="tel" pattern="[0-9]{10}" required="true" id = "celular" name = "celular" style="margin-left:0.4cm;"/>
+                    <label id="palabra" for="celular" style="margin-left: 1.5cm;">Celular:</label>
+                    <input type="tel" pattern="[0-9]{10}" required="true" id = "celular" name = "celular" style="margin-left:0.9cm;"/>
                     <br/>
                     <br/>
                     <input id = "correo" name = "correo" value="${correoRegistrado}" hidden="true"/>
