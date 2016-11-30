@@ -49,15 +49,15 @@
                     <br/>
                     
                     <label id="palabra" for="nombre">Nombre:</label>
-                    <input required="true" id = "nombre" name = "nombre" style="margin-left:0.4cm;"/>
+                    <input minlength=3 required="true" id = "nombre" name = "nombre" style="margin-left:0.4cm;"/>
                     <br/>
                     <br/>
                     <br/>
                     <label id="palabra" for="app">Apellido Paterno:</label>
-                    <input required="true" id = "app" name = "app" style="margin-left:0.4cm"/>
+                    <input minlength=3 required="true" id = "app" name = "app" style="margin-left:0.4cm"/>
                     
                     <label id="palabra" for="apm" style="margin-left: 2cm;">Apellido Materno:</label>
-                    <input required="true" id = "apm" name = "apm" style="margin-left:0.3cm"/>
+                    <input minlength=3 required="true" id = "apm" name = "apm" style="margin-left:0.3cm"/>
                     <br/>
                     <br/>
                     <br/>
@@ -186,18 +186,18 @@
                     <br/>
                     
                     <label id="palabra" for="empresa">Empresa:</label>
-                    <input required="true" id = "empresa" name = "empresa" style="margin-left:0.4cm;"/>
+                    <input minlength=3 required="true" id = "empresa" name = "empresa" style="margin-left:0.4cm;"/>
                     <label id="palabra" for="puesto" style="margin-left: 1cm;">Puesto:</label>
-                    <input required="true" id = "puesto" name = "puesto" style="margin-left:0.4cm;"/>
+                    <input minlength=3 required="true" id = "puesto" name = "puesto" style="margin-left:0.4cm;"/>
                     <label id="palabra" for="area" style="margin-left: 1cm;">Área:</label>
-                    <input required="true" id = "area" name = "area" style="margin-left:0.4cm;"/>
+                    <input minlength=3 required="true" id = "area" name = "area" style="margin-left:0.4cm;"/>
                     <br/>
                     <br/>
                     <br/>
                     <label id="palabra" for="telefono">Telefono:</label>
-                    <input type="tel" pattern="[0-9]{8}" required="true"  id = "telefono" name = "telefono" style="margin-left:0.4cm;"/>
+                    <input type="tel" pattern="[0-9]{8}"  placeholder="ocho digitos" required="true"  id = "telefono" name = "telefono" style="margin-left:0.4cm;"/>
                     <label id="palabra" for="celular" style="margin-left: 1cm;">Celular:</label>
-                    <input type="tel" required="true" pattern="[0-9]{10}" id = "celular" name = "celular" style="margin-left:0.4cm;"/>
+                    <input type="tel" required="true" pattern="[0-9]{10}" placeholder="diez digitos" id = "celular" name = "celular" style="margin-left:0.4cm;"/>
                     <br/>
                     <br/>
                     <br/>

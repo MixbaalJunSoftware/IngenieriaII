@@ -8,21 +8,7 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
-    <script>
-        function myFunction() {
-            puesto = document.fparticipante.puesto.value;
-            tel = document.fparticipante.tel.value;
-            cel = document.fparticipante.cel.value;
-            clave1 = document.fparticipante.pass.value; 
-            clave2 = document.fparticipante.rpass.value;
-            if (puesto === tel && tel === cel && cel === clave1)
-                alert("Debes llenar almenos un campo");
-            else if (clave1 !== clave2){ 
-                alert("Las contraseñas no coinciden");
-            }else
-                document.getElementById("fparticipante").submit(); 
-        }
-    </script>
+    <script src=" <c:url value="/js/gen_validatorv4.js" /> "></script>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/Navbar.css"/> ">
@@ -30,7 +16,29 @@
         <title>Editar mi información</title>
     </head>
     <body style="background-color: #5389C4;">
-        
+        <script>
+            function myFunction() {
+                puesto = document.fparticipante.puesto.value;
+                tel = document.fparticipante.tel.value;
+                cel = document.fparticipante.cel.value;
+                clave1 = document.fparticipante.pass.value; 
+                clave2 = document.fparticipante.rpass.value;
+                if (puesto === tel && tel === cel && cel === clave1)
+                    alert("Debes llenar almenos un campo");
+                else if (clave1 !== clave2){ 
+                    alert("Las contraseñas no coinciden");
+                }else{
+                    var vtel = new RegExp("^[0-9]{8}$");
+                    var vcel = new RegExp("^[0-9]{10}$");
+                    if(tel !== "" && !vtel.test(tel)){
+                        alert("el telefono no tiene el formato solicitado");
+                    }else if(cel !== "" && !vcel.test(cel)) {
+                        alert("el celular no tiene el formato solicitado");
+                    }else
+                        document.getElementById("fparticipante").submit();
+                }
+            }
+        </script>
         <nav class="navbar navbar-default navbar-fixed-top" style="background-color:#5389C4;">
             <div class="container" >
                 <div class="navbar-header" >
@@ -67,11 +75,11 @@
                 <br/>
                 <br/>
                 <label id="palabra" for="tel" style="margin-left: 10cm;">Telefono:</label>
-                <input id = "tel" name = "tel" style="margin-left: 1.5cm"/>
+                <input type="tel" pattern="[0-9]{8}" placeholder="ocho digitos" id = "tel" name = "tel" style="margin-left: 1.5cm"/>
                 <br/>
                 <br/>
                 <label id="palabra" for="cel" style="margin-left: 10cm;">Celular:</label>
-                <input id = "cel" name = "cel" style="margin-left: 2cm"/>
+                <input type="tel" pattern="[0-9]{10}" placeholder="diez digitos" id = "cel" name = "cel" style="margin-left: 2cm"/>
                 <br/>
                 <br/>
                 <h2 id="titulo">Modificar contraseña</h2>

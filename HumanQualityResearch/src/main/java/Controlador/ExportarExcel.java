@@ -5,7 +5,6 @@
  */
 package Controlador;
 
-import Excel.ParticipantesProyectoExcel;
 import Mapeo.Participante;
 import Modelo.ParticipanteDAO;
 import java.util.List;
@@ -31,7 +30,7 @@ public class ExportarExcel {
     @Autowired
     ParticipanteDAO participante_bd;
     
-    @RequestMapping(value="/cliente/ParticipantesProyectoExcel")
+    @RequestMapping(value="/reportes/ParticipantesProyectoExcel")
     public ParticipantesProyectoExcel ExportarEPE(Model model, HttpServletRequest
                                               request,@RequestParam(name = "p")long idproyecto){
         List<Participante> lp = participante_bd.participantesProyecto(idproyecto);

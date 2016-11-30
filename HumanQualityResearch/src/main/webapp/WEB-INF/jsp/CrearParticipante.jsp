@@ -48,14 +48,14 @@
                     <br/>
                     
                     <label id="palabra" for="nombre">Nombre:</label>
-                    <input required="true" id = "nombre" name = "nombre" style="margin-left:0.4cm"/>
+                    <input minlength=3 required="true" id = "nombre" name = "nombre" style="margin-left:0.4cm"/>
                     <br/>
                     <br/>
                     <label id="palabra" for="app">Apellido Paterno:</label>
-                    <input required="true" id = "app" name = "app" style="margin-left:0.4cm"/>
+                    <input minlength=3 m required="true" id = "app" name = "app" style="margin-left:0.4cm"/>
                     
                     <label id="palabra" for="apm" style="margin-left: 2cm;">Apellido Materno:</label>
-                    <input required="true" id = "apm" name = "apm" style="margin-left:0.3cm"/>
+                    <input minlength=3 required="true" id = "apm" name = "apm" style="margin-left:0.3cm"/>
                     <br/>
                     <br/>
                     <label id="palabra" for="fecha">Fecha de nacimiento:</label>
@@ -181,16 +181,16 @@
                     <br/>
                     <br/>
                     <label id="palabra" for="puesto" >Puesto:</label>
-                    <input required="true" id = "puesto" name = "puesto" style="margin-left:0.9cm;"/>
+                    <input minlength=3 required="true" id = "puesto" name = "puesto" style="margin-left:0.9cm;"/>
                     <label id="palabra" for="empresa" style="margin-left: 1.5cm;">Empresa:</label>
-                    <input required="true" id = "empresa" name = "empresa" style="margin-left:0.4cm;"/>
+                    <input minlength=3 required="true" id = "empresa" name = "empresa" style="margin-left:0.4cm;"/>
                     <br/>
                     <br/>
                     <label id="palabra" for="telefono">Telefono:</label>
-                    <input type="tel" pattern="[0-9]{8}" required="true"  id = "telefono" name = "telefono" style="margin-left:0.4cm;"/>
+                    <input type="tel" pattern="[0-9]{8}" required="true" placeholder="ocho digitos" id = "telefono" name = "telefono" style="margin-left:0.4cm;"/>
                     
                     <label id="palabra" for="celular" style="margin-left: 1.5cm;">Celular:</label>
-                    <input type="tel" pattern="[0-9]{10}" required="true" id = "celular" name = "celular" style="margin-left:0.9cm;"/>
+                    <input type="tel" pattern="[0-9]{10}" required="true" placeholder="diez digitos" id = "celular" name = "celular" style="margin-left:0.9cm;"/>
                     <br/>
                     <br/>
                     <input id = "correo" name = "correo" value="${correoRegistrado}" hidden="true"/>

@@ -19,7 +19,7 @@
             <img src="<c:url value="/imagenes/logo_hqr.jpg"/>" alt="Logo HQR"/> 
         </div>
         <div class="container-fluid bg-1">
-            <h1 id="exito">Se agregó exitosamente el correo electrónico del cliente</h1>
+            <h1 id="exito" style="margin-left: 8cm;">Se agregó exitosamente el correo electrónico</h1>
             <br/>
             <span class="glyphicon glyphicon-thumbs-up logo"></span>
             <br/>
