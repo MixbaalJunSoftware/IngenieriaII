@@ -31,6 +31,7 @@
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="#ver">Ver Proyectos</a></li>
                         <li><a href="#crear">Crear Proyectos</a></li>
+                        <li><a href="#editar">Editar Mi Información</a></li>                        
                         <li><a href="#salir">Salir</a></li>
                     </ul>
                 </div>
@@ -87,7 +88,33 @@
             
         </div>
         
-        <div id="salir" class="container-fluid bg-1">
+        <div id="editar" class="container-fluid bg-1">
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div class="row">   
+                <div class="col-sm-8">
+                    <h2 id="listado">Editar mi información</h2>
+                    <br/>
+                    <br/>
+                    <div align="center" class="row">
+                        <div class="col-md-3" style="margin-left: 2cm;">
+                            <br/>
+                            
+                            <form action = "/HumanQualityResearch/actualiza-cliente">
+                                <button class="btn btn-primary btn-lg" id="modal">Editar Datos</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <span class="glyphicon glyphicon-pencil logo"></span>
+                </div>
+            </div>
+        </div>
+        
+        <div id="salir" class="container-fluid bg-2">
             <div class="col-sm-8">
                 <h2 id="listado">Salir a la página principal</h2>
                 <br/>
