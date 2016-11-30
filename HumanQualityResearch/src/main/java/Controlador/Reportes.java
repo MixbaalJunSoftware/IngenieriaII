@@ -180,7 +180,7 @@ public class Reportes {
     private ModelAndView raCliente(ModelMap model,int idCandidato){
         RAdaptabilidad ra = respuesta_bd.rAdaptabilidadCandidato(idCandidato);
         if(ra == null)
-            return new ModelAndView("error403"); 
+            return new ModelAndView("PruebaPendiente"); 
         int ef = ra.getRespuesta1()+ra.getRespuesta2()+ra.getRespuesta3()+ra.getRespuesta4()+ra.getRespuesta5()+
                  ra.getRespuesta6()+ra.getRespuesta7()+ra.getRespuesta8()+ra.getRespuesta9()+ra.getRespuesta10();
         int cr = ra.getRespuesta11()+ra.getRespuesta12()+ra.getRespuesta13()+ra.getRespuesta14()+ra.getRespuesta15()+
@@ -208,7 +208,7 @@ public class Reportes {
     private ModelAndView rcCliente(ModelMap model,int idCandidato){
         RClimaLaboral rc = respuesta_bd.rClimaCandidato(idCandidato);
         if(rc == null)
-            return new ModelAndView("error403");
+            return new ModelAndView("PruebaPendiente");
         int ia = rc.getRespuesta3()+rc.getRespuesta8()+rc.getRespuesta10()+
                  rc.getRespuesta15()+rc.getRespuesta16()+rc.getRespuesta16();
         int ct = rc.getRespuesta5()+rc.getRespuesta7()+rc.getRespuesta18()+rc.getRespuesta20();

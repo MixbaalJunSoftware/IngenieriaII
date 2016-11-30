@@ -1,3 +1,9 @@
+<%-- 
+    Document   : PruebaPendiente
+    Created on : Nov 30, 2016, 11:24:22 AM
+    Author     : rickjmzmnz
+--%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -6,14 +12,14 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <link rel="stylesheet" type="text/css" href="<c:url value="/css/ok.css"/> ">
-        <title>Error</title>
+        <title>Prueba sin contestar</title>
     </head>
     <body>
         <div class="principal text-center">
             <img src="<c:url value="/imagenes/logo_hqr.jpg"/>" alt="Logo HQR"/> 
         </div>
          <div class="container-fluid bg-1">
-            <h1 id="exito" style="margin-left: 12cm;">Lo sentimos, algo salió mal</h1>
+            <h1 id="exito" style="margin-left: 10cm;">Esta prueba aún no ha sido respondida</h1>
             
             <span class="glyphicon glyphicon-remove-circle logo"></span>
             <br/>
