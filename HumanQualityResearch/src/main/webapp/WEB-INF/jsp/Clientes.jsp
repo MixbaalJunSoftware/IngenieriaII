@@ -47,6 +47,7 @@
                         <th>Empresa</th>
                         <th>Correo Electrónico</th>
                         <th>Proyectos</th>
+                        <th>Gestion de Pruebas</th>
                         <th>Detalles</th>
                         <th>Eliminar</th>
                     </tr>
@@ -62,6 +63,37 @@
                                     <input id="idcliente" name="idcliente" hidden="true" value="${cliente.persona.idPersona}">
                                     <button type="submit" class="btn btn-primary btn-lg active">Proyectos</button>
                                 </form>
+                            </th>
+                            <th>
+                                <button type="button" class="btn btn-primary btn-lg active" data-toggle="modal" data-target="#pruebasModal${cliente.persona.idPersona}">Asignar Pruebas 
+                                </button>
+                                <!-- Modal crear participante -->
+                                <div class="modal fade" id="pruebasModal${cliente.persona.idPersona}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                    <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                <h4 class="modal-title" id="myModalLabel" style="text-align: center;color: #1D14A4;">Asignar Pruebas</h4>
+                                            </div>
+                                            <form id="asignaPruebas${cliente.persona.idPersona}" method="POST" action="/HumanQualityResearch/admin/asignarpruebas" >
+                                                <div class="modal-body" style="background-color: blue;">
+                                                    <h3 style="color:#1D14A4;margin-left: 1cm;">Seleciona las pruebas que estaran disponibles para el cliiente</h3>
+                                                    <br/>
+                                                    <br/>
+                                                    <input type="checkbox" name="adapt" value="1">Adaptabilidad Laboral<br>
+                                                    <input type="checkbox" name="clima" value="2" checked>Clima Laboral<br>
+                                                    <br/>
+                                                    <br/>
+                                                    <input id="idcliente" name="idcliente" hidden="true" value="${cliente.persona.idPersona}">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-primary" data-dismiss="modal">Cerrar</button>
+                                                    <button type="submit" class="btn btn-primary">Aceptar</button>
+                                                </div>
+                                            </form>                           
+                                        </div>
+                                    </div>
+                                </div>
                             </th>
                             <th>
                                 <form method="GET" action="/HumanQualityResearch/admin/muestra-cliente" >
@@ -80,6 +112,9 @@
                 </c:forEach>
             </table>  
         </div>
+        <script src="<c:url value="/js/jquery-1.12.3.min.js"/> "></script>    
+        <script src="<c:url value="/js/bootstrap.min.js"/> "></script>
     </body>
+    
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </html>

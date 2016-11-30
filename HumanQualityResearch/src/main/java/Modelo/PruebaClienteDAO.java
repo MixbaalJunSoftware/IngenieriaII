@@ -9,6 +9,7 @@ package Modelo;
 import Mapeo.Cliente;
 import Mapeo.PruebaCliente;
 import java.util.List;
+import javax.validation.ConstraintViolationException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -34,6 +35,31 @@ public class PruebaClienteDAO {
         try {
            tx = session.beginTransaction();
          
+           session.persist(pruebacliente);
+           
+           tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){ 
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+    
+    }
+    
+    public void guardar(int prueba,long idCliente) {
+    
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+           tx = session.beginTransaction();
+           Cliente cliente = (Cliente) session.get(Cliente.class, idCliente);
+           PruebaCliente pruebacliente = new PruebaCliente();
+           pruebacliente.setCliente(cliente);
+           pruebacliente.setPrueba(prueba);
            session.persist(pruebacliente);
            
            tx.commit();
@@ -107,6 +133,32 @@ public class PruebaClienteDAO {
             query.setParameter("idcliente", idCliente);
             pcliente =  (List<PruebaCliente>)query.list();
             tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return pcliente;
+    }
+    
+    public List<PruebaCliente> getPruebasCliente(String correo) {
+        List<PruebaCliente> pcliente= null;
+        //System.out.print(idParticipante);
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "from PruebaCliente pc where pc.cliente.persona.correo = :correo";
+            Query query = session.createQuery(hql);
+            query.setParameter("correo", correo);
+            pcliente =  (List<PruebaCliente>)query.list();
+            tx.commit();
+        }
+        catch(ConstraintViolationException cve){
         }
         catch (Exception e) {
            if (tx!=null){

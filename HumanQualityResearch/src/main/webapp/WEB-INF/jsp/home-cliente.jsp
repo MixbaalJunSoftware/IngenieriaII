@@ -52,7 +52,7 @@
                     <div align="center" class="row">
                         <div class="col-md-3" style="margin-left: 2cm;">
                             <br/>
-                            <form  method="GET"action = "/HumanQualityResearch/cliente/ver-proyectos"> 
+                            <form  method="GET" action = "/HumanQualityResearch/cliente/ver-proyectos"> 
                                 <button class="btn btn-primary btn-lg">
                                     <span class="glyphicon glyphicon-book" aria-hidden="true" id="modal"> Proyectos</span> 
                                 </button>
@@ -123,8 +123,12 @@
                                         <label for="tipo" style="color:#1D14A4;margin-left: 1cm;">Tipo de proyecto:</label>
                                         <input id = "tipo" name = "tipo" style="margin-left:0.5cm;"/>
                                         <h3>Agregar pruebas</h3>
+                                        <c:if test="${al}">
                                         <input type="checkbox" name="adapt" value="1">Adaptabilidad Laboral<br>
+                                        </c:if>
+                                        <c:if test="${cl}">
                                         <input type="checkbox" name="clima" value="2" checked>Clima Laboral<br>
+                                        </c:if>
                                         <br/>
                                         <br/>
                                     </div>

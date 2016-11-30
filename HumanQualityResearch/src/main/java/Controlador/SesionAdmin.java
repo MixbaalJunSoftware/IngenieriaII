@@ -6,10 +6,12 @@
 package Controlador;
 
 import Mapeo.Persona;
+import Mapeo.PruebaCliente;
 import Mapeo.TokenPassword;
 import Mapeo.Usuario;
 import Modelo.ClienteDAO;
 import Modelo.PersonaDAO;
+import Modelo.PruebaClienteDAO;
 import Modelo.TokenPasswordDAO;
 import Modelo.UsuarioDAO;
 import Modelo.RespuestaDAO;
@@ -60,6 +62,9 @@ public class SesionAdmin {
     @Autowired
     private RespuestaDAO respuesta_bd;
     
+    @Autowired
+    private PruebaClienteDAO pc_bd;
+    
     /**
      * Metodo para desplegar la vista de inicio
      * @return 
@@ -95,15 +100,27 @@ public class SesionAdmin {
     }
     
     @RequestMapping(value="/cliente/home")
-    public String homeCliente(){        
-        return "home-cliente";
+    public ModelAndView homeCliente(ModelMap model,HttpServletRequest request, Principal principal){        
+        String s = principal.getName();
+        List<PruebaCliente> lpc = pc_bd.getPruebasCliente(s);
+        boolean a = false;
+        boolean c = false;
+        for(PruebaCliente x : lpc){
+            if(x.getPrueba()== 1)
+                a = true;
+            else if(x.getPrueba() == 2)
+                c = true;
+        }
+        System.out.println(c);
+        model.addAttribute("al", a);
+        model.addAttribute("cl", c);
+        return new ModelAndView("home-cliente",model);
     }
     
     @RequestMapping(value="/participante/home")
     public ModelAndView homeParticipante(ModelMap model,HttpServletRequest request, Principal principal){
         String s = principal.getName();
         int proyecto =(int)cliente_bd.getProyecto(s);
-        System.out.println(s+" "+proyecto);
         boolean a = cliente_bd.validaAdaptabilidad(proyecto);
         boolean c = cliente_bd.validaClima(proyecto);
         a = a & respuesta_bd.rAdaptabilidadCandidato(s);

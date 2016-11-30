@@ -97,8 +97,6 @@ public class CRUDProyecto {
          int i = 0;
          if(adapt!=null)
              proyecto_db.agregaPrueba(proyecto.getIdProyecto(), 1);
-         else
-             i=1/0;
          if(clima!=null)
              proyecto_db.agregaPrueba(proyecto.getIdProyecto(), 2);
          pertenecer_db.guardar(pertenecer);

@@ -5,9 +5,12 @@
  */
 package Controlador;
 
+import Mapeo.PruebaCliente;
 import Mapeo.RAdaptabilidad;
 import Mapeo.RClimaLaboral;
+import Modelo.PruebaClienteDAO;
 import Modelo.RespuestaDAO;
+import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -24,6 +27,10 @@ public class Reportes {
     
     @Autowired
     private RespuestaDAO respuesta_bd;
+    
+    @Autowired
+    private PruebaClienteDAO pc_bd;
+    
     
     private String efGetText(int ef){
         if(10<=ef && ef<=33)
@@ -235,6 +242,20 @@ public class Reportes {
     @RequestMapping("/reportes/candidato/climalaboral")
     public ModelAndView muestraRClienteC(ModelMap model,@RequestParam("r2")int idCandidato){
         return rcCliente(model,idCandidato);
+    }
+    
+    @RequestMapping("/admin/asignarpruebas")
+    public String asignaPruebasVista(HttpServletRequest request){
+        String adapt = request.getParameter("adapt");
+        String clima =request.getParameter("clima");
+        long idCliente = Long.parseLong(request.getParameter("idcliente"));
+        if(adapt!=null){
+            pc_bd.guardar(1, idCliente);
+        }
+        if(clima != null){
+            pc_bd.guardar(2, idCliente);
+        }
+        return "Ok";
     }
     
 }
