@@ -39,9 +39,6 @@
             <br/>
             <br/>
             <br/>
-            <br/>
-            <br/>
-            <br/>
             <h2 style="color:white;">Nombre: ${nombre} ${app} ${apm}</h2>
             <h2 style="color:white;">Fecha de nacimiento: ${fecha}</h2>
             <h2 style="color:white;">Género: ${genero}</h2>

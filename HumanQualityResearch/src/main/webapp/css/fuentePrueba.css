@@ -1,0 +1,19 @@
+/* 
+    Created on : Nov 30, 2016, 1:48:58 AM
+    Author     : rickjmzmnz
+*/
+th,td{
+    color:white;
+    font-size: 20px;
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 80%; 
+}
+
+

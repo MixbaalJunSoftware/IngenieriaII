@@ -119,11 +119,11 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="myModalLabel" style="color:#1D14A4;">Ingresa tu correo electrónico</h4>
+                        <h4 class="modal-title" id="myModalLabel">Ingresa tu correo electrónico</h4>
                     </div>
                     <div class="modal-body">
                         <form id = "frecover" name ="frecover" method="POST" action="/HumanQualityResearch/restablecerPassword">
-                            <input id = "correoRecover" name="correoRecover" type="email">
+                            <input id = "correoRecover" name="correoRecover" type="email" style="margin-left: 4.3cm;">
                             <input type="button" class="btn btn-primary" name="correo-recover" id="correo-recover" value="enviar">
                         </form>
                     </div>

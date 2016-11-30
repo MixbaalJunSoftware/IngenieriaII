@@ -39,7 +39,6 @@
             <br/>
             <br/>
             <br/>
-            <br/>
             <table class="table">
                 <thead>
                     <tr>
