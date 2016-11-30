@@ -76,7 +76,7 @@ public class CRespuesta {
         System.out.println(persona.getCorreo());
         System.out.println(i);
         System.out.println(date);
-        return "redirect:/participante/home";
+        return "PruebaTerminada";
     }
     
         @RequestMapping(value = "/participante/guardaPruebaClima", method = RequestMethod.POST)
@@ -112,7 +112,7 @@ public class CRespuesta {
         System.out.println(persona.getCorreo());
         System.out.println(i);
         System.out.println(date);
-        return "redirect:/participante/home";
+        return "PruebaTerminada";
     }
     
 }

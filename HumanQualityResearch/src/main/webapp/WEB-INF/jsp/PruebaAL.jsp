@@ -32,12 +32,12 @@
 }
   #section1 {padding-top:50px;height:500px;color: #fff; background-color: #5389C4;}
   #section2 {padding-top:50px;height:500px;color: #fff; background-color: #7D9ED3;}
-  #section3 {padding-top:50px;height:500px;color: #fff; background-color: #A5B8E0;}
-  #section4 {padding-top:50px;height:500px;color: #fff; background-color: #5389C4;}
-  #section5 {padding-top:50px;height:500px;color: #fff; background-color: #7D9ED3;}
-  #section6 {padding-top:50px;height:500px;color: #fff; background-color: #A5B8E0;}
+  #section3 {padding-top:50px;height:500px;color: #fff; background-color: #5389C4;}
+  #section4 {padding-top:50px;height:500px;color: #fff; background-color: #7D9ED3;}
+  #section5 {padding-top:50px;height:500px;color: #fff; background-color: #5389C4;}
+  #section6 {padding-top:50px;height:500px;color: #fff; background-color: #7D9ED3;}
   #section7 {padding-top:50px;height:500px;color: #fff; background-color: #5389C4;}
-  #pregunta {color:blue;font-size: 20px;}
+  #pregunta {color:white;font-size: 20px;}
   </style>
   </head>
   <body data-spy="scroll" data-target=".navbar" data-offset="50" style="background-color: #7D9ED3;">

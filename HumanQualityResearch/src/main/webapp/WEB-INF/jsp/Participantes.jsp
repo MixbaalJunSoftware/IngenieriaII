@@ -45,7 +45,9 @@
                     <tr>
                         <th>Nombre</th>
                         <th>Correo Electrónico</th>
-                        
+                        <th>Detalles</th>
+                        <th>Reporte AL</th>
+                        <th>Reporte CL</th>
                     </tr>
                 </thead>
                 <c:forEach var="participante" items="${listaParticipantes}">
@@ -56,19 +58,19 @@
                             <th>
                                 <form action="/HumanQualityResearch/muestra-participante">
                                     <input name = "idparticipante" value = "${participante.persona.idPersona}" hidden="true" >
-                                    <button>Detalles</button>
+                                    <button class="btn btn-primary btn-lg active">Detalles</button>
                                 </form>
                             </th>
                             <th>
                                 <form action="/HumanQualityResearch/reportes/candidato/adaptabilidad">
                                     <input name = "r2" value = "${participante.persona.idPersona}" hidden="true" >
-                                    <button>reporte Adaptabilidad</button>
+                                    <button class="btn btn-primary btn-lg active">Reporte Adaptabilidad Laboral</button>
                                 </form>
                             </th>
                             <th>
                                 <form action="/HumanQualityResearch/reportes/candidato/climalaboral">
                                     <input name = "r2" value = "${participante.persona.idPersona}" hidden="true" >
-                                    <button>reporte Clima Laboral</button>
+                                    <button class="btn btn-primary btn-lg active">Reporte Clima Laboral</button>
                                 </form>
                             </th>
                             <th>
