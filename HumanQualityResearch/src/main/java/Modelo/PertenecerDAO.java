@@ -5,6 +5,7 @@
  */
 package Modelo;
 
+import Mapeo.Cliente;
 import Mapeo.Participante;
 import Mapeo.Pertenecer;
 import Mapeo.Usuario;
@@ -241,5 +242,31 @@ public class PertenecerDAO {
         return false;
     
     
+    }
+    
+    public Cliente getClienteProyecto(long idProyecto) {
+        Cliente result = null;
+        Session session = sessionFactory.openSession();
+        Transaction tx = null;
+        try {
+            tx = session.beginTransaction();
+            String hql = "SELECT cliente FROM Cliente cliente WHERE "
+                    + "cliente.persona.idPersona in ("
+                    + " SELECT p.persona.idPersona FROM Pertenecer p "
+                    + "WHERE p.proyecto.idProyecto = :idproyecto )";
+            Query query = session.createQuery(hql);
+            query.setParameter("idproyecto", idProyecto);
+            result = (Cliente)query.uniqueResult();
+            tx.commit();
+        }
+        catch (Exception e) {
+           if (tx!=null){
+               tx.rollback();
+           }
+           e.printStackTrace(); 
+        }finally {
+           session.close();
+        }
+        return result;
     }
 }
