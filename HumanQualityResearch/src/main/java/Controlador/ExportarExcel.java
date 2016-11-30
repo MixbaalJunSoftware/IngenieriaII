@@ -41,6 +41,8 @@ public class ExportarExcel {
         List<Participante> lp = participante_bd.participantesProyecto(idproyecto);
         
         model.addAttribute("listaParticipantes",lp);
+        if(respuesta_bd==null)
+            System.out.println("fue null");
         model.addAttribute("respuestabd",respuesta_bd);
         return new ParticipantesProyectoExcel();
     }
