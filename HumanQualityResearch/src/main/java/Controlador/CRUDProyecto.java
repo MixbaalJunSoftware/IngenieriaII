@@ -272,6 +272,26 @@ public class CRUDProyecto {
         return new ModelAndView("MuestraProyecto",model);
     }
     
+     @RequestMapping(value= "/admin/muestra-proyecto", method = RequestMethod.GET)
+    public ModelAndView mostrarClienteA(ModelMap model,HttpServletRequest request,Principal principal){   
+        long id = Long.parseLong(request.getParameter("idproyecto"));
+        try{
+            Proyecto proyecto = proyecto_db.getProyecto(id);
+            Cliente cliente = proyecto_db.getCliente(id);
+            Tipo tipo = proyecto.getTipo();
+            model.addAttribute("id",id);
+            model.addAttribute("codigo",proyecto.getCodigo());
+            model.addAttribute("area", proyecto.getAreaProyecto());
+            model.addAttribute("tipo", tipo.getTipo());
+            model.addAttribute("nombre",cliente.getPersona().getNombre());
+            model.addAttribute("app",cliente.getPersona().getApp());
+            model.addAttribute("apm",cliente.getPersona().getApm());
+            return new ModelAndView("MuestraProyecto",model);
+        }catch(Exception e){
+            return new ModelAndView("error403",model);
+        }
+    }
+    
     @RequestMapping(value= "/admin/ver-eproyectos", method = RequestMethod.GET)
     public ModelAndView verProyectosE(ModelMap model,HttpServletRequest request){ 
         List<Proyecto> c = proyecto_db.proyectosEliminados();
