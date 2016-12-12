@@ -253,7 +253,7 @@ public class CRUDProyecto {
         return "Ok";
      }
      
-     @RequestMapping(value= "/cliente/muestra-proyecto", method = RequestMethod.GET)
+     @RequestMapping(value= "/cliente/muestra-proyecto", method = RequestMethod.POST)
     public ModelAndView mostrarCliente(ModelMap model,HttpServletRequest request,Principal principal){   
         long id = Long.parseLong(request.getParameter("idproyecto"));
         Pertenecer pertenecer = proyecto_db.getPertenecer(id,principal.getName());
@@ -272,7 +272,7 @@ public class CRUDProyecto {
         return new ModelAndView("MuestraProyecto",model);
     }
     
-     @RequestMapping(value= "/admin/muestra-proyecto", method = RequestMethod.GET)
+     @RequestMapping(value= "/admin/muestra-proyecto", method = RequestMethod.POST)
     public ModelAndView mostrarClienteA(ModelMap model,HttpServletRequest request,Principal principal){   
         long id = Long.parseLong(request.getParameter("idproyecto"));
         try{

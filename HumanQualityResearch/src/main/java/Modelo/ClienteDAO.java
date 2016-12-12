@@ -17,18 +17,25 @@ import org.hibernate.Transaction;
 
 
 /**
- *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
+ * Clase para interactuar con la base de datos, especificamente con la tabla 
+ * Cliente, PruebaCliente y PruebaProyecto.
  */
 public class ClienteDAO {
-
+    //Atributo privado para conectarse con la base de datos.
     private SessionFactory sessionFactory;
-
+    /**
+     * Inicializa la sesión con la que se conectara la base.
+     * @param sessionFactory 
+     */
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    
+    /**
+     * Guarda a un cliente en la base de datos.
+     * @param cliente 
+     */
     public void guardar(Cliente cliente) {
     
         Session session = sessionFactory.openSession();
@@ -50,7 +57,11 @@ public class ClienteDAO {
         }
     
     }
-    
+    /**
+     * Agrega una PruebaCliente en la base de datos
+     * @param idCliente
+     * @param prueba 
+     */
     public void agregaPrueba(long idCliente, int prueba) {
     
         Session session = sessionFactory.openSession();
@@ -75,7 +86,10 @@ public class ClienteDAO {
     
     }
     
-    
+    /**
+     * Actualiza a un cliente de la base de datos.
+     * @param cliente 
+     */
     public void actualizar(Cliente cliente) {
     
         Session session = sessionFactory.openSession();
@@ -98,7 +112,10 @@ public class ClienteDAO {
     
     }
     
-    
+    /**
+     * Elimina a un cliente de la base de datos.
+     * @param cliente 
+     */
     public void eliminar(Cliente cliente) {
     
         Session session = sessionFactory.openSession();
@@ -120,7 +137,12 @@ public class ClienteDAO {
         }
     
     }
-    
+    /**
+     * Regresa a un cliente guardado en la base de datos, cuyo id corresponda con el 
+     * parametro.
+     * @param idCliente
+     * @return 
+     */
     public Cliente getCliente(long idCliente) {
         Cliente cliente = null;
         Session session = sessionFactory.openSession();
@@ -141,7 +163,10 @@ public class ClienteDAO {
         return cliente;
     }
     
-    
+    /**
+     * Regresa una lista con todos los clientes que estan activos en la base de datos.
+     * @return 
+     */
     public List<Cliente> Clientes() {
         List<Cliente> result = null;
         Session session = sessionFactory.openSession();
@@ -165,6 +190,11 @@ public class ClienteDAO {
         return result;
     }
     
+    /**
+     * Regresa a un cliente, cuyo correo se pasa como parámetro.
+     * @param correo
+     * @return 
+     */
     public Cliente getCliente(String correo){
         Cliente result = null;
         Session session = sessionFactory.openSession();
@@ -190,6 +220,10 @@ public class ClienteDAO {
     
     }
     
+    /**
+     * Regresa una lista de todos los clientes que fueron eliminados logicamente.
+     * @return 
+     */
     public List<Cliente> ClientesEliminados() {
         List<Cliente> result = null;
         Session session = sessionFactory.openSession();
@@ -213,8 +247,14 @@ public class ClienteDAO {
         }
         return result;
     }
-
-    public boolean validaAdaptabilidad(long id) {
+    
+    /**
+     * Regresa True en caso de que el proyecto con el id que se pase como parámetro
+     * tenga asociada la prueba de Adaptabilidad, False en otro caso
+     * @param idProyecto
+     * @return 
+     */
+    public boolean validaAdaptabilidad(long idProyecto) {
         boolean result = false;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
@@ -222,7 +262,7 @@ public class ClienteDAO {
            tx = session.beginTransaction();
            String hql = "SELECT a FROM PruebaProyecto a WHERE a.prueba = 1 AND a.proyecto.idProyecto = :id";
             Query query = session.createQuery(hql);
-            query.setParameter("id", id); 
+            query.setParameter("id", idProyecto); 
             Object o = query.uniqueResult();
            result = o != null;
            tx.commit();
@@ -238,7 +278,13 @@ public class ClienteDAO {
         return result;
     }
     
-    public boolean validaClima(long id) {
+    /**
+     * Regresa True en caso de que el proyecto con el id que se pase como parámetro
+     * tenga asociada la prueba de Clima, False en otro caso
+     * @param id
+     * @return 
+     */
+    public boolean validaClima(long idProyecto) {
         boolean result = false;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
@@ -246,7 +292,7 @@ public class ClienteDAO {
            tx = session.beginTransaction();
            String hql = "SELECT a FROM PruebaProyecto a WHERE a.prueba = 2 AND a.proyecto.idProyecto = :id";
             Query query = session.createQuery(hql);
-            query.setParameter("id", id); 
+            query.setParameter("id", idProyecto); 
             Object o = query.uniqueResult();
            result = o != null;
            tx.commit();
@@ -261,7 +307,13 @@ public class ClienteDAO {
         }
         return result;
     }
-
+    
+    /**
+     * Regresa el id del proyecto que esta relacionado con el correo que se pasa 
+     * de parámetro.
+     * @param correo
+     * @return 
+     */
     public long getProyecto(String correo) {
        long result = -1;
         Session session = sessionFactory.openSession();

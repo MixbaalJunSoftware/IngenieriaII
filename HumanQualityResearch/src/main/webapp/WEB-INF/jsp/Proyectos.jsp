@@ -63,7 +63,7 @@
                     <th>${proyecto.areaProyecto}</th>
                     <th>${proyecto.tipo.tipo}</th>
                     <th>
-                        <form method="GET" action="/HumanQualityResearch/admin/muestra-proyecto" >
+                        <form method="POST" action="/HumanQualityResearch/admin/muestra-proyecto" >
                             <input id="idproyecto" name="idproyecto" hidden="true" value="${proyecto.idProyecto}">
                             <button type="submit" class="btn btn-primary btn-lg active">Detalles</button>
                         </form>
