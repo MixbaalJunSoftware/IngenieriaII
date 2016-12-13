@@ -86,7 +86,12 @@ public class SesionAdmin {
         return "index";
     }
     
-    
+    /**
+     * Metodo para redirigir su pagina principal a un usuario segun su rol
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value="/home")
     public String home(ModelMap model,HttpServletRequest request){        
         if (request.isUserInRole("ROLE_ADMIN")) {
@@ -97,11 +102,22 @@ public class SesionAdmin {
         return "redirect:/participante/home";
     }
     
+    /**
+     * Metodo para desplegar a la pagina principal de un admimistrador
+     * @return
+     */
     @RequestMapping(value="/admin/home")
     public String homeAdmin(){        
         return "home-admin";
     }
     
+    /**
+     * Metodo para desplegar las vista principal de un cliente
+     * @param model
+     * @param request
+     * @param principal
+     * @return
+     */
     @RequestMapping(value="/cliente/home")
     public ModelAndView homeCliente(ModelMap model,HttpServletRequest request, Principal principal){        
         String s = principal.getName();
@@ -120,6 +136,13 @@ public class SesionAdmin {
         return new ModelAndView("home-cliente",model);
     }
     
+    /**
+     * Metodo para desplegar la vista principal de un participante
+     * @param model
+     * @param request
+     * @param principal
+     * @return
+     */
     @RequestMapping(value="/participante/home")
     public ModelAndView homeParticipante(ModelMap model,HttpServletRequest request, Principal principal){
         String s = principal.getName();
@@ -133,6 +156,10 @@ public class SesionAdmin {
         return new ModelAndView("home-participante",model);
     }
     
+    /**
+     * Metodo que despliega la vista de error del sistema
+     * @return
+     */
     @RequestMapping(value="/error403")
     public String error403(){
         return "error403";
@@ -152,6 +179,13 @@ public class SesionAdmin {
     @Autowired
     JavaMailSender mail_sender;
     
+    /**
+     * Metodo para crear el token necesario para restaurar la contraseña y enviar el correo
+     * con el enlace para continuar el proceso de restauracion
+     * @param request
+     * @param correo
+     * @return
+     */
     @RequestMapping(value="/restablecerPassword", method = RequestMethod.POST)
     public String restablecerPassword(HttpServletRequest request, @RequestParam("correoRecover") String correo){
     
@@ -185,6 +219,15 @@ public class SesionAdmin {
         return message_preparator;        
     }
     
+    /**
+     * Metdodo para desplegar la vista de restauracion de contraseña
+     * En caso de que no se cuente con un token para restablecer contraseña manda
+     * a la pagina de error
+     * @param model
+     * @param id_usuario
+     * @param token
+     * @return
+     */
     @RequestMapping(value = "/cambioPassword", method = RequestMethod.GET)
     public String cambioPassword(ModelMap model, @RequestParam("id") long id_usuario, @RequestParam("token") String token) {
 
@@ -206,6 +249,13 @@ public class SesionAdmin {
         
     }
 
+    /**
+     * Metodo para guardar el cambio de contraseña del usuario
+     * @param password
+     * @param confirmacion_password
+     * @param principal
+     * @return
+     */
     @RequestMapping(value = "/cambiarPassword")
     public String cambiarPassword(@RequestParam("newPass1") String password , @RequestParam("newPass2") String confirmacion_password, Principal principal){
     
@@ -222,12 +272,22 @@ public class SesionAdmin {
     
     }
     
+    /**
+     * Metodo para verificar que un correo pertenece a un usario registrado y activo
+     * @param correo
+     * @return
+     */
     @RequestMapping(value="/account/availabilityRecover", method=RequestMethod.GET)
     public @ResponseBody boolean getAvailability(@RequestParam("correoRecover")String correo) {
         Persona persona = persona_bd.getPersona(correo);
         return persona != null && persona.getNombre()!= null && persona.getActivo();
     }
     
+    /**
+     *
+     * @param request
+     * @return
+     */
     @RequestMapping(value = "/redirect-home")
     public String redirectHome(HttpServletRequest request){
         if (request.isUserInRole("ROLE_ADMIN")) {

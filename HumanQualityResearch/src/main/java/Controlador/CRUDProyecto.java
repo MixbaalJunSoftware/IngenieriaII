@@ -103,7 +103,14 @@ public class CRUDProyecto {
          return "Ok";         
      }
      
-     public String creaCodigo(Persona persona, String tipo){
+    /**
+     * Construiye el código de un proyecto a partir de su tipo y el cliente al
+     * frente del mismo
+     * @param persona
+     * @param tipo
+     * @return
+     */
+    public String creaCodigo(Persona persona, String tipo){
          Cliente cliente = cliente_db.getCliente(persona.getIdPersona());
          String empresa = cliente.getPersona().getEmpresa();
          StringBuilder sb = new StringBuilder();
@@ -253,7 +260,15 @@ public class CRUDProyecto {
         return "Ok";
      }
      
-     @RequestMapping(value= "/cliente/muestra-proyecto", method = RequestMethod.POST)
+    /**
+     * Medoto que despliega la vista para mostrar la información detallada de un proyecto
+     * en la sesion de un cliente
+     * @param model
+     * @param request
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value= "/cliente/muestra-proyecto", method = RequestMethod.POST)
     public ModelAndView mostrarCliente(ModelMap model,HttpServletRequest request,Principal principal){   
         long id = Long.parseLong(request.getParameter("idproyecto"));
         Pertenecer pertenecer = proyecto_db.getPertenecer(id,principal.getName());
@@ -272,7 +287,15 @@ public class CRUDProyecto {
         return new ModelAndView("MuestraProyecto",model);
     }
     
-     @RequestMapping(value= "/admin/muestra-proyecto", method = RequestMethod.POST)
+    /**
+     * Medoto que despliega la vista para mostrar la información detallada de un proyecto
+     * en la sesion del administrador
+     * @param model
+     * @param request
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value= "/admin/muestra-proyecto", method = RequestMethod.POST)
     public ModelAndView mostrarClienteA(ModelMap model,HttpServletRequest request,Principal principal){   
         long id = Long.parseLong(request.getParameter("idproyecto"));
         try{
@@ -292,6 +315,13 @@ public class CRUDProyecto {
         }
     }
     
+    /**
+     * Metodo que despliega la lista de proyectos eliminados reactivarlos o eliminarlos
+     * definitivamente
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value= "/admin/ver-eproyectos", method = RequestMethod.GET)
     public ModelAndView verProyectosE(ModelMap model,HttpServletRequest request){ 
         List<Proyecto> c = proyecto_db.proyectosEliminados();
@@ -299,6 +329,12 @@ public class CRUDProyecto {
         return new ModelAndView("ProyectosEliminados",model);
     }
     
+    /**
+     * Metodo para reactivar un proyecto que fue eliminado
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value= "/admin/recuperar-proyecto", method = RequestMethod.POST)
     public String recuperarProyecto(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("id"));

@@ -164,8 +164,9 @@ public class CRUDCliente {
     }
     
     /**
-     * 
+     * Realiza las operaciones para modificar la informacion de un cliente en la base de datos
      * @param request
+     * @param principal
      * @return 
      */
     @RequestMapping(value= "/actualizar-cliente-accion", method = RequestMethod.POST)
@@ -290,6 +291,12 @@ public class CRUDCliente {
         return new ModelAndView("Clientes",model);
     }
     
+    /**
+     * Metodo previo para desplegar la vista de completar registro segun el rol del usuario
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value="/completar-registro")
     public ModelAndView aCompletar(ModelMap model,HttpServletRequest request){
         String correo = request.getParameter("correo");
@@ -303,12 +310,24 @@ public class CRUDCliente {
             return new ModelAndView("CrearParticipante", model);
     }
     
+    /**
+     * Metodo para verificar que un correo pertenece a un usario registrado
+     * @param correo
+     * @return
+     */
     @RequestMapping(value="/account-availability", method=RequestMethod.GET)
     public @ResponseBody boolean getAvailability(@RequestParam("correo")String correo) {
         Persona persona = persona_bd.getPersona(correo);
         return persona != null && persona.getNombre()== null;
     }
     
+    /**
+     * Metodo para realizar la operacion de agregar un cliente a partir de su correo
+     * Asigna el correo y rol, el resto de datos del cliente permanecen nulos
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value= "/admin/crear-clienteCorreo", method = RequestMethod.POST)
     public String creaClienteCorreo(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
@@ -334,6 +353,12 @@ public class CRUDCliente {
      
     }
     
+    /**
+     * Metodo para desplegar la vista que mustra la lista de clientes
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value= "/admin/ver-eclientes", method = RequestMethod.GET)
     public ModelAndView verClientesE(ModelMap model,HttpServletRequest request){ 
         List<Cliente> c = cliente_bd.ClientesEliminados();
@@ -341,6 +366,12 @@ public class CRUDCliente {
         return new ModelAndView("ClientesEliminados",model);
     }
     
+    /**
+     * Metodo para reactivar un cliente que fue eliminado
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value= "/admin/recuperar-cliente", method = RequestMethod.POST)
     public String recuperarCliente(ModelMap model,HttpServletRequest request){   
         long id = Long.parseLong(request.getParameter("id"));

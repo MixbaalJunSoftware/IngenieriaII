@@ -32,7 +32,13 @@ public class CRespuesta {
     @Autowired
     private PersonaDAO persona_db;
     
-    
+    /**
+     * Metodo para guardar las respuestas del participante a la prueba de adaptabilidad
+     * laboral
+     * @param request
+     * @param principal
+     * @return
+     */
     @RequestMapping(value = "/participante/guardaPruebaAdapt", method = RequestMethod.POST)
     public String guardaAdaptabilidad(HttpServletRequest request,Principal principal){
         int i  =  Integer.parseInt(request.getParameter("r1"));
@@ -79,7 +85,14 @@ public class CRespuesta {
         return "PruebaTerminada";
     }
     
-        @RequestMapping(value = "/participante/guardaPruebaClima", method = RequestMethod.POST)
+    /**
+     * Metodo para guardar las respuestas de un participante a la prueba de clima
+     * laboral
+     * @param request
+     * @param principal
+     * @return
+     */
+    @RequestMapping(value = "/participante/guardaPruebaClima", method = RequestMethod.POST)
     public String guardaClima(HttpServletRequest request,Principal principal){
         int i  =  Integer.parseInt(request.getParameter("r1"));
         Persona persona = persona_db.getPersona(principal.getName());

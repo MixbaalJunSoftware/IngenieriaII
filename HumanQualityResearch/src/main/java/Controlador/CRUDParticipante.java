@@ -72,7 +72,7 @@ public class CRUDParticipante {
     
     @Autowired
             JavaMailSender mail_sender;
-    
+
     private MimeMessagePreparator construirEmail(String contextPath, final String correo) {
         
         final String texto = "Tu correo ha sido dado de alta en HumanQualityResearch\n"
@@ -95,6 +95,12 @@ public class CRUDParticipante {
         return message_preparator;
     }
     
+    /**
+     *
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value= "/cliente/crear-participanteCorreo", method = RequestMethod.POST)
     public String creaParticipanteCorreo(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
@@ -139,7 +145,13 @@ public class CRUDParticipante {
         
     }
     
-    
+    /**
+     * Metodo para crear un participante a partir de su correo
+     * Ademas del correo se inicializa su rol. El resto de datos se deja nulo
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value= "/admin/crear-participanteCorreo", method = RequestMethod.POST)
     public String creaParticipanteCorreoA(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
@@ -256,7 +268,7 @@ public class CRUDParticipante {
     
     
     /**
-     *
+     * Metodo para realizar la operacion que acutaliza la información de un participante
      * @param request
      * @return
      */
@@ -410,6 +422,12 @@ public class CRUDParticipante {
         return "Ok";
     }
     
+    /**
+     * Metodo para desplegar la vista que mustra la lista de los participantes eliminados
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value= "/admin/ver-eparticipantes", method = RequestMethod.GET)
     public ModelAndView verParticipantesE(ModelMap model,HttpServletRequest request){
         List<Participante> c = participante_bd.ParticipantesEliminados();
@@ -417,6 +435,12 @@ public class CRUDParticipante {
         return new ModelAndView("ParticipantesEliminados",model);
     }
     
+    /**
+     * Metodo para reacticar un participante que fue eliminado
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value= "/admin/recuperar-participante", method = RequestMethod.POST)
     public String recuperarParticipante(ModelMap model,HttpServletRequest request){
         long id = Long.parseLong(request.getParameter("id"));
@@ -426,6 +450,12 @@ public class CRUDParticipante {
         return "Ok";
     }
     
+    /**
+     * Metodo para desplegar la vista que muestra la informacion detallada de un participante
+     * @param model
+     * @param request
+     * @return
+     */
     @RequestMapping(value= "/muestra-participante", method = RequestMethod.GET)
     public ModelAndView mostrarParticipante(ModelMap model,HttpServletRequest request){
         long id = Long.parseLong(request.getParameter("idparticipante"));

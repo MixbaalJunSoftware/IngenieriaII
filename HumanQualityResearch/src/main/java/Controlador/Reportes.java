@@ -5,7 +5,6 @@
  */
 package Controlador;
 
-import Mapeo.PruebaCliente;
 import Mapeo.RAdaptabilidad;
 import Mapeo.RClimaLaboral;
 import Modelo.PruebaClienteDAO;
@@ -31,7 +30,8 @@ public class Reportes {
     @Autowired
     private PruebaClienteDAO pc_bd;
     
-    
+    /*Metodo para obtener la evaluacion de Eficacia segun el puntaje en 
+     *la prueba de adaptabilidad laboral*/
     private String efGetText(int ef){
         if(10<=ef && ef<=33)
             return "Se apega fielmente a los métodos y prácticas con los que se siente familiarizado, "
@@ -53,6 +53,8 @@ public class Reportes {
         return "error";
     }
     
+    /*Metodo para obtener la evaluacion de Creatividad segun el puntaje en 
+     *la prueba de adaptabilidad laboral*/
     private String crGetText(int cr){
         if(9<=cr && cr<=28)
             return "Presenta la tendencia de formular y analizar los problemas desde una misma perspectiva;"
@@ -78,6 +80,8 @@ public class Reportes {
         return "error";
     }
     
+    /*Metodo para obtener la evaluacion de Relaciones Interpersonales segun el puntaje en 
+     *la prueba de adaptabilidad laboral*/
     private String riGetText(int ri){
         if(10<=ri && ri<=28)
             return "Se le dificulta establecer relaciones interpersonales en el trabajo, lo cual se puede"
@@ -233,17 +237,37 @@ public class Reportes {
         return new ModelAndView("reporteClima");
     }
     
+    /**
+     * metodo para desplegar la evaluacion de la prueba de adaptabilidad laboral
+     * para un cliente segun sus respuestas
+     * @param model
+     * @param idCandidato
+     * @return
+     */
     @RequestMapping("/reportes/candidato/adaptabilidad")
     public ModelAndView muestraRClienteA(ModelMap model,@RequestParam("r2")int idCandidato){
         return raCliente(model,idCandidato); 
 
     }
     
+    /**
+     * Metodo para deplegar la evaluacion de  la prueba de clima laboral para 
+     * un cliente segun sus respuestas
+     * @param model
+     * @param idCandidato
+     * @return
+     */
     @RequestMapping("/reportes/candidato/climalaboral")
     public ModelAndView muestraRClienteC(ModelMap model,@RequestParam("r2")int idCandidato){
         return rcCliente(model,idCandidato);
     }
     
+    /**
+     * Metodo para guardar la asignacion de pruebas que el administrador realiza
+     * a un cliente
+     * @param request
+     * @return
+     */
     @RequestMapping("/admin/asignarpruebas")
     public String asignaPruebasVista(HttpServletRequest request){
         String adapt = request.getParameter("adapt");
