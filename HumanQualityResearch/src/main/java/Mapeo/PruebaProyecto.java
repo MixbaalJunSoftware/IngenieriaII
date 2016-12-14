@@ -20,30 +20,49 @@ import javax.persistence.Table;
  *
  * @author Mixbaal
  * @version 1.0
+ * Clase que modela la prueba que tiene el proyecto
  */
 public class PruebaProyecto implements Serializable {
     
+    //El proyecto que tiene la prueba
     @Id
     @OneToOne
     @JoinColumn(name="idProyecto")
     private Proyecto proyecto;
     
+    //La Prueba que tiene el proyecto
     @Id
     @JoinColumn(name="prueba")
     private int prueba;
 
+    /**
+     * Regresa el proyecto que tiene la prueba
+     * @return 
+     */
     public Proyecto getProyecto() {
         return proyecto;
     }
 
+    /**
+     * Modifica el proyecto que tiene la prueba
+     * @param proyecto 
+     */
     public void setProyecto(Proyecto proyecto) {
         this.proyecto = proyecto;
     }
 
+    /**
+     * Regresa la prueba que tiene le proyecto
+     * @return la prueba
+     */
     public int getPrueba() {
         return prueba;
     }
 
+    /**
+     * Modifica la preba
+     * @param prueba 
+     */
     public void setPrueba(int prueba) {
         this.prueba = prueba;
     }

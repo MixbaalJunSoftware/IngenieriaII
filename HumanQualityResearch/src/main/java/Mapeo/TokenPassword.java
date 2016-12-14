@@ -23,6 +23,8 @@ import javax.persistence.Temporal;
 /**
  *
  * @author Mixbaal
+ * @version 1.0
+ * clase que modela 
  */
 public class TokenPassword implements Serializable {
     

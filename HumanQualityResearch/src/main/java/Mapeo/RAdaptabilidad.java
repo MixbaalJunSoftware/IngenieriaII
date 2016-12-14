@@ -24,21 +24,25 @@ import javax.persistence.Temporal;
  *
  * @author Mixbaal
  * @version 1.0
+ * Clase que modela la prueba de Adaptabilidad
  */
 public class RAdaptabilidad {
-    
+    //id de la prueba
     @Id@GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "idradaptabilidad")
     private long idRAdaptabilidad;
     
+    //Fecha en la que se contesto la prueba
     @Column(name = "fecharespuesta")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fechaRespuesta;
     
+    //La persona que contesto la prueba
     @OneToOne
     @JoinColumn(name="idPersona")
     private Persona persona;
     
+    //respuesta 1 -30
     @Column(name = "respuesta1")
     private int respuesta1;
     
@@ -129,26 +133,50 @@ public class RAdaptabilidad {
     @Column(name = "respuesta30")
     private int respuesta30;
 
+    /**
+     * Regresa el id de la prueba
+     * @return 
+     */
     public long getIdRAdaptabilidad() {
         return idRAdaptabilidad;
     }
 
+    /**
+     * Modifica el id de la prueba
+     * @param idRAdaptabilidad 
+     */
     public void setIdRAdaptabilidad(long idRAdaptabilidad) {
         this.idRAdaptabilidad = idRAdaptabilidad;
     }
 
+    /**
+     * Regresa la fecha en que se respodio la prueba
+     * @return 
+     */
     public Date getFechaRespuesta() {
         return fechaRespuesta;
     }
 
+    /**
+     * Modifica la fecha en que se respondio la prueba
+     * @param fechaRespuesta 
+     */
     public void setFechaRespuesta(Date fechaRespuesta) {
         this.fechaRespuesta = fechaRespuesta;
     }
 
+    /**
+     * Regresa la presona que respondio la prueba
+     * @return 
+     */
     public Persona getPersona() {
         return persona;
     }
 
+    /**
+     * Modifica la persona que respondio la prueba
+     * @param persona 
+     */
     public void setPersona(Persona persona) {
         this.persona = persona;
     }

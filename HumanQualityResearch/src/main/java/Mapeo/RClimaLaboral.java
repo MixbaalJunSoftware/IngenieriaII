@@ -24,21 +24,26 @@ import javax.persistence.Temporal;
  *
  * @author Mixbaal
  * @version 1.0
+ * Clase que modela la prueba de Clima laboral
  */
 public class RClimaLaboral {
     
+    //id de la prueba
     @Id@GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name = "idrclimalaboral")
     private long idRClimaLaboral;
     
+    //Fecha en que se contesto la prueba
     @Column(name = "fecharespuesta")
     @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     private Date fechaRespuesta;
     
+    //Persona que contesto la prueba
     @OneToOne
     @JoinColumn(name="idPersona")
     private Persona persona;
     
+    //respuesta 1-20
     @Column(name = "respuesta1")
     private int respuesta1;
     
@@ -99,26 +104,50 @@ public class RClimaLaboral {
     @Column(name = "respuesta20")
     private int respuesta20;
 
+    /**
+     * Regresa el id de la prueba
+     * @return el id
+     */
     public long getIdRClimaLaboral() {
         return idRClimaLaboral;
     }
 
+    /**
+     * Modifica el id de la prueba
+     * @param idRClimaLaboral 
+     */
     public void setIdRClimaLaboral(long idRClimaLaboral) {
         this.idRClimaLaboral = idRClimaLaboral;
     }
 
+    /**
+     * Regresa la fecha en que se contesto la prueba
+     * @return la fecha
+     */
     public Date getFechaRespuesta() {
         return fechaRespuesta;
     }
-
+    
+    /**
+     * Modifica la fecha en que se contesto la prueba
+     * @param fechaRespuesta 
+     */
     public void setFechaRespuesta(Date fechaRespuesta) {
         this.fechaRespuesta = fechaRespuesta;
     }
 
+    /**
+     * Regresa la persona que contesto la prueba
+     * @return la persona
+     */
     public Persona getPersona() {
         return persona;
     }
 
+    /**
+     * Modifica a la persona que contesto la prueba
+     * @param persona 
+     */
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
