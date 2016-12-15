@@ -16,18 +16,26 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
- *
- * @author daniicape
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
+ * @version 1.0
+ * Clase que sirve para interactuar con la base de datos, especificamente con las 
+ * tablas Cliente, Participante, Pertenecer y Usuario.
  */
 public class PertenecerDAO {
-    
+    //Atributo privado que sirve para conectarse con la base de datos
     private SessionFactory sessionFactory;
-
+    /**
+     * Método que inicializa la sesión para conectarse con la base de datos.
+     * @param sessionFactory 
+     */
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    
+    /**
+     * Método que guarda un objeto pertenecer en la base de datos
+     * @param pertenecer 
+     */
     public void guardar(Pertenecer pertenecer) {
     
         Session session = sessionFactory.openSession();
@@ -50,7 +58,10 @@ public class PertenecerDAO {
     
     }
     
-    
+    /**
+     * Método que actualiza un objeto pertenecer en la base de datos
+     * @param pertenecer 
+     */
     public void actualizar(Pertenecer pertenecer) {
     
         Session session = sessionFactory.openSession();
@@ -73,7 +84,10 @@ public class PertenecerDAO {
     
     }
     
-    
+    /**
+     * Método que elimina un objeto pertenecer de la base de datos
+     * @param pertenecer 
+     */
     public void eliminar(Pertenecer pertenecer) {
     
         Session session = sessionFactory.openSession();
@@ -96,6 +110,12 @@ public class PertenecerDAO {
     
     }
     
+    /**
+     * Método que regresa un objeto peternecer cuyo proyecto asociado tiene el
+     * id que se pasa como parámetro
+     * @param idProyecto
+     * @return 
+     */
     public Pertenecer getPertenecer(long idProyecto) {
         Pertenecer result = null;
         Session session = sessionFactory.openSession();
@@ -119,6 +139,13 @@ public class PertenecerDAO {
         return result;
     }
     
+    
+    /**
+     * Método que regresa un objeto pertenecer cuya persona asociada tiene el 
+     * id que se pasa como parámetro
+     * @param idPersona
+     * @return 
+     */
     public Pertenecer getPertenecerP(long idPersona) {
         Pertenecer result = null;
         Session session = sessionFactory.openSession();
@@ -141,8 +168,14 @@ public class PertenecerDAO {
         }
         return result;
     }
-    
-   public List<Participante> lPertenecerE(long idProyecto) {
+       
+    /**
+     * Método que regresa una lista de participantes, los cuales estan asociados
+     * a un proyecto cuyo id se pasa como parámetro
+     * @param idProyecto
+     * @return 
+     */
+    public List<Participante> lPertenecerE(long idProyecto) {
         List<Participante> result = null;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
@@ -167,6 +200,13 @@ public class PertenecerDAO {
         }
         return result;
     }
+    
+    /**
+     * Método que regresa una lista de objetos pertenecer que estan asociados con
+     * el proyecto cuyo id se pasa como parámetro.
+     * @param idProyecto
+     * @return 
+     */
     public List<Pertenecer> listPertenecer(long idProyecto) {
         List<Pertenecer> result = null;
         Session session = sessionFactory.openSession();
@@ -191,6 +231,12 @@ public class PertenecerDAO {
         return result;
     }
     
+    /**
+     * Método que regresa una lista de objetos pertenecer cuya persona es la
+     * que tiene el id que se pasa como parámetro.
+     * @param idPersona
+     * @return 
+     */
     public List<Pertenecer> listPertenecerPersona(long idPersona) {
         List<Pertenecer> result = null;
         Session session = sessionFactory.openSession();
@@ -215,6 +261,12 @@ public class PertenecerDAO {
         return result;
     }
     
+    /**
+     * Método que nos dice si una persona y un proyecto estan relacionados
+     * @param idPersona
+     * @param idProyecto
+     * @return 
+     */
     public boolean buscaPertenecer (long idPersona, long idProyecto){
         Pertenecer result = null;
         Session session = sessionFactory.openSession();
@@ -244,6 +296,12 @@ public class PertenecerDAO {
     
     }
     
+    /**
+     * Método que regresa al cliente asociado con el proyecto cuyo id se pasa
+     * como parámetro
+     * @param idProyecto
+     * @return 
+     */
     public Cliente getClienteProyecto(long idProyecto) {
         Cliente result = null;
         Session session = sessionFactory.openSession();

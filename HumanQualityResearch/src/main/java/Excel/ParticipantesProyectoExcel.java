@@ -21,8 +21,9 @@ import org.apache.poi.ss.usermodel.Workbook;
 import org.springframework.web.servlet.view.document.AbstractXlsView;
 
 /**
- *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
+ * @version 1.0
+ * 
  */
 public class ParticipantesProyectoExcel extends AbstractXlsView{
     

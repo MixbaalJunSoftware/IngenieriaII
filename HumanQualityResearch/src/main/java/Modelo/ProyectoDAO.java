@@ -18,19 +18,26 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
- *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
  * @version 1.0
  * Clase para poder hacer cambios en la base con respecto al proyecto.
  */
 public class ProyectoDAO {
+    //Atributo privado que sirve para conectarse con la base de datos
     private SessionFactory sessionFactory;
 
+    /**
+     * Método que inicializa la sesión con la base de datos
+     * @param sessionFactory 
+     */
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    
+    /**
+     * Método que guarda a un proyecto en la base de datos.
+     * @param proyecto 
+     */
     public void guardar(Proyecto proyecto) {
     
         Session session = sessionFactory.openSession();
@@ -53,7 +60,10 @@ public class ProyectoDAO {
     
     }
     
-    
+    /**
+     * Método que actualiza un proyecto en la base de datos
+     * @param proyecto 
+     */
     public void actualizar(Proyecto proyecto) {
     
         Session session = sessionFactory.openSession();
@@ -76,7 +86,10 @@ public class ProyectoDAO {
     
     }
     
-    
+    /**
+     * Método que elimina a un proyecto de la base de datos
+     * @param proyecto 
+     */
     public void eliminar(Proyecto proyecto) {
     
         Session session = sessionFactory.openSession();
@@ -99,6 +112,11 @@ public class ProyectoDAO {
     
     }
     
+    /**
+     * Método que relaciona a un proyecto con una prueba
+     * @param idProyecto
+     * @param prueba 
+     */
     public void agregaPrueba(long idProyecto, int prueba) {
     
         Session session = sessionFactory.openSession();
@@ -123,6 +141,12 @@ public class ProyectoDAO {
     
     }
     
+    /**
+     * Método que regresa el proyecto asociado con el id que se pasa como 
+     * parámetro
+     * @param idProyecto
+     * @return 
+     */
     public Proyecto getProyecto(long idProyecto) {
         Proyecto proyecto = null;
         Session session = sessionFactory.openSession();
@@ -143,6 +167,10 @@ public class ProyectoDAO {
         return proyecto;
     }
     
+    /**
+     * Método que regresa todos los proyecto en la tabla proyecto
+     * @return 
+     */
     public List<Proyecto> proyectos() {
         List<Proyecto> result = null;
         Session session = sessionFactory.openSession();
@@ -166,7 +194,12 @@ public class ProyectoDAO {
         return result;
     }
     
-    
+    /**
+     * Método que regresa una lista de proyectos, que estan asociados con la 
+     * persona cuyo id se pasa como parámetro
+     * @param idPersona
+     * @return 
+     */
     public List<Proyecto> proyectosCliente(Long idPersona) {
         List<Proyecto> result = null;
         Persona persona = null;
@@ -195,6 +228,12 @@ public class ProyectoDAO {
         return result;
     }
     
+    /**
+     * Método que regresa al cliente asociado con el proyecto, cuyo id se pasa
+     * como parámetro
+     * @param idProyecto
+     * @return 
+     */
     public Cliente getCliente(long idProyecto){
         Cliente  cliente = null;
         Session session = sessionFactory.openSession();
@@ -222,6 +261,10 @@ public class ProyectoDAO {
         return cliente;        
     }
     
+    /**
+     * Método que regresa todos los proyectos que fueron eliminados logicamente
+     * @return 
+     */
     public List<Proyecto> proyectosEliminados() {
         List<Proyecto> result = null;
         Session session = sessionFactory.openSession();
@@ -245,7 +288,13 @@ public class ProyectoDAO {
         return result;
     }
     
-    //mover a crud pertenecer
+    /**
+     * Método que regresa un objeto pertenecer asociado con el proyecto y la 
+     * persona cuyo id y correo se pasan como parámetro respectivamente
+     * @param idProyecto
+     * @param correo
+     * @return 
+     */
     public Pertenecer getPertenecer(long idProyecto,String correo) {
         Pertenecer result = null;
         Session session = sessionFactory.openSession();

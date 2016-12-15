@@ -15,17 +15,27 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
- *
- * @author jonathan
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
+ * @version 1.0
+ * Clase que interactua con la base de datos, especificamente con la tabla
+ * RAdaptabilidad y RClimaLaboral
  */
 public class RespuestaDAO {
-    
+    //Atributo privado que ayuda a conectarse con la base de datos
     private SessionFactory sessionFactory;
 
+    /**
+     * Método que inicializa la sesión con la base de datos
+     * @param sessionFactory 
+     */
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
     
+    /**
+     * Método que guarda respuestas en la tabla RAdaptabilidad
+     * @param respuesta 
+     */
     public void guardar(RAdaptabilidad respuesta) {
     
         Session session = sessionFactory.openSession();
@@ -48,6 +58,10 @@ public class RespuestaDAO {
     
     }
     
+    /**
+     * Método que guarda una respuesta a la tabla RClimaLaboral
+     * @param respuesta 
+     */
     public void guardar(RClimaLaboral respuesta) {
     
         Session session = sessionFactory.openSession();
@@ -70,6 +84,12 @@ public class RespuestaDAO {
     
     }
 
+    /**
+     * Método que regresa las respuesta de un candidato en la prueba de 
+     * Adaptabilidad
+     * @param idCandidato
+     * @return 
+     */
     public RAdaptabilidad rAdaptabilidadCandidato(long idCandidato){
         RAdaptabilidad respuesta=null ;
         Session session = sessionFactory.openSession();
@@ -92,6 +112,12 @@ public class RespuestaDAO {
         return respuesta;
     }
     
+    /**
+     * Método que regresa las respuestas de Adaptabilida asociadas al proyecto 
+     * cuyo id se pasa como parámetro
+     * @param idProyecto
+     * @return 
+     */
     public List<RAdaptabilidad> rAdaptabilidadProyecto(long idProyecto){
         List<RAdaptabilidad> lresp = null;
         Session session = sessionFactory.openSession();
@@ -114,6 +140,12 @@ public class RespuestaDAO {
         return lresp;
     }
     
+    /**
+     * Método que regresa las respuestas de un candidato en la prueba de Clima
+     * Laboral
+     * @param idCandidato
+     * @return 
+     */
     public RClimaLaboral rClimaCandidato(long idCandidato){
         RClimaLaboral respuesta=null ;
         Session session = sessionFactory.openSession();
@@ -133,7 +165,12 @@ public class RespuestaDAO {
         }        
         return respuesta;
     }
-    
+    /**
+     * Método que regresa una lista de respuestas de la prueba Clima, que estan
+     * asociadas con el proyecto cuyo id se pasa como parámetro
+     * @param idProyecto
+     * @return 
+     */
     public List<RClimaLaboral> rClimaProyecto(long idProyecto){
         List<RClimaLaboral> lresp = null;
         Session session = sessionFactory.openSession();
@@ -155,8 +192,14 @@ public class RespuestaDAO {
         }
         return lresp;
     }
-
-    public boolean rAdaptabilidadCandidato(String s) {
+    
+    /**
+     * Método que regresa True en caso de que la persona asociada con el correo
+     * que se pasa como parámetro ya contesto la prueba de Adaptabilidad 
+     * @param correo
+     * @return 
+     */
+    public boolean rAdaptabilidadCandidato(String correo) {
         RAdaptabilidad respuesta=null ;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
@@ -164,7 +207,7 @@ public class RespuestaDAO {
             tx = session.beginTransaction();
             String hql = "SELECT r FROM RAdaptabilidad r WHERE r.persona.correo = :correo";
             Query query = session.createQuery(hql);
-            query.setParameter("correo", s);
+            query.setParameter("correo", correo);
             respuesta = (RAdaptabilidad) query.uniqueResult();
             tx.commit();
         }catch(HibernateException e) {
@@ -175,8 +218,14 @@ public class RespuestaDAO {
         }
         return respuesta == null;
     }
-
-    public boolean rClimaCandidato(String s) {
+    
+    /**
+     * Método que regresa True en caso de que la persona asociada con el correo
+     * @param correo
+     * @return 
+     */
+    
+    public boolean rClimaCandidato(String correo) {
         RClimaLaboral respuesta=null ;
         Session session = sessionFactory.openSession();
         Transaction tx = null;
@@ -184,7 +233,7 @@ public class RespuestaDAO {
             tx = session.beginTransaction();
             String hql = "SELECT r FROM RClimaLaboral r WHERE r.persona.correo = :correo";
             Query query = session.createQuery(hql);
-            query.setParameter("correo", s);
+            query.setParameter("correo", correo);
             respuesta = (RClimaLaboral) query.uniqueResult();
             tx.commit();
         }catch(HibernateException e) {

@@ -22,7 +22,7 @@ import javax.persistence.Temporal;
 
 /**
  *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
  * @version 1.0
  * Clase que modele un proyecto.
  */

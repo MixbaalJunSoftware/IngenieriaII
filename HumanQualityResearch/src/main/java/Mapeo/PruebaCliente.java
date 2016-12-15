@@ -18,7 +18,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
  * @version 1.0
  * Clase que modela la prueba que contesto el cliente.
  */

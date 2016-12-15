@@ -16,18 +16,27 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
- *
- * @author jonathan
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
+ * @version 1.0
+ * Clase que sirve para interactuar con la base de datos, específicamente con 
+ * las tablas Cliente y PruebaCliente
  */
 public class PruebaClienteDAO {
-    
+    //Atributo privado que sirve para conectarse con la base de datos
     private SessionFactory sessionFactory;
-
+    
+    /**
+     * Método que inicializa la sesión con la base de datos
+     * @param sessionFactory 
+     */    
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    
+    /**
+     * Método que guarda un objeto pruebacliente en la base de datos
+     * @param pruebacliente 
+     */
     public void guardar(PruebaCliente pruebacliente) {
     
         Session session = sessionFactory.openSession();
@@ -50,6 +59,12 @@ public class PruebaClienteDAO {
     
     }
     
+    /**
+     * Método que guarda una prueba cliente con los datos que se 
+     * pasan como parámetro
+     * @param prueba
+     * @param idCliente 
+     */
     public void guardar(int prueba,long idCliente) {
     
         Session session = sessionFactory.openSession();
@@ -75,7 +90,10 @@ public class PruebaClienteDAO {
     
     }
     
-    
+    /**
+     * Método que actualiza un objeto pruebacliente en la base de datos
+     * @param pruebacliente 
+     */
     public void actualizar(PruebaCliente pruebacliente) {
     
         Session session = sessionFactory.openSession();
@@ -98,7 +116,10 @@ public class PruebaClienteDAO {
     
     }
     
-    
+    /**
+     * Método que elimina un objeto pruebacliente de la base de datos
+     * @param pruebacliente 
+     */
     public void eliminar(PruebaCliente pruebacliente) {
     
         Session session = sessionFactory.openSession();
@@ -121,6 +142,12 @@ public class PruebaClienteDAO {
     
     }
     
+    /**
+     * Método que regresa una lista de objetos pruebacliente asociados con el 
+     * cliente cuyo id se pasa como parámetro
+     * @param idCliente
+     * @return 
+     */
     public List<PruebaCliente> getPruebasCliente(long idCliente) {
         List<PruebaCliente> pcliente= null;
         //System.out.print(idParticipante);
@@ -144,6 +171,13 @@ public class PruebaClienteDAO {
         }
         return pcliente;
     }
+    
+    /**
+     * Método que regresa una lista de objetos pruebacliente que estan asociados
+     * con la persona cuyo correo es el que se pasa como parámetro
+     * @param correo
+     * @return 
+     */
     
     public List<PruebaCliente> getPruebasCliente(String correo) {
         List<PruebaCliente> pcliente= null;

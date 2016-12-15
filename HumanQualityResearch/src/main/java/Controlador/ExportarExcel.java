@@ -21,8 +21,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 /**
- *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
+ * @version 1.0
  */
 public class ExportarExcel {
     

@@ -13,18 +13,27 @@ import org.hibernate.Transaction;
 
 
 /**
- *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
+ * @version 1.0
+ * Clase que sive para interactuar con la base de datos, especificamente con la
+ * tabla Persona
  */
 public class PersonaDAO {
-
+    //Atributo privado para conectarse con la base de datos
     private SessionFactory sessionFactory;
-
+    
+    /**
+     * Inicializa la sesión para conectarse con la base de datos
+     * @param sessionFactory 
+     */
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    
+    /**
+     * Método que guarda una persona en la base de datos
+     * @param persona 
+     */
     public void guardar(Persona persona) {
     
         Session session = sessionFactory.openSession();
@@ -47,7 +56,10 @@ public class PersonaDAO {
     
     }
     
-    
+    /**
+     * Método que actualiza a una persona en la base de datos
+     * @param persona 
+     */
     public void actualizar(Persona persona) {
     
         Session session = sessionFactory.openSession();
@@ -70,7 +82,10 @@ public class PersonaDAO {
     
     }
     
-    
+    /**
+     * Método que elimina a una persona de la base de datos
+     * @param persona 
+     */
     public void eliminar(Persona persona) {
     
         Session session = sessionFactory.openSession();
@@ -92,7 +107,12 @@ public class PersonaDAO {
         }
     
     }
-    
+    /**
+     * Método que regresa a una persona, cuyo id es el que se pasa como 
+     * parámetro
+     * @param idPersona
+     * @return 
+     */
     public Persona getPersona(long idPersona) {
         Persona persona = null;
         Session session = sessionFactory.openSession();
@@ -113,6 +133,11 @@ public class PersonaDAO {
         return persona;
     }
    
+    /**
+     * Método que regresa una persona, cuyo correo se pasa como parámetro
+     * @param correo
+     * @return 
+     */
     public Persona getPersona(String correo) {
         Persona result = null;
         Session session = sessionFactory.openSession();

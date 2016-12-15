@@ -15,19 +15,26 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
- *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
  * @version 1.0
  * Clase para poder hacer cambios en la base con respecto al tipo.
  */
 public class TipoDAO {
+    //Atributo privado para conectarse con la base de datos
     private SessionFactory sessionFactory;
 
+    /**
+     * Método que inicializa la sesión con la base de datos
+     * @param sessionFactory 
+     */
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    
+    /**
+     * Método que guarda a un tipo en la base de datos
+     * @param tipo 
+     */
     public void guardar(Tipo tipo) {
     
         Session session = sessionFactory.openSession();
@@ -49,7 +56,10 @@ public class TipoDAO {
         }
     
     }
-       
+    /**
+     * Método que actualiza un tipo en la base de datos
+     * @param tipo 
+     */
     public void actualizar(Tipo tipo) {
     
         Session session = sessionFactory.openSession();
@@ -72,7 +82,10 @@ public class TipoDAO {
     
     }
     
-    
+    /**
+     * Método que elimina un tipo en la base de datos
+     * @param tipo 
+     */
     public void eliminar(Tipo tipo) {
     
         Session session = sessionFactory.openSession();
@@ -94,7 +107,12 @@ public class TipoDAO {
         }
     
     }
-    
+    /**
+     * Método que regresa el tipo correspondiente que con el id que se pasa
+     * como parámetro
+     * @param idTipo
+     * @return 
+     */
     public Tipo getTipo(long idTipo) {
         Tipo tipo = null;
         Session session = sessionFactory.openSession();

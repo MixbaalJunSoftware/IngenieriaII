@@ -18,6 +18,7 @@ import org.hibernate.Transaction;
 
 /**
  * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
+ * @version 1.0
  * Clase para interactuar con la base de datos, especificamente con la tabla 
  * Cliente, PruebaCliente y PruebaProyecto.
  */

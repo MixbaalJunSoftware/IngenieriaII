@@ -19,7 +19,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
  * @version 1.0
  * clase que modela a una persona que es candidato
  * Los atributos estan reflejados en las columnas en la base de datos

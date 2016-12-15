@@ -17,18 +17,28 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
 /**
- *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
+ * @version 1.0
+ * Clase que sirve para interactuar con la base de datos con la tabla Persona,
+ * TokenPassword y Usuario
  */
 public class TokenPasswordDAO {
+    //Atributo privado para conectarse con la base de datos
     private SessionFactory sessionFactory;
-    
+    /**
+     * Método que inicializa la sesión con la base de datos
+     * @param sessionFactory 
+     */
      public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
      
     
-     
+     /**
+      * Método que guarda un objeto TokenPassword en la base de datos
+      * @param persona
+      * @param token 
+      */
     public void guardar(Persona persona, String token) {
         Session session = sessionFactory.openSession();
         Calendar fecha = Calendar.getInstance();
@@ -54,7 +64,13 @@ public class TokenPasswordDAO {
     
     }
     
-    
+    /**
+     * Método que regresa un TokenPassword que esta relacionado con la persona y
+     * el token que se pasan como parámetro
+     * @param id_persona
+     * @param token
+     * @return 
+     */
     public TokenPassword getTokenPersona(long id_persona, String token){
         
         Session session = sessionFactory.openSession();
@@ -84,7 +100,10 @@ public class TokenPasswordDAO {
         
         return tokenpassword;
     }
-    
+    /**
+     * Método que elimina a un TokenPassword de la base de datos
+     * @param tp 
+     */
     public void eliminar(TokenPassword tp) {
     
         Session session = sessionFactory.openSession();

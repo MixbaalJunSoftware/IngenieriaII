@@ -14,19 +14,30 @@ import org.hibernate.Transaction;
 
 
 /**
- *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
+ * @version 1.0
+ * Clase que interactua con la base de datos, especificamente con la tabla
+ * Usuario
  */
 public class UsuarioDAO {
 
+    //Atributo privado que sirve para conectarse con la base de datos
     private SessionFactory sessionFactory;
+    //Atributo privado que especifica el id del administrador
     private final long idAdmin = 1;
 
+    /**
+     * Método que inicializa la sesión con la base de datos
+     * @param sessionFactory 
+     */
     public void setSessionFactory(SessionFactory sessionFactory) {
         this.sessionFactory = sessionFactory;
     }
 
-    
+    /**
+     * Método que guarda a un usuario en la base de datos
+     * @param usuario 
+     */
     public void guardar(Usuario usuario) {
     
         Session session = sessionFactory.openSession();
@@ -49,7 +60,10 @@ public class UsuarioDAO {
     
     }
     
-    
+    /**
+     * Método que actualiza a un usuario en la base de datos
+     * @param usuario 
+     */
     public void actualizar(Usuario usuario) {
     
         Session session = sessionFactory.openSession();
@@ -72,7 +86,10 @@ public class UsuarioDAO {
     
     }
     
-    
+    /**
+     * Método que elimina a un usuario de la base de datos
+     * @param usuario 
+     */
     public void eliminar(Usuario usuario) {
     
         Session session = sessionFactory.openSession();
@@ -94,7 +111,11 @@ public class UsuarioDAO {
         }
     
     }
-    
+    /**
+     * Método que regresa al usuario asociado con el id que se pasa de parámetro
+     * @param idPersona
+     * @return 
+     */
     public Usuario getUsuario(long idPersona) {
         Usuario result = null;
         Session session = sessionFactory.openSession();
@@ -117,11 +138,22 @@ public class UsuarioDAO {
         }
         return result;
     }
-    
+    /**
+     * Método que regresa True si el usuario que se pasa como parámetro es el
+     * administrador
+     * @param usuario
+     * @return 
+     */
     public boolean admin(Usuario usuario){
         return usuario.getPersona().getIdPersona() == idAdmin;
     }
     
+    /**
+     * Método que regresa el role de un usuario, asociado con el correo que se
+     * pasa como parámetro
+     * @param correo
+     * @return 
+     */
     public String getRole(String correo){
         String result = null;
         Session session = sessionFactory.openSession();
@@ -145,7 +177,11 @@ public class UsuarioDAO {
         return result;
     
     }
-    
+    /**
+     * Método que regresa un usuario cuyo correo se pasa como parámetro
+     * @param correo
+     * @return 
+     */
     public Usuario getUsuario(String correo){
         Usuario result = null;
         Session session = sessionFactory.openSession();
@@ -170,7 +206,13 @@ public class UsuarioDAO {
         return result;
     
     }
-    
+    /**
+     * Método que actualiza la contraseña de un usuario, regresa True en caso de 
+     * éxito
+     * @param id_usuario
+     * @param password
+     * @return 
+     */
     public boolean cambiarPassword(long id_usuario, String password){
         
         Session session = sessionFactory.openSession();

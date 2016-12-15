@@ -38,7 +38,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 /**
  *
- * @author Mixbaal
+ * @author Mixbaal Jun Software - Ingenieria de Software, 2016 FCiencias, UNAM
+ * @version 1.0
  */
 @Controller
 public class CRUDParticipante {
