@@ -114,7 +114,7 @@ public class ParticipantesProyectoExcel extends AbstractXlsView{
             header2.createCell(34).setCellValue("Eficacia");
             header2.createCell(35).setCellValue("Creatividad");
             header2.createCell(36).setCellValue("Relaciones Interpersonales");
-            header2.createCell(36).setCellValue("Adaptabilidad total");
+            header2.createCell(37).setCellValue("Adaptabilidad total");
             contador = 1;
             for (Participante participante : participantes) {         
                 Row courseRow = sheet2.createRow(contador);
@@ -208,7 +208,7 @@ public class ParticipantesProyectoExcel extends AbstractXlsView{
             sheet2.autoSizeColumn(34);
             sheet2.autoSizeColumn(35);
             sheet2.autoSizeColumn(36);
-            sheet2.autoSizeColumn(36);
+            sheet2.autoSizeColumn(37);
         }
         if(clima){
             Sheet sheet3 = wrkbk.createSheet("Respuestas_Clima");
@@ -238,8 +238,9 @@ public class ParticipantesProyectoExcel extends AbstractXlsView{
             header3.createCell(22).setCellValue("respuesta 20");
             header3.createCell(23).setCellValue("fecha");
             header3.createCell(24).setCellValue("Interacción con las Autoridades");
-            header3.createCell(25).setCellValue("Ambiente Físisco");
-            header3.createCell(26).setCellValue("Total");
+            header3.createCell(25).setCellValue("Carga de Trabajo");
+            header3.createCell(26).setCellValue("Ambiente Físico");
+            header3.createCell(27).setCellValue("Total");
 
             contador = 1;
             for (Participante participante : participantes) {         
@@ -278,9 +279,9 @@ public class ParticipantesProyectoExcel extends AbstractXlsView{
                      ra.getRespuesta13()+ra.getRespuesta14()+ra.getRespuesta19();
                     int tc = ia+ct+af;
                     courseRow.createCell(24).setCellValue(ia);
-                    courseRow.createCell(23).setCellValue(ct);
-                    courseRow.createCell(23).setCellValue(af);
-                    courseRow.createCell(23).setCellValue(tc);
+                    courseRow.createCell(25).setCellValue(ct);
+                    courseRow.createCell(26).setCellValue(af);
+                    courseRow.createCell(27).setCellValue(tc);
                 }
                 contador++;
             }
@@ -313,6 +314,7 @@ public class ParticipantesProyectoExcel extends AbstractXlsView{
             sheet3.autoSizeColumn(24);
             sheet3.autoSizeColumn(25);
             sheet3.autoSizeColumn(26);
+            sheet3.autoSizeColumn(27);
         }
     }
     

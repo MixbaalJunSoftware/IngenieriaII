@@ -54,7 +54,7 @@
                 <td width="10%">Carga de Trabajo</td><td width="10%">${ct*(100/45)}%</td><td width="80%">${cttxt}</td>
             </tr>
             <tr>
-                <td width="10%">Ambiente Físisco</td><td width="10%">${af*(100/50)}%</td><td width="80%">${aftxt}</td>
+                <td width="10%">Ambiente Físico</td><td width="10%">${af*(100/50)}%</td><td width="80%">${aftxt}</td>
             </tr>
             <tr>
                 <td width="10%">Total Clima Social Organizacional</td><td width="10%">${tc*(100/120)}%</td><td width="80%">${tctxt}</td>

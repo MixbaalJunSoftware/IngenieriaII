@@ -27,8 +27,4 @@
           p:viewClass="org.springframework.web.servlet.view.JstlView"
           p:prefix="/WEB-INF/jsp/"
           p:suffix=".jsp" />
-    <!--pdf-->
-    <bean class="org.springframework.web.servlet.view.XmlViewResolver">
-      <property name="location" value="/WEB-INF/spring-pdf-views.xml"/>
-    </bean>
 </beans>
