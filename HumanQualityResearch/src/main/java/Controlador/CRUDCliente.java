@@ -328,7 +328,7 @@ public class CRUDCliente {
      * @param request
      * @return
      */
-    @RequestMapping(value= "/admin/crear-clienteCorreo", method = RequestMethod.POST)
+    @RequestMapping(value= "/admin/crear-clienteCorreo", method = RequestMethod.GET)
     public String creaClienteCorreo(ModelMap model,HttpServletRequest request){
         Persona persona = new Persona();
         Cliente cliente = new Cliente();

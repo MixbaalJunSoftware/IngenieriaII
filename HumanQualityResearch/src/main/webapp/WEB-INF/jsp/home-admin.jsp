@@ -130,7 +130,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                         <h4 class="modal-title" id="myModalLabel">Nuevo cliente</h4>
                     </div>
-                    <form method="POST" action="/HumanQualityResearch/admin/crear-clienteCorreo" >
+                    <form method="GET" action="/HumanQualityResearch/admin/crear-clienteCorreo" >
                         <div class="modal-body">
                             <label for="correo" id="centerLabel">Correo del cliente:</label>
                             <input id = "correo" type="email" name = "correo" style="margin-left:1cm;"/>
